@@ -1,0 +1,705 @@
+/* header样式开始 */
+.toolth{
+	height: 30;
+	color: #E0F6F3;
+	cursor: hand;
+	font-size: 12px;
+}
+
+.toolthMain{
+	height: 30;
+	color: #E0F6F3;
+	cursor: hand;
+	font-size: 14px;
+}
+
+.toolimg{
+	vertical-align: middle;
+	border: 0px;
+	position: relative;
+	top: -2px;
+	margin-right: 0px;
+}
+
+.frameTableBorder{
+	border-top: 2px solid #65b9f7;
+	border-left: 2px solid #65b9f7;
+	border-right: 2px solid #65b9f7;
+	border-bottom: 5px solid #65b9f7;
+	border-collapse: collapse;
+}
+
+.frameTableBorder td{
+	border: 0px solid #236D5E;
+}
+/* header样式结束 */
+
+
+/*页面的body*/
+body
+{
+	background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9pt;
+    scrollbar-face-color: #bdd3ee; 
+	scrollbar-shadow-color: #FFFFFF; 
+	scrollbar-highlight-color: #FFFFFF; 
+	scrollbar-3dlight-color: #bdd3ee; 
+	scrollbar-darkshadow-color: #bdd3ee; 
+	scrollbar-track-color: #FFFFFF; 
+	scrollbar-arrow-color: #FFFFFF;
+}
+
+form {
+	margin: 0;
+	padding: 0;	
+}
+
+hr {
+	border: 1px solid #E2F5E6;	
+}
+
+/********错误**********/
+div.error{
+	font-weight: bold;
+    background: transparent;
+    color: red;
+	border-right: red 1px solid;
+	border-top: red 1px solid;
+	border-left: red 1px solid;
+	border-bottom: red 1px solid;
+	width: 600px;
+	height: 22px;
+	background-color: #ffffff;
+	font-size: 9pt; 
+}
+
+div.message{
+	font-weight: bold;
+    background: transparent;
+    color: red;
+	border-right: red 1px solid;
+	border-top: red 1px solid;
+	border-left: red 1px solid;
+	border-bottom: red 1px solid;
+	width: 600px;
+	height: 22px;
+	background-color: #ffffff;
+	font-size: 9pt; 
+}
+
+/*current path*/
+span.currentPath {
+	position:relative;
+	top:-9px;
+	font-size: 10pt; 
+}
+
+/*去掉工具栏按钮图片链接的红色外框*/
+img.imgTool { 
+	border: 0;
+}
+
+/*弹开窗体按钮图片链接*/
+img.showModalDialog { 
+	width: 15px;
+	height: 14px;
+	border:0;
+}
+
+/* 设置文本输入框默认样式 */
+
+/* 设置密码输入框默认样式 */
+input.pswd {
+	border-width: 1px;
+	border-style: solid;
+	border-top-color: #ABADB3;
+	border-right-color: #E3E9EF;
+	border-bottom-color: #E3E9EF;
+	border-left-color: #ABADB3;
+	background-color: #FFFFFF;
+	color: #666666;
+}
+
+/* 设置多行输入框默认样式 */
+textarea {
+	border-top: 1px solid #ABADB3;
+	border-right: 1px solid #E3E9EF;
+	border-bottom: 1px solid #E3E9EF;
+	border-left: 1px solid #ABADB3;
+	background-color: #FFFFFF;
+	color: #666666;
+}
+
+/* 设置下拉框默认样式 */
+select {
+	color: #666666;
+	background-color: #FFFFFF;
+}
+
+/*长按钮*/
+input.button {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 9pt;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF,EndColorStr=#9DBCEA);
+	padding-bottom: 2px;
+	margin: 1px;
+	border-left: #002D96 1px solid;
+	width:76px;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+	height: 23px;
+}
+
+/*短按钮*/
+input.buttonShort {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 9pt;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF,EndColorStr=#9DBCEA);
+	padding-bottom: 2px;
+	margin: 1px;
+	border-left: #002D96 1px solid;
+	width:42px;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+	height: 23px;
+}
+
+/*中长按钮*/
+input.buttonMiddle {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 9pt;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF,EndColorStr=#9DBCEA);
+	padding-bottom: 2px;
+	margin: 1px;
+	border-left: #002D96 1px solid;
+	width:65px;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+	height: 21px;
+}
+
+input.buttonTool {
+	BACKGROUND-POSITION: 100% 100%; 
+	BACKGROUND-COLOR: transparent;
+	BACKGROUND-position:0px;
+	BACKGROUND-REPEAT: no-repeat;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-LEFT-STYLE: none; 	
+	BORDER-TOP-STYLE: none;
+	BORDER-BOTTOM-STYLE: none;
+	height:26px;
+	width:45px;
+	cursor: hand;
+	FONT-SIZE: 9pt;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-weight:normal;
+	text-align:right;
+}
+
+/*go按钮*/
+input.buttonGo {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 9pt;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF,EndColorStr=#9DBCEA);
+	padding-bottom: 2px;
+	margin: 1px;
+	border-left: #002D96 1px solid;
+	width:30px;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+	height: 21px;
+}
+/*select下拉列表（DropDrownListBox）默认样式*/
+select.selectDrop {
+	border-style:hidden;
+	border-width:1;
+	FONT-SIZE: 9pt;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	width:180px;
+}
+
+/*select多行列表（ListBox）默认样式*/
+select.selectMultiple {
+	border-style:hidden;
+	border-width:1;
+	FONT-SIZE: 9pt;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	width:230px;
+	height:280px;
+}
+
+/*默认TH*/
+TH{
+	font-size: 9pt; 
+}
+/*默认TD*/
+TD{
+	font-size: 9pt; 
+}
+
+/*大表格*/
+table.tabOutside {
+	border: 0;
+    border-collapse: collapse;
+    width: 100%; 
+	height: 100%;
+}
+
+/*当前位置*/
+span.currentPos{
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+    font-size: 9pt; 
+	color: #000000;
+}
+
+/*工具栏TD*/
+td.tdTool {	
+	border-top: 0px solid;
+	border-style:outset; 
+    border-width: 1px;
+    border-color:#336666;
+    background-color:#F7F3F7;
+    color: #000000;
+    height: 28;
+}
+
+/*简单查询TD*/
+td.tdQuery {	
+	border-style:outset; 
+	border-top: 0px;
+    border-width: 1px;
+    border-color:#336666;
+    background-color:#FFFFFF;
+    text-align: center;
+    color: #000000;
+    height: 34;
+    valign:middle;
+}
+
+/*工具栏和错误、数据表格之间的间隔*/
+td.tdDataGridSpace {	
+	width: 100%;
+	height:9;
+}
+ 
+/***********************************数据表格，宽度为99%，深蓝色边框***************************************/
+table.dataGrid {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #000080;
+    border-collapse: collapse;
+    width: 99%; 
+}
+
+/*数据表格表头*/
+td.dataGridHead {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #000080;
+    background-color: #CCCCFF;
+    text-align: center;
+    color: #000000;
+    height: 25;
+}
+
+/*数据表格表体，深蓝色边框，字体不加粗*/
+td.dataGridBody {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #000080;
+    text-align:   center;
+	height: 24;
+}
+
+td.dataGridFoot {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #000080;
+    text-align:   center;
+	height: 22;
+}
+
+/********数据表格分页字体**********/
+span.pageplot {
+	FONT-SIZE: 9pt;
+	COLOR: #276db2;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	TEXT-DECORATION: none;
+	line-height: 140%;
+	text-align: left;
+}
+
+/********数据表格选中行**********/
+td.tableSelected {
+	font-weight: normal;
+	font-size: 9pt;
+	vertical-align: baseline;
+	color: #000000;
+	background-color: #ffffcc;
+	text-align: center;
+}
+/***********************************************数据表格结束*************************************************/
+
+/*工具栏和错误、数据详细表格之间的间隔*/
+td.tdDataDetailSpace {	
+	width: 100%;
+	height:45;
+}
+
+/*********************************************** 数据详细表格 ***********************************************/
+table.detail {
+    padding-top: 10px;
+    font-weight: normal;
+	width: 90%;
+	height: 100%;
+}
+
+td.tdDetailLable {
+    text-align: left;
+    padding: 0px 3px 0px 0px;
+	color: #000000;
+}
+
+td.tdDetailText {
+    text-align:left;
+    padding-left: 5px;
+}
+
+/*详细数据form中的输入文本框的样式*/
+.formDetailTxt{
+	color: #666666;
+}
+
+/*详细数据form中的输入文本框的disable的样式*/
+.formDetailTxtDisable{
+	color: #666666;
+	background-color:#EBEBEB;
+}
+
+/*详细数据form中的输入多行编辑框的样式*/
+.formDetailTxtarea{
+	color: #666666;
+}
+
+/*详细数据form中的输入下拉框的样式*/
+.formDetailSelect{
+	border-style:hidden;
+	border-width:1;
+	width:235px;
+}
+
+/*详细数据form中的必填字段的样式*/
+td.tdDetailNeed{
+    text-align: right;
+    padding: 0px 3px 0px 0px;
+	font-style:normal red;
+	font-size:12px;
+	color:red;
+	
+}
+/**************************************************详细数据表格结束***********************************************/
+/**************************************************查询页面数据表格 ***********************************************/
+table.query {
+    margin-left: 10px;
+    padding: 5px;
+    font-weight: normal;
+}
+
+td.tdQueryLable {
+    text-align: left;
+    padding: 0px 3px 0px 0px;
+	font-style:normal;
+}
+
+td.tdQueryText {
+    text-align:right;
+    padding: 0px;
+}
+
+/*详细数据form中的输入文本的样式*/
+.formQueryTxt{
+	border-color:#99CCFF;
+	border-style:hidden;
+	border-width:1;
+}
+/**************************************************查询页面数据表格结束********************************************/
+
+/*增加按钮样式*/
+.btn_add {
+	background: url(../images/green/tool/add.png) no-repeat 0% 50%;
+	height: 25px;
+	width: 45px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/*编辑按钮样式*/
+.btn_edit {
+	background: url(../images/green/tool/edit.png) no-repeat 0% 50%;
+	height: 25px;
+	width: 45px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/*保存按钮样式*/
+.btn_save {
+	background: url(../images/green/tool/save.png) no-repeat 0% 50%;
+	height: 25px;
+	width: 45px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/*返回按钮样式*/
+.btn_back {
+	background: url(../images/green/tool/back.png) no-repeat 0% 50%;
+	height: 25px;
+	width: 45px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/*删除按钮样式*/
+.btn_delete {
+	background: url(../images/green/tool/delete.png) no-repeat 0% 50%;
+	height: 25px;
+	width: 45px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/*全部删除按钮样式（四个字）*/
+.btn_delete_long {
+	background: url(../images/green/tool/delete.png) no-repeat 0% 50%;
+	height: 25px;
+	width: 70px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/*导出excel按钮样式*/
+.btn_xls {
+	background: url(../images/green/tool/xls.gif) no-repeat 0% 50%;
+	height: 25px;
+	width: 85px;
+	cursor: hand;
+	text-align: right;
+	vertical-align: text-bottom;
+	border: none;
+	color: #000000;
+}
+
+/* 竖线 */
+.vertical_line {
+	border-right: 2px solid #E2F5E6;
+}
+
+/********************** 超链接和span组成的按钮样式开始 **********************/
+/* 两个字使用class="aBtn2"，三个字使用class="aBtn3"，四个字使用class="aBtn4"，五个字及以上使用class="aBtnLT" */
+a.aBtn2{
+	background: url(../images/green/tool/btn_bg.gif) left 0px;  
+	color: #000000; 
+	text-decoration: none; 
+	margin-right: 10px;
+	cursor: hand;
+	height: 25px;
+	width: 55px;
+}
+
+a.aBtn2:hover{
+	background: url(../images/green/tool/btn_hover_bg.gif) left 0px;
+	height: 25px;
+}
+
+a.aBtn2 span{
+	background: url(../images/green/tool/btn_bg.gif) right 0px;  
+	padding: 4px 13px 2px 0px; 
+	margin: 0px 0px 0px 13px; 
+	height: 25px;
+}
+
+a.aBtn2:hover span{
+	background: url(../images/green/tool/btn_hover_bg.gif) right 0px; 
+	color: #000000;  
+	padding: 4px 13px 2px 0px; 
+	margin: 0px 0px 0px 13px; 
+	height: 25px;
+}
+
+a.aBtn3{ 
+	color: #000000; 
+	text-decoration: none; 
+	cursor: hand;
+	height: 100%;
+	width: 100%; 
+	vertical-align: middle;
+	
+}
+
+a.aBtn3:hover{
+	background: url(../images/green/tool/btn_hover_bg.gif) left 0px;
+	
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%
+	height: 25px;
+	vertical-align: middle;
+}
+
+a.aBtn3 span{
+	background: url(../images/green/tool/btn_bg.gif) right 0px;  
+	
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%
+	padding: 4px 13px 2px 0px;
+	margin: 0px 0px 0px 13px;
+	height: 25px;
+	vertical-align: middle;
+}
+
+a.aBtn3:hover span{
+	background: url(../images/green/tool/btn_hover_bg.gif) right 0px; 
+	
+    filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";  
+    -moz-background-size:100% 100%;  
+    background-size:100% 100%
+	color: #000000;  
+	padding: 4px 13px 2px 0px;
+	margin: 0px 0px 0px 13px;
+	height: 25px;
+	vertical-align: middle;
+}
+
+a.aBtn4{
+	background: url(../images/green/tool/btn_bg.gif) left 0px;  
+	color: #000000; 
+	text-decoration: none; 
+	margin-right: 10px;
+	cursor: hand;
+	height: 25px;
+	width: 72px;
+}
+
+a.aBtn4:hover{
+	background: url(../images/green/tool/btn_hover_bg.gif) left 0px;
+	height: 25px;
+}
+
+a.aBtn4 span{
+	background: url(../images/green/tool/btn_bg.gif) right 0px;  
+	padding: 4px 11px 2px 0px;
+	margin: 0px 0px 0px 13px;
+	height: 25px;
+}
+
+a.aBtn4:hover span{
+	background: url(../images/green/tool/btn_hover_bg.gif) right 0px; 
+	color: #000000;  
+	padding: 4px 11px 2px 0px;
+	margin: 0px 0px 0px 13px;
+	height: 25px;
+}
+
+a.aBtnLT{
+	background: url(../images/green/tool/btn_bg.gif) left 0px;  
+	color: #000000; 
+	text-decoration: none; 
+	height: 25px; 
+	cursor: hand; 
+	margin-right: 10px;
+	border: 0px solid red;
+}
+
+a.aBtnLT:hover{
+	background: url(../images/green/tool/btn_hover_bg.gif) left 0px;
+	height: 25px;
+}
+
+a.aBtnLT span{
+	background:url(../images/green/tool/btn_bg.gif) right 0px;  
+	padding: 4px 8px 2px 0;
+	margin: 0px 0px 0px 8px; 
+	height: 10px;
+	border: 0px solid blue;
+}
+
+a.aBtnLT:hover span{
+	background: url(../images/green/tool/btn_hover_bg.gif) right 0px;
+	color: #000000;  
+	padding: 4px 8px 2px 0;
+	margin: 0px 0px 0px 8px;
+	height: 10px;  
+}
+/********************** 超链接和span组成的按钮样式结束 **********************/
+
+/****************************** 日期输入框样式开始 ******************************/
+input.dateInput {
+	cursor: text;
+	border-top: 1px solid #ABADB3;
+	border-right: 1px solid #E3E9EF;
+	border-bottom: 1px solid #E3E9EF;
+	border-left: 1px solid #ABADB3;
+	
+	color: #000000;  
+	background: #FFFFFF url(../images/green/tool/calendar.png) no-repeat right; 
+}
+/****************************** 日期输入框样式结束 ******************************/
+
+/****************************** 输入框弹出窗口样式开始 ******************************/
+input.popWindow {
+	cursor: text;
+	border-top: 1px solid #ABADB3;
+	border-right: 1px solid #E3E9EF;
+	border-bottom: 1px solid #E3E9EF;
+	border-left: 1px solid #ABADB3;
+	background: url(../images/green/tool/pop_window.png) no-repeat right; 
+}
+/****************************** 日期输入框样式结束 ******************************/
+/* 必填项 */
+span.required {
+	color: red; 
+	padding-left: 5px;
+}

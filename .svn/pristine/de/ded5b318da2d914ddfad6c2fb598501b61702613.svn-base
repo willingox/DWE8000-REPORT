@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+	
+	<form-bean name="windRealStatisticsDataForm" type="com.xjgc.wind.datastatistics.web.form.WindRealStatisticsDataForm"></form-bean>
+	<form-bean name="windGerRtMonitorDataForm" type="com.xjgc.wind.datastatistics.web.form.WindGerRtMonitorDataForm"></form-bean>
+	<form-bean name="windMeaInfoMonitorDataForm" type="com.xjgc.wind.datastatistics.web.form.WindMeaInfoMonitorDataForm"></form-bean>
+	<form-bean name="faultLogDataForm" type="com.xjgc.wind.datastatistics.web.form.FaultLogDataForm"></form-bean>
+	<form-bean name="windAvailabilityContrastDataForm" type="com.xjgc.wind.datastatistics.web.form.WindAvailabilityContrastDataForm"></form-bean>
+	<form-bean name="windJiReliabilityContrastDataForm" type="com.xjgc.wind.datastatistics.web.form.WindJiReliabilityContrastDataForm"></form-bean>
+	<form-bean name="runingInfo_OneMinuteDataForm" type="com.xjgc.wind.datastatistics.web.form.RuningInfo_OneMinuteDataForm"></form-bean>
+	<form-bean name="runingInfo_SelectOneMinuteDataForm" type="com.xjgc.wind.datastatistics.web.form.RuningInfo_SelectOneMinuteDataForm"></form-bean>
+	<form-bean name="runingInfo_TenMinuteDataForm" type="com.xjgc.wind.datastatistics.web.form.RuningInfo_TenMinuteDataForm"></form-bean>
+	<form-bean name="runingInfo_SelectTenMinuteDataForm" type="com.xjgc.wind.datastatistics.web.form.RuningInfo_SelectTenMinuteDataForm"></form-bean>
+	<form-bean name="runingInfo_OneDayDataForm" type="com.xjgc.wind.datastatistics.web.form.RuningInfo_OneDayDataForm"></form-bean>
+	<form-bean name="runingInfo_SelectOneDayDataForm" type="com.xjgc.wind.datastatistics.web.form.RuningInfo_SelectOneDayDataForm"></form-bean>	
+		<form-bean name="windRoseDataForm" type="com.xjgc.wind.datastatistics.web.form.WindRoseDataForm"></form-bean>
+		<form-bean name="powerScatterDataForm" type="com.xjgc.wind.datastatistics.web.form.PowerScatterDataForm"></form-bean>
+		<form-bean name="generatorDataForm" type="com.xjgc.wind.datastatistics.web.form.GeneratorDataForm"></form-bean>
+<form-bean name="windGenwhDataForm" type="com.xjgc.wind.datastatistics.web.form.WindGenwhDataForm"></form-bean>
+<form-bean name="windFaultCountsDataForm" type="com.xjgc.wind.datastatistics.web.form.WindFaultCountsDataForm"></form-bean>
+<form-bean name="windSpeedDataForm" type="com.xjgc.wind.datastatistics.web.form.WindSpeedDataForm"></form-bean>
+<form-bean name="powerScatterDataForm" type="com.xjgc.wind.datastatistics.web.form.PowerScatterDataForm"></form-bean>
+<form-bean name="faultQueryDataForm" type="com.xjgc.wind.datastatistics.web.form.FaultQueryDataForm"></form-bean>
+<form-bean name="windPowScatterDataForm" type="com.xjgc.wind.datastatistics.web.form.WindPowScatterDataForm"></form-bean>
+<form-bean name="operatRecordDataForm" type="com.xjgc.wind.datastatistics.web.form.OperatRecordDataForm"></form-bean>
+<form-bean name="generatStatisticsDataForm" type="com.xjgc.wind.datastatistics.web.form.GeneratStatisticsDataForm"></form-bean>
+<form-bean name="smgMonthInfoDataForm" type="com.xjgc.wind.datastatistics.web.form.SmgMonthInfoDataForm"></form-bean>
+<form-bean name="smgYearInfoDataForm" type="com.xjgc.wind.datastatistics.web.form.SmgYearInfoDataForm"></form-bean>
+<form-bean name="generatorStatisticsDayReportDataForm" type="com.xjgc.wind.datastatistics.web.form.GeneratorStatisticsDayReportDataForm"></form-bean>
+<form-bean name="generatorStatisticsMonReportDataForm" type="com.xjgc.wind.datastatistics.web.form.GeneratorStatisticsMonReportDataForm"></form-bean>
+<form-bean name="generatorStatisticsYearReportDataForm" type="com.xjgc.wind.datastatistics.web.form.GeneratorStatisticsYearReportDataForm"></form-bean>	
+	</form-beans>
+
+	<action-mappings>
+	
+	<action path="/windAvailabilityContrastData" type="com.xjgc.wind.datastatistics.web.action.WindAvailabilityContrastDataAction" parameter="method" name="windAvailabilityContrastDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windAvailabilityContrastData.jsp" />
+		</action>
+		<action path="/faultLogData" type="com.xjgc.wind.datastatistics.web.action.FaultLogDataAction" parameter="method" name="faultLogDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/faultLogData.jsp" />
+		</action>
+	<action path="/windJiReliabilityContrastData" type="com.xjgc.wind.datastatistics.web.action.WindJiReliabilityContrastDataAction" parameter="method" name="windJiReliabilityContrastDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windJiReliabilityContrastData.jsp" />
+		</action>
+		<action path="/runingInfo_SelectOneMinuteData" type="com.xjgc.wind.datastatistics.web.action.RuningInfo_SelectOneMinuteDataAction" parameter="method" name="runingInfo_SelectOneMinuteDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/runingInfo_SelectOneMinuteData.jsp" />
+		      
+		</action>
+	<action path="/runingInfo_OneMinuteData" type="com.xjgc.wind.datastatistics.web.action.RuningInfo_OneMinuteDataAction" parameter="method" name="runingInfo_OneMinuteDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/runingInfo_OneMinuteData.jsp" />
+		      
+		</action>
+		<action path="/windGerRtMonitorData" type="com.xjgc.wind.datastatistics.web.action.WindGerRtMonitorDataAction" parameter="method" name="windGerRtMonitorDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windGerRtMonitorData.jsp" />
+		</action>
+		<action path="/windMeaInfoMonitorData" type="com.xjgc.wind.datastatistics.web.action.WindMeaInfoMonitorDataAction" parameter="method" name="windMeaInfoMonitorDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windMeaInfoMonitorData.jsp" />
+		</action>
+		<action path="/windRealStatisticsData" type="com.xjgc.wind.datastatistics.web.action.WindRealStatisticsDataAction" parameter="method" name="windRealStatisticsDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windRealStatisticsData.jsp" />
+		</action>
+		<action path="/runingInfo_SelectTenMinuteData" type="com.xjgc.wind.datastatistics.web.action.RuningInfo_SelectTenMinuteDataAction" parameter="method" name="runingInfo_SelectTenMinuteDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/runingInfo_SelectTenMinuteData.jsp" />
+		      
+		</action>
+	<action path="/runingInfo_TenMinuteData" type="com.xjgc.wind.datastatistics.web.action.RuningInfo_TenMinuteDataAction" parameter="method" name="runingInfo_TenMinuteDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/runingInfo_TenMinuteData.jsp" />
+		      
+		</action>
+		<action path="/runingInfo_SelectOneDayData" type="com.xjgc.wind.datastatistics.web.action.RuningInfo_SelectOneDayDataAction" parameter="method" name="runingInfo_SelectOneDayDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/runingInfo_SelectOneDayData.jsp" />
+		</action>
+	<action path="/runingInfo_OneDayData" type="com.xjgc.wind.datastatistics.web.action.RuningInfo_OneDayDataAction" parameter="method" name="runingInfo_OneDayDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/runingInfo_OneDayData.jsp" />
+	</action>
+		<action path="/windRoseData" type="com.xjgc.wind.datastatistics.web.action.WindRoseDataAction" parameter="method" name="windRoseDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windRoseData.jsp" />
+		</action>
+		<action path="/powerScatterData" type="com.xjgc.wind.datastatistics.web.action.PowerScatterDataAction" parameter="method" name="powerScatterDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/powerScatterData.jsp" />
+		</action>
+		<action path="/generatorData" type="com.xjgc.wind.datastatistics.web.action.GeneratorDataAction" parameter="method" name="generatorDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/generatorData.jsp" />
+		</action>
+		<action path="/windGenwhData" type="com.xjgc.wind.datastatistics.web.action.WindGenwhDataAction" parameter="method" name="windGenwhDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windGenwhData.jsp" />
+		</action>
+		<action path="/windSpeedData" type="com.xjgc.wind.datastatistics.web.action.WindSpeedDataAction" parameter="method" name="windSpeedDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windSpeedData.jsp" />
+		</action>
+		<action path="/windFaultCountsData" type="com.xjgc.wind.datastatistics.web.action.WindFaultCountsDataAction" parameter="method" name="windFaultCountsDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windFaultCountsData.jsp" />
+		</action>
+		<action path="/powerScatterData" type="com.xjgc.wind.datastatistics.web.action.PowerScatterDataAction" parameter="method" name="powerScatterDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/powerScatterData.jsp" />
+		</action>
+		<action path="/faultQueryData" type="com.xjgc.wind.datastatistics.web.action.FaultQueryDataAction" parameter="method" name="faultQueryDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/faultQueryData.jsp" />
+		</action>
+		<action path="/windPowScatterData" type="com.xjgc.wind.datastatistics.web.action.WindPowScatterDataAction" parameter="method" name="windPowScatterDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/windPowScatterData.jsp" />
+		</action>
+		<action path="/operatRecordData" type="com.xjgc.wind.datastatistics.web.action.OperatRecordDataAction" parameter="method" name="operatRecordDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/operatRecordData.jsp" />
+		</action>
+		<action path="/generatStatisticsData" type="com.xjgc.wind.datastatistics.web.action.GeneratStatisticsDataAction" parameter="method" name="generatStatisticsDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/generatStatisticsData.jsp" />
+		</action>
+		<action path="/smgMonthInfoData" type="com.xjgc.wind.datastatistics.web.action.SmgMonthInfoDataAction" parameter="method" name="smgMonthInfoDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/smgmonthInfoData.jsp" />
+		</action>
+		<action path="/smgYearInfoData" type="com.xjgc.wind.datastatistics.web.action.SmgYearInfoDataAction" parameter="method" name="smgYearInfoDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/smgYearInfoData.jsp" />
+		</action>
+		<action path="/generatorStatisticsDayReportData" type="com.xjgc.wind.datastatistics.web.action.GeneratorStatisticsDayReportDataAction" parameter="method" name="generatorStatisticsDayReportDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/generatorStatisticsDayReport.jsp" />
+		</action>	
+		
+		<action path="/generatorStatisticsMonReportData" type="com.xjgc.wind.datastatistics.web.action.GeneratorStatisticsMonReportDataAction" parameter="method" name="generatorStatisticsMonReportDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/generatorStatisticsMonReport.jsp" />
+		</action>	
+		
+		<action path="/generatorStatisticsYearReportData" type="com.xjgc.wind.datastatistics.web.action.GeneratorStatisticsYearReportDataAction" parameter="method" name="generatorStatisticsYearReportDataForm" scope="request">
+			<forward name="show" contextRelative="true" path="/pages/datastatistics/generatorStatisticsYearReport.jsp" />
+		</action>		
+	</action-mappings>
+</struts-config>

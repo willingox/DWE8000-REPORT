@@ -1,0 +1,397 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Properties;
+
+
+
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IWindJiReliabilityContrastDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindJiReliabilityContrastDataForm; 
+import com.xjgc.wind.util.DateFormatUtil;
+import com.xjgc.wind.util.YMDHMSUtil;
+import com.xjgc.wind.util.YearFormatUtil;
+
+
+public class WindJiReliabilityContrastDaoImpl extends JdbcDaoSupport implements IWindJiReliabilityContrastDao {
+
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	public List<DataStatisticsDataVo> listmap(WindJiReliabilityContrastDataForm queryFilter) {
+    
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+	
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+ 			{
+ 			try {
+ 				startDate = DateFormatUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 			} catch (ParseException e) {
+ 				startDate = null;
+ 				e.printStackTrace();
+ 			}
+ 		}
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate = DateFormatUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startDate); 
+ 	    Calendar   calendar1   =   new   GregorianCalendar(); 
+ 	    calendar1.setTime(endDate); 
+ 	   date1 = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+ 	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+ 	 
+ 	    date2 = new SimpleDateFormat("yyyy-MM-dd").format(calendar1.getTime());
+   
+   String sql = "";
+   if (isDBMysql()==true) {
+	   String tablename ="hisgenerator_"+date11;
+   	sql += " select sum(h.todaygenwh)*1000 /(g.capacity)  as hour, e.name as name, e.latitude as latitude,e.longitude as longitude from (select max(todaygenwh) as todaygenwh ,id,avg(curp) as curp  from "+tablename+" where DATE_FORMAT(savetime,'%Y-%m-%d')>='" + date1 +"' and DATE_FORMAT(savetime,'%Y-%m-%d')<='" + date2 +"' group by  DATE_FORMAT(savetime,'%Y-%m-%d') ,id) h , equipment e,generator g  ";
+   	sql += " where h.id=e.id and g.id=e.id  group by h.id ";
+   }
+   if (isDBMysql()==false) {
+ 
+        	String tablename ="hisgenerator_"+date11;
+    	sql += " select sum(h.todaygenwh)*1000 /(g.capacity)  as hour, e.name as name, e.latitude as latitude,e.longitude as longitude from (select max(todaygenwh) as todaygenwh ,id,avg(curp) as curp  from "+tablename+" where savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss' group by id) and savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') group by  to_date(savetime,'yyyy-mm-dd')  ,id) h , equipment e,generator g  ";
+    	sql += " where h.id=e.id and g.id=e.id  group by h.id,e.name,e.latitude,e.longitude ";
+    	
+  
+    }
+		return getJdbcTemplate().query(sql, new WindJiReliabilityContrastDataRowMapper());
+		
+	}
+	public List<DataStatisticsDataVo> listrandefficiency(WindJiReliabilityContrastDataForm queryFilter) {
+	    
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+	
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+ 			{
+ 			try {
+ 				startDate = DateFormatUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 			} catch (ParseException e) {
+ 				startDate = null;
+ 				e.printStackTrace();
+ 			}
+ 		}
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate = DateFormatUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startDate); 
+ 	    Calendar   calendar1   =   new   GregorianCalendar(); 
+ 	    calendar1.setTime(endDate); 
+ 	   date1 = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+ 	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+ 	 
+ 	    date2 = new SimpleDateFormat("yyyy-MM-dd").format(calendar1.getTime());
+    
+ 
+   String sql = "";
+   if (isDBMysql()==true) {
+	   String tablename ="hisgenerator_"+date11;
+   	sql += "  select * from (select    (w.counts/count(*))*100 as efficiency  ,g.name from (select count(*) as counts  ,h.id as id ,h.curcmpstate from "+tablename+" h where DATE_FORMAT(h.savetime,'%Y-%m-%d')>='" + date1 +"' and DATE_FORMAT(h.savetime,'%Y-%m-%d')<='" + date2 +"' and h.curcmpstate=1   or h.curcmpstate=2 or h.curcmpstate=3 or h.curcmpstate=6 group by h.id ) w,"+tablename+" h1 ";
+   	sql += " ,generator g where h1.id=w.id and DATE_FORMAT(h1.savetime,'%Y-%m-%d')>='" + date1 +"' and DATE_FORMAT(h1.savetime,'%Y-%m-%d')<='" + date2 +"' and g.id =h1.id group by h1.id order by efficiency desc limit 0,10) ww order by ww.efficiency asc ";
+
+   }
+   if (isDBMysql()==false) {
+ 
+	   String tablename ="hisgenerator_"+date11;
+   	sql += "  select * from (select    (w.counts/count(*))*100 as efficiency  ,g.name from (select count(*) as counts  ,h.id as id ,h.curcmpstate from "+tablename+" h where h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and h.curcmpstate=1   or h.curcmpstate=2 or h.curcmpstate=3 or h.curcmpstate=6 group by h.id ) w,"+tablename+" h1 ";
+   	sql += " ,generator g where h1.id=w.id and h1.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h1.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and g.id =h1.id group by h1.id order by efficiency desc limit 0,10) ww order by ww.efficiency asc ";
+
+  
+    }
+    
+		return getJdbcTemplate().query(sql, new WindJiReliabilityContrastData2RowMapper());
+		
+	}
+	public List<DataStatisticsDataVo> listrandhour(WindJiReliabilityContrastDataForm queryFilter) {
+	    
+		
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	   
+  
+  	   	String sql = "";
+  	  if (isDBMysql()==true) {
+  	   	if(date22.compareTo(date11) == 0){
+  	   	String tablename ="hisgenerator_"+date11;
+  	   	
+  	   	sql +="select (max(h.totalgenwh)-min(h.totalgenwh))/g.capacity as hour,g.name as name,max(h.totalgenwh)-min(h.totalgenwh) as genwh, g.capacity as capacity from "+tablename;
+  	   	sql +=" h,generator g where h.savetime >='"+date1+"' and h.savetime <='"+date2+"' and h.id = g.id group by h.id";
+  	   	
+  	   	}
+  	   	else if(date22.compareTo(date11) != 0)
+  	   	{
+  		
+  	   		String tablename1 = "hisgenerator_"+date11;
+  	   		String tablename2 = "hisgenerator_"+date22;
+  		
+  	   		sql += "select (max(h.totalgenwh)-min(h.totalgenwh))/g.capacity as hour,g.name as name,max(h.totalgenwh)-min(h.totalgenwh) as genwh, g.capacity as capacity from "+tablename1;
+  			sql += " h,generator g where h.savetime >='"+date1+"' and h.id = g.id group by h.id";
+  			sql += " union select (max(h.totalgenwh)-min(h.totalgenwh))/g.capacity as hour,g.name as name,max(h.totalgenwh)-min(h.totalgenwh) as genwh, g.capacity as capacity from "+tablename1;
+  			sql += " h,generator g where h.savetime <='"+date2+"' and h.id = g.id group by h.id";
+ 			
+  	   	}
+  	  }
+  	 if (isDBMysql()==false) {
+   	   	if(date22.compareTo(date11) == 0){
+   	   	String tablename ="hisgenerator_"+date11;
+   	   	
+   	   	sql +="select (max(h.totalgenwh)-min(h.totalgenwh))/g.capacity as hour,g.name as name,max(h.totalgenwh)-min(h.totalgenwh) as genwh, g.capacity as capacity from "+tablename;
+   	   	sql +=" h,generator g where h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and h.id = g.id group by h.id,g.capacity,g.name";
+   	   	
+   	   	}
+   	   	else if(date22.compareTo(date11) != 0)
+   	   	{
+   		
+   	   		String tablename1 = "hisgenerator_"+date11;
+   	   		String tablename2 = "hisgenerator_"+date22;
+   		
+   	   		sql += "select (max(h.totalgenwh)-min(h.totalgenwh))/g.capacity as hour,g.name as name,max(h.totalgenwh)-min(h.totalgenwh) as genwh, g.capacity as capacity from "+tablename1;
+   			sql += " h,generator g where h.savetime >='"+date1+"' and h.id = g.id group by h.id,g.capacity,g.name";
+   			sql += " union select (max(h.totalgenwh)-min(h.totalgenwh))/g.capacity as hour,g.name as name,max(h.totalgenwh)-min(h.totalgenwh) as genwh, g.capacity as capacity from "+tablename1;
+   			sql += " h,generator g where h.savetime <='"+date2+"' and h.id = g.id group by h.id,g.capacity,g.name";
+  			
+   	   	}
+   	  }
+		return getJdbcTemplate().query(sql, new WindJiReliabilityContrastData3RowMapper());
+		
+	}
+	public List<DataStatisticsDataVo> listtable(WindJiReliabilityContrastDataForm queryFilter) {
+	    
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+	
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+ 			{
+ 			try {
+ 				startDate = DateFormatUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 			} catch (ParseException e) {
+ 				startDate = null;
+ 				e.printStackTrace();
+ 			}
+ 		}
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate = DateFormatUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startDate); 
+ 	    Calendar   calendar1   =   new   GregorianCalendar(); 
+ 	    calendar1.setTime(endDate); 
+ 	   date1 = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+ 	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+ 	 
+ 	    date2 = new SimpleDateFormat("yyyy-MM-dd").format(calendar1.getTime());
+   String sql = "";
+   if (isDBMysql()==true) {
+		String tablename ="hisgenerator_"+date11;
+    	String tablename1 ="hisgeneratorst_"+date11;
+	sql += " select (w.counts/count(*))*100 as efficiency, g.name as name,s.name as name1, (datediff('" + date2 +"' ,'" + date1 +"')*24-w1.counts*0.25) as faulttime, w1.counts*0.25 as runtime,w2.todaygenwh*1000 /(g.capacity)  as hour from  ";
+	sql+=" (select count(*) as counts  ,id  from "+tablename+" where DATE_FORMAT(savetime,'%Y-%m-%d')>='" + date1 +"' and DATE_FORMAT(savetime,'%Y-%m-%d')<='" + date2 +"' and curcmpstate=1   or curcmpstate=2 or curcmpstate=3 or curcmpstate=6 group by id ) w,";
+	sql += " (select count(*) as counts  ,id  from "+tablename+" where DATE_FORMAT(savetime,'%Y-%m-%d')>='" + date1 +"'and DATE_FORMAT(savetime,'%Y-%m-%d')<='" + date2 +"' and curcmpstate=1 or curcmpstate=2  or curcmpstate=3  or curcmpstate=4  or curcmpstate=6 group by id ) w1, ";
+	sql += " (select sum(todaygenwh) as todaygenwh ,id  from "+tablename1+" where DATE_FORMAT(savetime,'%Y-%m-%d')>='" + date1 +"' and DATE_FORMAT(savetime,'%Y-%m-%d')<='" + date2 +"' group by id) w2 ,";
+	sql += " "+tablename+" h1,generator g ,smgsysinfo s where  DATE_FORMAT(h1.savetime,'%Y-%m-%d')>='" + date1 +"' and DATE_FORMAT(h1.savetime,'%Y-%m-%d')<='" + date2 +"' and g.id =h1.id and w.id=h1.id and w1.id=h1.id and w2.id=h1.id and g.mgid=s.id group by h1.id ";
+		}
+   if (isDBMysql()==false) {
+ 
+        	String tablename ="hisgenerator_"+date11;
+        	String tablename1 ="hisgeneratorst_"+date11;
+    	sql += " select (w.counts/count(*))*100 as efficiency, g.name as name,s.name as name1, (datediff('" + date2 +"' ,'" + date1 +"')*24-w1.counts*0.25) as faulttime, w1.counts*0.25 as runtime,w2.todaygenwh*1000 /(g.capacity)  as hour from  ";
+    	sql+=" (select count(*) as counts  ,id  from "+tablename+" where savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')and savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and curcmpstate=1   or curcmpstate=2 or curcmpstate=3 or curcmpstate=6 group by id ) w,";
+    	sql += " (select count(*) as counts  ,id  from "+tablename+" where savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')and savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and curcmpstate=1 or curcmpstate=2  or curcmpstate=3  or curcmpstate=4  or curcmpstate=6 group by id ) w1, ";
+    	sql += " (select sum(todaygenwh) as todaygenwh ,id  from "+tablename1+" where savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')and savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') group by id) w2 ,";
+    	sql += " "+tablename+" h1,generator g ,smgsysinfo s where  h1.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')and h1.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and g.id =h1.id and w.id=h1.id and w1.id=h1.id and w2.id=h1.id and g.mgid=s.id group by h1.id ,g.name,s.name,w2.todaygenwh,g.capacity";
+
+  
+    }
+		return getJdbcTemplate().query(sql, new WindJiReliabilityContrastData4RowMapper());
+		
+	}
+	
+	class WindJiReliabilityContrastDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setHour( rs.getDouble("hour") );
+			object.setLongitude( rs.getFloat("longitude") );
+			object.setLatitude( rs.getFloat("latitude") );
+			
+			return object;
+		}
+	}
+	class WindJiReliabilityContrastData2RowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setEfficiency( rs.getDouble("efficiency") );
+		
+			return object;
+		}
+	}
+	class WindJiReliabilityContrastData3RowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setHour( rs.getDouble("hour") );
+			object.setTotalGenwh(rs.getDouble("genwh"));
+			object.setCapacity(rs.getDouble("capacity"));
+			return object;
+		}
+	}
+	class WindJiReliabilityContrastData4RowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setName1( rs.getString("name1") );
+			object.setHour( rs.getDouble("hour") );
+			object.setRunTime( rs.getDouble("runtime") );
+			object.setEfficiency( rs.getDouble("efficiency") );
+			object.setFaultTime( rs.getDouble("faulttime") );
+			return object;
+		}
+	}
+}
+
+
+
+	
+	

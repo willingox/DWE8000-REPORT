@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="建筑总耗能_科研楼本月耗电" vdfPath="D:/ics8000/cbin/xview/pages/能效系统/建筑总耗能_科研楼本月耗电.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#838383" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#838383#DToU" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#575757" />
+<stop offset="1" stop-color="#c5c5c5" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55aaff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5eaff" />
+<stop offset="1" stop-color="#3871aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#838383" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#838383#UDToM" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#c5c5c5" />
+<stop offset="0.5" stop-color="#575757" />
+<stop offset="1" stop-color="#c5c5c5" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#38aa00" />
+<stop offset="1" stop-color="#aaff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#af0000" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#af0000#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#750000" />
+<stop offset="1" stop-color="#ff0707" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#0055ff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#0055ff#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#0038aa" />
+<stop offset="1" stop-color="#7faaff" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ffff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ffff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#aaaa00" />
+<stop offset="1" stop-color="#ffff7f" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<rect fill="url(#lineargradient#838383#DToU)" height="279" id="Rect141" stroke="#838383" stroke-width="1" width="1379" x="435" y="653" />
+<line id="Line59" stroke="#000000" stroke-width="1" x1="434" x2="1785" y1="713" y2="713" />
+<g height="29" id="Text5" width="10" x="1072" y="339" />
+<image height="2" id="Image3" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image4" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image5" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group9_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_分区用电.svg" >
+<g height="89" id="Group9" width="321" x="20" y="357" >
+<image height="89" id="Group9_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group9_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159" xml:space="'preserve'" y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group9_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group10_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="能效系统/用水耗能_分区用水.svg" >
+<g height="89" id="Group10" width="321" x="20" y="461" >
+<image height="89" id="Group10_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group10_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163" xml:space="'preserve'" y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group10_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group11_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="能效系统/燃气耗能_燃气系统.svg" >
+<g height="89" id="Group11" width="321" x="20" y="565" >
+<image height="89" id="Group11_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group11_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157" xml:space="'preserve'" y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group11_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group12_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供热耗能_供热系统.svg" >
+<g height="89" id="Group12" width="321" x="20" y="669" >
+<image height="89" id="Group12_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group12_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155" xml:space="'preserve'" y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group12_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group13_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供冷耗能_冷水系统.svg" >
+<g height="89" id="Group13" width="321" x="20" y="773" >
+<image height="89" id="Group13_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group13_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155" xml:space="'preserve'" y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group13_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group14_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="能效系统/其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group14" width="321" x="20" y="878" >
+<image height="89" id="Group14_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group14_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135" xml:space="'preserve'" y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group14_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group15_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/建筑总耗能.svg','_self', '');}" target="_self" xlink:href="能效系统/建筑总耗能.svg" >
+<g height="89" id="Group15" width="321" x="20" y="253" >
+<image height="89" id="Group15_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group15_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149" xml:space="'preserve'" y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group15_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+<g height="29" id="Text135" width="10" x="1081" y="357" />
+<g height="52" id="Text201" width="276" x="986" y="87" >
+<text fill="#000000" font-family="STFangsong" font-size="31" font-weight="bold" x="986" xml:space="'preserve'" y="115" >科研楼本月耗电</text>
+</g>
+<rect fill="none" height="393" id="Rect106" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="757" x="375" y="161" />
+<line id="Line57" stroke="#000000" stroke-width="1" x1="435" x2="435" y1="652" y2="950" />
+<line id="Line58" stroke="#000000" stroke-width="1" x1="434" x2="1785" y1="950" y2="950" />
+<g height="52" id="Text204" width="311" x="932" y="598" >
+<text fill="#000000" font-family="STFangsong" font-size="24" font-weight="bold" x="932" xml:space="'preserve'" y="619" >科研楼本月逐日耗电量</text>
+</g>
+<line id="Line60" stroke="#000000" stroke-width="1" x1="434" x2="1785" y1="772" y2="772" />
+<line id="Line61" stroke="#000000" stroke-width="1" x1="434" x2="1785" y1="830" y2="830" />
+<line id="Line62" stroke="#000000" stroke-width="1" x1="434" x2="1785" y1="889" y2="889" />
+<line id="Line63" stroke="#000000" stroke-width="1" x1="434" x2="1785" y1="653" y2="653" />
+<polygon fill="#818181" id="Polygon2" points=" 405,953 437,934 1819,930 1785,947 1778,949" stroke="#838383" stroke-width="1" />
+<line id="Line64" stroke="#ffffff" stroke-width="1" x1="1819" x2="1809" y1="930" y2="934" />
+<line id="Line65" stroke="#4b4b4b" stroke-width="2" x1="1785" x2="1818" y1="951" y2="934" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="229" id="Rect107" stroke="#000000" stroke-width="1" width="17" x="449" y="713" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="121" id="Rect108" stroke="#000000" stroke-width="1" width="17" x="492" y="821" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="26" id="Rect109" stroke="#000000" stroke-width="1" width="17" x="536" y="916" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="94" id="Rect110" stroke="#000000" stroke-width="1" width="17" x="579" y="848" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="171" id="Rect111" stroke="#000000" stroke-width="1" width="17" x="623" y="771" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="4" id="Rect112" stroke="#000000" stroke-width="1" width="17" x="666" y="938" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="210" id="Rect113" stroke="#000000" stroke-width="1" width="17" x="710" y="732" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="127" id="Rect114" stroke="#000000" stroke-width="1" width="17" x="753" y="815" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="217" id="Rect115" stroke="#000000" stroke-width="1" width="17" x="797" y="725" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="274" id="Rect116" stroke="#000000" stroke-width="1" width="17" x="840" y="668" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="10" id="Rect117" stroke="#000000" stroke-width="1" width="17" x="884" y="932" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="79" id="Rect118" stroke="#000000" stroke-width="1" width="17" x="927" y="863" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="110" id="Rect119" stroke="#000000" stroke-width="1" width="17" x="971" y="832" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="79" id="Rect120" stroke="#000000" stroke-width="1" width="17" x="1014" y="863" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="80" id="Rect121" stroke="#000000" stroke-width="1" width="17" x="1710" y="862" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="144" id="Rect125" stroke="#000000" stroke-width="1" width="17" x="1058" y="798" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="78" id="Rect126" stroke="#000000" stroke-width="1" width="17" x="1101" y="864" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="243" id="Rect127" stroke="#000000" stroke-width="1" width="17" x="1145" y="699" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="126" id="Rect128" stroke="#000000" stroke-width="1" width="17" x="1188" y="816" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="78" id="Rect129" stroke="#000000" stroke-width="1" width="17" x="1232" y="864" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="275" id="Rect130" stroke="#000000" stroke-width="1" width="17" x="1275" y="667" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="97" id="Rect131" stroke="#000000" stroke-width="1" width="17" x="1319" y="845" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="69" id="Rect132" stroke="#000000" stroke-width="1" width="17" x="1362" y="873" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="248" id="Rect133" stroke="#000000" stroke-width="1" width="17" x="1406" y="694" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="192" id="Rect134" stroke="#000000" stroke-width="1" width="17" x="1449" y="750" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="126" id="Rect135" stroke="#000000" stroke-width="1" width="17" x="1493" y="816" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="30" id="Rect136" stroke="#000000" stroke-width="1" width="17" x="1536" y="912" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="171" id="Rect137" stroke="#000000" stroke-width="1" width="17" x="1580" y="771" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="178" id="Rect138" stroke="#000000" stroke-width="1" width="17" x="1623" y="764" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="28" id="Rect139" stroke="#000000" stroke-width="1" width="17" x="1667" y="914" />
+<rect fill="url(#lineargradient#55aaff#UToD)" height="249" id="Rect140" stroke="#000000" stroke-width="1" width="17" x="1755" y="693" />
+<g height="26" id="Text205" width="55" x="374" y="642" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="374" xml:space="'preserve'" y="654" >25000</text>
+</g>
+<g height="26" id="Text206" width="55" x="374" y="818" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="374" xml:space="'preserve'" y="830" >10000</text>
+</g>
+<g height="26" id="Text207" width="55" x="374" y="758" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="374" xml:space="'preserve'" y="770" >15000</text>
+</g>
+<g height="26" id="Text208" width="55" x="374" y="699" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="374" xml:space="'preserve'" y="711" >20000</text>
+</g>
+<g height="26" id="Text209" width="19" x="374" y="919" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="374" xml:space="'preserve'" y="931" >0</text>
+</g>
+<g height="26" id="Text210" width="46" x="374" y="876" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="374" xml:space="'preserve'" y="888" >5000</text>
+</g>
+<g height="26" id="Text211" width="36" x="438" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="438" xml:space="'preserve'" y="977" >1日</text>
+</g>
+<g height="26" id="Text212" width="36" x="476" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="476" xml:space="'preserve'" y="977" >2日</text>
+</g>
+<g height="26" id="Text213" width="36" x="587" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="587" xml:space="'preserve'" y="977" >5日</text>
+</g>
+<g height="26" id="Text214" width="36" x="513" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="513" xml:space="'preserve'" y="977" >3日</text>
+</g>
+<g height="26" id="Text215" width="36" x="550" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="550" xml:space="'preserve'" y="977" >4日</text>
+</g>
+<g height="26" id="Text221" width="36" x="624" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="624" xml:space="'preserve'" y="977" >6日</text>
+</g>
+<g height="26" id="Text222" width="36" x="661" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="661" xml:space="'preserve'" y="977" >7日</text>
+</g>
+<g height="26" id="Text223" width="45" x="772" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="772" xml:space="'preserve'" y="977" >10日</text>
+</g>
+<g height="26" id="Text224" width="36" x="698" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="698" xml:space="'preserve'" y="977" >8日</text>
+</g>
+<g height="26" id="Text225" width="36" x="735" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="735" xml:space="'preserve'" y="977" >9日</text>
+</g>
+<g height="26" id="Text226" width="45" x="818" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="818" xml:space="'preserve'" y="977" >11日</text>
+</g>
+<g height="26" id="Text227" width="45" x="865" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="865" xml:space="'preserve'" y="977" >12日</text>
+</g>
+<g height="26" id="Text228" width="45" x="1003" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1003" xml:space="'preserve'" y="977" >15日</text>
+</g>
+<g height="26" id="Text229" width="45" x="911" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="911" xml:space="'preserve'" y="977" >13日</text>
+</g>
+<g height="26" id="Text230" width="45" x="957" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="957" xml:space="'preserve'" y="977" >14日</text>
+</g>
+<g height="26" id="Text231" width="45" x="1049" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1049" xml:space="'preserve'" y="977" >16日</text>
+</g>
+<g height="26" id="Text232" width="45" x="1095" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1095" xml:space="'preserve'" y="977" >17日</text>
+</g>
+<g height="26" id="Text233" width="45" x="1233" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1233" xml:space="'preserve'" y="977" >20日</text>
+</g>
+<g height="26" id="Text234" width="45" x="1141" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1141" xml:space="'preserve'" y="977" >18日</text>
+</g>
+<g height="26" id="Text235" width="45" x="1187" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1187" xml:space="'preserve'" y="977" >19日</text>
+</g>
+<g height="26" id="Text236" width="45" x="1279" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1279" xml:space="'preserve'" y="977" >21日</text>
+</g>
+<g height="26" id="Text237" width="45" x="1326" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1326" xml:space="'preserve'" y="977" >22日</text>
+</g>
+<g height="26" id="Text238" width="45" x="1464" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1464" xml:space="'preserve'" y="977" >25日</text>
+</g>
+<g height="26" id="Text239" width="45" x="1372" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1372" xml:space="'preserve'" y="977" >23日</text>
+</g>
+<g height="26" id="Text240" width="45" x="1418" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1418" xml:space="'preserve'" y="977" >24日</text>
+</g>
+<g height="26" id="Text241" width="45" x="1509" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1509" xml:space="'preserve'" y="977" >26日</text>
+</g>
+<g height="26" id="Text242" width="45" x="1555" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1555" xml:space="'preserve'" y="977" >27日</text>
+</g>
+<g height="26" id="Text243" width="45" x="1693" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1693" xml:space="'preserve'" y="977" >30日</text>
+</g>
+<g height="26" id="Text244" width="45" x="1601" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1601" xml:space="'preserve'" y="977" >28日</text>
+</g>
+<g height="26" id="Text245" width="45" x="1647" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1647" xml:space="'preserve'" y="977" >29日</text>
+</g>
+<g height="26" id="Text246" width="45" x="1741" y="965" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1741" xml:space="'preserve'" y="977" >31日</text>
+</g>
+<rect fill="url(#lineargradient#838383#UDToM)" height="6" id="RoundRect1" rx="16" ry="16" stroke="#ffffff" stroke-width="1" width="1382" x="403" y="951" />
+<rect fill="none" height="420" id="Rect177" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="1460" x="368" y="571" />
+<rect fill="#c0c0c0" height="249" id="Rect149" stroke="#a6a6a6" stroke-width="1" width="639" x="452" y="238" />
+<line id="Line20" stroke="#000000" stroke-width="1" x1="451" x2="1093" y1="334" y2="333" />
+<line id="Line21" stroke="#000000" stroke-width="1" x1="451" x2="1093" y1="288" y2="287" />
+<line id="Line19" stroke="#000000" stroke-width="1" x1="451" x2="1093" y1="382" y2="381" />
+<line id="Line17" stroke="#000000" stroke-width="1" x1="451" x2="1093" y1="487" y2="486" />
+<line id="Line18" stroke="#000000" stroke-width="1" x1="451" x2="1093" y1="437" y2="436" />
+<rect fill="url(#lineargradient#55ff00#RToL)" height="115" id="Rect145" stroke="#000000" stroke-width="1" width="67" x="519" y="371" />
+<g height="26" id="Text67" width="78" x="513" y="493" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="513" xml:space="'preserve'" y="507" >照明插座</text>
+</g>
+<g height="26" id="Text68" width="78" x="653" y="496" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="653" xml:space="'preserve'" y="510" >空调系统</text>
+</g>
+<g height="26" id="Text69" width="78" x="807" y="496" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="807" xml:space="'preserve'" y="510" >动力用电</text>
+</g>
+<rect fill="url(#lineargradient#af0000#RToL)" height="214" id="Rect146" stroke="#000000" stroke-width="1" width="67" x="660" y="272" />
+<rect fill="url(#lineargradient#0055ff#RToL)" height="56" id="Rect147" stroke="#000000" stroke-width="1" width="67" x="810" y="430" />
+<rect fill="url(#lineargradient#ffff00#RToL)" height="45" id="Rect148" stroke="#000000" stroke-width="1" width="67" x="965" y="440" />
+<line id="Line16" stroke="#000000" stroke-width="1" x1="452" x2="452" y1="237" y2="487" />
+<g height="26" id="Text70" width="78" x="959" y="495" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="959" xml:space="'preserve'" y="509" >特殊用电</text>
+</g>
+<g height="29" id="Text71" width="32" x="400" y="223" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="400" xml:space="'preserve'" y="237" >25</text>
+</g>
+<g height="29" id="Text72" width="32" x="400" y="318" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="400" xml:space="'preserve'" y="332" >15</text>
+</g>
+<g height="29" id="Text73" width="32" x="400" y="269" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="400" xml:space="'preserve'" y="283" >20</text>
+</g>
+<line id="Line26" stroke="#000000" stroke-width="1" x1="451" x2="1093" y1="238" y2="238" />
+<g height="29" id="Text74" width="21" x="400" y="416" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="400" xml:space="'preserve'" y="430" >5</text>
+</g>
+<g height="29" id="Text75" width="32" x="400" y="367" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="400" xml:space="'preserve'" y="381" >10</text>
+</g>
+<g height="29" id="Text76" width="21" x="400" y="466" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="400" xml:space="'preserve'" y="480" >0</text>
+</g>
+<g height="48" id="Text77" width="238" x="649" y="182" >
+<text fill="#000000" font-family="STLiti" font-size="28" font-weight="bold" x="649" xml:space="'preserve'" y="207" >本月用电能耗</text>
+</g>
+<rect fill="none" height="393" id="Rect151" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="680" x="1141" y="164" />
+<rect fill="none" height="144" id="Rect152" stroke="#000000" stroke-width="1" width="139" x="1654" y="286" />
+<polyline fill="none" id="Curve1" points=" 1553,271 1570,226 1596,226" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text88" width="36" x="1595" y="214" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1595" xml:space="'preserve'" y="227" >28%</text>
+</g>
+<polyline fill="none" id="Curve3" points=" 1404,238 1380,211 1323,212" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text90" width="36" x="1275" y="199" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1275" xml:space="'preserve'" y="212" >11%</text>
+</g>
+<polyline fill="none" id="Curve4" points=" 1326,299 1320,289 1301,289" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text91" width="36" x="1238" y="273" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1238" xml:space="'preserve'" y="286" >13%</text>
+</g>
+<g height="27" id="Text92" width="36" x="1247" y="483" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1247" xml:space="'preserve'" y="496" >48%</text>
+</g>
+<path d="M1445,359 l-127,-34 a131,133 0 0,0 248,84 z" fill="#ff0000" id="Pie1" stroke="#000000" stroke-width="1" />
+<path d="M1445,358 l122,50 a132,134 0 0,0 -104,-182 z" fill="#00ff00" id="Pie2" stroke="#000000" stroke-width="1" />
+<path d="M1446,358 l18,-131 a132,132 0 0,0 -88,19 z" fill="#ffff00" id="Pie4" stroke="#000000" stroke-width="1" />
+<path d="M1447,358 l-70,-113 a132,134 0 0,0 -60,93 z" fill="#0000ff" id="Pie5" stroke="#000000" stroke-width="1" />
+<g height="122" id="Group23" width="113" x="1669" y="296" >
+<rect fill="#ff0000" height="18" id="Group23_Rect153" stroke="#000000" stroke-width="1" width="20" x="1669" y="330" />
+<g height="26" id="Group23_Text79" width="80" x="1701" y="327" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1701" xml:space="'preserve'" y="339" >空调用电</text>
+</g>
+<rect fill="#ffff00" height="17" id="Group23_Rect156" stroke="#000000" stroke-width="1" width="20" x="1669" y="393" />
+<g height="26" id="Group23_Text82" width="80" x="1701" y="296" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1701" xml:space="'preserve'" y="308" >照明插座</text>
+</g>
+<rect fill="#55ff00" height="18" id="Group23_Rect158" stroke="#000000" stroke-width="1" width="20" x="1669" y="298" />
+<g height="26" id="Group23_Text83" width="80" x="1701" y="358" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1701" xml:space="'preserve'" y="370" >动力用电</text>
+</g>
+<g height="26" id="Group23_Text85" width="80" x="1701" y="391" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1701" xml:space="'preserve'" y="403" >特殊用电</text>
+</g>
+<rect fill="#0000ff" height="18" id="Group23_Rect161" stroke="#000000" stroke-width="1" width="20" x="1669" y="361" />
+</g>
+<polyline fill="none" id="Curve5" points=" 1403,490 1382,499 1287,499" stroke="#000000" stroke-width="1" />
+<g height="31" id="Text248" width="105" x="1284" y="603" >
+<text fill="#000000" font-family="STSong" font-size="17" font-weight="bold" x="1284" xml:space="'preserve'" y="617" >单位：kwh</text>
+</g>
+<g height="31" id="Text249" width="55" x="527" y="342" >
+<text fill="#000000" font-family="STSong" font-size="17" font-weight="bold" x="527" xml:space="'preserve'" y="356" >11.25</text>
+</g>
+<g height="31" id="Text250" width="45" x="665" y="241" >
+<text fill="#000000" font-family="STSong" font-size="17" font-weight="bold" x="665" xml:space="'preserve'" y="255" >21.4</text>
+</g>
+<g height="31" id="Text251" width="45" x="822" y="397" >
+<text fill="#000000" font-family="STSong" font-size="17" font-weight="bold" x="822" xml:space="'preserve'" y="411" >5.85</text>
+</g>
+<g height="31" id="Text252" width="45" x="982" y="404" >
+<text fill="#000000" font-family="STSong" font-size="17" font-weight="bold" x="982" xml:space="'preserve'" y="418" >4.95</text>
+</g>
+<g height="31" id="Text268" width="134" x="921" y="187" >
+<text fill="#000000" font-family="STSong" font-size="17" font-weight="bold" x="921" xml:space="'preserve'" y="201" >单位：万kW.h</text>
+</g>
+</svg>

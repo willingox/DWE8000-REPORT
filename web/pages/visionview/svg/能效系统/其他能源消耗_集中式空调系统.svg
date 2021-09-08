@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="其他能源消耗_集中式空调系统" vdfPath="D:/ics8000/cbin/xview/pages/其他能源消耗_集中式空调系统.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#b8b8b8" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#b8b8b8#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#7b7b7b" />
+<stop offset="0.5" stop-color="#ffffff" />
+<stop offset="1" stop-color="#7b7b7b" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00aaff#MToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#0071aa" />
+<stop offset="0.5" stop-color="#7fd5ff" />
+<stop offset="1" stop-color="#0071aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00aa00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00aa00#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#00ff00" />
+<stop offset="1" stop-color="#007100" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#e1e1e1" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#e1e1e1#MToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#707070" />
+<stop offset="0.5" stop-color="#e1e1e1" />
+<stop offset="1" stop-color="#707070" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#MToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="0.5" stop-color="#7fff7f" />
+<stop offset="1" stop-color="#00aa00" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ff0000" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ff0000#LRToM" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#ff7f7f" />
+<stop offset="0.5" stop-color="#aa0000" />
+<stop offset="1" stop-color="#ff7f7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ff0000" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ff0000#LRToM" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#ff7f7f" />
+<stop offset="0.5" stop-color="#aa0000" />
+<stop offset="1" stop-color="#ff7f7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#aaaaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#aaaaff#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#55557f" />
+<stop offset="0.5" stop-color="#aaaaff" />
+<stop offset="1" stop-color="#55557f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#aaaaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#aaaaff#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#55557f" />
+<stop offset="0.5" stop-color="#aaaaff" />
+<stop offset="1" stop-color="#55557f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ff0000" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ff0000#LRToM" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#ff7f7f" />
+<stop offset="0.5" stop-color="#aa0000" />
+<stop offset="1" stop-color="#ff7f7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00aa00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00aa00#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#00ff00" />
+<stop offset="1" stop-color="#007100" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00aa00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00aa00#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#00ff00" />
+<stop offset="1" stop-color="#007100" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#00aa00" />
+<stop offset="1" stop-color="#7fff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00aa00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00aa00#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#00ff00" />
+<stop offset="1" stop-color="#007100" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<g height="914" id="Group9" width="1477" x="373" y="69" >
+<a id="Group9_Rect28_link_elem" onclick="if (window.openPage) {openPage(evt,'其他能源消耗_热泵机.svg','_self', '');}" target="_self" xlink:href="其他能源消耗_热泵机.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Group9_Rect28" stroke="#00557f" stroke-width="1" width="170" x="713" y="69" />
+<g height="50" id="Group9_innertext_Rect28" width="170" x="713" y="69" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="766"  y="96" >热泵机</text>
+</g>
+</a>
+<rect fill="url(#lineargradient#b8b8b8#MToUD)" height="50" id="Group9_Rect29" stroke="#d4d4d4" stroke-width="1" width="170" x="543" y="69" />
+<g height="50" id="Group9_innertext_Rect29" width="170" x="543" y="69" >
+<text fill="#000000" font-family="SimHei" font-size="19" font-weight="bold" x="554"  y="96" >集中式空调系统</text>
+</g>
+<a id="Group9_Rect83_link_elem" onclick="if (window.openPage) {openPage(evt,'其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="其他能源消耗_锅炉系统.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Group9_Rect83" stroke="#00557f" stroke-width="1" width="170" x="373" y="69" />
+<g height="50" id="Group9_innertext_Rect83" width="170" x="373" y="69" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="416"  y="96" >锅炉系统</text>
+</g>
+</a>
+<g height="37" id="Group9_Text3" width="118" x="444" y="210" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="444"  y="230" >温度设定</text>
+</g>
+<g height="37" id="Group9_Text4" width="66" x="562" y="210" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="562"  y="230" >0.00</text>
+</g>
+<g height="37" id="Group9_Text5" width="37" x="630" y="210" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="630"  y="230" >℃</text>
+</g>
+<polyline fill="none" id="Group9_Foldline1" points=" 1747,193 1614,193 1614,264 830,264 830,401 460,401 460,952" stroke="#000000" stroke-width="2" />
+<polyline fill="none" id="Group9_Foldline2" points=" 1575,264 1575,829 464,829 464,829" stroke="#000000" stroke-width="2" />
+<line id="Group9_Line1" stroke="#000000" stroke-width="2" x1="469" x2="1343" y1="633" y2="633" />
+<line id="Group9_Line2" stroke="#000000" stroke-width="2" x1="1088" x2="1088" y1="269" y2="415" />
+<line id="Group9_Line3" stroke="#000000" stroke-width="2" x1="970" x2="970" y1="498" y2="630" />
+<line id="Group9_Line4" stroke="#000000" stroke-width="2" x1="1345" x2="1347" y1="631" y2="498" />
+<line id="Group9_Line5" stroke="#000000" stroke-width="2" x1="1434" x2="1434" y1="408" y2="266" />
+<image height="98" id="Group9_Image1" width="232" x="905" xlink:href="../image/gjsws/换热器.png" y="412" />
+<g height="98" id="Group9_innertext_Image1" width="232" x="905" y="412" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="973"  y="467" >换热器2</text>
+</g>
+<image height="98" id="Group9_Image2" width="232" x="1265" xlink:href="../image/gjsws/换热器.png" y="406" />
+<g height="98" id="Group9_innertext_Image2" width="232" x="1265" y="406" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1333"  y="461" >换热器1</text>
+</g>
+<image height="179" id="Group9_Image3" width="102" x="548" xlink:href="../image/gjsws/板式换热器（whgrui123）.png" y="316" />
+<image height="135" id="Group9_Image4" width="184" x="374" xlink:href="../image/gjsws/水泵.png" y="635" />
+<polyline fill="none" id="Group9_Foldline3" points=" 1007,863 1007,958 1459,958 1459,851" stroke="#000000" stroke-width="2" />
+<rect fill="url(#lineargradient#00aaff#MToLR)" height="49" id="Group9_Rect84" stroke="#000000" stroke-width="1" width="106" x="1199" y="934" />
+<g height="49" id="Group9_innertext_Rect84" width="106" x="1199" y="934" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1225"  y="965" >负荷</text>
+</g>
+<polyline fill="none" id="Group9_Foldline4" points=" 1184,827 1184,787 1308,787 1308,831" stroke="#000000" stroke-width="2" />
+<g height="37" id="Group9_Text6" width="145" x="525" y="504" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="525"  y="524" >板式换热器</text>
+</g>
+<g height="37" id="Group9_Text7" width="66" x="432" y="345" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="432"  y="365" >0.00</text>
+</g>
+<g height="37" id="Group9_Text8" width="37" x="500" y="345" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="500"  y="365" >℃</text>
+</g>
+<g height="37" id="Group9_Text9" width="66" x="916" y="325" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="916"  y="345" >0.00</text>
+</g>
+<g height="37" id="Group9_Text10" width="37" x="995" y="327" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="995"  y="347" >℃</text>
+</g>
+<g height="37" id="Group9_Text11" width="66" x="1283" y="318" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1283"  y="338" >0.00</text>
+</g>
+<g height="37" id="Group9_Text12" width="37" x="1351" y="321" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1351"  y="341" >℃</text>
+</g>
+<g height="37" id="Group9_Text13" width="66" x="538" y="737" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="538"  y="757" >0.00</text>
+</g>
+<g height="37" id="Group9_Text14" width="37" x="609" y="740" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="609"  y="760" >℃</text>
+</g>
+<g height="37" id="Group9_Text15" width="66" x="960" y="753" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="960"  y="773" >0.00</text>
+</g>
+<g height="37" id="Group9_Text16" width="37" x="1028" y="753" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1028"  y="773" >℃</text>
+</g>
+<g height="37" id="Group9_Text17" width="66" x="1416" y="752" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1416"  y="772" >0.00</text>
+</g>
+<g height="37" id="Group9_Text18" width="37" x="1489" y="754" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1489"  y="774" >℃</text>
+</g>
+<g height="37" id="Group9_Text23" width="91" x="552" y="695" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="552"  y="715" >热水泵</text>
+</g>
+<g height="33" id="Group9_Group3" width="43" x="1231" y="763" >
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group3_Polygon4" points=" 1250,789 1231,785 1231,793" stroke="#000000" stroke-width="1" />
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group3_Polygon5" points=" 1248,789 1266,784 1266,793" stroke="#000000" stroke-width="1" />
+<rect fill="#00aa00" height="16" id="Group9_Group3_Rect98" stroke="#000000" stroke-width="1" width="4" x="1246" y="773" />
+<path d="M1252,767 l0,-4 a20,5 0 0,0 0,0 z" fill="none" id="Group9_Group3_Pie1" stroke="#ffffff" stroke-width="1" />
+<path d="M1248,775 l16,0 a16,8 0 1,0 -32,0 z" fill="url(#lineargradient#00aa00#UToD)" id="Group9_Group3_Pie2" stroke="#000000" stroke-width="1" />
+</g>
+<rect fill="url(#lineargradient#e1e1e1#MToLR)" height="133" id="Group9_Rect85" stroke="#ffffff" stroke-width="1" width="164" x="1686" y="127" />
+<rect fill="url(#lineargradient#00ff00#MToLR)" height="106" id="Group9_Rect86" stroke="#00aa00" stroke-width="1" width="24" x="1757" y="140" />
+<ellipse cx="1716" cy="159" fill="url(#lineargradient#ff0000#LRToM)" id="Group9_Ellipse3" rx="13" ry="15" stroke="#000000" stroke-width="1" />
+<ellipse cx="1718" cy="231" fill="url(#lineargradient#ff0000#LRToM)" id="Group9_Ellipse4" rx="13" ry="15" stroke="#000000" stroke-width="1" />
+<g height="85" id="Group9_Group2" width="331" x="1338" y="791" >
+<rect fill="url(#lineargradient#aaaaff#MToUD)" height="79" id="Group9_Group2_RoundRect2" rx="16" ry="16" stroke="#000000" stroke-width="1" width="330" x="1338" y="792" />
+<line id="Group9_Group2_Line8" stroke="#000000" stroke-width="1" x1="1370" x2="1370" y1="791" y2="873" />
+<line id="Group9_Group2_Line9" stroke="#000000" stroke-width="1" x1="1638" x2="1638" y1="791" y2="873" />
+</g>
+<g height="85" id="Group9_innertext_Group2" width="331" x="1338" y="791" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1463"  y="840" >分水器</text>
+</g>
+<g height="83" id="Group9_Group1" width="324" x="821" y="795" >
+<rect fill="url(#lineargradient#aaaaff#MToUD)" height="77" id="Group9_Group1_RoundRect1" rx="16" ry="16" stroke="#000000" stroke-width="1" width="323" x="821" y="796" />
+<line id="Group9_Group1_Line6" stroke="#000000" stroke-width="1" x1="853" x2="853" y1="795" y2="875" />
+<line id="Group9_Group1_Line7" stroke="#000000" stroke-width="1" x1="1115" x2="1115" y1="795" y2="875" />
+</g>
+<g height="83" id="Group9_innertext_Group1" width="324" x="821" y="795" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="942"  y="843" >集水器</text>
+</g>
+<g height="37" id="Group9_Text24" width="118" x="1195" y="831" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1195"  y="851" >阀门开度</text>
+</g>
+<g height="37" id="Group9_Text25" width="52" x="1224" y="858" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1224"  y="878" >15%</text>
+</g>
+<ellipse cx="556" cy="670" fill="url(#lineargradient#ff0000#LRToM)" id="Group9_Ellipse5" rx="13" ry="15" stroke="#000000" stroke-width="1" />
+<g height="33" id="Group9_Group4" width="43" x="724" y="375" >
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group4_Polygon4" points=" 743,401 724,397 724,405" stroke="#000000" stroke-width="1" />
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group4_Polygon5" points=" 741,401 759,396 759,405" stroke="#000000" stroke-width="1" />
+<rect fill="#00aa00" height="16" id="Group9_Group4_Rect98" stroke="#000000" stroke-width="1" width="4" x="739" y="385" />
+<path d="M745,379 l0,-4 a20,5 0 0,0 0,0 z" fill="none" id="Group9_Group4_Pie1" stroke="#ffffff" stroke-width="1" />
+<path d="M741,387 l16,0 a16,8 0 1,0 -32,0 z" fill="url(#lineargradient#00aa00#UToD)" id="Group9_Group4_Pie2" stroke="#000000" stroke-width="1" />
+</g>
+<g height="37" id="Group9_Text26" width="118" x="690" y="413" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="690"  y="433" >阀门开度</text>
+</g>
+<g height="37" id="Group9_Text27" width="52" x="719" y="440" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="719"  y="460" >15%</text>
+</g>
+<g height="33" id="Group9_Group5" transform="rotate(90 1098,337)" width="43" x="1077" y="321" >
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group5_Polygon4" points=" 1096,347 1077,343 1077,351" stroke="#000000" stroke-width="1" />
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group5_Polygon5" points=" 1094,347 1112,342 1112,351" stroke="#000000" stroke-width="1" />
+<rect fill="#00aa00" height="16" id="Group9_Group5_Rect98" stroke="#000000" stroke-width="1" width="4" x="1092" y="331" />
+<path d="M1098,325 l0,-4 a20,5 0 0,0 0,0 z" fill="none" id="Group9_Group5_Pie1" stroke="#ffffff" stroke-width="1" />
+<path d="M1094,333 l16,0 a16,8 0 1,0 -32,0 z" fill="url(#lineargradient#00aa00#UToD)" id="Group9_Group5_Pie2" stroke="#000000" stroke-width="1" />
+</g>
+<g height="33" id="Group9_Group7" transform="rotate(90 1442,333)" width="43" x="1421" y="317" >
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group7_Polygon4" points=" 1440,343 1421,339 1421,347" stroke="#000000" stroke-width="1" />
+<polygon fill="url(#lineargradient#00ff00#RToL)" id="Group9_Group7_Polygon5" points=" 1438,343 1456,338 1456,347" stroke="#000000" stroke-width="1" />
+<rect fill="#00aa00" height="16" id="Group9_Group7_Rect98" stroke="#000000" stroke-width="1" width="4" x="1436" y="327" />
+<path d="M1442,321 l0,-4 a20,5 0 0,0 0,0 z" fill="none" id="Group9_Group7_Pie1" stroke="#ffffff" stroke-width="1" />
+<path d="M1438,329 l16,0 a16,8 0 1,0 -32,0 z" fill="url(#lineargradient#00aa00#UToD)" id="Group9_Group7_Pie2" stroke="#000000" stroke-width="1" />
+</g>
+<g height="37" id="Group9_Text28" width="118" x="1110" y="314" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1110"  y="334" >阀门开度</text>
+</g>
+<g height="37" id="Group9_Text29" width="52" x="1139" y="341" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1139"  y="361" >15%</text>
+</g>
+<g height="37" id="Group9_Text30" width="118" x="1457" y="314" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1457"  y="334" >阀门开度</text>
+</g>
+<g height="37" id="Group9_Text31" width="52" x="1486" y="341" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1486"  y="361" >15%</text>
+</g>
+<image height="44" id="Group9_Image6" width="45" x="746" xlink:href="../image/gjsws/sgcx.png" y="402" />
+<image height="44" id="Group9_Image7" width="45" x="746" xlink:href="../image/gjsws/sgcx.png" y="402" />
+<image height="44" id="Group9_Image8" width="45" x="1066" xlink:href="../image/gjsws/sgcx.png" y="737" />
+<image height="44" id="Group9_Image9" width="45" x="483" xlink:href="../image/gjsws/sgcx.png" y="379" />
+<line id="Group9_Line8" stroke="#000000" stroke-width="2" x1="1090" x2="1090" y1="772" y2="795" />
+<image height="44" id="Group9_Image10" width="45" x="1357" xlink:href="../image/gjsws/sgcx.png" y="729" />
+<line id="Group9_Line9" stroke="#000000" stroke-width="2" x1="1382" x2="1382" y1="766" y2="789" />
+<image height="44" id="Group9_Image11" width="45" x="1141" xlink:href="../image/gjsws/sgcx.png" y="701" />
+<line id="Group9_Line10" stroke="#000000" stroke-width="2" x1="1167" x2="1167" y1="738" y2="828" />
+<image height="44" id="Group9_Image12" width="45" x="1299" xlink:href="../image/gjsws/sgcx.png" y="704" />
+<line id="Group9_Line11" stroke="#000000" stroke-width="2" x1="1325" x2="1325" y1="739" y2="829" />
+<g height="68" id="Group9_Text32" width="108" x="1120" y="646" >
+<text fill="#000000" font-family="SimSun" font-size="21" x="1120"  y="664" > 压力</text>
+<text fill="#000000" font-family="SimSun" font-size="21" x="1120"  y="682" >0.45MPa</text>
+</g>
+<g height="61" id="Group9_Text33" width="94" x="1278" y="645" >
+<text fill="#000000" font-family="SimSun" font-size="21" x="1278"  y="663" > 压力</text>
+<text fill="#000000" font-family="SimSun" font-size="21" x="1278"  y="681" >0.60MPa</text>
+</g>
+<image height="44" id="Group9_Image13" width="45" x="939" xlink:href="../image/gjsws/sgcx.png" y="359" />
+<image height="44" id="Group9_Image14" width="45" x="1294" xlink:href="../image/gjsws/sgcx.png" y="354" />
+<line id="Group9_Line12" stroke="#000000" stroke-width="2" x1="1317" x2="1317" y1="387" y2="410" />
+<line id="Group9_Line13" stroke="#000000" stroke-width="2" x1="963" x2="963" y1="397" y2="420" />
+</g>
+<image height="2" id="Image15" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image16" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image17" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group10_link_elem" onclick="if (window.openPage) {openPage(evt,'用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="用电耗能_分区用电.svg" >
+<g height="89" id="Group10" width="321" x="20" y="357" >
+<image height="89" id="Group10_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group10_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159"  y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group10_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group11_link_elem" onclick="if (window.openPage) {openPage(evt,'用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="用水耗能_分区用水.svg" >
+<g height="89" id="Group11" width="321" x="20" y="461" >
+<image height="89" id="Group11_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group11_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163"  y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group11_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group12_link_elem" onclick="if (window.openPage) {openPage(evt,'燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="燃气耗能_燃气系统.svg" >
+<g height="89" id="Group12" width="321" x="20" y="565" >
+<image height="89" id="Group12_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group12_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157"  y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group12_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group13_link_elem" onclick="if (window.openPage) {openPage(evt,'供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="供热耗能_供热系统.svg" >
+<g height="89" id="Group13" width="321" x="20" y="669" >
+<image height="89" id="Group13_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group13_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group13_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group14_link_elem" onclick="if (window.openPage) {openPage(evt,'供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="供冷耗能_冷水系统.svg" >
+<g height="89" id="Group14" width="321" x="20" y="773" >
+<image height="89" id="Group14_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group14_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group14_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group15_link_elem" onclick="if (window.openPage) {openPage(evt,'其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group15" width="321" x="20" y="878" >
+<image height="89" id="Group15_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group15_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135"  y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group15_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group16_link_elem" onclick="if (window.openPage) {openPage(evt,'建筑总耗能.svg','_self', '');}" target="_self" xlink:href="建筑总耗能.svg" >
+<g height="89" id="Group16" width="321" x="20" y="253" >
+<image height="89" id="Group16_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group16_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149"  y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group16_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+</svg>

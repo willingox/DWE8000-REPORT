@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="燃气耗能_燃气系统" vdfPath="D:/ics8000/cbin/xview/pages/燃气耗能_燃气系统.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#b8b8b8" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#b8b8b8#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#7b7b7b" />
+<stop offset="0.5" stop-color="#ffffff" />
+<stop offset="1" stop-color="#7b7b7b" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ffff7f" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ffff7f#MToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#7f7f3f" />
+<stop offset="0.5" stop-color="#ffff7f" />
+<stop offset="1" stop-color="#7f7f3f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#5555ff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#5555ff#UToD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#d5d5ff" />
+<stop offset="1" stop-color="#3838aa" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ffff7f" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ffff7f#MToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#7f7f3f" />
+<stop offset="0.5" stop-color="#ffff7f" />
+<stop offset="1" stop-color="#7f7f3f" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<rect fill="url(#lineargradient#b8b8b8#MToUD)" height="50" id="Rect29" stroke="#d4d4d4" stroke-width="1" width="170" x="542" y="70" />
+<g height="50" id="innertext_Rect29" width="170" x="542" y="70" >
+<text fill="#000000" font-family="SimHei" font-size="19" font-weight="bold" x="585"  y="97" >燃气系统</text>
+</g>
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect83" stroke="#00557f" stroke-width="1" width="170" x="372" y="70" />
+<g height="50" id="innertext_Rect83" width="170" x="372" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="415"  y="97" >分区燃气</text>
+</g>
+<polyline fill="none" id="Foldline24" points=" 347,354 1811,354 1811,697 1811,478" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<line id="Line12" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" x1="351" x2="787" y1="702" y2="702" />
+<line id="Line13" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" x1="351" x2="786" y1="811" y2="811" />
+<line id="Line14" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" x1="351" x2="786" y1="921" y2="921" />
+<line id="Line15" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" x1="833" x2="1277" y1="745" y2="745" />
+<line id="Line16" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" x1="805" x2="1271" y1="866" y2="866" />
+<polyline fill="none" id="Foldline25" points=" 1819,172 959,172 959,601" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<polyline fill="none" id="Foldline26" points=" 846,525 846,602 956,602" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<polyline fill="none" id="Foldline27" points=" 850,353 850,430 960,430" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<polyline fill="none" id="Foldline28" points=" 1174,172 1174,929 1097,929 1097,868 1097,866" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<polyline fill="none" id="Foldline29" points=" 1095,756 1095,791 1172,791" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<polyline fill="none" id="Foldline30" points=" 669,623 669,962 1836,962" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline31" points=" 669,845 612,845 612,921 613,921" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline32" points=" 568,262 568,1003 1842,1003 1842,1003" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline33" points=" 568,262 524,262 524,351" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline34" points=" 569,441 524,441 524,519" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline35" points=" 566,576 470,576 470,260 422,260 422,351" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline36" points=" 1310,446 1760,446 1760,695" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" />
+<polyline fill="none" id="Foldline37" points=" 1566,245 1528,245 1528,351" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline38" points=" 1566,381 1529,381 1529,443" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline39" points=" 1708,378 1664,378 1664,442" stroke="#0000ff" stroke-width="2" />
+<g height="37" id="Text15" width="78" x="371" y="371" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="371"  y="391" >项目1</text>
+</g>
+<g height="37" id="Text16" width="78" x="371" y="542" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="371"  y="562" >项目2</text>
+</g>
+<g height="37" id="Text17" width="78" x="371" y="720" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="371"  y="740" >项目3</text>
+</g>
+<g height="37" id="Text18" width="78" x="371" y="832" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="371"  y="852" >项目4</text>
+</g>
+<g height="37" id="Text19" width="78" x="371" y="929" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="371"  y="949" >项目5</text>
+</g>
+<rect fill="url(#lineargradient#ffff7f#MToLR)" height="686" id="RoundRect8" rx="16" ry="16" stroke="#000000" stroke-width="1" width="80" x="1290" y="256" />
+<g height="686" id="innertext_RoundRect8" width="80" x="1290" y="256" >
+<text fill="#000000" font-family="SimSun" font-size="26" x="1299"  y="606" >汇一</text>
+</g>
+<image height="74" id="Image15" width="48" x="1423" xlink:href="../image/gjsws/水阀.jpg" y="307" />
+<image height="74" id="Image16" width="48" x="1423" xlink:href="../image/gjsws/水阀.jpg" y="403" />
+<image height="74" id="Image17" width="48" x="636" xlink:href="../image/gjsws/水阀.jpg" y="311" />
+<image height="74" id="Image18" width="48" x="634" xlink:href="../image/gjsws/水阀.jpg" y="477" />
+<image height="74" id="Image19" width="48" x="871" xlink:href="../image/gjsws/水阀.jpg" y="812" />
+<image height="74" id="Image20" width="48" x="687" xlink:href="../image/gjsws/水阀.jpg" y="765" />
+<image height="74" id="Image21" width="48" x="689" xlink:href="../image/gjsws/水阀.jpg" y="872" />
+<g height="37" id="Text20" width="78" x="1711" y="722" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1711"  y="742" >项目6</text>
+</g>
+<g height="37" id="Text21" width="78" x="1787" y="719" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1787"  y="739" >项目7</text>
+</g>
+<rect fill="#ffff7f" height="74" id="RoundRect9" rx="16" ry="16" stroke="#000000" stroke-width="1" width="40" x="827" y="311" />
+<polyline fill="none" id="Foldline40" points=" 424,521 424,439 470,439" stroke="#0000ff" stroke-width="2" />
+<rect fill="url(#lineargradient#5555ff#UToD)" height="87" id="Rect87" stroke="#000000" stroke-width="1" width="240" x="1345" y="129" />
+<g height="87" id="innertext_Rect87" width="240" x="1345" y="129" >
+<text fill="#000000" font-family="SimSun" font-size="28" x="1415"  y="181" >排污池</text>
+</g>
+<rect fill="#00007f" height="80" id="Rect88" stroke="#000000" stroke-width="1" width="33" x="1002" y="312" />
+<rect fill="#00007f" height="80" id="Rect89" stroke="#000000" stroke-width="1" width="33" x="1008" y="480" />
+<line id="Line18" stroke="#000000" stroke-width="1" x1="1020" x2="1020" y1="314" y2="272" />
+<polyline fill="none" id="Foldline41" points=" 983,236 983,271 1063,271 1063,238 1067,238" stroke="#000000" stroke-width="1" />
+<ellipse cx="983" cy="229" fill="#ff0000" id="Ellipse3" rx="13" ry="12" stroke="#000000" stroke-width="1" />
+<ellipse cx="1065" cy="228" fill="#ff0000" id="Ellipse4" rx="13" ry="12" stroke="#000000" stroke-width="1" />
+<polyline fill="none" id="Foldline42" points=" 669,622 612,622 612,701 613,701" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline43" points=" 669,736 612,736 612,811 616,811" stroke="#0000ff" stroke-width="2" />
+<line id="Line19" stroke="#0000ff" stroke-width="2" x1="1572" x2="1566" y1="999" y2="248" />
+<polyline fill="none" id="Foldline44" points=" 1284,641 1125,641 1125,264 1087,264 1087,352 1088,352" stroke="#0000ff" stroke-width="2" />
+<polyline fill="none" id="Foldline45" points=" 1125,434 1087,434 1087,519" stroke="#0000ff" stroke-width="2" />
+<rect fill="url(#lineargradient#ffff7f#MToLR)" height="336" id="RoundRect13" rx="16" ry="16" stroke="#000000" stroke-width="1" width="75" x="744" y="622" />
+<g height="336" id="innertext_RoundRect13" width="75" x="744" y="622" >
+<text fill="#000000" font-family="SimSun" font-size="22" x="756"  y="796" >汇二</text>
+</g>
+<polyline fill="none" id="Foldline46" points=" 1570,550 1708,550 1708,251 1663,251 1663,351" stroke="#0000ff" stroke-width="2" />
+<polygon fill="#ff0000" id="Polygon9" points=" 382,290 364,344 382,329 396,343" stroke="#000000" stroke-width="1" transform="rotate(90 380,317)" />
+<polygon fill="#ff0000" id="Polygon10" points=" 383,465 365,519 383,504 397,518" stroke="#000000" stroke-width="1" transform="rotate(90 381,492)" />
+<polygon fill="#ff0000" id="Polygon11" points=" 387,636 369,690 387,675 401,689" stroke="#000000" stroke-width="1" transform="rotate(-90 385,663)" />
+<polygon fill="#ff0000" id="Polygon12" points=" 383,748 365,802 383,787 397,801" stroke="#000000" stroke-width="1" transform="rotate(-90 381,775)" />
+<polygon fill="#ff0000" id="Polygon13" points=" 391,861 373,915 391,900 405,914" stroke="#000000" stroke-width="1" transform="rotate(-90 389,888)" />
+<polygon fill="#ff0000" id="Polygon14" points=" 1729,638 1711,692 1729,677 1743,691" stroke="#000000" stroke-width="1" transform="rotate(-180 1727,665)" />
+<polygon fill="#ff0000" id="Polygon15" points=" 1796,639 1778,693 1796,678 1810,692" stroke="#000000" stroke-width="1" transform="rotate(180 1794,666)" />
+<g height="29" id="Text25" width="48" x="966" y="187" >
+<text fill="#000000" font-family="SimSun" font-size="19" x="966"  y="203" >压力</text>
+</g>
+<g height="35" id="Text26" width="60" x="1046" y="188" >
+<text fill="#000000" font-family="SimSun" font-size="19" x="1046"  y="204" >温度</text>
+</g>
+<image height="74" id="Image23" width="48" x="1198" xlink:href="../image/gjsws/水阀.jpg" y="316" />
+<image height="74" id="Image25" width="48" x="1200" xlink:href="../image/gjsws/水阀.jpg" y="690" />
+<image height="74" id="Image26" width="48" x="1199" xlink:href="../image/gjsws/水阀.jpg" y="821" />
+<line id="Line20" stroke="#a6a6a6" stroke-width="4" x1="1373" x2="1471" y1="762" y2="762" />
+<g height="31" id="Group16" width="27" x="1650" y="276" >
+<polygon fill="#707e7f" id="Group16_Polygon2" points=" 1663,294 1652,306 1676,306" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group16_Polygon4" points=" 1661,276 1650,287 1674,287" stroke="#000000" stroke-width="1" transform="rotate(180 1662,282)" />
+<ellipse cx="1662" cy="291" fill="#707e7f" id="Group16_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group17" width="27" x="1517" y="276" >
+<polygon fill="#707e7f" id="Group17_Polygon2" points=" 1530,294 1519,306 1543,306" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group17_Polygon4" points=" 1528,276 1517,287 1541,287" stroke="#000000" stroke-width="1" transform="rotate(180 1529,282)" />
+<ellipse cx="1529" cy="291" fill="#707e7f" id="Group17_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group18" width="27" x="1517" y="396" >
+<polygon fill="#707e7f" id="Group18_Polygon2" points=" 1530,414 1519,426 1543,426" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group18_Polygon4" points=" 1528,396 1517,407 1541,407" stroke="#000000" stroke-width="1" transform="rotate(180 1529,402)" />
+<ellipse cx="1529" cy="411" fill="#707e7f" id="Group18_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group19" width="27" x="1651" y="396" >
+<polygon fill="#707e7f" id="Group19_Polygon2" points=" 1664,414 1653,426 1677,426" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group19_Polygon4" points=" 1662,396 1651,407 1675,407" stroke="#000000" stroke-width="1" transform="rotate(180 1663,402)" />
+<ellipse cx="1663" cy="411" fill="#707e7f" id="Group19_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group20" width="27" x="1391" y="746" >
+<polygon fill="#707e7f" id="Group20_Polygon2" points=" 1404,764 1393,776 1417,776" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group20_Polygon4" points=" 1402,746 1391,757 1415,757" stroke="#000000" stroke-width="1" transform="rotate(180 1403,752)" />
+<ellipse cx="1403" cy="761" fill="#707e7f" id="Group20_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group21" width="27" x="1075" y="447" >
+<polygon fill="#707e7f" id="Group21_Polygon2" points=" 1088,465 1077,477 1101,477" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group21_Polygon4" points=" 1086,447 1075,458 1099,458" stroke="#000000" stroke-width="1" transform="rotate(180 1087,453)" />
+<ellipse cx="1087" cy="462" fill="#707e7f" id="Group21_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group22" width="27" x="1076" y="277" >
+<polygon fill="#707e7f" id="Group22_Polygon2" points=" 1089,295 1078,307 1102,307" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group22_Polygon4" points=" 1087,277 1076,288 1100,288" stroke="#000000" stroke-width="1" transform="rotate(180 1088,283)" />
+<ellipse cx="1088" cy="292" fill="#707e7f" id="Group22_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group23" width="27" x="600" y="643" >
+<polygon fill="#707e7f" id="Group23_Polygon2" points=" 613,661 602,673 626,673" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group23_Polygon4" points=" 611,643 600,654 624,654" stroke="#000000" stroke-width="1" transform="rotate(180 612,649)" />
+<ellipse cx="612" cy="658" fill="#707e7f" id="Group23_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group24" width="27" x="600" y="760" >
+<polygon fill="#707e7f" id="Group24_Polygon2" points=" 613,778 602,790 626,790" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group24_Polygon4" points=" 611,760 600,771 624,771" stroke="#000000" stroke-width="1" transform="rotate(180 612,766)" />
+<ellipse cx="612" cy="775" fill="#707e7f" id="Group24_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group25" width="27" x="599" y="858" >
+<polygon fill="#707e7f" id="Group25_Polygon2" points=" 612,876 601,888 625,888" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group25_Polygon4" points=" 610,858 599,869 623,869" stroke="#000000" stroke-width="1" transform="rotate(180 611,864)" />
+<ellipse cx="611" cy="873" fill="#707e7f" id="Group25_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group26" width="27" x="511" y="452" >
+<polygon fill="#707e7f" id="Group26_Polygon2" points=" 524,470 513,482 537,482" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group26_Polygon4" points=" 522,452 511,463 535,463" stroke="#000000" stroke-width="1" transform="rotate(180 523,458)" />
+<ellipse cx="523" cy="467" fill="#707e7f" id="Group26_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group27" width="27" x="412" y="449" >
+<polygon fill="#707e7f" id="Group27_Polygon2" points=" 425,467 414,479 438,479" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group27_Polygon4" points=" 423,449 412,460 436,460" stroke="#000000" stroke-width="1" transform="rotate(180 424,455)" />
+<ellipse cx="424" cy="464" fill="#707e7f" id="Group27_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group28" width="27" x="409" y="282" >
+<polygon fill="#707e7f" id="Group28_Polygon2" points=" 422,300 411,312 435,312" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group28_Polygon4" points=" 420,282 409,293 433,293" stroke="#000000" stroke-width="1" transform="rotate(180 421,288)" />
+<ellipse cx="421" cy="297" fill="#707e7f" id="Group28_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Group29" width="27" x="512" y="281" >
+<polygon fill="#707e7f" id="Group29_Polygon2" points=" 525,299 514,311 538,311" stroke="#000000" stroke-width="1" />
+<polygon fill="#707e7f" id="Group29_Polygon4" points=" 523,281 512,292 536,292" stroke="#000000" stroke-width="1" transform="rotate(180 524,287)" />
+<ellipse cx="524" cy="296" fill="#707e7f" id="Group29_Ellipse1" rx="6" ry="9" stroke="#000000" stroke-width="1" />
+</g>
+<g height="31" id="Text27" width="42" x="828" y="269" >
+<text fill="#000000" font-family="SimSun" font-size="19" x="828"  y="285" >滤1</text>
+</g>
+<g height="31" id="Text28" width="42" x="835" y="446" >
+<text fill="#000000" font-family="SimSun" font-size="19" x="835"  y="462" >滤2</text>
+</g>
+<g height="31" id="Text29" width="42" x="1082" y="660" >
+<text fill="#000000" font-family="SimSun" font-size="19" x="1082"  y="676" >滤3</text>
+</g>
+<rect fill="#ffff7f" height="74" id="RoundRect15" rx="16" ry="16" stroke="#000000" stroke-width="1" width="40" x="830" y="479" />
+<rect fill="#ffff7f" height="74" id="RoundRect16" rx="16" ry="16" stroke="#000000" stroke-width="1" width="40" x="1080" y="699" />
+<rect fill="#ffff7f" height="74" id="RoundRect17" rx="16" ry="16" stroke="#000000" stroke-width="1" width="40" x="1081" y="828" />
+<g height="31" id="Text30" width="42" x="1082" y="798" >
+<text fill="#000000" font-family="SimSun" font-size="19" x="1082"  y="814" >滤4</text>
+</g>
+<line id="Line21" stroke="#000000" stroke-width="1" x1="1349" x2="1585" y1="194" y2="194" />
+<g height="37" id="Text31" width="91" x="1727" y="127" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1727"  y="147" >放空管</text>
+</g>
+<g height="37" id="Text32" width="145" x="1670" y="923" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1670"  y="943" >进站放空管</text>
+</g>
+<g height="37" id="Text33" width="145" x="1667" y="969" >
+<text fill="#000000" font-family="SimSun" font-size="23" x="1667"  y="989" >出站放空管</text>
+</g>
+<line id="Line22" stroke="#000000" stroke-width="1" x1="741" x2="820" y1="654" y2="654" />
+<line id="Line23" stroke="#000000" stroke-width="1" x1="742" x2="821" y1="922" y2="922" />
+<line id="Line24" stroke="#000000" stroke-width="1" x1="1259" x2="1346" y1="289" y2="289" />
+<line id="Line25" stroke="#000000" stroke-width="1" x1="1262" x2="1349" y1="886" y2="886" />
+<line id="Line26" stroke="#000000" stroke-width="1" x1="1347" x2="1583" y1="206" y2="206" />
+<line id="Line17" stroke="#aa0000" stroke-dasharray="15,3" stroke-width="3" x1="345" x2="1288" y1="521" y2="521" />
+<image height="74" id="Image24" width="48" x="1200" xlink:href="../image/gjsws/水阀.jpg" y="470" />
+<image height="2" id="Image28" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image29" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image30" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group30_link_elem" onclick="if (window.openPage) {openPage(evt,'用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="用电耗能_分区用电.svg" >
+<g height="89" id="Group30" width="321" x="20" y="357" >
+<image height="89" id="Group30_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group30_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159"  y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group30_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group31_link_elem" onclick="if (window.openPage) {openPage(evt,'用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="用水耗能_分区用水.svg" >
+<g height="89" id="Group31" width="321" x="20" y="461" >
+<image height="89" id="Group31_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group31_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163"  y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group31_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group32_link_elem" onclick="if (window.openPage) {openPage(evt,'燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="燃气耗能_燃气系统.svg" >
+<g height="89" id="Group32" width="321" x="20" y="565" >
+<image height="89" id="Group32_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group32_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157"  y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group32_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group33_link_elem" onclick="if (window.openPage) {openPage(evt,'供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="供热耗能_供热系统.svg" >
+<g height="89" id="Group33" width="321" x="20" y="669" >
+<image height="89" id="Group33_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group33_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group33_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group34_link_elem" onclick="if (window.openPage) {openPage(evt,'供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="供冷耗能_冷水系统.svg" >
+<g height="89" id="Group34" width="321" x="20" y="773" >
+<image height="89" id="Group34_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group34_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group34_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group35_link_elem" onclick="if (window.openPage) {openPage(evt,'其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group35" width="321" x="20" y="878" >
+<image height="89" id="Group35_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group35_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135"  y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group35_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group36_link_elem" onclick="if (window.openPage) {openPage(evt,'建筑总耗能.svg','_self', '');}" target="_self" xlink:href="建筑总耗能.svg" >
+<g height="89" id="Group36" width="321" x="20" y="253" >
+<image height="89" id="Group36_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group36_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149"  y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group36_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+</svg>

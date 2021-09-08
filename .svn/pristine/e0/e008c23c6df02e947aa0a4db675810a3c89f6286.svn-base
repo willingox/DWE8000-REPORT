@@ -1,0 +1,756 @@
+/** 折叠式菜单样式表 */
+
+body{
+	scrollbar-face-color: #EFFAF7;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #dee3e7;
+	scrollbar-3dlight-color: #9CC2C4;
+	scrollbar-arrow-color: #236D5E;
+	scrollbar-track-color: #efefef;
+	scrollbar-darkshadow-color : #98AAB1;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+}
+
+.panel {
+	MARGIN: 0px;
+	COLOR: #000000;
+	BACKGROUND: #236D5E;
+}
+
+.uldiv {
+	OVERFLOW: hidden;
+	HEIGHT: 100%;
+	BACKGROUND: #045141;	
+}
+
+A:link {
+	COLOR: #000000; 
+	TEXT-DECORATION: none;
+}
+
+A:visited {
+	COLOR: #000000; 
+	TEXT-DECORATION: none;
+}
+
+A:active {
+	COLOR: #3333ff; 
+	TEXT-DECORATION: none;
+}
+
+A:hover {
+	COLOR: #ff0000; 
+	TEXT-DECORATION: none;
+}
+
+UL {
+	MARGIN: 0px; 
+	PADDING-TOP: 0px; 
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 0px; 
+	LIST-STYLE-TYPE: none;
+	HEIGHT: 100%;
+}
+
+IMG {
+	BORDER-TOP: 0px; 
+	BORDER-RIGHT: 0px; 
+	BORDER-BOTTOM: 0px; 
+	BORDER-LEFT: 0px; 
+	WIDTH: 16px; 
+	HEIGHT: 16px;;
+}
+
+#menuDiv {
+	PADDING-TOP: 0px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 0px; 
+	BORDER-LEFT: #236D5E 1px solid; 
+	BORDER-RIGHT: #236D5E 1px solid; 
+	WIDTH: 221px; 
+	HEIGHT: 100%;
+	BACKGROUND: #EFFAF7;
+}
+
+.U1 {
+	BACKGROUND: #EFFAF7; 
+}
+
+.L1{
+	HEIGHT: 38px; 
+	WIDTH: 100%;
+}
+
+.L1 A:link {
+	MARGIN: 0;
+	DISPLAY: block;
+	font-size:15px; 
+	TEXT-DECORATION: none;
+	filter: glow(color=#115B4C,strength=1);
+	HEIGHT: 100%; 
+	WIDTH: 100%;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A:visited {
+	MARGIN: 0;
+	DISPLAY: block; 
+	font-size:15px;
+	TEXT-DECORATION: none;
+	filter: glow(color=#115B4C,strength=1);
+	HEIGHT: 100%; 
+	WIDTH: 100%;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A:link SPAN {
+	PADDING-TOP: 7px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 16px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	HEIGHT: 100%;
+	margin-top:2px;
+	font-size:15px;
+	FONT-WEIGHT: bold;
+	BACKGROUND: url(../images/foldMenu/top_expand.gif) no-repeat left 50%; 
+}
+
+.L1 A:visited SPAN {
+	PADDING-TOP: 7px; 
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 16px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	HEIGHT: 100%;
+	margin-top:2px;
+	font-size:15px;
+	FONT-WEIGHT: bold;
+	BACKGROUND: url(../images/foldMenu/top_expand.gif) no-repeat left 50%;
+}
+
+
+.L1 A:hover {
+	MARGIN: 0;
+	COLOR: #CCFAF0;
+	filter: glow(color=#115B4C,strength=1);
+	WIDTH: 100%;
+	HEIGHT: 100%;
+	FONT-WEIGHT: bold;  
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A.active:link {
+	MARGIN: 0;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A.active:hover {
+	MARGIN: 0;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A.active:active {
+	MARGIN: 0;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A.active:visited {
+	MARGIN: 0;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px 0px;
+}
+
+.L1 A.active:link SPAN {
+	COLOR: #CCFAF0;
+	filter: glow(color=#115B4C,strength=1);
+	FONT-WEIGHT: bold; 
+	BACKGROUND: url(../images/foldMenu/top_shrink.gif) no-repeat left 50%; 
+}
+
+.L1 A.active:hover SPAN {
+	COLOR: #CCFAF0;
+	filter: glow(color=#115B4C,strength=1);
+	WIDTH: 100%;
+	HEIGHT: 100%;
+	FONT-WEIGHT: bold; 
+	BACKGROUND: url(../images/foldMenu/top_shrink.gif) no-repeat left 50%; 
+}
+
+.L1 A.active:active SPAN {
+	COLOR: #CCFAF0;
+	filter: glow(color=#115B4C,strength=1);
+	WIDTH: 100%;
+	HEIGHT: 100%;
+	FONT-WEIGHT: bold; 
+	BACKGROUND: url(../images/foldMenu/top_shrink.gif) no-repeat left 50%; 
+}
+
+.L1 A.active:visited SPAN {
+	COLOR: #CCFAF0;
+	filter: glow(color=#115B4C,strength=1);
+	WIDTH: 100%;
+	HEIGHT: 100%;
+	FONT-WEIGHT: bold; 
+	BACKGROUND: url(../images/foldMenu/top_shrink.gif) no-repeat left 50%; 
+}
+
+
+
+.L22 A:link {
+	DISPLAY: block; 
+	PADDING-LEFT: 15px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A:visited {
+	DISPLAY: block; 
+	PADDING-LEFT: 15px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+
+.L32 A:link {
+	DISPLAY: block; 
+	PADDING-LEFT: 18px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A:visited {
+	DISPLAY: block; 
+	PADDING-LEFT: 18px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A:link {
+	DISPLAY: block; 
+	PADDING-LEFT: 18px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A:visited {
+	DISPLAY: block; 
+	PADDING-LEFT: 18px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A:link {
+	DISPLAY: block; 
+	PADDING-LEFT: 15px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A:visited {
+	DISPLAY: block; 
+	PADDING-LEFT: 15px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A:link SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 16px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: url(../images/foldMenu/expand.gif) no-repeat left center; 
+}
+
+.L21 A:visited SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px;
+	PADDING-LEFT: 16px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: url(../images/foldMenu/expand.gif) no-repeat left center; 
+}
+
+
+
+.L22 A:link SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 16px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L22 A:visited SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 16px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L31 A:link {
+	DISPLAY: block; 
+	PADDING-LEFT: 18px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L31 A:visited {
+	DISPLAY: block; 
+	PADDING-LEFT: 18px; 
+	FONT-SIZE: 9pt; 
+	TEXT-DECORATION: none;
+	COLOR: #444659; 
+	HEIGHT: 24px; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L31 A:link SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 28px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%;
+	BACKGROUND: url(../images/foldMenu/expand.gif) no-repeat 8% 50%; 
+}
+
+.L31 A:visited SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 28px; 
+	VERTICAL-ALIGN: middle;
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: url(../images/foldMenu/expand.gif) no-repeat 8% 50%; 
+}
+
+.L32 A:link SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 28px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L32 A:visited SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 28px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L4 A:link SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 38px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L4 A:visited SPAN {
+	PADDING-TOP: 5px;
+	PADDING-RIGHT: 0px; 
+	PADDING-BOTTOM: 0px; 
+	PADDING-LEFT: 38px; 
+	VERTICAL-ALIGN: middle; 
+	CURSOR: hand; 
+	WIDTH: 100%; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L21 A:link SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A:visited SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A:link SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A:visited SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L31 A:link SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L31 A:visited SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A:link SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A:visited SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A:link SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A:visited SPAN FONT{
+	FONT-SIZE: 9pt;
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A:hover {
+	FONT-WEIGHT: normal; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A:hover {
+	FONT-WEIGHT: bold; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L31 A:hover {
+	FONT-WEIGHT: normal; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A:hover {
+	FONT-WEIGHT: bold; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A:hover {
+	FONT-WEIGHT: bold; 
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A.active:link {
+	FONT-WEIGHT: normal; 
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A.active:hover {
+	FONT-WEIGHT: normal; 
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A.active:active {
+	FONT-WEIGHT: normal; 
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A.active:visited {
+	FONT-WEIGHT: normal; 
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+	BACKGROUND: #EFFAF7;
+}
+
+.L21 A.active:link SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat left center; 
+}
+
+.L21 A.active:hover SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat left center; 
+}
+
+.L21 A.active:active SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat left center; 
+}
+
+.L21 A.active:visited SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat left center; 
+}
+
+.L22 A.active:link {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A.active:hover {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A.active:active {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A.active:visited {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+	BACKGROUND: #EFFAF7;
+}
+
+.L31 A.active:link SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat 8% 50%; 
+}
+
+.L31 A.active:hover SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat 8% 50%;
+}
+
+.L31 A.active:active SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat 8% 50%; 
+}
+
+.L31 A.active:visited SPAN {
+	FONT-WEIGHT: normal; 
+	COLOR: #000000;
+	BACKGROUND: url(../images/foldMenu/shrink.gif) no-repeat 8% 50%;
+}
+
+.L32 A.active:link {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A.active:hover {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A.active:active {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: #EFFAF7;
+}
+
+.L32 A.active:visited {
+	FONT-WEIGHT: bold; 
+	COLOR: #000000;
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A.active:link {
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A.active:hover {
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A.active:active {
+	BACKGROUND: #EFFAF7;
+}
+
+.L4 A.active:visited {
+	BACKGROUND: #EFFAF7;
+}
+
+.L22 A.active:link SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L22 A.active:hover SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L22 A.active:active SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L22 A.active:visited SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L32 A.active:link SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L32 A.active:hover SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L32 A.active:active SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L32 A.active:visited SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+}
+
+.L4 A.active:link SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L4 A.active:hover SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L4 A.active:active SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L4 A.active:visited SPAN {
+	FONT-WEIGHT: bold; 
+	COLOR: #fff;
+	BACKGROUND: none transparent scroll repeat 0% 0%; 
+}
+
+.L22 A.active:link SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L22 A.active:hover SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L22 A.active:active SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L22 A.active:visited SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L32 A.active:link SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L32 A.active:hover SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L32 A.active:active SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L32 A.active:visited SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L4 A.active:link SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L4 A.active:hover SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L4 A.active:active SPAN FONT {
+	BACKGROUND: #000080;
+}
+
+.L4 A.active:visited SPAN FONT {
+	BACKGROUND: #000080;
+}

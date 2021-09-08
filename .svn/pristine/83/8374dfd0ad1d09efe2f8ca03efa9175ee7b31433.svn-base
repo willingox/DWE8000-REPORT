@@ -1,0 +1,215 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IGeneratorStatisticsMonReportDao;
+import com.xjgc.wind.datastatistics.dao.impl.GeneratorStatisticsDayReportDaoImpl.WindDataRowMapper;
+import com.xjgc.wind.datastatistics.vo.GeneratorStatisticsReportVo;
+
+public class GeneratorStatisticsMonReportDaoImpl extends JdbcDaoSupport implements IGeneratorStatisticsMonReportDao{
+
+	
+	public List<GeneratorStatisticsReportVo> list(String date) {
+		
+		
+		Date getDate=null;
+		Calendar calendar=Calendar.getInstance();
+		try {
+			getDate=new SimpleDateFormat("yyyy-MM").parse(date);
+			calendar.setTime(getDate);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		int year=calendar.get(Calendar.YEAR);//年份
+		
+		String tablename1 = "hiswgmeasinfo_" + year;
+		String tablename2 = "hiswgstinfo_" + year;
+		
+		String sql="";
+		if(isDBMysql()){
+			
+			sql+=" select ";
+			sql+=" b.name as name, "; //name
+			sql+=" stinfo.ID as id, "; //id 
+			sql+=" max(measinfo.windspeed) as max_windspeed, "; //风速
+			sql+=" avg(measinfo.windspeed) as avg_windspeed, "; //风速
+			sql+=" min(measinfo.windspeed) as min_windspeed, "; //风速 
+			sql+=" max(measinfo.ActPowGri) as max_P, "; //有功
+			sql+=" avg(measinfo.ActPowGri) as avg_P, "; //有功
+			sql+=" min(measinfo.ActPowGri) as min_P, ";  //有功
+			sql+=" max(measinfo.RctPowGri) as max_Q, "; //无功
+			sql+=" avg(measinfo.RctPowGri) as avg_Q, "; //无功
+			sql+=" min(measinfo.RctPowGri) as min_Q, "; //无功
+			sql+=" max(measinfo.OutsideTemp) as max_Temp, "; //环境温度
+			sql+=" avg(measinfo.OutsideTemp) as avg_Temp, "; //环境温度
+			sql+=" min(measinfo.OutsideTemp) as min_Temp, "; //环境温度
+			
+			
+			sql+=" max(stinfo.YawMotorLftHour)-min(stinfo.YawMotorLftHour) as LftHour, ";//左偏航总时间
+			sql+=" max(stinfo.YawMotorRtghHour)-min(stinfo.YawMotorRtghHour) as RtghHour, ";//右偏航总时间
+			sql+=" (max(stinfo.YawMotorLftHour)-min(stinfo.YawMotorLftHour))+ (max(stinfo.YawMotorRtghHour)-min(stinfo.YawMotorRtghHour)) as YawHour, "; //偏航总时间
+			sql+=" max(stinfo.YawMotorCWCou)-min(stinfo.YawMotorCWCou) as LftYawMotorCWCou, "; //左偏航总次数
+			sql+=" max(stinfo.YawMotorCCWCou)-min(stinfo.YawMotorCCWCou) as RtghYawMotorCCWCou, "; //右偏航总次数
+			sql+=" (max(stinfo.YawMotorCWCou)-min(stinfo.YawMotorCWCou))+(max(stinfo.YawMotorCCWCou)-min(stinfo.YawMotorCCWCou)) as YawCWCou, "; //偏航总次数
+			
+			//sql+=" stinfo.ActPowDaySum as daygenwh, "; //日发电量
+			sql+=" max(stinfo.ActPowMonthSum) as monthgenwh, "; //月发电量
+			//sql+=" max(stinfo.ActPowYearSum) as yeargenwh, "; //年发电量
+			sql+=" max(stinfo.WinTurStCovCont)-min(stinfo.WinTurStCovCont) as WinTurStCovCont, "; //停机总次数
+			sql+=" max(stinfo.SerModTimes)-min(stinfo.SerModTimes) as SerModTimes, "; //维护次数
+			sql+=" max(stinfo.WinTurErrCovCont)-min(stinfo.WinTurErrCovCont) as WinTurErrCovCont, "; //故障停机次数
+			sql+=" max(stinfo.ConvMaiSwitchCou)-min(stinfo.ConvMaiSwitchCou) as ConvMaiSwitchCou, "; //并网次数
+			sql+=" max(stinfo.WinHigErrTimes)-min(stinfo.WinHigErrTimes) as WinHigErrTimes, ";  //大风停机次数
+			sql+=" max(stinfo.WinTurCatInCont)-min(stinfo.WinTurCatInCont) as WinTurCatInCont, "; //切入次数
+			sql+=" max(stinfo.WinTurArtStpCont)-min(stinfo.WinTurArtStpCont) as WinTurArtStpCont , "; //人工停机次数
+			
+			sql+=" max(stinfo.CurMonAvlbltRat) as MonAvlbltRat, "; //月可利用率
+			//sql+=" max(stinfo.CurYeaAvlbltRat) as YeaAvlbltRat, "; //年可利用率
+			sql+=" max(stinfo.CurMonAvlbltHour) as MonAvlbltHour, ";//月可利用小时
+			sql+=" max(stinfo.CurMonNormTim) as MonNormTim, "; //月运行小时
+			sql+=" max(stinfo.CurMonRunTim) as MonRunTim, "; //月发电小时数
+			sql+=" max(stinfo.CurMonStopTim) as MonStopTim, "; //月停机小时数
+			sql+=" max(stinfo.CurMonErrEmeTim) as MonErrEmeTim, ";//月故障小时数
+			sql+=" max(stinfo.CurMonSerTim) as MonSerTim, "; //月维护小时数
+			sql+=" max(stinfo.CurMonGridErrTim) as MonGridErrTim "; //电网月故障时间
+
+			sql+=" FROM "+tablename1+" measinfo,"+tablename2+" stinfo,bay b  ";
+			sql+=" WHERE measinfo.ID = stinfo.ID and b.id=stinfo.ID ";
+			sql+=" and DATE_FORMAT(measinfo.savetime,'%Y-%m' )='"+date+"' ";
+			sql+=" and DATE_FORMAT(stinfo.savetime,'%Y-%m' )='"+date+"' ";
+			sql+=" GROUP BY stinfo.ID ";
+				
+		}else{
+			
+		}
+		
+		return getJdbcTemplate().query(sql, new DataRowMapper());
+	}
+	
+	//有效风时数
+	public List<GeneratorStatisticsReportVo> listWind(String date) {
+		
+		Date getDate=null;
+		Calendar calendar=Calendar.getInstance();
+		try {
+			getDate=new SimpleDateFormat("yyyy-MM").parse(date);
+			calendar.setTime(getDate);
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		int year=calendar.get(Calendar.YEAR);//年份
+		
+		String tablename = "hiswgimptinfo_" + year;
+		/*String sql="";
+		if(isDBMysql()){
+			
+			String sqlwind =" select b.id as id,min(g.weatherval) as minWeatherval,  max(g.weatherval) as maxWeatherval  from   genpwd g ,bay b,equipment e,generator ge where g.genpwd>0 and e.bayid=b.id and ge.genmodelid=g.genmodelid and e.id=ge.id  group by b.id order by b.id ";
+			List rows= getJdbcTemplate().queryForList(sqlwind);
+			for(int i=0;i<rows.size();i++){
+				Map windrows=(Map) rows.get(i);
+				sql +="select count(id)/60 as hours , id from " +tablename;
+				sql +=" where id="+windrows.get("id")+" and WindSpeed>="+windrows.get("minWeatherval")+" and WindSpeed<="+windrows.get("maxWeatherval")+"  and DATE_FORMAT(savetime,'%Y-%m' ) = '"+date+"'  group by id ";
+			if(i<rows.size()-1){
+				sql +=" union ";
+			}
+			
+			}
+			
+		}*/
+		String sql="";
+		if(isDBMysql()){
+			
+			sql +="select count(id)/60 as hours , id from " +tablename;
+				sql +=" where  WindSpeed>=3 and WindSpeed<=20  and DATE_FORMAT(savetime,'%Y-%m' ) = '"+date+"'  group by id ";
+		
+			
+		}
+		else{
+			
+		}
+		return getJdbcTemplate().query(sql, new WindDataRowMapper());
+	}
+	class WindDataRowMapper implements RowMapper {
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			GeneratorStatisticsReportVo object = new GeneratorStatisticsReportVo();
+			
+			object.setHours(rs.getDouble("hours"));
+			object.setId(rs.getInt("id"));
+			
+
+			return object;
+		}
+	}
+	class DataRowMapper implements RowMapper {
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			GeneratorStatisticsReportVo object = new GeneratorStatisticsReportVo();
+			object.setName(rs.getString("name"));
+			object.setId(rs.getInt("id"));
+			
+			object.setMax_windspeed(rs.getDouble("max_windspeed"));
+			object.setAvg_windspeed(rs.getDouble("avg_windspeed"));
+			object.setMin_windspeed(rs.getDouble("min_windspeed"));
+			object.setMax_P(rs.getDouble("max_P"));
+			object.setAvg_P(rs.getDouble("avg_P"));
+			object.setMin_P(rs.getDouble("min_P"));
+			object.setMax_Q(rs.getDouble("max_Q"));
+			object.setAvg_Q(rs.getDouble("avg_Q"));
+			object.setMin_Q(rs.getDouble("min_Q"));
+			object.setMax_Temp(rs.getDouble("max_Temp"));
+			object.setAvg_Temp(rs.getDouble("avg_Temp"));
+			object.setMin_Temp(rs.getDouble("min_Temp"));
+			object.setLftHour(rs.getDouble("LftHour"));
+			object.setRtghHour(rs.getDouble("RtghHour"));
+			object.setYawHour(rs.getDouble("YawHour"));
+			object.setLftYawMotorCWCou(rs.getInt("LftYawMotorCWCou"));
+			object.setRtghYawMotorCCWCou(rs.getInt("RtghYawMotorCCWCou"));
+			object.setYawCWCou(rs.getInt("YawCWCou"));
+			object.setMonthgenwh(rs.getDouble("monthgenwh"));
+			object.setWinTurStCovCont(rs.getInt("WinTurStCovCont"));
+			object.setSerModTimes(rs.getInt("SerModTimes"));
+			object.setWinTurErrCovCont(rs.getInt("WinTurErrCovCont"));
+			object.setConvMaiSwitchCou(rs.getInt("ConvMaiSwitchCou"));
+			object.setWinHigErrTimes(rs.getInt("WinHigErrTimes"));
+			object.setWinTurCatInCont(rs.getInt("WinTurCatInCont"));
+			object.setWinTurArtStpCont(rs.getInt("WinTurArtStpCont"));
+			object.setMonAvlbltRat(rs.getInt("MonAvlbltRat"));
+			object.setMonAvlbltHour(rs.getInt("MonAvlbltHour"));
+			object.setMonNormTim(rs.getInt("MonNormTim"));
+			object.setMonRunTim(rs.getInt("MonRunTim"));
+			object.setMonStopTim(rs.getInt("MonStopTim"));
+			object.setMonErrEmeTim(rs.getInt("MonErrEmeTim"));
+			object.setMonSerTim(rs.getInt("MonSerTim"));
+			object.setMonGridErrTim(rs.getInt("MonGridErrTim"));
+			
+
+			return object;
+		}
+	}
+	
+	
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+
+}

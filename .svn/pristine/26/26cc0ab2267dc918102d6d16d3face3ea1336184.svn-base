@@ -1,0 +1,22 @@
+#
+#Thu Jul 23 17:07:29 CST 2015
+genBasicCompId=true
+sessionFactoryName=com.xjgc.pvf.model.HibernateSessionFactory
+profile=
+daoSFId=
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=web/WEB-INF/lib
+addLibs2Project=true
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=/wind/hibernate.reveng.xml
+configFile=/wind/src/hibernate.cfg.xml
+createConfigFile=true
+addLibs2Classpath=true

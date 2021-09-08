@@ -1,0 +1,35 @@
+package com.xjgc.wind.datastatistics.service.impl;
+
+import java.util.List;
+
+import com.xjgc.wind.datastatistics.dao.IWindJiReliabilityContrastDao;
+import com.xjgc.wind.datastatistics.service.IWindJiReliabilityContrastService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindJiReliabilityContrastDataForm;
+
+public class WindJiReliabilityContrastServiceImpl implements IWindJiReliabilityContrastService {
+
+	IWindJiReliabilityContrastDao windJiReliabilityContrastDao;
+
+	public IWindJiReliabilityContrastDao getWindJiReliabilityContrastDao() {
+		return windJiReliabilityContrastDao;
+	}
+	
+	public void setWindJiReliabilityContrastDao(IWindJiReliabilityContrastDao windJiReliabilityContrastDao) {
+		this.windJiReliabilityContrastDao = windJiReliabilityContrastDao;
+	}
+
+	
+	public List<DataStatisticsDataVo> listmap(WindJiReliabilityContrastDataForm queryFilter) {
+		return windJiReliabilityContrastDao.listmap(queryFilter);
+	}
+	public List<DataStatisticsDataVo> listrandefficiency(WindJiReliabilityContrastDataForm queryFilter) {
+		return windJiReliabilityContrastDao.listrandefficiency(queryFilter);
+	}
+	public List<DataStatisticsDataVo> listrandhour(WindJiReliabilityContrastDataForm queryFilter) {
+	return windJiReliabilityContrastDao.listrandhour(queryFilter);
+    }
+	public List<DataStatisticsDataVo> listtable(WindJiReliabilityContrastDataForm queryFilter) {
+		return windJiReliabilityContrastDao.listtable(queryFilter);
+	    }
+}

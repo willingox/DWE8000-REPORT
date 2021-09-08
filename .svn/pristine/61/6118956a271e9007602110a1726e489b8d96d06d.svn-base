@@ -1,0 +1,27 @@
+package com.xjgc.wind.datastatistics.service.impl;
+
+import java.util.List;
+
+import com.xjgc.wind.datastatistics.dao.IWindAvailabilityContrastDao;
+import com.xjgc.wind.datastatistics.service.IWindAvailabilityContrastService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindAvailabilityContrastDataForm;
+
+public class WindAvailabilityContrastServiceImpl implements IWindAvailabilityContrastService {
+
+	IWindAvailabilityContrastDao windAvailabilityContrastDao;
+
+	public IWindAvailabilityContrastDao getWindAvailabilityContrastDao() {
+		return windAvailabilityContrastDao;
+	}
+	
+	public void setWindAvailabilityContrastDao(IWindAvailabilityContrastDao windAvailabilityContrastDao) {
+		this.windAvailabilityContrastDao = windAvailabilityContrastDao;
+	}
+
+	
+	public List<DataStatisticsDataVo> listava(WindAvailabilityContrastDataForm queryFilter) {
+		return windAvailabilityContrastDao.listava(queryFilter);
+	}
+	
+}

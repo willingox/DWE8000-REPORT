@@ -1,0 +1,188 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+
+
+
+import com.xjgc.wind.datastatistics.dao.IWindGenwhDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindGenwhDataForm;
+import com.xjgc.wind.util.YearFormatUtil;
+import com.xjgc.wind.util.YMDHMSUtil;
+
+public class WindGenwhDaoImpl extends JdbcDaoSupport implements IWindGenwhDao{
+	
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+
+
+	public List<DataStatisticsDataVo> list(WindGenwhDataForm queryFilter) {
+		
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	  
+  	  String sql = "";
+  	  if(isDBMysql()==true){
+  	  if(date22.compareTo(date11) == 0)
+  	  {
+  		  String tablename = "hisgenerator_"+date11;
+  		sql = "select g.id as id,g.name as name,(max(h.totalgenwh)-min(h.totalgenwh)) as totalgenwh from "+tablename;
+  		sql +=" h,generator g where h.totalgenwh>0 and g.id = h.id and h.savetime >= '"+date1+"' and h.savetime <= '"+date2+"' group by g.id";
+  	  }
+  	  else if(date22.compareTo(date11) != 0)
+  	  {
+  		
+  		String tablename1 = "hisgenerator_"+date11;
+  		String tablename2 = "hisgenerator_"+date22;
+  		
+  		sql = "select g.id as id,g.name as name,((max(h1.totalgenwh)-min(h1.totalgenwh))+(max(h2.totalgenwh)-min(h2.totalgenwh))) as totalgenwh from "+tablename1;
+  		sql += " h1,"+tablename2+" h2,generator g where h1.totalgenwh>0 and h2.totalgenwh>0 and g.id = h1.id and h1.id = h2.id and h1.savetime >= '"+date1+"' and h2.savetime <= '"+date2+"' group by g.id";
+  	  }
+  	  }
+  	 if(isDBMysql()==false){
+  	  	  if(date22.compareTo(date11) == 0)
+  	  	  {
+  	  		  String tablename = "hisgenerator_"+date11;
+  	  		sql = "select g.id as id,g.name as name,(max(h.totalgenwh)-min(h.totalgenwh)) as totalgenwh from "+tablename;
+  	  		sql +=" h,generator g where g.id = h.id and h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') group by g.id,g.name order by g.id";
+  	  	  }
+  	  	  else if(date22.compareTo(date11) != 0)
+  	  	  {
+  	  		
+  	  		String tablename1 = "hisgenerator_"+date11;
+  	  		String tablename2 = "hisgenerator_"+date22;
+  	  		
+  	  		sql = "select g.id as id,g.name as name,((max(h1.totalgenwh)-min(h1.totalgenwh))+(max(h2.totalgenwh)-min(h2.totalgenwh))) as totalgenwh from "+tablename1;
+  	  		sql += " h1,"+tablename2+" h2,generator g where g.id = h1.id and h1.id = h2.id and h1.savetime >= to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h2.savetime <= to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') group by g.id";
+  	  		  
+  	  		  
+  	  		
+  	  	  }
+  	  	  }
+  	  return getJdbcTemplate().query(sql, new windgenwhDataRowMapper());
+				
+	}
+	
+	public List<DataStatisticsDataVo> listd(WindGenwhDataForm queryFilter){
+		String sql = "select totalgenwhid from generator limit 0,1";
+		  return getJdbcTemplate().query(sql, new winddDataRowMapper());
+	}
+	
+	public List<DataStatisticsDataVo> listu(String name,char id){
+		
+		String sql = "";
+		if(name.compareTo("YM") == 0)
+			sql += "select u.name as name from Accumulator a,MeasUnit u where a.id = "+id+" and a.MeasUnitID=u.id";
+		else 
+			sql += "select u.name as name from analog a,MeasUnit u where a.id = "+id+" and a.MeasUnitID=u.id";
+
+		  return getJdbcTemplate().query(sql, new winduDataRowMapper());
+	}
+	class windgenwhDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setId( rs.getInt("id") );		
+			object.setName( rs.getString("name") );
+			object.setTotalGenwh(rs.getDouble("totalgenwh"));
+			return object;
+		}
+	}
+	
+	class winddDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName1(rs.getString("totalgenwhid"));
+			return object;
+		}
+	}
+	class winduDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName2(rs.getString("name"));
+			return object;
+		}
+	}
+
+}

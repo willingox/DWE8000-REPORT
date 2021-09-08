@@ -1,0 +1,32 @@
+package com.xjgc.wind.datastatistics.service.impl;
+
+import java.util.List;
+
+import com.xjgc.wind.datastatistics.dao.IWindRoseDao;
+import com.xjgc.wind.datastatistics.service.IWindRoseService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindRoseDataForm;
+
+public class WindRoseServiceImpl implements IWindRoseService {
+
+	IWindRoseDao windRoseDao;
+
+	public IWindRoseDao getWindRoseDao() {
+		return windRoseDao;
+	}
+	
+	public void setWindRoseDao(IWindRoseDao windRoseDao) {
+		this.windRoseDao = windRoseDao;
+	}
+
+	
+	public List<DataStatisticsDataVo> list(WindRoseDataForm queryFilter) {
+		return windRoseDao.list(queryFilter);
+	}
+	public List<DataStatisticsDataVo> listfre(WindRoseDataForm queryFilter) {
+		return windRoseDao.listfre(queryFilter);
+	}
+	
+	
+	
+}

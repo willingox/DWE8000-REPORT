@@ -1,0 +1,53 @@
+<html>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+<title>dhtmlxTabbar</title>
+<link rel="stylesheet" type="text/css" href="dhtmlxTabbar.css">
+<script type="text/javascript" src="dhtmlxTabbar.js"></script>
+<style type="text/css">
+<!--
+	body {
+		 font-family: Helvetica, Arial, sans-serif; 
+		 font-size: 9pt; 
+		 margin: 0;
+		 padding: 0;
+	}
+//-->
+</style>
+</HEAD>
+<BODY scroll="no">
+<TABLE cellSpacing="0" cellPadding="0" width="100%" height="100%" border="0">
+	<TR>
+		<TD width="100%" height="100%">
+		<div id="tabbardiv">
+		<script type="text/javascript">
+			<!--
+				function callback(idn,ido){
+	                if (confirm("Tab " + idn + " to set active\nPlease Confirm?")){
+	        			var id = tabbar.getTabIframeId(idn);
+	        			var activeTabId = tabbar.getActiveTabId();	// current active tab's id
+	                    return true;
+	                }
+	                return false;
+	            }
+			
+				var tabbar = new dhtmlxTabbar("tabbardiv", "100%", "100%");	// create a tabbar object
+				tabbar.setOnSelectHandler(callback);	// you can specify a callback function
+				tabbar.setMargin(5);	// tab margin, default is 2px
+				tabbar.setOffset(10);	// left offset, default is 2px
+				tabbar.addTab("tab1_id", "First");	// add the first tab
+				tabbar.addTab("tab2_id", "Second");	// add the second tab
+				tabbar.addTab("tab3_id", "Third", 100);	// add the third tab, param 100, you can specify the tab's width, else auto
+				//tabbar.setTabActive("tab1_id");	// set tab active and call call-back function
+				tabbar.selectTab("tab1_id");	// set tab selected without call call-back function
+				tabbar.submitHref("tab1_id", "first.html");	// specify the first tab's submit url
+				tabbar.submitHref("tab2_id", "second.html");	// specify the second tab's submit url
+				tabbar.submitHref("tab3_id", "third.html");	// specify the third tab's submit url
+			//-->
+		</script>
+		</div>
+		</TD>
+	</TR>
+</TABLE>
+</BODY>
+</html>

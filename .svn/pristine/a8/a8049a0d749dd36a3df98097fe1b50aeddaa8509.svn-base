@@ -1,0 +1,16 @@
+package com.xjgc.wind.datastatistics.dao;
+
+import java.util.List;
+
+
+import com.xjgc.wind.datastatistics.vo.GeneratorStatisticsReportVo;
+
+
+public interface IGeneratorStatisticsDayReportDao {
+
+	
+	
+	List<GeneratorStatisticsReportVo> list(String date);
+	List<GeneratorStatisticsReportVo> listyesterday(String date);
+	List<GeneratorStatisticsReportVo> listWind(String date);
+}

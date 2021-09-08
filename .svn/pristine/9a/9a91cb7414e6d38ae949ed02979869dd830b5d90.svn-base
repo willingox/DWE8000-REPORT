@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- ***** User SERVICE *****-->
+	<bean id="xtUserService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtUserTarget" />
+		</property>
+	</bean>
+	<bean id="xtUserTarget" class="com.bjxj.usermgr.service.spring.XtUserServiceImpl">
+		<property name="xtUserDao">
+			<ref bean="xtUserDao" />			
+		</property>
+		<property name="xtResClassDao">
+			<ref bean="xtResClassDao" />
+		</property>
+		<property name="xtUserRoleDao">
+			<ref bean="xtUserRoleDao" />
+		</property>
+		<property name="xtLogDao">
+			<ref bean="xtLogDao" />
+		</property>
+	</bean>
+	<bean id="xtUserDao" class="com.bjxj.usermgr.dao.hibernate.XtUserDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** Menu SERVICE *****-->
+	<bean id="xtMenuService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtMenuTarget" />
+		</property>
+	</bean>
+	<bean id="xtMenuTarget" class="com.bjxj.usermgr.service.spring.XtMenuServiceImpl">
+		<property name="xtMenuDao">
+			<ref bean="xtMenuDao" />
+		</property>
+		<property name="xtPermAssignDao">
+			<ref bean="xtPermAssignDao" />
+		</property>
+	</bean>
+	<bean id="xtMenuDao" class="com.bjxj.usermgr.dao.hibernate.XtMenuDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** MMenu SERVICE *****-->
+	<bean id="mMenuService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="mMenuTarget" />
+		</property>
+	</bean>
+	<bean id="mMenuTarget" class="com.bjxj.usermgr.service.spring.MMenuServiceImpl">
+		<property name="xtMenuDao">
+			<ref bean="xtMenuDao" />
+		</property>
+	</bean>
+	
+	<!-- ***** Org SERVICE *****-->
+	<bean id="xtOrganizationService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtOrgTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtOrgTarget" class="com.bjxj.usermgr.service.spring.XtOrganizationServiceImpl">
+		<property name="xtOrganizationDao"><!--实现类中的set变量 -->
+			<ref bean="xtOrganizationDao" />
+		</property>
+		<property name="xtUserDao"><!--实现类中的set变量 -->
+			<ref bean="xtUserDao" />
+		</property>
+	</bean>
+	<bean id="xtOrganizationDao" class="com.bjxj.usermgr.dao.hibernate.XtOrganizationDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** Dept SERVICE *****-->
+	<bean id="xtDeptService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtDeptTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtDeptTarget" class="com.bjxj.usermgr.service.spring.XtDeptServiceImpl">
+		<property name="xtDeptDao"><!--实现类中的set变量 -->
+			<ref bean="xtDeptDao" />
+		</property>
+	</bean>
+	<bean id="xtDeptDao" class="com.bjxj.usermgr.dao.hibernate.XtDeptDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** Role SERVICE *****-->
+	<bean id="xtRoleService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtRoleTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtRoleTarget" class="com.bjxj.usermgr.service.spring.XtRoleServiceImpl">
+		<property name="xtRoleDao"><!--实现类中的set变量 -->
+			<ref bean="xtRoleDao" />
+		</property>
+	</bean>
+	<bean id="xtRoleDao" class="com.bjxj.usermgr.dao.hibernate.XtRoleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** Resource SERVICE *****-->
+	<bean id="xtResourceService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtResourceTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtResourceTarget" class="com.bjxj.usermgr.service.spring.XtResourceServiceImpl">
+		<property name="xtResourceDao"><!--实现类中的set变量 -->
+			<ref bean="xtResourceDao" />
+		</property>
+	</bean>
+	<bean id="xtResourceDao" class="com.bjxj.usermgr.dao.hibernate.XtResourceDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** ResType SERVICE *****-->
+	<bean id="xtResTypeService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtResTypeTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtResTypeTarget" class="com.bjxj.usermgr.service.spring.XtResTypeServiceImpl">
+		<property name="xtResTypeDao"><!--实现类中的set变量 -->
+			<ref bean="xtResTypeDao" />
+		</property>
+	</bean>
+	<bean id="xtResTypeDao" class="com.bjxj.usermgr.dao.hibernate.XtResTypeDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** UserRole SERVICE *****-->
+	<bean id="xtUserRoleService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtUserRoleTarget" /><!--实现类中的getBean参数-->
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED,-OrderException,-OrderMinimumAmountException</prop>
+				<prop key="update*">PROPAGATION_REQUIRED,-OrderException,-OrderMinimumAmountException</prop>
+				<prop key="merge*">PROPAGATION_REQUIRED,-OrderException,-OrderMinimumAmountException</prop>
+				<prop key="create*">PROPAGATION_REQUIRED,-OrderException,-OrderMinimumAmountException</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED,-OrderException,-OrderMinimumAmountException</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED,-OrderException,-OrderMinimumAmountException</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly,-OrderException</prop>
+				<prop key="list*">PROPAGATION_REQUIRED,readOnly,-OrderException</prop>
+				<prop key="addUserRole">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="xtUserRoleTarget" class="com.bjxj.usermgr.service.spring.XtUserRoleServiceImpl">
+		<property name="xtUserRoleDao"><!--实现类中的set变量 -->
+			<ref bean="xtUserRoleDao" />
+		</property>
+		<property name="xtRoleDao"><!--实现类中的set变量 -->
+			<ref bean="xtRoleDao" />
+		</property>
+		<property name="xtUserDao"><!--实现类中的set变量 -->
+			<ref bean="xtUserDao" />
+		</property>
+	</bean>
+	<bean id="xtUserRoleDao" class="com.bjxj.usermgr.dao.hibernate.XtUserRoleDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** PermAssign SERVICE *****-->
+	<bean id="xtPermAssignService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtPermAssignTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtPermAssignTarget" class="com.bjxj.usermgr.service.spring.XtPermAssignServiceImpl">
+		<property name="xtPermAssignDao"><!--实现类中的set变量 -->
+			<ref bean="xtPermAssignDao" />
+		</property>
+		<property name="xtRoleDao"><!--实现类中的set变量 -->
+			<ref bean="xtRoleDao" />
+		</property>
+		<property name="xtResourceDao"><!--实现类中的set变量 -->
+			<ref bean="xtResourceDao" />
+		</property>
+	</bean>
+	<bean id="xtPermAssignDao" class="com.bjxj.usermgr.dao.hibernate.XtPermAssignDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- ***** ResClass SERVICE *****-->
+	<bean id="xtResClassService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtResClassTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtResClassTarget" class="com.bjxj.usermgr.service.spring.XtResClassServiceImpl">
+		<property name="xtResClassDao">
+			<ref bean="xtResClassDao" />
+		</property>
+	</bean>
+	<bean id="xtResClassDao" class="com.bjxj.usermgr.dao.hibernate.XtResClassDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- ***** Operation SERVICE *****-->
+	<bean id="xtOperationService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtOperationTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtOperationTarget" class="com.bjxj.usermgr.service.spring.XtOperationServiceImpl">
+		<property name="xtOperationDao"><!--实现类中的set变量 -->
+			<ref bean="xtOperationDao" />
+		</property>
+	</bean>
+	<bean id="xtOperationDao" class="com.bjxj.usermgr.dao.hibernate.XtOperationDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- ***** Log SERVICE *****-->
+	<bean id="xtLogService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtLogTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtLogTarget" class="com.bjxj.usermgr.service.spring.XtLogServiceImpl">
+		<property name="xtLogDao">
+			<ref bean="xtLogDao" />
+		</property>
+	</bean>
+	<bean id="xtLogDao" class="com.bjxj.usermgr.dao.hibernate.XtLogDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<!-- ***** Group SERVICE IceWee 09-05-24 *****-->
+	<bean id="xtGroupService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtGroupTarget" />
+		</property>
+	</bean>
+	<bean id="xtGroupTarget" class="com.bjxj.usermgr.service.spring.XtGroupServiceImpl">
+		<property name="xtGroupDao">
+			<ref bean="xtGroupDao" />
+		</property>
+	</bean>
+	<bean id="xtGroupDao" class="com.bjxj.usermgr.dao.hibernate.XtGroupDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** LogClass SERVICE *****-->
+	<bean id="xtLogClassService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="xtLogClassTarget" /><!--实现类中的getBean参数-->
+		</property>
+	</bean>
+	<bean id="xtLogClassTarget" class="com.bjxj.usermgr.service.spring.XtLogClassServiceImpl">
+		<property name="xtLogClassDao">
+			<ref bean="xtLogClassDao" />
+		</property>
+	</bean>
+	<bean id="xtLogClassDao" class="com.bjxj.usermgr.dao.hibernate.XtLogClassDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>

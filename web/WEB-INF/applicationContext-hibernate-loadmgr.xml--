@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- ***** loadLimitSetService SERVICE *****-->
+	<bean id="loadLimitSetService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="loadLimitSetTarget" />
+		</property>
+	</bean>
+	<bean id="loadLimitSetTarget" class="com.xjgc.dsm.loadmgr.service.spring.LoadLimitSetServiceImpl">
+		<property name="loadLimitSetDao">
+			<ref bean="loadLimitSetDao" />			
+		</property>
+	</bean>
+	<bean id="loadLimitSetDao" class="com.xjgc.dsm.loadmgr.dao.hibernate.LoadLimitSetDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** loadPlanService SERVICE *****-->
+	<bean id="loadPlanService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="loadPlanTarget" />
+		</property>
+	</bean>
+	<bean id="loadPlanTarget" class="com.xjgc.dsm.loadmgr.service.spring.LoadPlanServiceImpl">
+		<property name="loadPlanDao">
+			<ref bean="loadPlanDao" />			
+		</property>
+		<property name="loadLimitSetDao">
+			<ref bean="loadLimitSetDao" />
+		</property>
+	</bean>
+	<bean id="loadPlanDao" class="com.xjgc.dsm.loadmgr.dao.hibernate.LoadPlanDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- ***** loadRTService SERVICE *****-->
+	<bean id="loadRTService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="loadRTTarget" />
+		</property>
+	</bean>
+	<bean id="loadRTTarget" class="com.xjgc.dsm.loadmgr.service.spring.LoadRTServiceImpl">
+		<property name="loadRTDao">
+			<ref bean="loadRTDao" />			
+		</property>
+		<property name="loadPlanDao">
+			<ref bean="loadPlanDao" />			
+		</property>
+	</bean>
+	<bean id="loadRTDao" class="com.xjgc.dsm.loadmgr.dao.hibernate.LoadRTDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- ***** loadHisService SERVICE *****-->
+	<bean id="loadHisService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="loadHisTarget" />
+		</property>
+	</bean>
+	<bean id="loadHisTarget" class="com.xjgc.dsm.loadmgr.service.spring.LoadHisServiceImpl">
+		<property name="loadHisDao">
+			<ref bean="loadHisDao" />			
+		</property>
+		<property name="loadPlanDao">
+			<ref bean="loadPlanDao" />			
+		</property>
+	</bean>
+	<bean id="loadHisDao" class="com.xjgc.dsm.loadmgr.dao.hibernate.LoadHisDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	
+	<!-- ***** electroValenceService SERVICE *****-->
+	<bean id="electroValenceService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="electroValenceTarget" />
+		</property>
+	</bean>
+	<bean id="electroValenceTarget" class="com.xjgc.dsm.loadmgr.service.spring.ElectroValenceServiceImpl">
+		<property name="electroValenceDao">
+			<ref bean="electroValenceDao" />			
+		</property>
+	</bean>
+	<bean id="electroValenceDao" class="com.xjgc.dsm.loadmgr.dao.hibernate.ElectroValenceDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+</beans>

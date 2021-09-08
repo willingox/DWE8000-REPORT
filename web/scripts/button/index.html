@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>按扭控件 </title>
+<link rel="stylesheet" type="text/css" href="style/jquery.ui.button.css" />
+<link rel="stylesheet" type="text/css" href="style/jquery.ui.button.icon.css" />
+<script type="text/javascript" src="script/jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="script/jquery.ui.button.js"></script>
+<style type="text/css">
+<!--
+	.source {
+		background-color: #EEF2F4;
+		border: 2px dotted #CCCCCC;
+		margin-right: 50px;	
+		padding: 5px 0 5px 10px;
+		font-size: 10pt;
+	}
+
+	.font_red {
+		color: #FF0000;
+	}
+
+	.font_blue {
+		color: #00008B;
+	}
+
+	.font_green {
+		color: #008036;
+	}
+//-->
+</style>
+</head>
+<body>
+<h3>UI控件使用说明 －－ 按扭</h3>
+<p>
+	<h4>1、首先在head中加载以下四个文件</h4>
+	<div class="source">
+		<span class="font_green">&lt;link</span>&nbsp;<span class="font_blue">rel</span>=&quot;<span class="font_red">stylesheet</span>&quot;&nbsp;<span class="font_blue">type</span>=&quot;<span class="font_red">text/css</span>&quot;&nbsp;<span class="font_blue">href</span>=&quot;<span class="font_red">style/jquery.ui.button.css</span>&quot;&nbsp;<span class="font_green">/&gt;</span><br> 
+		<span class="font_green">&lt;link</span>&nbsp;<span class="font_blue">rel</span>=&quot;<span class="font_red">stylesheet</span>&quot;&nbsp;<span class="font_blue">type</span>=&quot;<span class="font_red">text/css</span>&quot;&nbsp;<span class="font_blue">href</span>=&quot;<span class="font_red">style/jquery.ui.button.icon.css</span>&quot;&nbsp;<span class="font_green">/&gt;</span><br>
+		<span class="font_green">&lt;script</span>&nbsp;<span class="font_blue">type</span>=&quot;<span class="font_red">text/javascript</span>&quot;&nbsp;<span class="font_blue">src</span>=&quot;<span class="font_red">script/jquery-1.5.1.min.js</span>&quot;<span class="font_green">&gt;&lt;/script&gt;</span><br>
+		<span class="font_green">&lt;script</span>&nbsp;<span class="font_blue">type</span>=&quot;<span class="font_red">text/javascript</span>&quot;&nbsp;<span class="font_blue">src</span>=&quot;<span class="font_red">script/jquery.ui.button.js</span>&quot;<span class="font_green">&gt;&lt;/script&gt;</span><br>
+	</div><br>
+	<h4>2、将需要该特性的input按钮(type=button/submit/reset)的class分别指定为jquery_button/jquery_submit/jquery_reset</h4>
+	<input type="button" class="jquery_button" value="按扭" /><br><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-save"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="按扭"&nbsp<span class="font_green">/&gt;</span>
+	</div><br>
+	<h4>3、通过CSS更改图标</h4>
+	如.icon-save {background-image: url(icons/save.gif) !important;},页面标签添加icon属性：<br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-save"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="按扭"&nbsp<span class="font_green">/&gt;</span>
+	</div><br>
+	<input icon="icon-save" type="button" class="jquery_button" value="保存" /><br><br>
+	<h4>4、示例</h4></br>
+	<input type="button" value="按扭" class="jquery_button" onclick="alert(1)" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="按扭" <span class="font_blue">onclick</span>="alert(1)"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input id="dsb" type="button" class="jquery_button" value="disabled按扭" onclick="alert(1)" disabled="true" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">id</span>="dsb"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="disabled按扭"&nbsp;<span class="font_blue">onclick</span>="alert(1)"&nbsp;disabled="true"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input type="button" class="jquery_button" value="可用" onclick="javascript:$('#dsb').btn().enable()" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="可用"&nbsp;<span class="font_blue">onclick</span>="javascript:$('#dsb').bnt().enable()"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input type="button" class="jquery_button" value="不可用" onclick="javascript:$('#dsb').btn().disable()" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="不可用"&nbsp;<span class="font_blue">onclick</span>="javascript:$('#dsb').btn().disable()"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-save" type="submit" class="jquery_submit" value="提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-save"&nbsp;<span class="font_blue">type</span>="submit"&nbsp;class="jquery_submit"&nbsp;<span class="font_blue">value</span>="提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交提交"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-reset" type="reset" class="jquery_reset" value="重置" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-reset"&nbsp;<span class="font_blue">type</span>="reset"&nbsp;class="jquery_reset"&nbsp;<span class="font_blue">value</span>="重置"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-search" type="button" class="jquery_button" value="查询" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-search"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="查询"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-add" type="button" class="jquery_button" value="添加" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-add"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="添加"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-edit" type="button" class="jquery_button" value="编辑" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-edit"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="编辑"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-delete" type="button" class="jquery_button" value="删除" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-delete"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="删除"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+	<input icon="icon-save" type="button" class="jquery_button" value="保存" /><br>
+	<div class="source">
+		<span class="font_green">&lt;input</span>&nbsp;<span class="font_blue">icon</span>="icon-save"&nbsp;<span class="font_blue">type</span>="button"&nbsp;class="jquery_button"&nbsp;<span class="font_blue">value</span>="保存"&nbsp<span class="font_green">/&gt;</span><br>
+	</div><br>
+</p>
+</body>
+</html>

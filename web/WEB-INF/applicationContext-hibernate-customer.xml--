@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- ***** Customer SERVICE *****-->
+	<bean id="customerService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="customerTarget" />
+		</property>
+	</bean>
+	<bean id="customerTarget" class="com.xjgc.dsm.customer.service.spring.CustomerServiceImpl">
+		<property name="customerDao">
+			<ref bean="customerDao" />			
+		</property>
+	</bean>
+	<bean id="customerDao" class="com.xjgc.dsm.customer.dao.hibernate.CustomerDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- ***** Equipment SERVICE *****-->
+	<bean id="equipmentService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="equipmentTarget" />
+		</property>
+	</bean>
+	<bean id="equipmentTarget" class="com.xjgc.dsm.customer.service.spring.EquipmentServiceImpl">
+		<property name="equipmentDao">
+			<ref bean="equipmentDao" />			
+		</property>
+	</bean>
+	<bean id="equipmentDao" class="com.xjgc.dsm.customer.dao.hibernate.EquipmentDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+</beans>

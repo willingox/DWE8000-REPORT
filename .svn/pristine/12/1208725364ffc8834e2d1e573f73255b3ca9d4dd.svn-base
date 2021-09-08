@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loadRTChartForm" type="com.xjgc.dsm.monitor.web.form.LoadRTChartForm"></form-bean>
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/loadRTChart" type="com.xjgc.dsm.monitor.web.action.LoadRTChartAction" name="loadRTChartForm" parameter="method" scope="request">
+			<forward name="listPage" contextRelative="true" path="/pages/monitor/loadRTChart.jsp" />
+		</action>
+		<action path="/jxt" type="com.xjgc.dsm.monitor.web.action.JxtAction" name="loadRTChartForm" parameter="method" scope="request">
+			<forward name="list" contextRelative="true" path="/pages/monitor/allView.jsp" />
+		</action>
+
+	</action-mappings>
+
+</struts-config>

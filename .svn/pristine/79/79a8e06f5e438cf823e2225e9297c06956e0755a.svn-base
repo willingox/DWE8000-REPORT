@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="供冷耗能_分区用冷" vdfPath="D:/ics8000/cbin/xview/pages/能效系统/供冷耗能_分区用冷.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#b8b8b8" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#b8b8b8#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#7b7b7b" />
+<stop offset="0.5" stop-color="#ffffff" />
+<stop offset="1" stop-color="#7b7b7b" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<a id="Rect28_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供冷耗能_冰冷主机系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供冷耗能_冰冷主机系统.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect28" stroke="#00557f" stroke-width="1" width="170" x="712" y="70" />
+<g height="50" id="innertext_Rect28" width="170" x="712" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="734"  y="97" >冰冷主机系统</text>
+</g>
+</a>
+<rect fill="url(#lineargradient#b8b8b8#MToUD)" height="50" id="Rect29" stroke="#d4d4d4" stroke-width="1" width="170" x="372" y="70" />
+<g height="50" id="innertext_Rect29" width="170" x="372" y="70" >
+<text fill="#000000" font-family="SimHei" font-size="19" font-weight="bold" x="415"  y="97" >分区用冷</text>
+</g>
+<a id="Rect83_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供冷耗能_冷水系统.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect83" stroke="#00557f" stroke-width="1" width="170" x="542" y="70" />
+<g height="50" id="innertext_Rect83" width="170" x="542" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="585"  y="97" >冷水系统</text>
+</g>
+</a>
+<image height="2" id="Image1" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image2" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image3" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group1_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_分区用电.svg" >
+<g height="89" id="Group1" width="321" x="20" y="357" >
+<image height="89" id="Group1_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group1_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159"  y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group1_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group2_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="能效系统/用水耗能_分区用水.svg" >
+<g height="89" id="Group2" width="321" x="20" y="461" >
+<image height="89" id="Group2_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group2_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163"  y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group2_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group3_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="能效系统/燃气耗能_燃气系统.svg" >
+<g height="89" id="Group3" width="321" x="20" y="565" >
+<image height="89" id="Group3_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group3_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157"  y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group3_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group4_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供热耗能_供热系统.svg" >
+<g height="89" id="Group4" width="321" x="20" y="669" >
+<image height="89" id="Group4_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group4_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group4_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group5_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供冷耗能_冷水系统.svg" >
+<g height="89" id="Group5" width="321" x="20" y="773" >
+<image height="89" id="Group5_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group5_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group5_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group6_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="能效系统/其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group6" width="321" x="20" y="878" >
+<image height="89" id="Group6_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group6_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135"  y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group6_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group7_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/建筑总耗能.svg','_self', '');}" target="_self" xlink:href="能效系统/建筑总耗能.svg" >
+<g height="89" id="Group7" width="321" x="20" y="253" >
+<image height="89" id="Group7_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group7_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149"  y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group7_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+</svg>

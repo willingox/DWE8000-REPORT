@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="DWE8000-REPORT-windows"
+  id="myeclipse.1402626926790"
+  context-root="/dwe8000"
+  j2ee-spec="5.0"
+  archive="DWE8000-REPORT-windows.war">
+  <attributes>
+    <attribute name="webrootdir" value="/web" />
+  </attributes>
+</project-module>
+

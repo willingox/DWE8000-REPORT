@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="GBK"?>
+<urlrule>
+	<!-- 系统管理URL权限配置开始 -->
+	<func id="USERAUTH_ORGMRG" desc="用户权限_公司维护">
+		<pat value= "/**/org.do"> 
+			<parameter name="method" value="add"/>
+			<parameter name="method" value="edit"/>
+			<parameter name="method" value="save"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_DEPTMRG" desc="用户权限_部门维护">
+		<pat value= "/**/dept.do">
+			<parameter name="method" value="add"/>
+			<parameter name="method" value="edit"/>
+			<parameter name="method" value="save"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_USERMRG" desc="用户权限_用户维护">
+		<pat value= "/**/user.do">
+			<parameter name="method" value="add"/>
+			<parameter name="method" value="edit"/>
+			<parameter name="method" value="insert"/>
+			<parameter name="method" value="update"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_ROLEMRG" desc="用户权限_角色维护">
+		<pat value= "/**/role.do">
+			<parameter name="method" value="add"/>
+			<parameter name="method" value="edit"/>
+			<parameter name="method" value="save"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_MENUMRG" desc="用户权限_菜单维护">
+		<pat value= "/**/menu.do">
+			<parameter name="method" value="add"/>
+			<parameter name="method" value="edit"/>
+			<parameter name="method" value="save"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="XT_LOG" desc="用户权限_系统日志">
+		<pat value= "/**/log.do">
+			<parameter name="method" value="remove"/>
+			<parameter name="method" value="removeAll"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_RESCLASSMRG" desc="用户权限_资源分类树">
+		<pat value= "/**/resClass.do">
+			<parameter name="method" value="saveOrUpdate"/>
+			<parameter name="method" value="delete"/>
+			<parameter name="method" value="changeLevel"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_RESTYPEMGR" desc="用户权限_资源类型">
+		<pat value= "/**/resType.do">
+			<parameter name="method" value="saveOrUpdate"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_RESMRG" desc="用户权限_资源维护">
+		<pat value= "/**/res.do">
+			<parameter name="method" value="add"/>
+			<parameter name="method" value="edit"/>
+			<parameter name="method" value="save"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_PERMASSIGNMRG" desc="用户权限_权限指派">
+		<pat value= "/**/permAssign.do">
+			<parameter name="method" value="excAssign"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_MENUAUTH" desc="用户权限_菜单授权">
+		<pat value= "/**/menuAuthorize.do">
+			<parameter name="method" value="savePermAssign"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_USERASSIGNMRG" desc="用户权限_用户指派">
+		<pat value= "/**/userrole.do">
+			<parameter name="method" value="updateRole"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_MODIFYPWD" desc="用户权限_修改密码">
+		<pat value= "/**/modifyPwd.do">
+			<parameter name="method" value="toModifyPwd"/>
+			<parameter name="method" value="modifyPwd"/>
+		</pat>
+	</func>
+	<func id="USERAUTH_LOGCLASSMRG" desc="用户权限_系统日志分类维护">
+		<pat value= "/**/logClass.do">
+			<parameter name="method" value="saveOrUpdate"/>
+			<parameter name="method" value="delete"/>
+		</pat>
+	</func>
+	<!-- 系统管理URL权限配置结束 -->
+</urlrule>

@@ -1,0 +1,163 @@
+/** 值班日志相关样式表 */
+table.dutyLog_outerTable {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	border: 0;
+}
+
+table.dutyLog_baseTable {
+	margin: 0;
+	padding: 0;
+	width: 100%; 
+	border: 1px solid #D1DBE7;
+    border-collapse: collapse;
+    font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9pt;
+}
+
+.dutyLog_baseTable th.tableTitle {
+	font-weight: bold;
+	font-size: 11pt;
+	text-align: center;
+}
+
+.dutyLog_baseTable th {
+	font-weight: normal;
+	TEXT-ALIGN: right;
+	padding-right: 10px;
+    border: 1px solid #D1DBE7;
+    color: #000000;
+    background-color: #E7F1F3;
+}
+
+.dutyLog_baseTable td {
+ 	text-align: center;
+    border: 1px solid #D1DBE7;
+}
+
+table.dutyLog_itemTable {
+	margin: 0;
+	padding: 0;
+	width: 100%;  
+	border: 1px solid #D1DBE7;
+    border-collapse: collapse;
+    font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9pt;
+}
+
+.dutyLog_itemTable th {
+	font-weight: normal;
+	text-align: right;
+	padding-right: 10px;
+    border: 1px solid #D1DBE7;
+    color: #000000;
+    background-color: #E7F1F3;
+}
+
+.dutyLog_itemTable td {
+ 	text-align: left;
+    border: 1px solid #D1DBE7;
+}
+
+/** 日志条目小标题样式 */
+.dutyLog_itemTable div.caption {
+	padding-top: 2px;
+	text-align: left;
+}
+
+.dutyLog_itemTable .caption .addimage {
+	padding-left: 3px;
+	float: left;
+}
+
+.dutyLog_itemTable .caption .addimage a {
+	text-decoration: none;
+}
+
+.dutyLog_itemTable .caption .title {
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+/** 日志条目序号样式 */
+.dutyLog_itemTable div.serial {
+	font-weight: bold;
+	padding-top: 2px;
+	text-align: left;
+	cursor: hand;
+}
+
+.dutyLog_itemTable .serial .rmimage {
+	padding-left: 3px;
+	float: left;
+}
+
+.dutyLog_itemTable .serial .rmimage a {
+	text-decoration: none;
+}
+
+.dutyLog_itemTable .serial .no {
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+.dutyLog_itemTable div.expand {
+	background: url(../images/green/tool/arrow_down.png) no-repeat right 50%;
+}
+
+.dutyLog_itemTable div.shrink {
+	background: url(../images/green/tool/arrow_up.png) no-repeat right 50%;
+}
+
+.dutyLog_itemTable .dutyLog_itemctxTable {
+	margin: 0;
+	padding: 0;
+	width: 100%;  
+	border: 1px solid #D1DBE7;
+    border-collapse: collapse;
+    font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9pt;
+}
+
+.dutyLog_itemTable .dutyLog_itemctxTable th {
+	font-weight: normal;
+	text-align: right;
+	padding-right: 10px;
+    border: 1px solid #D1DBE7;
+    color: #000000;
+    background-color: #E7F1F3;
+}
+
+.dutyLog_itemTable .dutyLog_itemctxTable td {
+ 	text-align: left;
+    border: 1px solid #D1DBE7;
+}
+
+.ta_adjust_80 {
+	width: expression(document.body.clientWidth - 80);	
+}
+
+.ta_adjust_30 {
+	width: expression(document.body.clientWidth - 30);	
+}
+
+table.dutyLog_bottomTable {
+	margin: 0;
+	padding: 0;
+	width: 100%; 
+	border: 1px solid #D1DBE7;
+    border-collapse: collapse;
+    font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9pt;
+}
+
+.dutyLog_bottomTable th {
+	background-color: #E7F1F3; 
+	text-align: left; 
+	padding-left: 5px;
+}
+
+.dutyLog_bottomTable td div.remarks {
+	color: #FF0000;	
+}

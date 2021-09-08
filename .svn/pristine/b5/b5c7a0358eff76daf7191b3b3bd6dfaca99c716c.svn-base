@@ -1,0 +1,14 @@
+### MySQL
+db.driver=com.mysql.jdbc.Driver
+#db.url=jdbc\:mysql\://10.0.6.175/dwe8000?useUnicode\=true&characterEncoding\=UTF-8
+db.url=jdbc\:mysql\://localhost/dajipo?useUnicode\=true&characterEncoding\=UTF-8
+db.user=root
+db.password=root
+db.hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+
+### ORACLE
+#db.driver=oracle.jdbc.driver.OracleDriver
+#db.url=jdbc:oracle:thin:@192.168.0.122:1522:orcl
+#db.user=dwe8000
+#db.password=dwe8000
+#db.hibernate.dialect=org.hibernate.dialect.Oracle9Dialect

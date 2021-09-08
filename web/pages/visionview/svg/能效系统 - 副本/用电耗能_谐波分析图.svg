@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="用电耗能_谐波分析图" vdfPath="D:/ics8000/cbin/xview/pages/能效系统/用电耗能_谐波分析图.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#b8b8b8" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#b8b8b8#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#7b7b7b" />
+<stop offset="0.5" stop-color="#ffffff" />
+<stop offset="1" stop-color="#7b7b7b" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<a id="Rect28_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_分区用电.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect28" stroke="#00557f" stroke-width="1" width="170" x="372" y="70" />
+<g height="50" id="innertext_Rect28" width="170" x="372" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="415"  y="97" >分区用电</text>
+</g>
+</a>
+<a id="Rect29_link_elem" onclick="if (window.openPage) {openPage(evt,'变电站自动化系统/35kV降压站.svg','_self', '');}" target="_self" xlink:href="变电站自动化系统/35kV降压站.svg" >
+<rect fill="url(#lineargradient#b8b8b8#MToUD)" height="50" id="Rect29" stroke="#d4d4d4" stroke-width="1" width="170" x="882" y="70" />
+<g height="50" id="innertext_Rect29" width="170" x="882" y="70" >
+<text fill="#000000" font-family="SimHei" font-size="19" font-weight="bold" x="914"  y="97" >谐波分析图</text>
+</g>
+</a>
+<a id="Rect83_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_高压系统图.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_高压系统图.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect83" stroke="#00557f" stroke-width="1" width="170" x="542" y="70" />
+<g height="50" id="innertext_Rect83" width="170" x="542" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="574"  y="97" >高压系统图</text>
+</g>
+</a>
+<a id="Rect84_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_低压配电图.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_低压配电图.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect84" stroke="#00557f" stroke-width="1" width="170" x="712" y="70" />
+<g height="50" id="innertext_Rect84" width="170" x="712" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="744"  y="97" >低压配电图</text>
+</g>
+</a>
+<a id="Rect85_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_中央空调.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_中央空调.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect85" stroke="#00557f" stroke-width="1" width="170" x="1052" y="70" />
+<g height="50" id="innertext_Rect85" width="170" x="1052" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="1095"  y="97" >中央空调</text>
+</g>
+</a>
+<a id="Rect86_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_楼层分布.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_楼层分布.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect86" stroke="#00557f" stroke-width="1" width="170" x="1222" y="70" />
+<g height="50" id="innertext_Rect86" width="170" x="1222" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="1265"  y="97" >楼层分布</text>
+</g>
+</a>
+<g height="29" id="Text3" width="30" x="617" y="921" >
+<text fill="#ffffff" font-family="SimSun" font-size="17" x="617"  y="935" >02</text>
+</g>
+<g height="354" id="Group1" width="1425" x="404" y="245" >
+<g height="60" id="Group1_Group46" width="42" x="1777" y="510" >
+<rect fill="#ffff00" height="60" id="Group1_Group46_Rect69" stroke="#ffffff" stroke-width="1" width="14" x="1777" y="510" />
+<rect fill="#55ff00" height="19" id="Group1_Group46_Rect70" stroke="#ffffff" stroke-width="1" width="14" x="1791" y="551" />
+<rect fill="#ff0000" height="43" id="Group1_Group46_Rect81" stroke="#ffffff" stroke-width="1" width="14" x="1805" y="527" />
+</g>
+<g height="53" id="Group1_Group51" width="42" x="1636" y="517" >
+<rect fill="#ffff00" height="20" id="Group1_Group51_Rect109" stroke="#ffffff" stroke-width="1" width="14" x="1636" y="550" />
+<rect fill="#55ff00" height="53" id="Group1_Group51_Rect110" stroke="#ffffff" stroke-width="1" width="14" x="1650" y="517" />
+<rect fill="#ff0000" height="30" id="Group1_Group51_Rect111" stroke="#ffffff" stroke-width="1" width="14" x="1664" y="540" />
+</g>
+<g height="38" id="Group1_Group52" width="42" x="1682" y="532" >
+<rect fill="#ffff00" height="38" id="Group1_Group52_Rect69" stroke="#ffffff" stroke-width="1" width="14" x="1682" y="532" />
+<rect fill="#55ff00" height="13" id="Group1_Group52_Rect70" stroke="#ffffff" stroke-width="1" width="14" x="1696" y="557" />
+<rect fill="#ff0000" height="33" id="Group1_Group52_Rect81" stroke="#ffffff" stroke-width="1" width="14" x="1710" y="537" />
+</g>
+<g height="56" id="Group1_Group53" width="43" x="1728" y="514" >
+<rect fill="#ff0000" height="56" id="Group1_Group53_Rect100" stroke="#ffffff" stroke-width="1" width="14" x="1757" y="514" />
+<rect fill="#ffff00" height="46" id="Group1_Group53_Rect101" stroke="#ffffff" stroke-width="1" width="14" x="1728" y="524" />
+<rect fill="#55ff00" height="31" id="Group1_Group53_Rect102" stroke="#ffffff" stroke-width="1" width="14" x="1743" y="539" />
+</g>
+<g height="29" id="Group1_Text158" width="30" x="1647" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1647"  y="584" >27</text>
+</g>
+<g height="29" id="Group1_Text159" width="30" x="1695" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1695"  y="584" >28</text>
+</g>
+<g height="29" id="Group1_Text160" width="30" x="1743" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1743"  y="584" >29</text>
+</g>
+<g height="29" id="Group1_Text162" width="30" x="1791" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1791"  y="584" >30</text>
+</g>
+<g height="29" id="Group1_Text164" width="20" x="404" y="548" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="562" >0</text>
+</g>
+<g height="175" id="Group1_Group13" width="40" x="433" y="395" >
+<rect fill="#ffff00" height="98" id="Group1_Group13_Rect120" stroke="#ffffff" stroke-width="1" width="14" x="433" y="472" />
+<rect fill="#55ff00" height="98" id="Group1_Group13_Rect121" stroke="#ffffff" stroke-width="1" width="14" x="446" y="472" />
+<rect fill="#ff0000" height="175" id="Group1_Group13_Rect122" stroke="#ffffff" stroke-width="1" width="14" x="459" y="395" />
+</g>
+<g height="325" id="Group1_Group19" width="43" x="799" y="245" >
+<rect fill="#ffff00" height="325" id="Group1_Group19_Rect56" stroke="#ffffff" stroke-width="1" width="14" x="799" y="245" />
+<rect fill="#55ff00" height="181" id="Group1_Group19_Rect60" stroke="#ffffff" stroke-width="1" width="14" x="814" y="389" />
+<rect fill="#ff0000" height="181" id="Group1_Group19_Rect57" stroke="#ffffff" stroke-width="1" width="14" x="828" y="389" />
+</g>
+<g height="213" id="Group1_Group20" width="42" x="845" y="357" >
+<rect fill="#ffff00" height="96" id="Group1_Group20_Rect59" stroke="#ffffff" stroke-width="1" width="14" x="845" y="474" />
+<rect fill="#55ff00" height="213" id="Group1_Group20_Rect58" stroke="#ffffff" stroke-width="1" width="14" x="859" y="357" />
+<rect fill="#ff0000" height="100" id="Group1_Group20_Rect61" stroke="#ffffff" stroke-width="1" width="14" x="873" y="470" />
+</g>
+<g height="201" id="Group1_Group21" width="43" x="937" y="369" >
+<rect fill="#ffff00" height="26" id="Group1_Group21_Rect64" stroke="#ffffff" stroke-width="1" width="14" x="937" y="544" />
+<rect fill="#55ff00" height="88" id="Group1_Group21_Rect62" stroke="#ffffff" stroke-width="1" width="14" x="952" y="482" />
+<rect fill="#ff0000" height="201" id="Group1_Group21_Rect65" stroke="#ffffff" stroke-width="1" width="14" x="966" y="369" />
+</g>
+<g height="239" id="Group1_Group40" width="42" x="752" y="331" >
+<rect fill="#ffff00" height="239" id="Group1_Group40_Rect31" stroke="#ffffff" stroke-width="1" width="14" x="752" y="331" />
+<rect fill="#55ff00" height="181" id="Group1_Group40_Rect32" stroke="#ffffff" stroke-width="1" width="14" x="766" y="389" />
+<rect fill="#ff0000" height="96" id="Group1_Group40_Rect25" stroke="#ffffff" stroke-width="1" width="14" x="780" y="474" />
+</g>
+<g height="213" id="Group1_Group41" width="42" x="891" y="357" >
+<rect fill="#ffff00" height="96" id="Group1_Group41_Rect59" stroke="#ffffff" stroke-width="1" width="14" x="891" y="474" />
+<rect fill="#55ff00" height="213" id="Group1_Group41_Rect58" stroke="#ffffff" stroke-width="1" width="14" x="905" y="357" />
+<rect fill="#ff0000" height="100" id="Group1_Group41_Rect61" stroke="#ffffff" stroke-width="1" width="14" x="919" y="470" />
+</g>
+<g height="72" id="Group1_Group47" width="42" x="1311" y="498" >
+<rect fill="#ff0000" height="50" id="Group1_Group47_Rect91" stroke="#ffffff" stroke-width="1" width="14" x="1339" y="520" />
+<rect fill="#ffff00" height="72" id="Group1_Group47_Rect92" stroke="#ffffff" stroke-width="1" width="14" x="1311" y="498" />
+<rect fill="#55ff00" height="35" id="Group1_Group47_Rect93" stroke="#ffffff" stroke-width="1" width="14" x="1325" y="535" />
+</g>
+<g height="54" id="Group1_Group48" width="42" x="1357" y="516" >
+<rect fill="#ff0000" height="24" id="Group1_Group48_Rect94" stroke="#ffffff" stroke-width="1" width="14" x="1385" y="546" />
+<rect fill="#ffff00" height="54" id="Group1_Group48_Rect95" stroke="#ffffff" stroke-width="1" width="14" x="1357" y="516" />
+<rect fill="#55ff00" height="31" id="Group1_Group48_Rect96" stroke="#ffffff" stroke-width="1" width="14" x="1371" y="539" />
+</g>
+<g height="47" id="Group1_Group49" width="42" x="1403" y="523" >
+<rect fill="#ff0000" height="47" id="Group1_Group49_Rect97" stroke="#ffffff" stroke-width="1" width="13" x="1432" y="523" />
+<rect fill="#ffff00" height="16" id="Group1_Group49_Rect98" stroke="#ffffff" stroke-width="1" width="14" x="1403" y="554" />
+<rect fill="#55ff00" height="29" id="Group1_Group49_Rect99" stroke="#ffffff" stroke-width="1" width="14" x="1418" y="541" />
+</g>
+<g height="22" id="Group1_Group50" width="43" x="1450" y="548" >
+<rect fill="#ff0000" height="22" id="Group1_Group50_Rect100" stroke="#ffffff" stroke-width="1" width="14" x="1479" y="548" />
+<rect fill="#ffff00" height="19" id="Group1_Group50_Rect101" stroke="#ffffff" stroke-width="1" width="14" x="1450" y="551" />
+<rect fill="#55ff00" height="5" id="Group1_Group50_Rect102" stroke="#ffffff" stroke-width="1" width="14" x="1465" y="565" />
+</g>
+<g height="54" id="Group1_Group54" width="42" x="1544" y="516" >
+<rect fill="#ff0000" height="54" id="Group1_Group54_Rect103" stroke="#ffffff" stroke-width="1" width="14" x="1572" y="516" />
+<rect fill="#ffff00" height="53" id="Group1_Group54_Rect104" stroke="#ffffff" stroke-width="1" width="14" x="1544" y="517" />
+<rect fill="#55ff00" height="41" id="Group1_Group54_Rect105" stroke="#ffffff" stroke-width="1" width="14" x="1558" y="529" />
+</g>
+<g height="49" id="Group1_Group55" width="42" x="1590" y="521" >
+<rect fill="#ff0000" height="36" id="Group1_Group55_Rect106" stroke="#ffffff" stroke-width="1" width="14" x="1618" y="534" />
+<rect fill="#ffff00" height="49" id="Group1_Group55_Rect107" stroke="#ffffff" stroke-width="1" width="14" x="1590" y="521" />
+<rect fill="#55ff00" height="26" id="Group1_Group55_Rect108" stroke="#ffffff" stroke-width="1" width="14" x="1604" y="544" />
+</g>
+<g height="49" id="Group1_Group56" width="43" x="1497" y="521" >
+<rect fill="#ff0000" height="31" id="Group1_Group56_Rect100" stroke="#ffffff" stroke-width="1" width="14" x="1526" y="539" />
+<rect fill="#ffff00" height="49" id="Group1_Group56_Rect101" stroke="#ffffff" stroke-width="1" width="14" x="1497" y="521" />
+<rect fill="#55ff00" height="36" id="Group1_Group56_Rect102" stroke="#ffffff" stroke-width="1" width="14" x="1512" y="534" />
+</g>
+<g height="62" id="Group1_Group57" width="43" x="1031" y="508" >
+<rect fill="#ff0000" height="56" id="Group1_Group57_Rect82" stroke="#ffffff" stroke-width="1" width="14" x="1060" y="514" />
+<rect fill="#ffff00" height="62" id="Group1_Group57_Rect83" stroke="#ffffff" stroke-width="1" width="14" x="1031" y="508" />
+<rect fill="#55ff00" height="35" id="Group1_Group57_Rect84" stroke="#ffffff" stroke-width="1" width="14" x="1046" y="535" />
+</g>
+<g height="40" id="Group1_Group58" width="42" x="1078" y="530" >
+<rect fill="#ff0000" height="36" id="Group1_Group58_Rect71" stroke="#ffffff" stroke-width="1" width="14" x="1106" y="534" />
+<rect fill="#ffff00" height="40" id="Group1_Group58_Rect77" stroke="#ffffff" stroke-width="1" width="14" x="1078" y="530" />
+<rect fill="#55ff00" height="25" id="Group1_Group58_Rect78" stroke="#ffffff" stroke-width="1" width="14" x="1092" y="545" />
+</g>
+<g height="51" id="Group1_Group59" width="43" x="1124" y="519" >
+<rect fill="#ff0000" height="51" id="Group1_Group59_Rect85" stroke="#ffffff" stroke-width="1" width="14" x="1153" y="519" />
+<rect fill="#ffff00" height="41" id="Group1_Group59_Rect86" stroke="#ffffff" stroke-width="1" width="14" x="1124" y="529" />
+<rect fill="#55ff00" height="22" id="Group1_Group59_Rect87" stroke="#ffffff" stroke-width="1" width="14" x="1139" y="548" />
+</g>
+<g height="56" id="Group1_Group60" width="43" x="1171" y="514" >
+<rect fill="#ff0000" height="40" id="Group1_Group60_Rect85" stroke="#ffffff" stroke-width="1" width="14" x="1200" y="530" />
+<rect fill="#ffff00" height="31" id="Group1_Group60_Rect86" stroke="#ffffff" stroke-width="1" width="14" x="1171" y="539" />
+<rect fill="#55ff00" height="56" id="Group1_Group60_Rect87" stroke="#ffffff" stroke-width="1" width="14" x="1186" y="514" />
+</g>
+<rect fill="#ff0000" height="53" id="Group1_Rect88" stroke="#ffffff" stroke-width="1" width="14" x="1247" y="517" />
+<rect fill="#ffff00" height="28" id="Group1_Rect89" stroke="#ffffff" stroke-width="1" width="14" x="1218" y="542" />
+<rect fill="#55ff00" height="64" id="Group1_Rect90" stroke="#ffffff" stroke-width="1" width="14" x="1233" y="506" />
+<g height="85" id="Group1_Group61" width="42" x="1265" y="485" >
+<rect fill="#ff0000" height="49" id="Group1_Group61_Rect91" stroke="#ffffff" stroke-width="1" width="14" x="1293" y="521" />
+<rect fill="#ffff00" height="85" id="Group1_Group61_Rect92" stroke="#ffffff" stroke-width="1" width="14" x="1265" y="485" />
+<rect fill="#55ff00" height="59" id="Group1_Group61_Rect93" stroke="#ffffff" stroke-width="1" width="14" x="1279" y="511" />
+</g>
+<g height="76" id="Group1_Group62" width="43" x="984" y="494" >
+<rect fill="#ff0000" height="61" id="Group1_Group62_Rect82" stroke="#ffffff" stroke-width="1" width="14" x="1013" y="509" />
+<rect fill="#ffff00" height="76" id="Group1_Group62_Rect83" stroke="#ffffff" stroke-width="1" width="14" x="984" y="494" />
+<rect fill="#55ff00" height="38" id="Group1_Group62_Rect84" stroke="#ffffff" stroke-width="1" width="14" x="999" y="532" />
+</g>
+<g height="263" id="Group1_Group63" width="41" x="616" y="307" >
+<rect fill="#ffff00" height="263" id="Group1_Group63_Rect20" stroke="#ffffff" stroke-width="1" width="14" x="643" y="307" />
+<rect fill="#55ff00" height="108" id="Group1_Group63_Rect23" stroke="#ffffff" stroke-width="1" width="14" x="616" y="462" />
+<rect fill="#ff0000" height="149" id="Group1_Group63_Rect18" stroke="#ffffff" stroke-width="1" width="14" x="629" y="421" />
+</g>
+<g height="83" id="Group1_Group64" width="42" x="569" y="487" >
+<rect fill="#ffff00" height="58" id="Group1_Group64_Rect22" stroke="#ffffff" stroke-width="1" width="14" x="569" y="512" />
+<rect fill="#55ff00" height="40" id="Group1_Group64_Rect19" stroke="#ffffff" stroke-width="1" width="14" x="583" y="530" />
+<rect fill="#ff0000" height="83" id="Group1_Group64_Rect21" stroke="#ffffff" stroke-width="1" width="14" x="597" y="487" />
+</g>
+<g height="212" id="Group1_Group15" width="42" x="524" y="358" >
+<rect fill="#ffff00" height="206" id="Group1_Group15_Rect22" stroke="#ffffff" stroke-width="1" width="14" x="524" y="364" />
+<rect fill="#55ff00" height="146" id="Group1_Group15_Rect19" stroke="#ffffff" stroke-width="1" width="14" x="538" y="424" />
+<rect fill="#ff0000" height="212" id="Group1_Group15_Rect21" stroke="#ffffff" stroke-width="1" width="14" x="552" y="358" />
+</g>
+<g height="98" id="Group1_Group65" width="42" x="478" y="472" >
+<rect fill="#ffff00" height="98" id="Group1_Group65_Rect63" stroke="#ffffff" stroke-width="1" width="14" x="478" y="472" />
+<rect fill="#55ff00" height="98" id="Group1_Group65_Rect8" stroke="#ffffff" stroke-width="1" width="14" x="492" y="472" />
+<rect fill="#ff0000" height="50" id="Group1_Group65_Rect24" stroke="#ffffff" stroke-width="1" width="14" x="506" y="520" />
+</g>
+<g height="71" id="Group1_Group66" width="42" x="661" y="499" >
+<rect fill="#ffff00" height="71" id="Group1_Group66_Rect26" stroke="#ffffff" stroke-width="1" width="14" x="661" y="499" />
+<rect fill="#55ff00" height="30" id="Group1_Group66_Rect27" stroke="#ffffff" stroke-width="1" width="14" x="675" y="540" />
+<rect fill="#ff0000" height="36" id="Group1_Group66_Rect28" stroke="#ffffff" stroke-width="1" width="14" x="689" y="534" />
+</g>
+<g height="104" id="Group1_Group67" width="42" x="707" y="466" >
+<rect fill="#ffff00" height="104" id="Group1_Group67_Rect31" stroke="#ffffff" stroke-width="1" width="14" x="707" y="466" />
+<rect fill="#55ff00" height="56" id="Group1_Group67_Rect32" stroke="#ffffff" stroke-width="1" width="14" x="721" y="514" />
+<rect fill="#ff0000" height="96" id="Group1_Group67_Rect25" stroke="#ffffff" stroke-width="1" width="14" x="735" y="474" />
+</g>
+<g height="34" id="Group1_Text163" width="202" x="1015" y="266" >
+<text fill="#000000" font-family="SimSun" font-size="21" x="1015"  y="284" >三相电流谐波显示</text>
+</g>
+<polyline fill="none" id="Group1_Foldline1" points=" 1828,572 430,572 430,252" stroke="#000000" stroke-width="1" />
+<g height="29" id="Group1_Text133" width="30" x="451" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="451"  y="584" >02</text>
+</g>
+<g height="29" id="Group1_Text134" width="30" x="499" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="499"  y="584" >03</text>
+</g>
+<g height="29" id="Group1_Text135" width="30" x="547" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="547"  y="584" >04</text>
+</g>
+<g height="29" id="Group1_Text136" width="30" x="595" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="595"  y="584" >05</text>
+</g>
+<g height="29" id="Group1_Text137" width="30" x="643" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="643"  y="584" >06</text>
+</g>
+<g height="29" id="Group1_Text138" width="30" x="691" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="691"  y="584" >07</text>
+</g>
+<g height="29" id="Group1_Text139" width="30" x="738" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="738"  y="584" >08</text>
+</g>
+<g height="29" id="Group1_Text140" width="30" x="786" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="786"  y="584" >09</text>
+</g>
+<g height="29" id="Group1_Text141" width="30" x="834" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="834"  y="584" >10</text>
+</g>
+<g height="29" id="Group1_Text142" width="30" x="882" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="882"  y="584" >11</text>
+</g>
+<g height="29" id="Group1_Text143" width="30" x="930" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="930"  y="584" >12</text>
+</g>
+<g height="29" id="Group1_Text144" width="30" x="978" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="978"  y="584" >13</text>
+</g>
+<g height="29" id="Group1_Text145" width="30" x="1025" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1025"  y="584" >14</text>
+</g>
+<g height="29" id="Group1_Text146" width="30" x="1073" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1073"  y="584" >15</text>
+</g>
+<g height="29" id="Group1_Text147" width="30" x="1121" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1121"  y="584" >16</text>
+</g>
+<g height="29" id="Group1_Text148" width="30" x="1169" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1169"  y="584" >17</text>
+</g>
+<g height="29" id="Group1_Text149" width="30" x="1217" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1217"  y="584" >18</text>
+</g>
+<g height="29" id="Group1_Text150" width="30" x="1264" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1264"  y="584" >19</text>
+</g>
+<g height="29" id="Group1_Text151" width="30" x="1312" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1312"  y="584" >20</text>
+</g>
+<g height="29" id="Group1_Text152" width="30" x="1360" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1360"  y="584" >21</text>
+</g>
+<g height="29" id="Group1_Text153" width="30" x="1408" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1408"  y="584" >22</text>
+</g>
+<g height="29" id="Group1_Text154" width="30" x="1456" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1456"  y="584" >23</text>
+</g>
+<g height="29" id="Group1_Text155" width="30" x="1504" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1504"  y="584" >24</text>
+</g>
+<g height="29" id="Group1_Text156" width="30" x="1551" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1551"  y="584" >25</text>
+</g>
+<g height="29" id="Group1_Text157" width="30" x="1599" y="570" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1599"  y="584" >26</text>
+</g>
+<g height="29" id="Group1_Text165" width="20" x="404" y="500" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="514" >1</text>
+</g>
+<g height="29" id="Group1_Text166" width="20" x="404" y="452" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="466" >2</text>
+</g>
+<g height="29" id="Group1_Text167" width="20" x="404" y="404" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="418" >3</text>
+</g>
+<g height="29" id="Group1_Text168" width="20" x="404" y="356" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="370" >4</text>
+</g>
+<g height="29" id="Group1_Text169" width="20" x="404" y="308" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="322" >5</text>
+</g>
+<g height="29" id="Group1_Text170" width="20" x="404" y="260" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="274" >6</text>
+</g>
+</g>
+<g height="60" id="Group2" width="42" x="1771" y="890" >
+<rect fill="#ffff00" height="60" id="Group2_Rect69" stroke="#ffffff" stroke-width="1" width="14" x="1771" y="890" />
+<rect fill="#55ff00" height="19" id="Group2_Rect70" stroke="#ffffff" stroke-width="1" width="14" x="1785" y="931" />
+<rect fill="#ff0000" height="43" id="Group2_Rect81" stroke="#ffffff" stroke-width="1" width="14" x="1799" y="907" />
+</g>
+<g height="53" id="Group3" width="42" x="1630" y="897" >
+<rect fill="#ffff00" height="20" id="Group3_Rect109" stroke="#ffffff" stroke-width="1" width="14" x="1630" y="930" />
+<rect fill="#55ff00" height="53" id="Group3_Rect110" stroke="#ffffff" stroke-width="1" width="14" x="1644" y="897" />
+<rect fill="#ff0000" height="30" id="Group3_Rect111" stroke="#ffffff" stroke-width="1" width="14" x="1658" y="920" />
+</g>
+<g height="38" id="Group4" width="42" x="1676" y="912" >
+<rect fill="#ffff00" height="38" id="Group4_Rect69" stroke="#ffffff" stroke-width="1" width="14" x="1676" y="912" />
+<rect fill="#55ff00" height="13" id="Group4_Rect70" stroke="#ffffff" stroke-width="1" width="14" x="1690" y="937" />
+<rect fill="#ff0000" height="33" id="Group4_Rect81" stroke="#ffffff" stroke-width="1" width="14" x="1704" y="917" />
+</g>
+<g height="56" id="Group5" width="43" x="1722" y="894" >
+<rect fill="#ff0000" height="56" id="Group5_Rect100" stroke="#ffffff" stroke-width="1" width="14" x="1751" y="894" />
+<rect fill="#ffff00" height="46" id="Group5_Rect101" stroke="#ffffff" stroke-width="1" width="14" x="1722" y="904" />
+<rect fill="#55ff00" height="31" id="Group5_Rect102" stroke="#ffffff" stroke-width="1" width="14" x="1737" y="919" />
+</g>
+<g height="29" id="Text4" width="30" x="1647" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1647"  y="964" >27</text>
+</g>
+<g height="29" id="Text5" width="30" x="1695" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1695"  y="964" >28</text>
+</g>
+<g height="29" id="Text6" width="30" x="1743" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1743"  y="964" >29</text>
+</g>
+<g height="29" id="Text7" width="30" x="1791" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1791"  y="964" >30</text>
+</g>
+<g height="29" id="Text8" width="20" x="404" y="928" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="942" >0</text>
+</g>
+<g height="175" id="Group6" width="40" x="1307" y="775" >
+<rect fill="#ffff00" height="98" id="Group6_Rect120" stroke="#ffffff" stroke-width="1" width="14" x="1307" y="852" />
+<rect fill="#55ff00" height="98" id="Group6_Rect121" stroke="#ffffff" stroke-width="1" width="14" x="1320" y="852" />
+<rect fill="#ff0000" height="175" id="Group6_Rect122" stroke="#ffffff" stroke-width="1" width="14" x="1333" y="775" />
+</g>
+<g height="201" id="Group7" width="43" x="1111" y="749" >
+<rect fill="#ffff00" height="26" id="Group7_Rect64" stroke="#ffffff" stroke-width="1" width="14" x="1111" y="924" />
+<rect fill="#55ff00" height="88" id="Group7_Rect62" stroke="#ffffff" stroke-width="1" width="14" x="1126" y="862" />
+<rect fill="#ff0000" height="201" id="Group7_Rect65" stroke="#ffffff" stroke-width="1" width="14" x="1140" y="749" />
+</g>
+<g height="211" id="Group8" width="37" x="976" y="739" >
+<rect fill="#ffff00" height="211" id="Group8_Rect31" stroke="#ffffff" stroke-width="1" width="12" x="976" y="739" />
+<rect fill="#55ff00" height="160" id="Group8_Rect32" stroke="#ffffff" stroke-width="1" width="12" x="988" y="790" />
+<rect fill="#ff0000" height="85" id="Group8_Rect25" stroke="#ffffff" stroke-width="1" width="13" x="1000" y="865" />
+</g>
+<g height="72" id="Group9" width="42" x="1351" y="878" >
+<rect fill="#ff0000" height="50" id="Group9_Rect91" stroke="#ffffff" stroke-width="1" width="14" x="1379" y="900" />
+<rect fill="#ffff00" height="72" id="Group9_Rect92" stroke="#ffffff" stroke-width="1" width="14" x="1351" y="878" />
+<rect fill="#55ff00" height="35" id="Group9_Rect93" stroke="#ffffff" stroke-width="1" width="14" x="1365" y="915" />
+</g>
+<g height="54" id="Group10" width="42" x="1398" y="896" >
+<rect fill="#ff0000" height="24" id="Group10_Rect94" stroke="#ffffff" stroke-width="1" width="14" x="1426" y="926" />
+<rect fill="#ffff00" height="54" id="Group10_Rect95" stroke="#ffffff" stroke-width="1" width="14" x="1398" y="896" />
+<rect fill="#55ff00" height="31" id="Group10_Rect96" stroke="#ffffff" stroke-width="1" width="14" x="1412" y="919" />
+</g>
+<g height="47" id="Group11" width="42" x="1444" y="903" >
+<rect fill="#ff0000" height="47" id="Group11_Rect97" stroke="#ffffff" stroke-width="1" width="13" x="1473" y="903" />
+<rect fill="#ffff00" height="16" id="Group11_Rect98" stroke="#ffffff" stroke-width="1" width="14" x="1444" y="934" />
+<rect fill="#55ff00" height="29" id="Group11_Rect99" stroke="#ffffff" stroke-width="1" width="14" x="1459" y="921" />
+</g>
+<g height="22" id="Group12" width="43" x="1450" y="928" >
+<rect fill="#ff0000" height="22" id="Group12_Rect100" stroke="#ffffff" stroke-width="1" width="14" x="1479" y="928" />
+<rect fill="#ffff00" height="19" id="Group12_Rect101" stroke="#ffffff" stroke-width="1" width="14" x="1450" y="931" />
+<rect fill="#55ff00" height="5" id="Group12_Rect102" stroke="#ffffff" stroke-width="1" width="14" x="1465" y="945" />
+</g>
+<g height="54" id="Group13" width="42" x="1538" y="896" >
+<rect fill="#ff0000" height="54" id="Group13_Rect103" stroke="#ffffff" stroke-width="1" width="14" x="1566" y="896" />
+<rect fill="#ffff00" height="53" id="Group13_Rect104" stroke="#ffffff" stroke-width="1" width="14" x="1538" y="897" />
+<rect fill="#55ff00" height="41" id="Group13_Rect105" stroke="#ffffff" stroke-width="1" width="14" x="1552" y="909" />
+</g>
+<g height="49" id="Group14" width="42" x="1584" y="901" >
+<rect fill="#ff0000" height="36" id="Group14_Rect106" stroke="#ffffff" stroke-width="1" width="14" x="1612" y="914" />
+<rect fill="#ffff00" height="49" id="Group14_Rect107" stroke="#ffffff" stroke-width="1" width="14" x="1584" y="901" />
+<rect fill="#55ff00" height="26" id="Group14_Rect108" stroke="#ffffff" stroke-width="1" width="14" x="1598" y="924" />
+</g>
+<g height="49" id="Group15" width="43" x="1491" y="901" >
+<rect fill="#ff0000" height="31" id="Group15_Rect100" stroke="#ffffff" stroke-width="1" width="14" x="1520" y="919" />
+<rect fill="#ffff00" height="49" id="Group15_Rect101" stroke="#ffffff" stroke-width="1" width="14" x="1491" y="901" />
+<rect fill="#55ff00" height="36" id="Group15_Rect102" stroke="#ffffff" stroke-width="1" width="14" x="1506" y="914" />
+</g>
+<g height="62" id="Group16" width="43" x="929" y="888" >
+<rect fill="#ff0000" height="56" id="Group16_Rect82" stroke="#ffffff" stroke-width="1" width="14" x="958" y="894" />
+<rect fill="#ffff00" height="62" id="Group16_Rect83" stroke="#ffffff" stroke-width="1" width="14" x="929" y="888" />
+<rect fill="#55ff00" height="35" id="Group16_Rect84" stroke="#ffffff" stroke-width="1" width="14" x="944" y="915" />
+</g>
+<g height="40" id="Group17" width="42" x="1065" y="910" >
+<rect fill="#ff0000" height="36" id="Group17_Rect71" stroke="#ffffff" stroke-width="1" width="14" x="1093" y="914" />
+<rect fill="#ffff00" height="40" id="Group17_Rect77" stroke="#ffffff" stroke-width="1" width="14" x="1065" y="910" />
+<rect fill="#55ff00" height="25" id="Group17_Rect78" stroke="#ffffff" stroke-width="1" width="14" x="1079" y="925" />
+</g>
+<g height="51" id="Group18" width="43" x="1158" y="899" >
+<rect fill="#ff0000" height="51" id="Group18_Rect85" stroke="#ffffff" stroke-width="1" width="14" x="1187" y="899" />
+<rect fill="#ffff00" height="41" id="Group18_Rect86" stroke="#ffffff" stroke-width="1" width="14" x="1158" y="909" />
+<rect fill="#55ff00" height="22" id="Group18_Rect87" stroke="#ffffff" stroke-width="1" width="14" x="1173" y="928" />
+</g>
+<g height="56" id="Group19" width="43" x="1205" y="894" >
+<rect fill="#ff0000" height="40" id="Group19_Rect85" stroke="#ffffff" stroke-width="1" width="14" x="1234" y="910" />
+<rect fill="#ffff00" height="31" id="Group19_Rect86" stroke="#ffffff" stroke-width="1" width="14" x="1205" y="919" />
+<rect fill="#55ff00" height="56" id="Group19_Rect87" stroke="#ffffff" stroke-width="1" width="14" x="1220" y="894" />
+</g>
+<rect fill="#ff0000" height="53" id="Rect87" stroke="#ffffff" stroke-width="1" width="14" x="1289" y="897" />
+<rect fill="#ffff00" height="28" id="Rect88" stroke="#ffffff" stroke-width="1" width="14" x="1253" y="922" />
+<rect fill="#55ff00" height="64" id="Rect89" stroke="#ffffff" stroke-width="1" width="14" x="1271" y="886" />
+<g height="85" id="Group20" width="42" x="433" y="865" >
+<rect fill="#ff0000" height="49" id="Group20_Rect91" stroke="#ffffff" stroke-width="1" width="14" x="461" y="901" />
+<rect fill="#ffff00" height="85" id="Group20_Rect92" stroke="#ffffff" stroke-width="1" width="14" x="433" y="865" />
+<rect fill="#55ff00" height="59" id="Group20_Rect93" stroke="#ffffff" stroke-width="1" width="14" x="447" y="891" />
+</g>
+<g height="76" id="Group21" width="43" x="836" y="874" >
+<rect fill="#ff0000" height="61" id="Group21_Rect82" stroke="#ffffff" stroke-width="1" width="14" x="865" y="889" />
+<rect fill="#ffff00" height="76" id="Group21_Rect83" stroke="#ffffff" stroke-width="1" width="14" x="836" y="874" />
+<rect fill="#55ff00" height="38" id="Group21_Rect84" stroke="#ffffff" stroke-width="1" width="14" x="851" y="912" />
+</g>
+<g height="263" id="Group22" width="41" x="652" y="687" >
+<rect fill="#ffff00" height="263" id="Group22_Rect20" stroke="#ffffff" stroke-width="1" width="14" x="679" y="687" />
+<rect fill="#55ff00" height="108" id="Group22_Rect23" stroke="#ffffff" stroke-width="1" width="14" x="652" y="842" />
+<rect fill="#ff0000" height="149" id="Group22_Rect18" stroke="#ffffff" stroke-width="1" width="14" x="665" y="801" />
+</g>
+<g height="83" id="Group23" width="42" x="571" y="867" >
+<rect fill="#ffff00" height="58" id="Group23_Rect22" stroke="#ffffff" stroke-width="1" width="14" x="571" y="892" />
+<rect fill="#55ff00" height="40" id="Group23_Rect19" stroke="#ffffff" stroke-width="1" width="14" x="585" y="910" />
+<rect fill="#ff0000" height="83" id="Group23_Rect21" stroke="#ffffff" stroke-width="1" width="14" x="599" y="867" />
+</g>
+<g height="212" id="Group24" width="42" x="525" y="738" >
+<rect fill="#ffff00" height="206" id="Group24_Rect22" stroke="#ffffff" stroke-width="1" width="14" x="525" y="744" />
+<rect fill="#55ff00" height="146" id="Group24_Rect19" stroke="#ffffff" stroke-width="1" width="14" x="539" y="804" />
+<rect fill="#ff0000" height="212" id="Group24_Rect21" stroke="#ffffff" stroke-width="1" width="14" x="553" y="738" />
+</g>
+<g height="98" id="Group25" width="42" x="479" y="852" >
+<rect fill="#ffff00" height="98" id="Group25_Rect63" stroke="#ffffff" stroke-width="1" width="14" x="479" y="852" />
+<rect fill="#55ff00" height="98" id="Group25_Rect8" stroke="#ffffff" stroke-width="1" width="14" x="493" y="852" />
+<rect fill="#ff0000" height="50" id="Group25_Rect24" stroke="#ffffff" stroke-width="1" width="14" x="507" y="900" />
+</g>
+<g height="71" id="Group26" width="42" x="697" y="879" >
+<rect fill="#ffff00" height="71" id="Group26_Rect26" stroke="#ffffff" stroke-width="1" width="14" x="697" y="879" />
+<rect fill="#55ff00" height="30" id="Group26_Rect27" stroke="#ffffff" stroke-width="1" width="14" x="711" y="920" />
+<rect fill="#ff0000" height="36" id="Group26_Rect28" stroke="#ffffff" stroke-width="1" width="14" x="725" y="914" />
+</g>
+<g height="104" id="Group27" width="42" x="743" y="846" >
+<rect fill="#ffff00" height="104" id="Group27_Rect31" stroke="#ffffff" stroke-width="1" width="14" x="743" y="846" />
+<rect fill="#55ff00" height="56" id="Group27_Rect32" stroke="#ffffff" stroke-width="1" width="14" x="757" y="894" />
+<rect fill="#ff0000" height="96" id="Group27_Rect25" stroke="#ffffff" stroke-width="1" width="14" x="771" y="854" />
+</g>
+<g height="34" id="Text9" width="202" x="1015" y="646" >
+<text fill="#000000" font-family="SimSun" font-size="21" x="1015"  y="664" >三相电压谐波显示</text>
+</g>
+<polyline fill="none" id="Foldline1" points=" 1828,952 430,952 430,632" stroke="#000000" stroke-width="1" />
+<g height="29" id="Text10" width="30" x="451" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="451"  y="964" >02</text>
+</g>
+<g height="29" id="Text11" width="30" x="499" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="499"  y="964" >03</text>
+</g>
+<g height="29" id="Text12" width="30" x="547" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="547"  y="964" >04</text>
+</g>
+<g height="29" id="Text13" width="30" x="595" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="595"  y="964" >05</text>
+</g>
+<g height="29" id="Text14" width="30" x="643" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="643"  y="964" >06</text>
+</g>
+<g height="29" id="Text15" width="30" x="691" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="691"  y="964" >07</text>
+</g>
+<g height="29" id="Text16" width="30" x="738" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="738"  y="964" >08</text>
+</g>
+<g height="29" id="Text17" width="30" x="786" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="786"  y="964" >09</text>
+</g>
+<g height="29" id="Text18" width="30" x="834" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="834"  y="964" >10</text>
+</g>
+<g height="29" id="Text19" width="30" x="882" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="882"  y="964" >11</text>
+</g>
+<g height="29" id="Text20" width="30" x="930" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="930"  y="964" >12</text>
+</g>
+<g height="29" id="Text21" width="30" x="978" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="978"  y="964" >13</text>
+</g>
+<g height="29" id="Text22" width="30" x="1025" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1025"  y="964" >14</text>
+</g>
+<g height="29" id="Text23" width="30" x="1073" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1073"  y="964" >15</text>
+</g>
+<g height="29" id="Text24" width="30" x="1121" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1121"  y="964" >16</text>
+</g>
+<g height="29" id="Text25" width="30" x="1169" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1169"  y="964" >17</text>
+</g>
+<g height="29" id="Text26" width="30" x="1217" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1217"  y="964" >18</text>
+</g>
+<g height="29" id="Text27" width="30" x="1264" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1264"  y="964" >19</text>
+</g>
+<g height="29" id="Text28" width="30" x="1312" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1312"  y="964" >20</text>
+</g>
+<g height="29" id="Text29" width="30" x="1360" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1360"  y="964" >21</text>
+</g>
+<g height="29" id="Text30" width="30" x="1408" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1408"  y="964" >22</text>
+</g>
+<g height="29" id="Text31" width="30" x="1456" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1456"  y="964" >23</text>
+</g>
+<g height="29" id="Text32" width="30" x="1504" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1504"  y="964" >24</text>
+</g>
+<g height="29" id="Text33" width="30" x="1551" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1551"  y="964" >25</text>
+</g>
+<g height="29" id="Text34" width="30" x="1599" y="950" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1599"  y="964" >26</text>
+</g>
+<g height="29" id="Text35" width="20" x="404" y="880" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="894" >1</text>
+</g>
+<g height="29" id="Text36" width="20" x="404" y="832" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="846" >2</text>
+</g>
+<g height="29" id="Text37" width="20" x="404" y="784" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="798" >3</text>
+</g>
+<g height="29" id="Text38" width="20" x="404" y="736" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="750" >4</text>
+</g>
+<g height="29" id="Text39" width="20" x="404" y="688" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="702" >5</text>
+</g>
+<g height="29" id="Text40" width="20" x="404" y="640" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="404"  y="654" >6</text>
+</g>
+<g height="210" id="Group28" width="43" x="1017" y="740" >
+<rect fill="#ffff00" height="210" id="Group28_Rect56" stroke="#ffffff" stroke-width="1" width="14" x="1017" y="740" />
+<rect fill="#55ff00" height="112" id="Group28_Rect60" stroke="#ffffff" stroke-width="1" width="14" x="1032" y="838" />
+<rect fill="#ff0000" height="121" id="Group28_Rect57" stroke="#ffffff" stroke-width="1" width="14" x="1046" y="829" />
+</g>
+<g height="121" id="Group29" width="42" x="789" y="829" >
+<rect fill="#ffff00" height="96" id="Group29_Rect59" stroke="#ffffff" stroke-width="1" width="14" x="789" y="854" />
+<rect fill="#55ff00" height="121" id="Group29_Rect58" stroke="#ffffff" stroke-width="1" width="14" x="803" y="829" />
+<rect fill="#ff0000" height="100" id="Group29_Rect61" stroke="#ffffff" stroke-width="1" width="14" x="817" y="850" />
+</g>
+<g height="136" id="Group30" width="42" x="883" y="814" >
+<rect fill="#ffff00" height="96" id="Group30_Rect59" stroke="#ffffff" stroke-width="1" width="14" x="883" y="854" />
+<rect fill="#55ff00" height="136" id="Group30_Rect58" stroke="#ffffff" stroke-width="1" width="14" x="897" y="814" />
+<rect fill="#ff0000" height="100" id="Group30_Rect61" stroke="#ffffff" stroke-width="1" width="14" x="911" y="850" />
+</g>
+<g height="16" id="Group31" width="230" x="949" y="550" >
+<rect fill="#ffff00" height="16" id="Group31_Rect123" stroke="#000000" stroke-width="1" width="50" x="949" y="550" />
+<g height="16" id="Group31_innertext_Rect123" width="50" x="949" y="550" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="964"  y="562" >IA</text>
+</g>
+<rect fill="#00ff00" height="16" id="Group31_Rect124" stroke="#000000" stroke-width="1" width="50" x="1038" y="550" />
+<g height="16" id="Group31_innertext_Rect124" width="50" x="1038" y="550" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1053"  y="562" >IB</text>
+</g>
+<rect fill="#ff0000" height="16" id="Group31_Rect125" stroke="#000000" stroke-width="1" width="50" x="1129" y="550" />
+<g height="16" id="Group31_innertext_Rect125" width="50" x="1129" y="550" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1144"  y="562" >IC</text>
+</g>
+</g>
+<g height="16" id="Group32" width="230" x="949" y="983" >
+<rect fill="#ffff00" height="16" id="Group32_Rect126" stroke="#000000" stroke-width="1" width="50" x="949" y="983" />
+<g height="16" id="Group32_innertext_Rect126" width="50" x="949" y="983" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="964"  y="995" >UA</text>
+</g>
+<rect fill="#00ff00" height="16" id="Group32_Rect127" stroke="#000000" stroke-width="1" width="50" x="1038" y="983" />
+<g height="16" id="Group32_innertext_Rect127" width="50" x="1038" y="983" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1053"  y="995" >UB</text>
+</g>
+<rect fill="#ff0000" height="16" id="Group32_Rect128" stroke="#000000" stroke-width="1" width="50" x="1129" y="983" />
+<g height="16" id="Group32_innertext_Rect128" width="50" x="1129" y="983" >
+<text fill="#000000" font-family="SimSun" font-size="17" x="1144"  y="995" >UC</text>
+</g>
+</g>
+<image height="2" id="Image1" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image2" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image3" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group33_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_分区用电.svg" >
+<g height="89" id="Group33" width="321" x="20" y="357" >
+<image height="89" id="Group33_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group33_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159"  y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group33_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group34_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="能效系统/用水耗能_分区用水.svg" >
+<g height="89" id="Group34" width="321" x="20" y="461" >
+<image height="89" id="Group34_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group34_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163"  y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group34_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group35_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="能效系统/燃气耗能_燃气系统.svg" >
+<g height="89" id="Group35" width="321" x="20" y="565" >
+<image height="89" id="Group35_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group35_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157"  y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group35_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group36_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供热耗能_供热系统.svg" >
+<g height="89" id="Group36" width="321" x="20" y="669" >
+<image height="89" id="Group36_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group36_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group36_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group37_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供冷耗能_冷水系统.svg" >
+<g height="89" id="Group37" width="321" x="20" y="773" >
+<image height="89" id="Group37_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group37_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group37_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group38_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="能效系统/其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group38" width="321" x="20" y="878" >
+<image height="89" id="Group38_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group38_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135"  y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group38_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group39_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/建筑总耗能.svg','_self', '');}" target="_self" xlink:href="能效系统/建筑总耗能.svg" >
+<g height="89" id="Group39" width="321" x="20" y="253" >
+<image height="89" id="Group39_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group39_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149"  y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group39_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+</svg>

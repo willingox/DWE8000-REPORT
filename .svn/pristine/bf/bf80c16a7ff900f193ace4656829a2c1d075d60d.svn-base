@@ -1,0 +1,221 @@
+package com.xjgc.wind.datastatistics.web.action;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionServlet;
+import org.apache.struts.actions.DispatchAction;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.xjgc.wind.datastatistics.service.IWindFaultCountsService;
+import com.xjgc.wind.datastatistics.service.IGeneratorService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindFaultCountsDataForm;
+
+public class WindFaultCountsDataAction extends DispatchAction{
+
+	private static final Log log = LogFactory.getLog(WindFaultCountsDataAction.class);
+	
+	IWindFaultCountsService windFaultCountsService;
+	IGeneratorService generatorService;
+	
+	public void setServlet(ActionServlet servlet) {
+		super.setServlet(servlet);
+
+		WebApplicationContext wac = WebApplicationContextUtils
+		.getRequiredWebApplicationContext(servlet.getServletContext());
+		
+		windFaultCountsService = (IWindFaultCountsService) wac.getBean("windFaultCountsService");
+		generatorService = (IGeneratorService) wac.getBean("generatorService");
+	} 
+	
+	public ActionForward execute(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		if (log.isDebugEnabled())
+			log.debug("entering 'execute' method ...");
+
+		String method = request.getParameter("method");
+		if (StringUtils.isBlank(method))
+			return show(mapping, form, request, response);
+		else
+			return super.execute(mapping, form, request, response);
+	}
+	
+	public ActionForward show(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		if (log.isDebugEnabled())
+			log.debug("entering 'show' method ...");
+		
+		WindFaultCountsDataForm dataForm = (WindFaultCountsDataForm) form;
+		List<DataStatisticsDataVo> result =null;
+		List<DataStatisticsDataVo> resultcount =null;
+		List<DataStatisticsDataVo> resultall =null;
+		if (!StringUtils.isEmpty(request.getParameter("isFirst"))) {
+			// ��ѯ���
+			
+			result = windFaultCountsService.list(dataForm);
+			resultcount = windFaultCountsService.listcount(dataForm);
+			resultall = windFaultCountsService.listall(dataForm);
+			
+			/*if(result.size()> 1){
+				int count = 0;
+				int list = 0;
+				int countlist = 0;
+				long time = 0;
+				for(int i =1;i <result.size();i++){
+
+					if(result.get(i).getName().compareTo(result.get(i-1).getName())== 0){
+						if((result.get(i-1).getCurcmpState() == 4)||(result.get(i-1).getCurcmpState() == 5)){
+							resultcount.get(countlist).setName(result.get(i-1).getName());
+							list = i-1;
+						}
+						else{
+							if(i >= 2 && ((result.get(i-2).getCurcmpState() == 4)||(result.get(i-2).getCurcmpState() == 5))){
+								count = count+1;
+								
+								long etime = result.get(i-1).getSaveTime().getTime()-result.get(list).getSaveTime().getTime();
+								time += etime;
+							}
+						
+							}
+						}
+					else{
+						resultcount.get(countlist).setCurcmpState(count);
+						resultcount.get(countlist).setCurp(time*0.001/3600);
+						countlist = countlist+1;
+					}
+
+
+					}
+				
+				if(countlist < resultcount.size()){
+					for(int i = resultcount.size()-1;i > countlist;i--)
+					{
+						resultcount.remove(i);
+					}
+				}
+			}
+
+			else{
+				resultcount.clear();
+			}*/
+			
+			if(result.size()> 1){
+				int icount = 1;
+				int list = 0;
+				int num = 0;
+				for(int i = 1;i < result.size();i++){
+					if(i == 1){
+						resultcount.get(0).setName(result.get(0).getName());	
+						num = i-1;
+
+					}
+
+					if(result.get(i).getName().compareTo(result.get(i-1).getName())== 0){ 
+						if((result.get(i).getCurcmpState() != result.get(i-1).getCurcmpState()) && (result.get(i).getCurcmpState()!= 0) &&(result.get(i-1).getCurcmpState() != 0)){
+							icount = icount+1;
+						}
+					}
+					else{
+						resultcount.get(list).setCurcmpState(icount);
+						long time = result.get(i-1).getSaveTime().getTime()-result.get(num).getSaveTime().getTime();
+						resultcount.get(list).setCurp(time*0.001/3600);
+						num = i;
+						icount = 1;
+						list = list+1;
+						resultcount.get(list).setName(result.get(i).getName());
+						
+					}
+					if(i == result.size()-1){
+						resultcount.get(list).setCurcmpState(icount);
+					}
+				}
+				if(list < resultcount.size()){
+					for(int i = resultcount.size()-1;i > list;i--)
+					{
+						resultcount.remove(i);
+					}
+				}
+			}
+			else{
+				resultcount.clear();
+			}
+			
+			int gsize = resultall.size();
+			int csize = resultcount.size();
+			for(int j = 0;j<gsize;j++){
+				if(csize <= 0)
+				{
+					resultall.get(j).setHour(0);
+				}else{
+					for(int k = 0;k < csize;k++){
+						String ss = resultall.get(j).getName();
+						String ff = resultcount.get(k).getName();
+						if(ss.compareTo(ff) == 0){
+							resultall.get(j).setHour(resultcount.get(k).getCurcmpState());
+							
+						}
+					}
+					
+				}
+			}
+			
+			request.setAttribute("result", result);
+			request.setAttribute("resultcount", resultcount);
+			request.setAttribute("resultall", resultall);
+			
+		}
+
+	
+		lineChartXml(resultall, request);
+		
+		return mapping.findForward("show");
+	}
+	
+private void lineChartXml(List<DataStatisticsDataVo> list, HttpServletRequest request) {
+		
+		if (list != null && !list.isEmpty()) {
+			StringBuffer barXml = new StringBuffer();
+			barXml.append("[");
+			
+			Iterator<DataStatisticsDataVo> iter = list.iterator();
+			while (iter.hasNext()) {
+				DataStatisticsDataVo elem = iter.next();
+				
+				barXml.append("{").append("name").append(":\"").append(elem.getName());
+				barXml.append("\",").append("count").append(":\"").append(elem.getHour());
+				barXml.append("\"},");
+			}
+			barXml.append("]");
+			
+			if (barXml.length() > 0) 
+				request.setAttribute("barXml", barXml);
+		}
+		else
+		{
+			StringBuffer barXml = new StringBuffer();
+			barXml.append("[{").append("name").append(":\"").append(0);
+			barXml.append("\",").append("count").append(":\"").append(0).append("\"}]");
+			
+			request.setAttribute("barXml", barXml);
+		}
+	}
+}

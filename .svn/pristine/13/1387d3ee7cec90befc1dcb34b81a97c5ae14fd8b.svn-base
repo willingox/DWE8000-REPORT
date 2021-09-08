@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	
+	<display-name>wind</display-name>
+	
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>classpath:com/bjxj/conf/files/ApplicationResources</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
+		<param-value>zh_CN</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/applicationContext*.xml</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>extremecomponentsPreferencesLocation</param-name>
+		<param-value>/extremetable.properties</param-value>
+	</context-param>
+	
+	<context-param> 
+       <param-name>ecsidePreferencesLocation</param-name> 
+       <param-value>/ecside.properties</param-value> 
+    </context-param> 
+	
+	
+	<context-param>
+		<param-name>extremecomponentsMessagesLocation</param-name>
+		<param-value>extremetableResourceBundle</param-value>
+	</context-param>
+	
+	
+	<context-param>
+		<param-name>god</param-name>
+		<param-value>0</param-value>
+	</context-param>
+	
+	<!-- 用户是否启用密码加密 -->
+	<context-param>
+		<param-name>encryptPassword</param-name>
+		<param-value>true</param-value>
+	</context-param>
+	
+	<filter>
+		<filter-name>eXtremeExport</filter-name>
+		<filter-class>org.extremecomponents.table.filter.ExportFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	
+	<filter>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>exportFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+	
+	
+	<filter>
+		<filter-name>ecsideExport</filter-name>
+		<filter-class>org.ecside.filter.ECSideFilter</filter-class>
+		<init-param>
+			<param-name>useEasyDataAccess</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>useEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>gbk</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>ecsideExport</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<!--
+	<filter>
+		<filter-name>compressionFilter</filter-name>
+		<filter-class>com.bjxj.base.webapp.filter.GZIPFilter</filter-class>
+	</filter>
+	-->
+	<!-- session 过期处理 edit by hb 2016-6-8-->
+	<filter>
+		<filter-name>SessionFilter</filter-name>
+		<filter-class>com.bjxj.usermgr.webapp.filter.SessionFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>SessionFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>exportFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	<!--
+	<filter-mapping>
+		<filter-name>compressionFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	-->
+	<filter-mapping>
+		<filter-name>eXtremeExport</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 所有过滤器的mapping标签必须放在编码的后边，否则编码过滤无效-->
+	<filter>
+		<filter-name>UrlFilter</filter-name>
+		<filter-class>com.bjxj.usermgr.webapp.filter.UrlFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>*.do</url-pattern>
+	</filter-mapping>
+	
+	
+	<servlet>
+		<servlet-name>log4j-init</servlet-name>
+		<servlet-class>com.bjxj.usermgr.webapp.servlet.Log4jInit</servlet-class>
+		<load-on-startup>0</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>SpringContextServlet</servlet-name>
+		<servlet-class>org.springframework.web.context.ContextLoaderServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>action</servlet-name>
+		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+		<init-param>
+			<param-name>convertNull</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config</param-name>
+			<param-value>/WEB-INF/struts-config.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/usermgr</param-name>
+			<param-value>/WEB-INF/struts-config-usermgr.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/datastatistics</param-name>
+			<param-value>/WEB-INF/struts-config-datastatistics.xml</param-value>
+		</init-param>	
+		
+		<init-param>
+			<param-name>config/loadmgr</param-name>
+			<param-value>/WEB-INF/struts-config-loadmgr.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>config/customer</param-name>
+			<param-value>/WEB-INF/struts-config-customer.xml</param-value>
+		</init-param>
+		 <init-param>
+			<param-name>config/querytree</param-name>
+			<param-value>/WEB-INF/struts-config-querytree.xml</param-value>
+		</init-param>
+		 <init-param>
+			<param-name>config/app</param-name>
+			<param-value>/WEB-INF/struts-config-app.xml</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>3</param-value>
+		</init-param>
+		<init-param>
+			<param-name>detail</param-name>
+			<param-value>2</param-value>
+		</init-param>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ReportServer</servlet-name>
+		<servlet-class>com.fr.web.ReportServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ReportServer</servlet-name>
+		<url-pattern>/ReportServer</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<description>服务器启动后自动根据ICS8000配置文件的配置修改根公司名称</description>
+		<servlet-name>updateRootOrgNameServlet</servlet-name>
+		<servlet-class>com.bjxj.usermgr.webapp.servlet.UpdateRootOrgNameServlet</servlet-class>
+		<load-on-startup>3</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>action</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<!--推送服务  djl 
+	<servlet>
+        <servlet-name>PushServlet</servlet-name>
+        <servlet-class>com.xjgc.wind.app.push.servlet.PushServlet</servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+    -->
+
+	<session-config>
+		<session-timeout>120</session-timeout>
+	</session-config>
+
+	<error-page>
+		<error-code>501</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>400</error-code>
+		<location>/index.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>403</error-code>
+		<location>/403.jsp</location>
+	</error-page>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+	</error-page>
+
+	<welcome-file-list>
+		<welcome-file>login.jsp</welcome-file>
+		<welcome-file>newlogin.jsp</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	
+		<!-- ecside标签 -->
+	     <taglib>
+			<taglib-uri>/tags/ecside</taglib-uri>
+			<taglib-location>/WEB-INF/ecside.tld</taglib-location>
+		</taglib>
+	
+	
+	
+	<!-- Struts Tag Library Descriptors -->
+	<taglib>
+		<taglib-uri>/tags/base-app</taglib-uri>
+		<taglib-location>/WEB-INF/base-app.tld</taglib-location>
+	</taglib>
+</web-app>
+

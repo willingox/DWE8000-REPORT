@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loadRTChartForm" type="com.xjgc.dsm.monitor.web.form.LoadRTChartForm"></form-bean>
+		<form-bean name="loadPlanForm" type="com.xjgc.dsm.loadmgr.web.form.LoadPlanForm"></form-bean>
+	</form-beans>
+
+	<action-mappings>
+
+		<action path="/loadLimitSet" type="com.xjgc.dsm.loadmgr.web.action.LoadLimitSetAction" name="loadRTChartForm" parameter="method" scope="request">
+			
+			<forward name="listPage" contextRelative="true" path="/pages/loadmgr/loadLimitSet.jsp" />
+
+		</action>
+		<action path="/loadPlan" type="com.xjgc.dsm.loadmgr.web.action.LoadPlanAction" name="loadPlanForm" parameter="method" scope="request">
+			
+			<forward name="listPage" contextRelative="true" path="/pages/loadmgr/loadPlan.jsp" />
+
+		</action>
+		<action path="/electroValence" type="com.xjgc.dsm.loadmgr.web.action.ElectroValenceAction" name="loadRTChartForm" parameter="method" scope="request">
+			
+			<forward name="listPage" contextRelative="true" path="/pages/loadmgr/electroValence.jsp" />
+
+		</action>
+	</action-mappings>
+
+</struts-config>

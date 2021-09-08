@@ -1,0 +1,361 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Properties;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IWindFaultCountsDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindFaultCountsDataForm;
+import com.xjgc.wind.util.YearFormatUtil;
+import com.xjgc.wind.util.YMDHMSUtil;
+
+public class WindFaultCountsDaoImpl  extends JdbcDaoSupport implements IWindFaultCountsDao{
+	
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	public List<DataStatisticsDataVo> list(WindFaultCountsDataForm queryFilter){
+		
+		int length = 0;
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	 String str=queryFilter.getStr();
+		String[] arr =null;
+  	  String sql = "";
+  	if (isDBMysql()==true) {
+  	 if(date22.compareTo(date11) == 0){
+  		 sql +="select h.savetime as savetime ,h.curcmpstate as curcmpstate,g.name as name from hisgenerator_"+date11;
+  		 sql += " h,generator g where h.savetime >='"+date1+"' and h.savetime <= '"+date2+"' and g.id = h.id";
+  		 sql +=" and (h.curcmpstate =4 or h.curcmpstate = 5) " ;
+  		if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+  		 	sql+=" order by h.id,h.savetime";
+  	 }
+  	 else{
+  		 
+  		 sql +="select h.savetime as savetime ,h.curcmpstate as curcmpstate,g.name as name from hisgenerator_"+date11;
+  		 sql += " h,generator g where h.savetime >='"+date1+"' and g.id = h.id and (h.curcmpstate =4 or h.curcmpstate = 5) ";
+  		if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+  		 
+  		 sql +=" union (select h.savetime as savetime ,h.curcmpstate as curcmpstate,g.name as name from hisgenerator_"+date22;
+  		 sql +=" h,generator g where h.savetime <= '"+date2+"' and g.id = h.id";
+  		 sql +=" and (h.curcmpstate =4 or h.curcmpstate = 5) " ;
+  		if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+  		sql +="order by h.id,h.savetime)";
+  
+  		 
+  	 }
+  	}
+  	if (isDBMysql()==false) {
+  	  	 if(date22.compareTo(date11) == 0){
+  	  		 sql +="select h.savetime as savetime ,h.curcmpstate as curcmpstate,g.name as name from hisgenerator_"+date11;
+  	  		 sql += " h,generator g where h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and g.id = h.id";
+  	  		 sql +=" and (h.curcmpstate =4 or h.curcmpstate = 5) " ;
+  	  		if(str!=null){
+  	 			arr = str.split(",");
+  	 			sql +=" and (";
+  	 			for(int i=0;i<arr.length;i++){
+  	 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  	 				if(i!=arr.length-1){
+  	 					sql +=" or ";	
+  	 				}
+  	 				if(i==arr.length-1){
+  	 					sql +=" ) ";	
+  	 				}
+  	 			}
+  	 			}
+  	  		 	sql+=" order by h.id,h.savetime,h.curcmpstate,g.name";
+  	  	 }
+  	  	 else{
+  	  		 
+  	  		 sql +="select h.savetime as savetime ,h.curcmpstate as curcmpstate,g.name as name from hisgenerator_"+date11;
+  	  		 sql += " h,generator g where h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and g.id = h.id and (h.curcmpstate =4 or h.curcmpstate = 5) ";
+  	  		if(str!=null){
+  	 			arr = str.split(",");
+  	 			sql +=" and (";
+  	 			for(int i=0;i<arr.length;i++){
+  	 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  	 				if(i!=arr.length-1){
+  	 					sql +=" or ";	
+  	 				}
+  	 				if(i==arr.length-1){
+  	 					sql +=" ) ";	
+  	 				}
+  	 			}
+  	 			}
+  	  		 
+  	  		 sql +=" union (select h.savetime as savetime ,h.curcmpstate as curcmpstate,g.name as name from hisgenerator_"+date22;
+  	  		 sql +=" h,generator g where h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and g.id = h.id";
+  	  		 sql +=" and (h.curcmpstate =4 or h.curcmpstate = 5) " ;
+  	  		if(str!=null){
+  	 			arr = str.split(",");
+  	 			sql +=" and (";
+  	 			for(int i=0;i<arr.length;i++){
+  	 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  	 				if(i!=arr.length-1){
+  	 					sql +=" or ";	
+  	 				}
+  	 				if(i==arr.length-1){
+  	 					sql +=" ) ";	
+  	 				}
+  	 			}
+  	 			}
+  	  		sql +="order by h.id,h.savetime,h.curcmpstate,g.name)";
+  	  
+  	  		 
+  	  	 }
+  	  	}
+		return getJdbcTemplate().query(sql,new WindFaultCountsRaMapper());
+	}
+	
+public List<DataStatisticsDataVo> listcount(WindFaultCountsDataForm queryFilter){
+		
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	  
+  	  String sql = "";
+  	if (isDBMysql()==true) {
+  	 if(date22.compareTo(date11) == 0){
+  		 sql +="select id ,curcmpstate,curp from hisgenerator_"+date11+" group by id";
+  	 }
+  	 else{
+  		 
+  		 sql +="select id ,curcmpstate,curp from hisgenerator_"+date11+" group by id";
+  		 sql +=" union select id ,curcmpstate,curp from hisgenerator_"+date22+" group by id";
+  		 
+  	 }
+  	}
+	if (isDBMysql()==false) {
+	  	 if(date22.compareTo(date11) == 0){
+	  		 sql +="select id ,curcmpstate,curp from hisgenerator_"+date11+" group by id,curcmpstate,curp";
+	  	 }
+	  	 else{
+	  		 
+	  		 sql +="select id ,curcmpstate,curp from hisgenerator_"+date11+" group by id,curcmpstate,curp";
+	  		 sql +=" union select id ,curcmpstate,curp from hisgenerator_"+date22+" group by id,curcmpstate,curp";
+	  		 
+	  	 }
+	  	}
+		return getJdbcTemplate().query(sql,new WindCountsRaMapper());
+	}
+
+public List<DataStatisticsDataVo> listall(WindFaultCountsDataForm queryFilter){
+	String str=queryFilter.getStr();
+	String[] arr =null;
+	  String sql = "select name,id,curp from generator " ;
+	  if(str!=null){
+			arr = str.split(",");
+			sql +=" where (";
+			for(int i=0;i<arr.length;i++){
+				sql +="id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+				if(i!=arr.length-1){
+					sql +=" or ";	
+				}
+				if(i==arr.length-1){
+					sql +=" ) ";	
+				}
+			}
+			}
+	  sql +="order by id";
+
+			return getJdbcTemplate().query(sql,new WindAllRaMapper());
+}
+	
+	class WindFaultCountsRaMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName(rs.getString("name"));
+			object.setSaveTime(rs.getTimestamp("savetime"));
+			object.setCurcmpState(rs.getInt("curcmpstate"));
+			return object;
+		}
+	}
+	
+	class WindCountsRaMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName(rs.getString("id"));
+			object.setCurcmpState(rs.getInt("curcmpstate"));
+			object.setHour(rs.getDouble("curp"));
+			return object;
+		}
+	}
+	
+	class WindAllRaMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName(rs.getString("name"));
+			object.setCurcmpState(rs.getInt("id"));
+			object.setHour(rs.getDouble("curp"));
+			return object;
+		}
+	}
+}

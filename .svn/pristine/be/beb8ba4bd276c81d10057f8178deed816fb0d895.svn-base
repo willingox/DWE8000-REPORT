@@ -1,0 +1,36 @@
+package com.xjgc.wind.datastatistics.service.impl;
+
+import java.util.List;
+
+
+
+import com.xjgc.wind.datastatistics.dao.IGeneratorStatisticsMonReportDao;
+import com.xjgc.wind.datastatistics.service.IGeneratorStatisticsMonReportService;
+import com.xjgc.wind.datastatistics.vo.GeneratorStatisticsReportVo;
+
+
+public class GeneratorStatisticsMonReportServiceImpl implements IGeneratorStatisticsMonReportService {
+
+	IGeneratorStatisticsMonReportDao generatorStatisticsMonReportDao;
+	
+	
+	public IGeneratorStatisticsMonReportDao getGeneratorStatisticsMonReportDao() {
+		return generatorStatisticsMonReportDao;
+	}
+
+	public void setGeneratorStatisticsMonReportDao(
+			IGeneratorStatisticsMonReportDao generatorStatisticsMonReportDao) {
+		this.generatorStatisticsMonReportDao = generatorStatisticsMonReportDao;
+	}
+
+
+	public List<GeneratorStatisticsReportVo> list(String date) {
+
+		return generatorStatisticsMonReportDao.list(date);
+	}
+	public List<GeneratorStatisticsReportVo> listWind(String date){
+		return generatorStatisticsMonReportDao.listWind(date);
+	}
+	
+	
+}

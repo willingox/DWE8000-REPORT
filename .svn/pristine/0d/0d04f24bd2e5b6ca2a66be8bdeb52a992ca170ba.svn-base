@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="用电耗能_高压系统图" vdfPath="D:/ics8000/cbin/xview/pages/能效系统/用电耗能_高压系统图.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#c0c0c0" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#c0c0c0#MLToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#606060" />
+<stop offset="0.7" stop-color="#c0c0c0" />
+<stop offset="1" stop-color="#606060" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#c0c0c0" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#c0c0c0#MLToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#606060" />
+<stop offset="0.7" stop-color="#c0c0c0" />
+<stop offset="1" stop-color="#606060" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#c0c0c0" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#c0c0c0#MLToLR" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#606060" />
+<stop offset="0.7" stop-color="#c0c0c0" />
+<stop offset="1" stop-color="#606060" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#b8b8b8" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#b8b8b8#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#7b7b7b" />
+<stop offset="0.5" stop-color="#ffffff" />
+<stop offset="1" stop-color="#7b7b7b" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#003f5d" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#003f5d#MToUD" x1="50%" x2="50%" y1="0" y2="100%" >
+<stop offset="0" stop-color="#003f5d" />
+<stop offset="0.5" stop-color="#007eba" />
+<stop offset="1" stop-color="#003f5d" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<rect fill="url(#lineargradient#c0c0c0#MLToLR)" height="50" id="Rect133" stroke="#55aaff" stroke-width="2" width="89" x="1270" y="771" />
+<rect fill="url(#lineargradient#c0c0c0#MLToLR)" height="50" id="Rect132" stroke="#55aaff" stroke-width="2" width="89" x="1171" y="771" />
+<rect fill="url(#lineargradient#c0c0c0#MLToLR)" height="50" id="Rect131" stroke="#55aaff" stroke-width="2" width="89" x="1068" y="771" />
+<rect fill="none" height="259" id="Rect56" stroke="#000000" stroke-dasharray="2,3" stroke-width="2" width="295" x="1066" y="611" />
+<rect fill="none" height="216" id="Rect57" stroke="#000000" stroke-dasharray="2,3" stroke-width="2" width="477" x="1391" y="708" />
+<line id="Line44" stroke="#ffff00" stroke-width="3" x1="459" x2="922" y1="250" y2="250" >
+<menu id="Line44_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<line id="Line45" stroke="#ff0000" stroke-width="3" x1="364" x2="676" y1="458" y2="458" >
+<menu id="Line45_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<line id="Line46" stroke="#ff0000" stroke-width="3" x1="716" x2="1112" y1="458" y2="458" >
+<menu id="Line46_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<line id="Line47" stroke="#ff0000" stroke-width="3" x1="1549" x2="1851" y1="458" y2="458" >
+<menu id="Line47_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<line id="Line48" stroke="#000000" stroke-width="3" x1="371" x2="487" y1="785" y2="785" >
+<menu id="Line48_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<line id="Line49" stroke="#000000" stroke-width="3" x1="528" x2="613" y1="785" y2="786" >
+<menu id="Line49_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<line id="Line50" stroke="#000000" stroke-width="3" x1="653" x2="945" y1="787" y2="787" >
+<menu id="Line50_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<polyline fill="none" id="Foldline1" points=" 634,510 634,666 438,666 438,719" stroke="#000000" stroke-width="2" />
+<polyline fill="none" id="Foldline2" points=" 959,391 959,281 1585,281 1585,392" stroke="#000000" stroke-width="2" />
+<g height="29" id="Text131" width="88" x="685" y="222" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="685"  y="234" >35kV母线</text>
+</g>
+<g height="26" id="Text132" width="66" x="437" y="430" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="437"  y="442" >10kV 2M</text>
+</g>
+<g height="46" id="Group9" transform="rotate(1 754,548)" width="16" x="746" y="525" >
+<line id="Group9_Line146" stroke="#000000" stroke-width="2" x1="753" x2="753" y1="525" y2="536" />
+<path d="M746,544 a8,8 0 1,0 7,-8" fill="none" id="Group9_Arc2" stroke="#000000" stroke-width="2" />
+<polyline fill="none" id="Group9_Foldline1" points=" 746,544 753,544 753,563 753,563" stroke="#000000" stroke-width="2" />
+<g height="8" id="Group9_Group320" width="12" x="747" y="563" >
+<line id="Group9_Group320_Line20" stroke="#000000" stroke-width="2" x1="758" x2="747" y1="563" y2="563" />
+<line id="Group9_Group320_Line22" stroke="#000000" stroke-width="2" x1="757" x2="749" y1="566" y2="566" />
+<line id="Group9_Group320_Line23" stroke="#000000" stroke-width="2" x1="755" x2="750" y1="570" y2="570" />
+</g>
+</g>
+<g height="46" id="Group10" transform="rotate(1 813,547)" width="16" x="805" y="524" >
+<line id="Group10_Line146" stroke="#000000" stroke-width="2" x1="812" x2="812" y1="524" y2="535" />
+<path d="M805,543 a8,8 0 1,0 7,-8" fill="none" id="Group10_Arc2" stroke="#000000" stroke-width="2" />
+<polyline fill="none" id="Group10_Foldline1" points=" 805,543 812,543 812,562 812,562" stroke="#000000" stroke-width="2" />
+<g height="8" id="Group10_Group320" width="12" x="806" y="562" >
+<line id="Group10_Group320_Line20" stroke="#000000" stroke-width="2" x1="817" x2="806" y1="562" y2="562" />
+<line id="Group10_Group320_Line22" stroke="#000000" stroke-width="2" x1="816" x2="808" y1="565" y2="565" />
+<line id="Group10_Group320_Line23" stroke="#000000" stroke-width="2" x1="814" x2="809" y1="569" y2="569" />
+</g>
+</g>
+<g height="28" id="Group11" width="18" x="863" y="543" >
+<line id="Group11_Line143" stroke="#000000" stroke-width="2" x1="863" x2="880" y1="569" y2="569" />
+<line id="Group11_Line144" stroke="#000000" stroke-width="2" x1="863" x2="880" y1="561" y2="561" />
+<line id="Group11_Line145" stroke="#000000" stroke-width="2" x1="871" x2="871" y1="543" y2="560" />
+</g>
+<polyline fill="none" id="Foldline3" points=" 1050,523 1050,675 858,675 858,720" stroke="#000000" stroke-width="2" />
+<polyline fill="none" id="Foldline4" points=" 1452,524 1452,610 1630,610 1630,627" stroke="#000000" stroke-width="2" />
+<line id="Line51" stroke="#000000" stroke-width="2" x1="1436" x2="1826" y1="669" y2="669" >
+<menu id="Line51_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<polyline fill="none" id="Foldline5" points=" 1022,391 1022,307 1469,307 1469,393" stroke="#000000" stroke-width="2" />
+<g height="26" id="Text133" width="42" x="476" y="360" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="476"  y="370" >备用</text>
+</g>
+<g height="25" id="Text134" width="34" x="657" y="360" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="657"  y="370" >#2B</text>
+</g>
+<g height="25" id="Text135" width="34" x="792" y="360" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="792"  y="370" >#1B</text>
+</g>
+<g height="25" id="Text136" width="71" x="364" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="364"  y="589" >#3电抗器</text>
+</g>
+<g height="25" id="Text137" width="56" x="432" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="432"  y="589" >#3馈线</text>
+</g>
+<g height="25" id="Text138" width="71" x="484" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="484"  y="589" >#2电容器</text>
+</g>
+<g height="25" id="Text139" width="71" x="574" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="574"  y="589" >#2站用变</text>
+</g>
+<g height="25" id="Text142" width="71" x="723" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="723"  y="589" >#1电抗器</text>
+</g>
+<g height="25" id="Text143" width="71" x="785" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="785"  y="589" >#2电抗器</text>
+</g>
+<g height="25" id="Text144" width="71" x="846" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="846"  y="589" >#1电容器</text>
+</g>
+<g height="25" id="Text145" width="71" x="931" y="579" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="931"  y="589" >#1站用变</text>
+</g>
+<g height="25" id="Text146" width="87" x="1130" y="568" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1130"  y="578" >#1CB升压变</text>
+</g>
+<g height="42" id="Text147" width="72" x="1224" y="558" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1224"  y="568" >#2接地站</text>
+<text fill="#000000" font-family="SimSun" font-size="13" x="1224"  y="578" >用变#2ZB</text>
+</g>
+<g height="38" id="Text149" width="64" x="1534" y="555" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1534"  y="565" >#1接地站</text>
+<text fill="#000000" font-family="SimSun" font-size="13" x="1534"  y="575" >用变#1ZB</text>
+</g>
+<g height="25" id="Text150" width="40" x="1352" y="568" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1352"  y="578" >备用</text>
+</g>
+<g height="25" id="Text151" width="40" x="1665" y="568" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1665"  y="578" >备用</text>
+</g>
+<g height="25" id="Text152" width="40" x="1801" y="568" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1801"  y="578" >备用</text>
+</g>
+<g height="38" id="Text153" width="50" x="1721" y="564" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1721"  y="574" >东部#1</text>
+<text fill="#000000" font-family="SimSun" font-size="13" x="1721"  y="584" >配电站</text>
+</g>
+<g height="42" id="Text154" width="85" x="970" y="811" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="970"  y="823" >储能变流器</text>
+<text fill="#000000" font-family="SimSun" font-size="15" x="970"  y="835" >  500kW</text>
+</g>
+<g height="25" id="Text155" width="87" x="1118" y="662" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1118"  y="672" >#1GB隔离变</text>
+</g>
+<g height="26" id="Text156" width="66" x="708" y="434" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="708"  y="446" >10kV 1M</text>
+</g>
+<g height="26" id="Text157" width="66" x="1257" y="432" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="1257"  y="444" >10kV 2M</text>
+</g>
+<g height="26" id="Text158" width="66" x="1717" y="432" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="1717"  y="444" >10kV 1M</text>
+</g>
+<g height="26" id="Text159" width="66" x="443" y="758" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="443"  y="770" >10kV 3M</text>
+</g>
+<g height="26" id="Text160" width="66" x="546" y="759" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="546"  y="771" >10kV 2M</text>
+</g>
+<g height="26" id="Text161" width="66" x="668" y="759" >
+<text fill="#000000" font-family="SimSun" font-size="15" x="668"  y="771" >10kV 1M</text>
+</g>
+<line id="Line52" stroke="#ff0000" stroke-width="3" x1="1194" x2="1506" y1="458" y2="458" >
+<menu id="Line52_menu" >
+<separator />
+<item >测点信息</item>
+<item >挂牌</item>
+<item >摘牌</item>
+<item >闭锁</item>
+<item >解锁</item>
+</menu>
+</line>
+<g height="25" id="Text162" width="87" x="836" y="939" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="836"  y="949" >#1CB厂用变</text>
+</g>
+<polyline fill="none" id="Foldline6" points=" 989,521 989,637 774,637 774,721" stroke="#000000" stroke-width="2" />
+<g height="34" id="Group12" width="11" x="1812" y="525" >
+<polygon fill="#ffffff" id="Group12_Polygon1" points=" 1817,558 1812,547 1822,547" stroke="#000000" stroke-width="2" />
+<line id="Group12_Line342" stroke="#000000" stroke-width="2" x1="1816" x2="1816" y1="525" y2="546" />
+</g>
+<g height="34" id="Group13" width="11" x="1743" y="525" >
+<polygon fill="#ffffff" id="Group13_Polygon1" points=" 1748,558 1743,547 1753,547" stroke="#000000" stroke-width="2" />
+<line id="Group13_Line342" stroke="#000000" stroke-width="2" x1="1747" x2="1747" y1="525" y2="546" />
+</g>
+<g height="46" id="Group14" transform="rotate(1 386,546)" width="16" x="378" y="523" >
+<line id="Group14_Line146" stroke="#000000" stroke-width="2" x1="385" x2="385" y1="523" y2="534" />
+<path d="M378,542 a8,8 0 1,0 7,-8" fill="none" id="Group14_Arc2" stroke="#000000" stroke-width="2" />
+<polyline fill="none" id="Group14_Foldline1" points=" 378,542 385,542 385,561 385,561" stroke="#000000" stroke-width="2" />
+<g height="8" id="Group14_Group320" width="12" x="379" y="561" >
+<line id="Group14_Group320_Line20" stroke="#000000" stroke-width="2" x1="390" x2="379" y1="561" y2="561" />
+<line id="Group14_Group320_Line22" stroke="#000000" stroke-width="2" x1="389" x2="381" y1="564" y2="564" />
+<line id="Group14_Group320_Line23" stroke="#000000" stroke-width="2" x1="387" x2="382" y1="568" y2="568" />
+</g>
+</g>
+<g height="55" id="Group15" width="38" x="382" y="858" >
+<g height="22" id="Group15_Group191" transform="rotate(90 401,869)" width="37" x="383" y="858" >
+<line id="Group15_Group191_Line7" stroke="#000000" stroke-width="2" x1="383" x2="397" y1="869" y2="869" />
+<ellipse cx="408" cy="868" fill="none" id="Group15_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group15_Group192" transform="rotate(90 401,901)" width="38" x="382" y="890" >
+<line id="Group15_Group192_Line8" stroke="#000000" stroke-width="2" x1="405" x2="419" y1="901" y2="901" />
+<ellipse cx="392" cy="900" fill="none" id="Group15_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<polygon fill="#ffffff" id="Polygon2" points=" 401,930 397,919 406,919" stroke="#000000" stroke-width="2" />
+<line id="Line53" stroke="#000000" stroke-width="2" x1="704" x2="704" y1="854" y2="903" />
+<line id="Line54" stroke="#000000" stroke-width="2" x1="790" x2="790" y1="853" y2="902" />
+<line id="Line55" stroke="#000000" stroke-width="2" x1="871" x2="871" y1="523" y2="545" />
+<image height="53" id="Image3" width="87" x="1169" xlink:href="../image/DAD/PCS.png" y="771" />
+<image height="53" id="Image4" width="87" x="1270" xlink:href="../image/DAD/PCS.png" y="771" />
+<g height="76" id="Group16" width="38" x="763" y="317" >
+<g height="22" id="Group16_Group191" transform="rotate(90 782,328)" width="37" x="764" y="317" >
+<line id="Group16_Group191_Line7" stroke="#ffff00" stroke-width="2" x1="764" x2="778" y1="328" y2="328" />
+<ellipse cx="789" cy="327" fill="none" id="Group16_Group191_Ellipse1" rx="11" ry="11" stroke="#ffff00" stroke-width="2" />
+</g>
+<g height="44" id="Group16_Group1131" width="38" x="763" y="349" >
+<line id="Group16_Group1131_Line347" stroke="#ffff00" stroke-width="2" x1="782" x2="782" y1="377" y2="392" />
+<g height="22" id="Group16_Group1131_Group192" transform="rotate(90 782,360)" width="38" x="763" y="349" >
+<line id="Group16_Group1131_Group192_Line8" stroke="#ffff00" stroke-width="2" x1="786" x2="800" y1="360" y2="360" />
+<ellipse cx="773" cy="359" fill="none" id="Group16_Group1131_Group192_Ellipse3" rx="11" ry="11" stroke="#ffff00" stroke-width="2" />
+</g>
+</g>
+</g>
+<g height="76" id="Group17" width="38" x="628" y="319" >
+<g height="22" id="Group17_Group191" transform="rotate(90 647,330)" width="37" x="629" y="319" >
+<line id="Group17_Group191_Line7" stroke="#ffff00" stroke-width="2" x1="629" x2="643" y1="330" y2="330" />
+<ellipse cx="654" cy="329" fill="none" id="Group17_Group191_Ellipse1" rx="11" ry="11" stroke="#ffff00" stroke-width="2" />
+</g>
+<g height="44" id="Group17_Group1131" width="38" x="628" y="351" >
+<line id="Group17_Group1131_Line347" stroke="#ffff00" stroke-width="2" x1="647" x2="647" y1="379" y2="394" />
+<g height="22" id="Group17_Group1131_Group192" transform="rotate(90 647,362)" width="38" x="628" y="351" >
+<line id="Group17_Group1131_Group192_Line8" stroke="#ffff00" stroke-width="2" x1="651" x2="665" y1="362" y2="362" />
+<ellipse cx="638" cy="361" fill="none" id="Group17_Group1131_Group192_Ellipse3" rx="11" ry="11" stroke="#ffff00" stroke-width="2" />
+</g>
+</g>
+</g>
+<g height="28" id="Group18" width="18" x="503" y="538" >
+<line id="Group18_Line143" stroke="#000000" stroke-width="2" x1="503" x2="520" y1="564" y2="564" />
+<line id="Group18_Line144" stroke="#000000" stroke-width="2" x1="503" x2="520" y1="556" y2="556" />
+<line id="Group18_Line145" stroke="#000000" stroke-width="2" x1="511" x2="511" y1="538" y2="555" />
+</g>
+<g height="43" id="Group19" width="11" x="443" y="524" >
+<polygon fill="#ffffff" id="Group19_Polygon108" points=" 448,566 443,555 453,555" stroke="#000000" stroke-width="2" />
+<line id="Group19_Line342" stroke="#000000" stroke-width="2" x1="447" x2="447" y1="524" y2="554" />
+</g>
+<line id="Line56" stroke="#000000" stroke-width="2" x1="511" x2="511" y1="525" y2="538" />
+<g height="65" id="Group20" width="38" x="910" y="525" >
+<polygon fill="#ffffff" id="Group20_Polygon94" points=" 929,589 925,578 934,578" stroke="#000000" stroke-width="2" />
+<g height="22" id="Group20_Group192" transform="rotate(90 929,560)" width="38" x="910" y="549" >
+<line id="Group20_Group192_Line8" stroke="#000000" stroke-width="2" x1="933" x2="947" y1="560" y2="560" />
+<ellipse cx="920" cy="559" fill="none" id="Group20_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<ellipse cx="928" cy="535" fill="none" id="Group20_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="65" id="Group21" width="38" x="553" y="524" >
+<polygon fill="#ffffff" id="Group21_Polygon94" points=" 572,588 568,577 577,577" stroke="#000000" stroke-width="2" />
+<g height="22" id="Group21_Group192" transform="rotate(90 572,559)" width="38" x="553" y="548" >
+<line id="Group21_Group192_Line8" stroke="#000000" stroke-width="2" x1="576" x2="590" y1="559" y2="559" />
+<ellipse cx="563" cy="558" fill="none" id="Group21_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<ellipse cx="571" cy="534" fill="none" id="Group21_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="65" id="Group22" width="38" x="1272" y="525" >
+<polygon fill="#ffffff" id="Group22_Polygon94" points=" 1291,589 1287,578 1296,578" stroke="#000000" stroke-width="2" />
+<g height="22" id="Group22_Group192" transform="rotate(90 1291,560)" width="38" x="1272" y="549" >
+<line id="Group22_Group192_Line8" stroke="#000000" stroke-width="2" x1="1295" x2="1309" y1="560" y2="560" />
+<ellipse cx="1282" cy="559" fill="none" id="Group22_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<ellipse cx="1290" cy="535" fill="none" id="Group22_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="65" id="Group23" width="38" x="1591" y="525" >
+<polygon fill="#ffffff" id="Group23_Polygon94" points=" 1610,589 1606,578 1615,578" stroke="#000000" stroke-width="2" />
+<g height="22" id="Group23_Group192" transform="rotate(90 1610,560)" width="38" x="1591" y="549" >
+<line id="Group23_Group192_Line8" stroke="#000000" stroke-width="2" x1="1614" x2="1628" y1="560" y2="560" />
+<ellipse cx="1601" cy="559" fill="none" id="Group23_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<ellipse cx="1609" cy="535" fill="none" id="Group23_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="49" id="Group24" width="44" x="1189" y="525" >
+<ellipse cx="1210" cy="535" fill="none" id="Group24_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+<g height="22" id="Group24_Group1153" transform="rotate(90 1211,563)" width="44" x="1189" y="552" >
+<line id="Group24_Group1153_Line8" stroke="#000000" stroke-width="2" x1="1212" x2="1232" y1="563" y2="563" />
+<ellipse cx="1199" cy="562" fill="none" id="Group24_Group1153_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<g height="55" id="Group25" width="38" x="859" y="859" >
+<g height="22" id="Group25_Group191" transform="rotate(90 878,870)" width="37" x="860" y="859" >
+<line id="Group25_Group191_Line7" stroke="#000000" stroke-width="2" x1="860" x2="874" y1="870" y2="870" />
+<ellipse cx="885" cy="869" fill="none" id="Group25_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group25_Group192" transform="rotate(90 878,902)" width="38" x="859" y="891" >
+<line id="Group25_Group192_Line8" stroke="#000000" stroke-width="2" x1="882" x2="896" y1="902" y2="902" />
+<ellipse cx="869" cy="901" fill="none" id="Group25_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<polygon fill="#ffffff" id="Polygon3" points=" 878,931 874,920 883,920" stroke="#000000" stroke-width="2" />
+<g height="26" id="Text165" width="72" x="354" y="397" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="354"  y="409" >F：0.00</text>
+</g>
+<g height="26" id="Text166" width="72" x="354" y="422" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="354"  y="434" >U：0.00</text>
+</g>
+<g height="26" id="Text167" width="72" x="454" y="195" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="454"  y="207" >F：0.00</text>
+</g>
+<g height="26" id="Text168" width="72" x="454" y="222" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="454"  y="234" >U：0.00</text>
+</g>
+<g height="26" id="Text169" width="72" x="345" y="728" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="345"  y="740" >F：0.00</text>
+</g>
+<g height="26" id="Text170" width="72" x="345" y="751" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="345"  y="763" >U：0.00</text>
+</g>
+<g height="23" id="Text171" width="50" x="906" y="360" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="906"  y="370" >#1馈线</text>
+</g>
+<g height="23" id="Text172" width="50" x="969" y="360" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="969"  y="370" >#2馈线</text>
+</g>
+<g height="23" id="Text174" width="31" x="495" y="273" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="495"  y="283" >313</text>
+</g>
+<g height="23" id="Text175" width="31" x="576" y="273" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="576"  y="283" >312</text>
+</g>
+<g height="23" id="Text176" width="31" x="655" y="273" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="655"  y="283" >302</text>
+</g>
+<g height="23" id="Text177" width="31" x="874" y="273" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="874"  y="283" >302</text>
+</g>
+<g height="23" id="Text178" width="31" x="791" y="273" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="791"  y="283" >301</text>
+</g>
+<g height="23" id="Text179" width="31" x="657" y="412" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="657"  y="422" >602</text>
+</g>
+<g height="23" id="Text180" width="31" x="793" y="412" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="793"  y="422" >601</text>
+</g>
+<g height="23" id="Text181" width="31" x="1026" y="410" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1026"  y="420" >604</text>
+</g>
+<g height="23" id="Text182" width="31" x="969" y="410" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="969"  y="420" >603</text>
+</g>
+<g height="23" id="Text183" width="31" x="391" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="391"  y="489" >666</text>
+</g>
+<g height="23" id="Text184" width="31" x="579" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="579"  y="489" >609</text>
+</g>
+<g height="23" id="Text185" width="31" x="515" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="515"  y="489" >6C2</text>
+</g>
+<g height="23" id="Text186" width="31" x="453" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="453"  y="489" >610</text>
+</g>
+<g height="23" id="Text187" width="31" x="640" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="640"  y="489" >607</text>
+</g>
+<g height="23" id="Text188" width="31" x="681" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="681"  y="489" >600</text>
+</g>
+<g height="23" id="Text189" width="31" x="874" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="874"  y="489" >6C1</text>
+</g>
+<g height="23" id="Text190" width="31" x="818" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="818"  y="489" >665</text>
+</g>
+<g height="23" id="Text191" width="31" x="756" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="756"  y="489" >664</text>
+</g>
+<g height="23" id="Text192" width="31" x="935" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="935"  y="489" >608</text>
+</g>
+<g height="23" id="Text193" width="31" x="1056" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1056"  y="489" >605</text>
+</g>
+<g height="23" id="Text194" width="31" x="994" y="479" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="994"  y="489" >606</text>
+</g>
+<g height="23" id="Text195" width="31" x="448" y="740" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="448"  y="750" >627</text>
+</g>
+<g height="23" id="Text196" width="31" x="867" y="742" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="867"  y="752" >625</text>
+</g>
+<g height="23" id="Text197" width="31" x="786" y="742" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="786"  y="752" >626</text>
+</g>
+<g height="23" id="Text198" width="31" x="414" y="810" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="414"  y="820" >629</text>
+</g>
+<g height="23" id="Text199" width="31" x="617" y="809" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="617"  y="819" >670</text>
+</g>
+<g height="23" id="Text200" width="31" x="497" y="810" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="497"  y="820" >680</text>
+</g>
+<g height="23" id="Text201" width="31" x="889" y="807" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="889"  y="817" >628</text>
+</g>
+<g height="23" id="Text202" width="31" x="798" y="807" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="798"  y="817" >623</text>
+</g>
+<g height="23" id="Text203" width="31" x="715" y="807" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="715"  y="817" >622</text>
+</g>
+<g height="23" id="Text205" width="31" x="1596" y="415" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1596"  y="425" >611</text>
+</g>
+<g height="23" id="Text206" width="31" x="1480" y="413" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1480"  y="423" >612</text>
+</g>
+<g height="23" id="Text207" width="31" x="1302" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1302"  y="488" >621</text>
+</g>
+<g height="23" id="Text208" width="31" x="1381" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1381"  y="488" >615</text>
+</g>
+<g height="23" id="Text209" width="31" x="1221" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1221"  y="488" >613</text>
+</g>
+<g height="23" id="Text210" width="31" x="1460" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1460"  y="488" >614</text>
+</g>
+<g height="23" id="Text211" width="31" x="1512" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1512"  y="488" >660</text>
+</g>
+<g height="23" id="Text212" width="31" x="1829" y="480" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1829"  y="490" >619</text>
+</g>
+<g height="23" id="Text213" width="31" x="1760" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1760"  y="488" >618</text>
+</g>
+<g height="23" id="Text214" width="31" x="1689" y="480" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1689"  y="490" >617</text>
+</g>
+<g height="23" id="Text215" width="31" x="1621" y="478" >
+<text fill="#000000" font-family="SimSun" font-size="13" font-weight="bold" x="1621"  y="488" >620</text>
+</g>
+<g height="23" id="Text216" width="31" x="1127" y="732" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1127"  y="742" >404</text>
+</g>
+<g height="23" id="Text217" width="31" x="1226" y="621" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1226"  y="631" >407</text>
+</g>
+<g height="23" id="Text218" width="31" x="1327" y="732" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1327"  y="742" >406</text>
+</g>
+<g height="23" id="Text219" width="31" x="1223" y="732" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1223"  y="742" >405</text>
+</g>
+<g height="23" id="Text220" width="31" x="1324" y="839" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1324"  y="849" >403</text>
+</g>
+<g height="23" id="Text221" width="31" x="1222" y="836" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1222"  y="846" >402</text>
+</g>
+<g height="23" id="Text222" width="31" x="1126" y="837" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1126"  y="847" >401</text>
+</g>
+<g height="23" id="Text223" width="31" x="1643" y="630" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1643"  y="640" >630</text>
+</g>
+<g height="23" id="Text224" width="31" x="1446" y="858" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1446"  y="868" >501</text>
+</g>
+<g height="23" id="Text225" width="31" x="1707" y="860" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1707"  y="870" >503</text>
+</g>
+<g height="23" id="Text226" width="31" x="1578" y="858" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1578"  y="868" >502</text>
+</g>
+<g height="23" id="Text227" width="31" x="1576" y="677" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1576"  y="687" >632</text>
+</g>
+<g height="23" id="Text228" width="31" x="1445" y="677" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1445"  y="687" >631</text>
+</g>
+<g height="23" id="Text229" width="31" x="1836" y="679" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1836"  y="689" >634</text>
+</g>
+<g height="23" id="Text230" width="31" x="1707" y="678" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1707"  y="688" >633</text>
+</g>
+<g height="23" id="Text231" width="31" x="1445" y="813" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1445"  y="823" >505</text>
+</g>
+<g height="23" id="Text232" width="31" x="1576" y="813" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1576"  y="823" >506</text>
+</g>
+<g height="23" id="Text233" width="31" x="1704" y="812" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1704"  y="822" >507</text>
+</g>
+<g height="23" id="Text234" width="31" x="1831" y="813" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1831"  y="823" >508</text>
+</g>
+<g height="23" id="Text235" width="31" x="1834" y="858" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1834"  y="868" >504</text>
+</g>
+<g height="23" id="Text236" width="38" x="1440" y="726" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1440"  y="736" >6311</text>
+</g>
+<g height="23" id="Text237" width="38" x="1570" y="726" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1570"  y="736" >6322</text>
+</g>
+<g height="23" id="Text238" width="38" x="1698" y="724" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1698"  y="734" >6333</text>
+</g>
+<g height="23" id="Text239" width="38" x="1827" y="724" >
+<text fill="#000000" font-family="SimSun" font-size="13" x="1827"  y="734" >6344</text>
+</g>
+<g height="34" id="Group26" width="11" x="485" y="314" >
+<polygon fill="#ffffff" id="Group26_Polygon1" points=" 490,347 485,336 495,336" stroke="#ffff00" stroke-width="2" />
+<line id="Group26_Line342" stroke="#ffff00" stroke-width="2" x1="489" x2="489" y1="314" y2="335" />
+</g>
+<g height="22" id="Group27" width="7" x="486" y="250" >
+<line id="Group27_Line266" stroke="#ffff00" stroke-width="2" x1="489" x2="489" y1="250" y2="271" />
+<polyline fill="none" id="Group27_Curve12" points=" 486,266 489,260 492,266" stroke="#ffff00" stroke-width="2" transform="rotate(-360 489,263)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect58" stroke="#ffff00" stroke-width="1" width="8" x="485" y="271" />
+<line id="Line57" stroke="#ffff00" stroke-width="2" x1="489" x2="489" y1="293" y2="316" />
+<polyline fill="none" id="Curve1" points=" 484,303 487,297 490,303" stroke="#ffff00" stroke-width="2" transform="rotate(-540 488,301)" />
+<g height="22" id="Group28" width="7" x="565" y="251" >
+<line id="Group28_Line266" stroke="#ffff00" stroke-width="2" x1="568" x2="568" y1="251" y2="272" />
+<polyline fill="none" id="Group28_Curve12" points=" 565,267 568,261 571,267" stroke="#ffff00" stroke-width="2" transform="rotate(-360 568,264)" />
+</g>
+<g height="34" id="Group29" width="11" x="564" y="317" >
+<polygon fill="#ffffff" id="Group29_Polygon1" points=" 569,350 564,339 574,339" stroke="#ffff00" stroke-width="2" />
+<line id="Group29_Line342" stroke="#ffff00" stroke-width="2" x1="568" x2="568" y1="317" y2="338" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect59" stroke="#ffff00" stroke-width="1" width="8" x="564" y="272" />
+<line id="Line58" stroke="#ffff00" stroke-width="2" x1="568" x2="568" y1="294" y2="317" />
+<polyline fill="none" id="Curve2" points=" 563,304 566,298 569,304" stroke="#ffff00" stroke-width="2" transform="rotate(-540 567,302)" />
+<rect fill="#c0c0c0" height="22" id="Rect60" stroke="#ffff00" stroke-width="1" width="8" x="643" y="271" />
+<line id="Line59" stroke="#ffff00" stroke-width="2" x1="647" x2="647" y1="293" y2="316" />
+<polyline fill="none" id="Curve3" points=" 642,303 645,297 648,303" stroke="#ffff00" stroke-width="2" transform="rotate(-540 646,301)" />
+<g height="22" id="Group30" width="7" x="644" y="250" >
+<line id="Group30_Line266" stroke="#ffff00" stroke-width="2" x1="647" x2="647" y1="250" y2="271" />
+<polyline fill="none" id="Group30_Curve12" points=" 644,266 647,260 650,266" stroke="#ffff00" stroke-width="2" transform="rotate(-360 647,263)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect61" stroke="#ffff00" stroke-width="1" width="8" x="778" y="272" />
+<line id="Line60" stroke="#ffff00" stroke-width="2" x1="782" x2="782" y1="294" y2="317" />
+<polyline fill="none" id="Curve4" points=" 777,304 780,298 783,304" stroke="#ffff00" stroke-width="2" transform="rotate(-540 781,302)" />
+<g height="22" id="Group31" width="7" x="779" y="251" >
+<line id="Group31_Line266" stroke="#ffff00" stroke-width="2" x1="782" x2="782" y1="251" y2="272" />
+<polyline fill="none" id="Group31_Curve12" points=" 779,267 782,261 785,267" stroke="#ffff00" stroke-width="2" transform="rotate(-360 782,264)" />
+</g>
+<g height="22" id="Group32" width="7" x="862" y="251" >
+<line id="Group32_Line266" stroke="#ffff00" stroke-width="2" x1="865" x2="865" y1="251" y2="272" />
+<polyline fill="none" id="Group32_Curve12" points=" 862,267 865,261 868,267" stroke="#ffff00" stroke-width="2" transform="rotate(-360 865,264)" />
+</g>
+<g height="34" id="Group33" width="11" x="861" y="317" >
+<polygon fill="#ffffff" id="Group33_Polygon1" points=" 866,350 861,339 871,339" stroke="#ffff00" stroke-width="2" />
+<line id="Group33_Line342" stroke="#ffff00" stroke-width="2" x1="865" x2="865" y1="317" y2="338" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect62" stroke="#ffff00" stroke-width="1" width="8" x="861" y="272" />
+<line id="Line61" stroke="#ffff00" stroke-width="2" x1="865" x2="865" y1="294" y2="317" />
+<polyline fill="none" id="Curve5" points=" 860,304 863,298 866,304" stroke="#ffff00" stroke-width="2" transform="rotate(-540 864,302)" />
+<line id="Line62" stroke="#ff0000" stroke-width="2" x1="647" x2="647" y1="434" y2="457" />
+<rect fill="#c0c0c0" height="22" id="Rect63" stroke="#000000" stroke-width="1" width="8" x="643" y="412" />
+<polyline fill="none" id="Curve6" points=" 642,444 645,438 648,444" stroke="#ff0000" stroke-width="2" transform="rotate(-540 646,442)" />
+<g height="22" id="Group34" width="7" x="644" y="391" >
+<line id="Group34_Line266" stroke="#ffff00" stroke-width="2" x1="647" x2="647" y1="391" y2="412" />
+<polyline fill="none" id="Group34_Curve12" points=" 644,407 647,401 650,407" stroke="#ffff00" stroke-width="2" transform="rotate(-360 647,404)" />
+</g>
+<line id="Line63" stroke="#ff0000" stroke-width="2" x1="782" x2="782" y1="435" y2="458" />
+<rect fill="#c0c0c0" height="22" id="Rect64" stroke="#000000" stroke-width="1" width="8" x="778" y="413" />
+<polyline fill="none" id="Curve7" points=" 777,445 780,439 783,445" stroke="#ff0000" stroke-width="2" transform="rotate(-540 781,443)" />
+<g height="22" id="Group35" width="7" x="779" y="392" >
+<line id="Group35_Line266" stroke="#ffff00" stroke-width="2" x1="782" x2="782" y1="392" y2="413" />
+<polyline fill="none" id="Group35_Curve12" points=" 779,408 782,402 785,408" stroke="#ffff00" stroke-width="2" transform="rotate(-360 782,405)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect65" stroke="#000000" stroke-width="1" width="8" x="382" y="479" />
+<line id="Line64" stroke="#000000" stroke-width="2" x1="386" x2="386" y1="501" y2="524" />
+<polyline fill="none" id="Curve8" points=" 381,511 384,505 387,511" stroke="#000000" stroke-width="2" transform="rotate(-540 385,509)" />
+<g height="22" id="Group36" width="7" x="383" y="458" >
+<line id="Group36_Line266" stroke="#ff0000" stroke-width="2" x1="386" x2="386" y1="458" y2="479" />
+<polyline fill="none" id="Group36_Curve12" points=" 383,474 386,468 389,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 386,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect66" stroke="#000000" stroke-width="1" width="8" x="443" y="479" />
+<line id="Line65" stroke="#000000" stroke-width="2" x1="447" x2="447" y1="501" y2="524" />
+<polyline fill="none" id="Curve9" points=" 442,511 445,505 448,511" stroke="#000000" stroke-width="2" transform="rotate(-540 446,509)" />
+<g height="22" id="Group37" width="7" x="444" y="458" >
+<line id="Group37_Line266" stroke="#ff0000" stroke-width="2" x1="447" x2="447" y1="458" y2="479" />
+<polyline fill="none" id="Group37_Curve12" points=" 444,474 447,468 450,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 447,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect67" stroke="#000000" stroke-width="1" width="8" x="507" y="480" />
+<line id="Line66" stroke="#000000" stroke-width="2" x1="511" x2="511" y1="502" y2="525" />
+<polyline fill="none" id="Curve10" points=" 506,512 509,506 512,512" stroke="#000000" stroke-width="2" transform="rotate(-540 510,510)" />
+<g height="22" id="Group38" width="7" x="508" y="459" >
+<line id="Group38_Line266" stroke="#ff0000" stroke-width="2" x1="511" x2="511" y1="459" y2="480" />
+<polyline fill="none" id="Group38_Curve12" points=" 508,475 511,469 514,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 511,472)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect68" stroke="#000000" stroke-width="1" width="8" x="568" y="479" />
+<line id="Line67" stroke="#000000" stroke-width="2" x1="572" x2="572" y1="501" y2="524" />
+<polyline fill="none" id="Curve11" points=" 567,511 570,505 573,511" stroke="#000000" stroke-width="2" transform="rotate(-540 571,509)" />
+<g height="22" id="Group39" width="7" x="569" y="458" >
+<line id="Group39_Line266" stroke="#ff0000" stroke-width="2" x1="572" x2="572" y1="458" y2="479" />
+<polyline fill="none" id="Group39_Curve12" points=" 569,474 572,468 575,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 572,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect69" stroke="#000000" stroke-width="1" width="8" x="630" y="479" />
+<line id="Line68" stroke="#000000" stroke-width="2" x1="634" x2="634" y1="501" y2="524" />
+<polyline fill="none" id="Curve12" points=" 629,511 632,505 635,511" stroke="#000000" stroke-width="2" transform="rotate(-540 633,509)" />
+<g height="22" id="Group40" width="7" x="631" y="458" >
+<line id="Group40_Line266" stroke="#ff0000" stroke-width="2" x1="634" x2="634" y1="458" y2="479" />
+<polyline fill="none" id="Group40_Curve12" points=" 631,474 634,468 637,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 634,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect70" stroke="#000000" stroke-width="1" width="8" x="749" y="480" />
+<line id="Line69" stroke="#000000" stroke-width="2" x1="753" x2="753" y1="502" y2="525" />
+<polyline fill="none" id="Curve13" points=" 748,512 751,506 754,512" stroke="#000000" stroke-width="2" transform="rotate(-540 752,510)" />
+<g height="22" id="Group41" width="7" x="750" y="459" >
+<line id="Group41_Line266" stroke="#ff0000" stroke-width="2" x1="753" x2="753" y1="459" y2="480" />
+<polyline fill="none" id="Group41_Curve12" points=" 750,475 753,469 756,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 753,472)" />
+</g>
+<line id="Line70" stroke="#ff0000" stroke-width="2" x1="730" x2="730" y1="458" y2="473" />
+<line id="Line71" stroke="#ff0000" stroke-width="2" x1="666" x2="666" y1="458" y2="473" />
+<rect fill="#c0c0c0" height="19" id="Rect71" stroke="#ff0000" stroke-width="1" transform="rotate(-90 697,471)" width="8" x="693" y="462" />
+<g height="22" id="Group42" transform="rotate(-90 677,472)" width="7" x="674" y="461" >
+<line id="Group42_Line266" stroke="#ff0000" stroke-width="2" x1="677" x2="677" y1="461" y2="482" />
+<polyline fill="none" id="Group42_Curve12" points=" 674,477 677,471 680,477" stroke="#ff0000" stroke-width="2" transform="rotate(-360 677,474)" />
+</g>
+<g height="22" id="Group43" transform="rotate(90 719,473)" width="7" x="716" y="462" >
+<line id="Group43_Line266" stroke="#ff0000" stroke-width="2" x1="719" x2="719" y1="462" y2="483" />
+<polyline fill="none" id="Group43_Curve12" points=" 716,478 719,472 722,478" stroke="#ff0000" stroke-width="2" transform="rotate(-360 719,475)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect72" stroke="#000000" stroke-width="1" width="8" x="808" y="479" />
+<line id="Line72" stroke="#000000" stroke-width="2" x1="812" x2="812" y1="501" y2="524" />
+<polyline fill="none" id="Curve14" points=" 807,511 810,505 813,511" stroke="#000000" stroke-width="2" transform="rotate(-540 811,509)" />
+<g height="22" id="Group44" width="7" x="809" y="458" >
+<line id="Group44_Line266" stroke="#ff0000" stroke-width="2" x1="812" x2="812" y1="458" y2="479" />
+<polyline fill="none" id="Group44_Curve12" points=" 809,474 812,468 815,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 812,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect73" stroke="#000000" stroke-width="1" width="8" x="867" y="479" />
+<line id="Line73" stroke="#000000" stroke-width="2" x1="871" x2="871" y1="501" y2="524" />
+<polyline fill="none" id="Curve15" points=" 866,511 869,505 872,511" stroke="#000000" stroke-width="2" transform="rotate(-540 870,509)" />
+<g height="22" id="Group45" width="7" x="868" y="458" >
+<line id="Group45_Line266" stroke="#ff0000" stroke-width="2" x1="871" x2="871" y1="458" y2="479" />
+<polyline fill="none" id="Group45_Curve12" points=" 868,474 871,468 874,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 871,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect74" stroke="#000000" stroke-width="1" width="8" x="925" y="480" />
+<line id="Line74" stroke="#000000" stroke-width="2" x1="929" x2="929" y1="502" y2="525" />
+<polyline fill="none" id="Curve16" points=" 924,512 927,506 930,512" stroke="#000000" stroke-width="2" transform="rotate(-540 928,510)" />
+<g height="22" id="Group46" width="7" x="926" y="459" >
+<line id="Group46_Line266" stroke="#ff0000" stroke-width="2" x1="929" x2="929" y1="459" y2="480" />
+<polyline fill="none" id="Group46_Curve12" points=" 926,475 929,469 932,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 929,472)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect75" stroke="#000000" stroke-width="1" width="8" x="985" y="479" />
+<line id="Line75" stroke="#000000" stroke-width="2" x1="989" x2="989" y1="501" y2="524" />
+<polyline fill="none" id="Curve17" points=" 984,511 987,505 990,511" stroke="#000000" stroke-width="2" transform="rotate(-540 988,509)" />
+<g height="22" id="Group47" width="7" x="986" y="458" >
+<line id="Group47_Line266" stroke="#ff0000" stroke-width="2" x1="989" x2="989" y1="458" y2="479" />
+<polyline fill="none" id="Group47_Curve12" points=" 986,474 989,468 992,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 989,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect76" stroke="#000000" stroke-width="1" width="8" x="1046" y="479" />
+<line id="Line76" stroke="#000000" stroke-width="2" x1="1050" x2="1050" y1="501" y2="524" />
+<polyline fill="none" id="Curve18" points=" 1045,511 1048,505 1051,511" stroke="#000000" stroke-width="2" transform="rotate(-540 1049,509)" />
+<g height="22" id="Group48" width="7" x="1047" y="458" >
+<line id="Group48_Line266" stroke="#ff0000" stroke-width="2" x1="1050" x2="1050" y1="458" y2="479" />
+<polyline fill="none" id="Group48_Curve12" points=" 1047,474 1050,468 1053,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1050,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect77" stroke="#000000" stroke-width="1" width="8" x="956" y="413" />
+<line id="Line77" stroke="#ff0000" stroke-width="2" x1="960" x2="960" y1="435" y2="458" />
+<polyline fill="none" id="Curve19" points=" 955,445 958,439 961,445" stroke="#ff0000" stroke-width="2" transform="rotate(-540 959,443)" />
+<g height="22" id="Group49" width="7" x="957" y="392" >
+<line id="Group49_Line266" stroke="#000000" stroke-width="2" x1="960" x2="960" y1="392" y2="413" />
+<polyline fill="none" id="Group49_Curve12" points=" 957,408 960,402 963,408" stroke="#000000" stroke-width="2" transform="rotate(-360 960,405)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect78" stroke="#000000" stroke-width="1" width="8" x="1018" y="412" />
+<line id="Line78" stroke="#ff0000" stroke-width="2" x1="1022" x2="1022" y1="434" y2="457" />
+<polyline fill="none" id="Curve20" points=" 1017,444 1020,438 1023,444" stroke="#ff0000" stroke-width="2" transform="rotate(-540 1021,442)" />
+<g height="22" id="Group50" width="7" x="1019" y="391" >
+<line id="Group50_Line266" stroke="#000000" stroke-width="2" x1="1022" x2="1022" y1="391" y2="412" />
+<polyline fill="none" id="Group50_Curve12" points=" 1019,407 1022,401 1025,407" stroke="#000000" stroke-width="2" transform="rotate(-360 1022,404)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect79" stroke="#000000" stroke-width="1" width="8" x="434" y="739" />
+<line id="Line79" stroke="#000000" stroke-width="2" x1="438" x2="438" y1="761" y2="784" />
+<polyline fill="none" id="Curve21" points=" 433,771 436,765 439,771" stroke="#000000" stroke-width="2" transform="rotate(-540 437,769)" />
+<g height="22" id="Group51" width="7" x="435" y="718" >
+<line id="Group51_Line266" stroke="#000000" stroke-width="2" x1="438" x2="438" y1="718" y2="739" />
+<polyline fill="none" id="Group51_Curve12" points=" 435,734 438,728 441,734" stroke="#000000" stroke-width="2" transform="rotate(-360 438,731)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect80" stroke="#000000" stroke-width="1" width="8" x="397" y="806" />
+<line id="Line80" stroke="#000000" stroke-width="2" x1="401" x2="401" y1="828" y2="851" />
+<polyline fill="none" id="Curve22" points=" 396,838 399,832 402,838" stroke="#000000" stroke-width="2" transform="rotate(-540 400,836)" />
+<g height="22" id="Group52" width="7" x="398" y="785" >
+<line id="Group52_Line266" stroke="#000000" stroke-width="2" x1="401" x2="401" y1="785" y2="806" />
+<polyline fill="none" id="Group52_Curve12" points=" 398,801 401,795 404,801" stroke="#000000" stroke-width="2" transform="rotate(-360 401,798)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect81" stroke="#000000" stroke-width="1" width="8" x="700" y="809" />
+<line id="Line81" stroke="#000000" stroke-width="2" x1="704" x2="704" y1="831" y2="854" />
+<polyline fill="none" id="Curve23" points=" 699,841 702,835 705,841" stroke="#000000" stroke-width="2" transform="rotate(-540 703,839)" />
+<g height="22" id="Group53" width="7" x="701" y="788" >
+<line id="Group53_Line266" stroke="#000000" stroke-width="2" x1="704" x2="704" y1="788" y2="809" />
+<polyline fill="none" id="Group53_Curve12" points=" 701,804 704,798 707,804" stroke="#000000" stroke-width="2" transform="rotate(-360 704,801)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect82" stroke="#000000" stroke-width="1" width="8" x="786" y="807" />
+<line id="Line82" stroke="#000000" stroke-width="2" x1="790" x2="790" y1="830" y2="853" />
+<polyline fill="none" id="Curve24" points=" 785,840 788,834 791,840" stroke="#000000" stroke-width="2" transform="rotate(-540 789,838)" />
+<g height="22" id="Group54" width="7" x="787" y="787" >
+<line id="Group54_Line266" stroke="#000000" stroke-width="2" x1="790" x2="790" y1="787" y2="808" />
+<polyline fill="none" id="Group54_Curve12" points=" 787,803 790,797 793,803" stroke="#000000" stroke-width="2" transform="rotate(-360 790,800)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect83" stroke="#000000" stroke-width="1" width="8" x="771" y="740" />
+<line id="Line83" stroke="#000000" stroke-width="2" x1="775" x2="775" y1="762" y2="785" />
+<polyline fill="none" id="Curve25" points=" 770,772 773,766 776,772" stroke="#000000" stroke-width="2" transform="rotate(-540 774,770)" />
+<g height="22" id="Group55" width="7" x="772" y="719" >
+<line id="Group55_Line266" stroke="#000000" stroke-width="2" x1="775" x2="775" y1="719" y2="740" />
+<polyline fill="none" id="Group55_Curve12" points=" 772,735 775,729 778,735" stroke="#000000" stroke-width="2" transform="rotate(-360 775,732)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect84" stroke="#000000" stroke-width="1" width="8" x="854" y="741" />
+<line id="Line84" stroke="#000000" stroke-width="2" x1="858" x2="858" y1="763" y2="786" />
+<polyline fill="none" id="Curve26" points=" 853,773 856,767 859,773" stroke="#000000" stroke-width="2" transform="rotate(-540 857,771)" />
+<g height="22" id="Group56" width="7" x="855" y="720" >
+<line id="Group56_Line266" stroke="#000000" stroke-width="2" x1="858" x2="858" y1="720" y2="741" />
+<polyline fill="none" id="Group56_Curve12" points=" 855,736 858,730 861,736" stroke="#000000" stroke-width="2" transform="rotate(-360 858,733)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect85" stroke="#000000" stroke-width="1" width="8" x="874" y="807" />
+<line id="Line85" stroke="#000000" stroke-width="2" x1="878" x2="878" y1="829" y2="852" />
+<polyline fill="none" id="Curve27" points=" 873,839 876,833 879,839" stroke="#000000" stroke-width="2" transform="rotate(-540 877,837)" />
+<g height="22" id="Group57" width="7" x="875" y="786" >
+<line id="Group57_Line266" stroke="#000000" stroke-width="2" x1="878" x2="878" y1="786" y2="807" />
+<polyline fill="none" id="Group57_Curve12" points=" 875,802 878,796 881,802" stroke="#000000" stroke-width="2" transform="rotate(-360 878,799)" />
+</g>
+<line id="Line86" stroke="#000000" stroke-width="2" x1="545" x2="545" y1="785" y2="800" />
+<line id="Line87" stroke="#000000" stroke-width="2" x1="481" x2="481" y1="785" y2="800" />
+<rect fill="#c0c0c0" height="19" id="Rect86" stroke="#000000" stroke-width="1" transform="rotate(-90 512,799)" width="8" x="508" y="790" />
+<g height="22" id="Group58" transform="rotate(-90 492,799)" width="7" x="489" y="788" >
+<line id="Group58_Line266" stroke="#000000" stroke-width="2" x1="492" x2="492" y1="788" y2="809" />
+<polyline fill="none" id="Group58_Curve12" points=" 489,804 492,798 495,804" stroke="#000000" stroke-width="2" transform="rotate(-360 492,801)" />
+</g>
+<g height="25" id="Group59" width="8" x="530" y="788" >
+<line id="Group59_Line361" stroke="#000000" stroke-width="2" transform="rotate(-90 535,800)" x1="535" x2="535" y1="788" y2="811" />
+<polyline fill="none" id="Group59_Curve28" points=" 530,803 533,797 536,803" stroke="#000000" stroke-width="2" transform="rotate(-630 534,801)" />
+</g>
+<line id="Line88" stroke="#000000" stroke-width="2" x1="666" x2="666" y1="787" y2="801" />
+<line id="Line89" stroke="#000000" stroke-width="2" x1="602" x2="602" y1="786" y2="801" />
+<rect fill="#c0c0c0" height="19" id="Rect87" stroke="#000000" stroke-width="1" transform="rotate(-90 633,801)" width="8" x="629" y="792" />
+<g height="25" id="Group60" width="8" x="650" y="789" >
+<line id="Group60_Line361" stroke="#000000" stroke-width="2" transform="rotate(-90 655,801)" x1="655" x2="655" y1="789" y2="812" />
+<polyline fill="none" id="Group60_Curve28" points=" 650,804 653,798 656,804" stroke="#000000" stroke-width="2" transform="rotate(-630 654,802)" />
+</g>
+<g height="22" id="Group61" transform="rotate(-90 613,801)" width="7" x="610" y="790" >
+<line id="Group61_Line266" stroke="#000000" stroke-width="2" x1="613" x2="613" y1="790" y2="811" />
+<polyline fill="none" id="Group61_Curve12" points=" 610,806 613,800 616,806" stroke="#000000" stroke-width="2" transform="rotate(-360 613,803)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect88" stroke="#000000" stroke-width="1" width="8" x="1207" y="479" />
+<line id="Line90" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="501" y2="524" />
+<polyline fill="none" id="Curve28" points=" 1206,511 1209,505 1212,511" stroke="#000000" stroke-width="2" transform="rotate(-540 1210,509)" />
+<g height="22" id="Group62" width="7" x="1208" y="458" >
+<line id="Group62_Line266" stroke="#ff0000" stroke-width="2" x1="1211" x2="1211" y1="458" y2="479" />
+<polyline fill="none" id="Group62_Curve12" points=" 1208,474 1211,468 1214,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1211,471)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect89" stroke="#000000" stroke-width="1" width="8" x="1286" y="479" />
+<g height="34" id="Group63" width="11" x="1365" y="525" >
+<polygon fill="#ffffff" id="Group63_Polygon1" points=" 1370,558 1365,547 1375,547" stroke="#000000" stroke-width="2" />
+<line id="Group63_Line342" stroke="#000000" stroke-width="2" x1="1369" x2="1369" y1="525" y2="546" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect90" stroke="#000000" stroke-width="1" width="8" x="1448" y="480" />
+<line id="Line91" stroke="#000000" stroke-width="2" x1="1452" x2="1452" y1="502" y2="525" />
+<polyline fill="none" id="Curve29" points=" 1447,512 1450,506 1453,512" stroke="#000000" stroke-width="2" transform="rotate(-540 1451,510)" />
+<g height="22" id="Group64" width="7" x="1449" y="459" >
+<line id="Group64_Line266" stroke="#ff0000" stroke-width="2" x1="1452" x2="1452" y1="459" y2="480" />
+<polyline fill="none" id="Group64_Curve12" points=" 1449,475 1452,469 1455,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1452,472)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect91" stroke="#000000" stroke-width="1" width="8" x="1465" y="413" />
+<line id="Line93" stroke="#ff0000" stroke-width="2" x1="1469" x2="1469" y1="435" y2="458" />
+<polyline fill="none" id="Curve30" points=" 1464,445 1467,439 1470,445" stroke="#ff0000" stroke-width="2" transform="rotate(-540 1468,443)" />
+<g height="22" id="Group65" width="7" x="1466" y="392" >
+<line id="Group65_Line266" stroke="#000000" stroke-width="2" x1="1469" x2="1469" y1="392" y2="413" />
+<polyline fill="none" id="Group65_Curve12" points=" 1466,408 1469,402 1472,408" stroke="#000000" stroke-width="2" transform="rotate(-360 1469,405)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect92" stroke="#000000" stroke-width="1" width="8" x="1581" y="412" />
+<line id="Line94" stroke="#ff0000" stroke-width="2" x1="1585" x2="1585" y1="434" y2="457" />
+<polyline fill="none" id="Curve31" points=" 1580,444 1583,438 1586,444" stroke="#ff0000" stroke-width="2" transform="rotate(-540 1584,442)" />
+<g height="22" id="Group66" width="7" x="1582" y="391" >
+<line id="Group66_Line266" stroke="#000000" stroke-width="2" x1="1585" x2="1585" y1="391" y2="412" />
+<polyline fill="none" id="Group66_Curve12" points=" 1582,407 1585,401 1588,407" stroke="#000000" stroke-width="2" transform="rotate(-360 1585,404)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect93" stroke="#000000" stroke-width="1" width="8" x="1606" y="481" />
+<line id="Line95" stroke="#000000" stroke-width="2" x1="1610" x2="1610" y1="503" y2="526" />
+<polyline fill="none" id="Curve32" points=" 1605,513 1608,507 1611,513" stroke="#000000" stroke-width="2" transform="rotate(-540 1609,511)" />
+<g height="22" id="Group67" width="7" x="1607" y="460" >
+<line id="Group67_Line266" stroke="#ff0000" stroke-width="2" x1="1610" x2="1610" y1="460" y2="481" />
+<polyline fill="none" id="Group67_Curve12" points=" 1607,476 1610,470 1613,476" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1610,473)" />
+</g>
+<g height="34" id="Group68" width="11" x="1675" y="525" >
+<polygon fill="#ffffff" id="Group68_Polygon1" points=" 1680,558 1675,547 1685,547" stroke="#000000" stroke-width="2" />
+<line id="Group68_Line342" stroke="#000000" stroke-width="2" x1="1679" x2="1679" y1="525" y2="546" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect94" stroke="#000000" stroke-width="1" width="8" x="1675" y="480" />
+<line id="Line96" stroke="#000000" stroke-width="2" x1="1679" x2="1679" y1="502" y2="525" />
+<polyline fill="none" id="Curve33" points=" 1674,512 1677,506 1680,512" stroke="#000000" stroke-width="2" transform="rotate(-540 1678,510)" />
+<g height="22" id="Group69" width="7" x="1676" y="459" >
+<line id="Group69_Line266" stroke="#ff0000" stroke-width="2" x1="1679" x2="1679" y1="459" y2="480" />
+<polyline fill="none" id="Group69_Curve12" points=" 1676,475 1679,469 1682,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1679,472)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect95" stroke="#000000" stroke-width="1" width="8" x="1743" y="480" />
+<line id="Line97" stroke="#000000" stroke-width="2" x1="1747" x2="1747" y1="502" y2="525" />
+<polyline fill="none" id="Curve34" points=" 1742,512 1745,506 1748,512" stroke="#000000" stroke-width="2" transform="rotate(-540 1746,510)" />
+<g height="22" id="Group70" width="7" x="1744" y="459" >
+<line id="Group70_Line266" stroke="#ff0000" stroke-width="2" x1="1747" x2="1747" y1="459" y2="480" />
+<polyline fill="none" id="Group70_Curve12" points=" 1744,475 1747,469 1750,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1747,472)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect96" stroke="#000000" stroke-width="1" width="8" x="1812" y="480" />
+<line id="Line98" stroke="#000000" stroke-width="2" x1="1816" x2="1816" y1="502" y2="525" />
+<polyline fill="none" id="Curve35" points=" 1811,512 1814,506 1817,512" stroke="#000000" stroke-width="2" transform="rotate(-540 1815,510)" />
+<g height="22" id="Group71" width="7" x="1813" y="459" >
+<line id="Group71_Line266" stroke="#ff0000" stroke-width="2" x1="1816" x2="1816" y1="459" y2="480" />
+<polyline fill="none" id="Group71_Curve12" points=" 1813,475 1816,469 1819,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1816,472)" />
+</g>
+<line id="Line100" stroke="#ff0000" stroke-width="2" x1="1559" x2="1559" y1="459" y2="474" />
+<line id="Line101" stroke="#ff0000" stroke-width="2" x1="1495" x2="1495" y1="459" y2="474" />
+<rect fill="#c0c0c0" height="19" id="Rect98" stroke="#ff0000" stroke-width="1" transform="rotate(-90 1526,472)" width="8" x="1522" y="463" />
+<g height="22" id="Group72" transform="rotate(-90 1506,473)" width="7" x="1503" y="462" >
+<line id="Group72_Line266" stroke="#ff0000" stroke-width="2" x1="1506" x2="1506" y1="462" y2="483" />
+<polyline fill="none" id="Group72_Curve12" points=" 1503,478 1506,472 1509,478" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1506,475)" />
+</g>
+<g height="22" id="Group73" transform="rotate(90 1548,475)" width="7" x="1545" y="464" >
+<line id="Group73_Line266" stroke="#ff0000" stroke-width="2" x1="1548" x2="1548" y1="464" y2="485" />
+<polyline fill="none" id="Group73_Curve12" points=" 1545,480 1548,474 1551,480" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1548,477)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect99" stroke="#000000" stroke-width="1" width="8" x="1365" y="480" />
+<line id="Line102" stroke="#000000" stroke-width="2" x1="1369" x2="1369" y1="502" y2="525" />
+<polyline fill="none" id="Curve38" points=" 1364,512 1367,506 1370,512" stroke="#000000" stroke-width="2" transform="rotate(-540 1368,510)" />
+<g height="22" id="Group74" width="7" x="1366" y="459" >
+<line id="Group74_Line266" stroke="#ff0000" stroke-width="2" x1="1369" x2="1369" y1="459" y2="480" />
+<polyline fill="none" id="Group74_Curve12" points=" 1366,475 1369,469 1372,475" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1369,472)" />
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect100" stroke="#000000" stroke-width="1" width="8" x="1207" y="620" >
+<menu id="Rect100_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line103" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="584" y2="620" />
+<line id="Line104" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="710" y2="725" />
+<g height="54" id="Group75" width="38" x="1192" y="649" >
+<g height="22" id="Group75_Group191" transform="rotate(90 1211,660)" width="37" x="1193" y="649" >
+<line id="Group75_Group191_Line7" stroke="#000000" stroke-width="2" x1="1193" x2="1207" y1="660" y2="660" />
+<ellipse cx="1218" cy="659" fill="none" id="Group75_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group75_Group192" transform="rotate(90 1211,692)" width="38" x="1192" y="681" >
+<line id="Group75_Group192_Line8" stroke="#000000" stroke-width="2" x1="1215" x2="1229" y1="692" y2="692" />
+<ellipse cx="1202" cy="691" fill="none" id="Group75_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect101" stroke="#000000" stroke-width="1" width="8" x="1312" y="733" >
+<menu id="Rect101_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line105" stroke="#000000" stroke-width="2" x1="1316" x2="1316" y1="719" y2="733" />
+<line id="Line106" stroke="#000000" stroke-width="2" x1="1316" x2="1316" y1="755" y2="772" />
+<line id="Line107" stroke="#000000" stroke-width="2" x1="1114" x2="1114" y1="755" y2="772" />
+<rect fill="#c0c0c0" height="22" id="Rect102" stroke="#000000" stroke-width="1" width="8" x="1207" y="734" >
+<menu id="Rect102_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line108" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="720" y2="734" />
+<line id="Line109" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="756" y2="773" />
+<rect fill="#c0c0c0" height="22" id="Rect103" stroke="#000000" stroke-width="1" width="8" x="1207" y="837" >
+<menu id="Rect103_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line110" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="823" y2="837" />
+<rect fill="#c0c0c0" height="22" id="Rect104" stroke="#000000" stroke-width="1" width="8" x="1110" y="837" >
+<menu id="Rect104_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line111" stroke="#000000" stroke-width="2" x1="1114" x2="1114" y1="823" y2="837" />
+<rect fill="#c0c0c0" height="22" id="Rect105" stroke="#000000" stroke-width="1" width="8" x="1312" y="838" >
+<menu id="Rect105_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line112" stroke="#000000" stroke-width="2" x1="1316" x2="1316" y1="824" y2="838" />
+<rect fill="#c0c0c0" height="22" id="Rect106" stroke="#000000" stroke-width="1" width="8" x="1110" y="874" />
+<line id="Line113" stroke="#000000" stroke-width="2" x1="1114" x2="1114" y1="860" y2="874" />
+<line id="Line114" stroke="#000000" stroke-width="2" x1="1114" x2="1114" y1="896" y2="913" />
+<rect fill="#c0c0c0" height="22" id="Rect107" stroke="#000000" stroke-width="1" width="8" x="1207" y="874" />
+<line id="Line115" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="860" y2="874" />
+<line id="Line116" stroke="#000000" stroke-width="2" x1="1211" x2="1211" y1="896" y2="913" />
+<rect fill="#c0c0c0" height="22" id="Rect108" stroke="#000000" stroke-width="1" width="8" x="1312" y="875" />
+<line id="Line117" stroke="#000000" stroke-width="2" x1="1316" x2="1316" y1="861" y2="875" />
+<line id="Line118" stroke="#000000" stroke-width="2" x1="1316" x2="1316" y1="897" y2="914" />
+<rect fill="#c0c0c0" height="22" id="Rect109" stroke="#000000" stroke-width="1" width="8" x="1626" y="628" />
+<line id="Line119" stroke="#000000" stroke-width="2" x1="1630" x2="1630" y1="650" y2="667" />
+<g height="54" id="Group76" width="38" x="1418" y="754" >
+<g height="22" id="Group76_Group191" transform="rotate(90 1437,765)" width="37" x="1419" y="754" >
+<line id="Group76_Group191_Line7" stroke="#000000" stroke-width="2" x1="1419" x2="1433" y1="765" y2="765" />
+<ellipse cx="1444" cy="764" fill="none" id="Group76_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group76_Group192" transform="rotate(90 1437,797)" width="38" x="1418" y="786" >
+<line id="Group76_Group192_Line8" stroke="#000000" stroke-width="2" x1="1441" x2="1455" y1="797" y2="797" />
+<ellipse cx="1428" cy="796" fill="none" id="Group76_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect110" stroke="#000000" stroke-width="1" width="8" x="1432" y="815" >
+<menu id="Rect110_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line120" stroke="#000000" stroke-width="2" x1="1437" x2="1437" y1="838" y2="857" />
+<rect fill="#c0c0c0" height="22" id="Rect111" stroke="#000000" stroke-width="1" width="8" x="1432" y="727" >
+<menu id="Rect111_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line121" stroke="#000000" stroke-width="2" x1="1437" x2="1437" y1="698" y2="727" />
+<g height="54" id="Group77" width="38" x="1549" y="755" >
+<g height="22" id="Group77_Group191" transform="rotate(90 1568,766)" width="37" x="1550" y="755" >
+<line id="Group77_Group191_Line7" stroke="#000000" stroke-width="2" x1="1550" x2="1564" y1="766" y2="766" />
+<ellipse cx="1575" cy="765" fill="none" id="Group77_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group77_Group192" transform="rotate(90 1568,798)" width="38" x="1549" y="787" >
+<line id="Group77_Group192_Line8" stroke="#000000" stroke-width="2" x1="1572" x2="1586" y1="798" y2="798" />
+<ellipse cx="1559" cy="797" fill="none" id="Group77_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect112" stroke="#000000" stroke-width="1" width="8" x="1563" y="816" >
+<menu id="Rect112_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line122" stroke="#000000" stroke-width="2" x1="1568" x2="1568" y1="839" y2="858" />
+<rect fill="#c0c0c0" height="22" id="Rect113" stroke="#000000" stroke-width="1" width="8" x="1563" y="728" >
+<menu id="Rect113_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line123" stroke="#000000" stroke-width="2" x1="1568" x2="1568" y1="699" y2="728" />
+<rect fill="#c0c0c0" height="22" id="Rect114" stroke="#000000" stroke-width="1" width="8" x="1433" y="858" />
+<line id="Line124" stroke="#000000" stroke-width="2" x1="1437" x2="1437" y1="880" y2="898" />
+<rect fill="#c0c0c0" height="22" id="Rect115" stroke="#000000" stroke-width="1" width="8" x="1564" y="859" />
+<line id="Line125" stroke="#000000" stroke-width="2" x1="1568" x2="1568" y1="881" y2="899" />
+<g height="54" id="Group78" width="38" x="1679" y="754" >
+<g height="22" id="Group78_Group191" transform="rotate(90 1698,765)" width="37" x="1680" y="754" >
+<line id="Group78_Group191_Line7" stroke="#000000" stroke-width="2" x1="1680" x2="1694" y1="765" y2="765" />
+<ellipse cx="1705" cy="764" fill="none" id="Group78_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group78_Group192" transform="rotate(90 1698,797)" width="38" x="1679" y="786" >
+<line id="Group78_Group192_Line8" stroke="#000000" stroke-width="2" x1="1702" x2="1716" y1="797" y2="797" />
+<ellipse cx="1689" cy="796" fill="none" id="Group78_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect116" stroke="#000000" stroke-width="1" width="8" x="1693" y="815" >
+<menu id="Rect116_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line126" stroke="#000000" stroke-width="2" x1="1698" x2="1698" y1="838" y2="857" />
+<rect fill="#c0c0c0" height="22" id="Rect117" stroke="#000000" stroke-width="1" width="8" x="1693" y="727" >
+<menu id="Rect117_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line127" stroke="#000000" stroke-width="2" x1="1698" x2="1698" y1="698" y2="727" />
+<rect fill="#c0c0c0" height="22" id="Rect118" stroke="#000000" stroke-width="1" width="8" x="1694" y="858" />
+<line id="Line128" stroke="#000000" stroke-width="2" x1="1698" x2="1698" y1="880" y2="898" />
+<g height="54" id="Group79" width="38" x="1807" y="754" >
+<g height="22" id="Group79_Group191" transform="rotate(90 1826,765)" width="37" x="1808" y="754" >
+<line id="Group79_Group191_Line7" stroke="#000000" stroke-width="2" x1="1808" x2="1822" y1="765" y2="765" />
+<ellipse cx="1833" cy="764" fill="none" id="Group79_Group191_Ellipse1" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+<g height="22" id="Group79_Group192" transform="rotate(90 1826,797)" width="38" x="1807" y="786" >
+<line id="Group79_Group192_Line8" stroke="#000000" stroke-width="2" x1="1830" x2="1844" y1="797" y2="797" />
+<ellipse cx="1817" cy="796" fill="none" id="Group79_Group192_Ellipse3" rx="11" ry="11" stroke="#000000" stroke-width="2" />
+</g>
+</g>
+<rect fill="#c0c0c0" height="22" id="Rect119" stroke="#000000" stroke-width="1" width="8" x="1821" y="815" >
+<menu id="Rect119_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line129" stroke="#000000" stroke-width="2" x1="1826" x2="1826" y1="838" y2="857" />
+<rect fill="#c0c0c0" height="22" id="Rect120" stroke="#000000" stroke-width="1" width="8" x="1821" y="727" >
+<menu id="Rect120_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line130" stroke="#000000" stroke-width="2" x1="1826" x2="1826" y1="698" y2="727" />
+<rect fill="#c0c0c0" height="22" id="Rect121" stroke="#000000" stroke-width="1" width="8" x="1822" y="858" />
+<line id="Line131" stroke="#000000" stroke-width="2" x1="1826" x2="1826" y1="880" y2="898" />
+<rect fill="#c0c0c0" height="22" id="Rect122" stroke="#000000" stroke-width="1" width="8" x="1563" y="681" />
+<line id="Line132" stroke="#000000" stroke-width="2" x1="1567" x2="1567" y1="670" y2="681" />
+<rect fill="#c0c0c0" height="22" id="Rect123" stroke="#000000" stroke-width="1" width="8" x="1432" y="680" />
+<line id="Line133" stroke="#000000" stroke-width="2" x1="1436" x2="1436" y1="669" y2="680" />
+<rect fill="#c0c0c0" height="22" id="Rect124" stroke="#000000" stroke-width="1" width="8" x="1693" y="680" />
+<line id="Line134" stroke="#000000" stroke-width="2" x1="1697" x2="1697" y1="669" y2="680" />
+<rect fill="#c0c0c0" height="22" id="Rect125" stroke="#000000" stroke-width="1" width="8" x="1821" y="680" />
+<line id="Line135" stroke="#000000" stroke-width="2" x1="1825" x2="1825" y1="669" y2="680" />
+<g height="21" id="Text240" width="22" x="349" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="349"  y="516" >P:</text>
+</g>
+<g height="21" id="Text241" width="22" x="349" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="349"  y="531" >Q:</text>
+</g>
+<g height="21" id="Text242" width="22" x="349" y="538" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="349"  y="546" >I:</text>
+</g>
+<g height="21" id="Text243" width="22" x="718" y="513" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="718"  y="521" >P:</text>
+</g>
+<g height="21" id="Text244" width="22" x="718" y="528" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="718"  y="536" >Q:</text>
+</g>
+<g height="21" id="Text245" width="22" x="718" y="543" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="718"  y="551" >I:</text>
+</g>
+<g height="16" id="Text246" width="32" x="899" y="845" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="899"  y="853" >0.00</text>
+</g>
+<g height="16" id="Text247" width="32" x="899" y="858" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="899"  y="866" >0.00</text>
+</g>
+<g height="16" id="Text248" width="32" x="899" y="872" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="899"  y="880" >0.00</text>
+</g>
+<g height="21" id="Text249" width="22" x="366" y="845" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="366"  y="853" >P:</text>
+</g>
+<g height="21" id="Text250" width="22" x="366" y="860" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="366"  y="868" >Q:</text>
+</g>
+<g height="21" id="Text251" width="22" x="366" y="875" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="366"  y="883" >I:</text>
+</g>
+<g height="16" id="Text252" width="32" x="425" y="849" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="425"  y="857" >0.00</text>
+</g>
+<g height="16" id="Text253" width="32" x="424" y="862" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="424"  y="870" >0.00</text>
+</g>
+<g height="16" id="Text254" width="32" x="425" y="876" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="425"  y="884" >0.00</text>
+</g>
+<g height="21" id="Text255" width="22" x="674" y="841" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="674"  y="849" >P:</text>
+</g>
+<g height="21" id="Text256" width="22" x="674" y="856" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="674"  y="864" >Q:</text>
+</g>
+<g height="21" id="Text257" width="22" x="674" y="871" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="674"  y="879" >I:</text>
+</g>
+<g height="21" id="Text258" width="22" x="1174" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1174"  y="516" >P:</text>
+</g>
+<g height="21" id="Text259" width="22" x="1174" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1174"  y="531" >Q:</text>
+</g>
+<g height="21" id="Text260" width="22" x="1174" y="538" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1174"  y="546" >I:</text>
+</g>
+<g height="21" id="Text261" width="22" x="1572" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1572"  y="516" >P:</text>
+</g>
+<g height="21" id="Text262" width="22" x="1572" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1572"  y="531" >Q:</text>
+</g>
+<g height="21" id="Text263" width="22" x="1572" y="538" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1572"  y="546" >I:</text>
+</g>
+<g height="16" id="Text264" width="32" x="397" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="397"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text265" width="32" x="397" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="397"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text266" width="32" x="397" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="397"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text267" width="32" x="455" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="455"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text268" width="32" x="455" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="455"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text269" width="32" x="455" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="455"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text270" width="32" x="516" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="516"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text271" width="32" x="516" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="516"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text272" width="32" x="516" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="516"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text273" width="32" x="586" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="586"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text274" width="32" x="586" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="586"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text275" width="32" x="586" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="586"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text276" width="32" x="765" y="514" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="765"  y="522" >0.00</text>
+</g>
+<g height="16" id="Text277" width="32" x="765" y="527" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="765"  y="535" >0.00</text>
+</g>
+<g height="16" id="Text278" width="32" x="765" y="541" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="765"  y="549" >0.00</text>
+</g>
+<g height="16" id="Text279" width="32" x="823" y="514" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="823"  y="522" >0.00</text>
+</g>
+<g height="16" id="Text280" width="32" x="823" y="527" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="823"  y="535" >0.00</text>
+</g>
+<g height="16" id="Text281" width="32" x="823" y="541" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="823"  y="549" >0.00</text>
+</g>
+<g height="16" id="Text282" width="32" x="877" y="514" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="877"  y="522" >0.00</text>
+</g>
+<g height="16" id="Text283" width="32" x="876" y="527" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="876"  y="535" >0.00</text>
+</g>
+<g height="16" id="Text284" width="32" x="877" y="541" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="877"  y="549" >0.00</text>
+</g>
+<g height="16" id="Text285" width="32" x="945" y="514" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="945"  y="522" >0.00</text>
+</g>
+<g height="16" id="Text286" width="32" x="945" y="527" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="945"  y="535" >0.00</text>
+</g>
+<g height="16" id="Text287" width="32" x="945" y="541" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="945"  y="549" >0.00</text>
+</g>
+<g height="16" id="Text288" width="32" x="1224" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1224"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text289" width="32" x="1224" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1224"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text290" width="32" x="1224" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1224"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text291" width="32" x="1305" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1305"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text292" width="32" x="1305" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1305"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text293" width="32" x="1305" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1305"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text294" width="32" x="1377" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1377"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text295" width="32" x="1377" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1377"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text296" width="32" x="1377" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1377"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text297" width="32" x="1457" y="508" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1457"  y="516" >0.00</text>
+</g>
+<g height="16" id="Text298" width="32" x="1457" y="521" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1457"  y="529" >0.00</text>
+</g>
+<g height="16" id="Text299" width="32" x="1457" y="535" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1457"  y="543" >0.00</text>
+</g>
+<g height="16" id="Text300" width="32" x="1622" y="510" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1622"  y="518" >0.00</text>
+</g>
+<g height="16" id="Text301" width="32" x="1622" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1622"  y="531" >0.00</text>
+</g>
+<g height="16" id="Text302" width="32" x="1622" y="537" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1622"  y="545" >0.00</text>
+</g>
+<g height="16" id="Text303" width="32" x="1688" y="510" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1688"  y="518" >0.00</text>
+</g>
+<g height="16" id="Text304" width="32" x="1688" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1688"  y="531" >0.00</text>
+</g>
+<g height="16" id="Text305" width="32" x="1688" y="537" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1688"  y="545" >0.00</text>
+</g>
+<g height="16" id="Text306" width="32" x="1755" y="510" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1755"  y="518" >0.00</text>
+</g>
+<g height="16" id="Text307" width="32" x="1755" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1755"  y="531" >0.00</text>
+</g>
+<g height="16" id="Text308" width="32" x="1755" y="537" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1755"  y="545" >0.00</text>
+</g>
+<g height="16" id="Text309" width="32" x="1825" y="510" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1825"  y="518" >0.00</text>
+</g>
+<g height="16" id="Text310" width="32" x="1825" y="523" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1825"  y="531" >0.00</text>
+</g>
+<g height="16" id="Text311" width="32" x="1825" y="537" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1825"  y="545" >0.00</text>
+</g>
+<g height="21" id="Text312" width="22" x="459" y="294" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="459"  y="302" >P:</text>
+</g>
+<g height="21" id="Text313" width="22" x="459" y="309" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="459"  y="317" >Q:</text>
+</g>
+<g height="21" id="Text314" width="22" x="459" y="324" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="459"  y="332" >I:</text>
+</g>
+<g height="16" id="Text315" width="32" x="502" y="297" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="502"  y="305" >0.00</text>
+</g>
+<g height="16" id="Text316" width="32" x="502" y="310" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="502"  y="318" >0.00</text>
+</g>
+<g height="16" id="Text317" width="32" x="502" y="324" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="502"  y="332" >0.00</text>
+</g>
+<g height="16" id="Text318" width="32" x="581" y="297" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="581"  y="305" >0.00</text>
+</g>
+<g height="16" id="Text319" width="32" x="581" y="310" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="581"  y="318" >0.00</text>
+</g>
+<g height="16" id="Text320" width="32" x="581" y="324" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="581"  y="332" >0.00</text>
+</g>
+<g height="16" id="Text321" width="32" x="662" y="297" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="662"  y="305" >0.00</text>
+</g>
+<g height="16" id="Text322" width="32" x="662" y="310" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="662"  y="318" >0.00</text>
+</g>
+<g height="16" id="Text323" width="32" x="662" y="324" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="662"  y="332" >0.00</text>
+</g>
+<g height="16" id="Text324" width="32" x="797" y="297" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="797"  y="305" >0.00</text>
+</g>
+<g height="16" id="Text325" width="32" x="797" y="310" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="797"  y="318" >0.00</text>
+</g>
+<g height="16" id="Text326" width="32" x="797" y="324" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="797"  y="332" >0.00</text>
+</g>
+<g height="16" id="Text327" width="32" x="875" y="297" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="875"  y="305" >0.00</text>
+</g>
+<g height="16" id="Text328" width="32" x="875" y="310" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="875"  y="318" >0.00</text>
+</g>
+<g height="16" id="Text329" width="32" x="875" y="324" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="875"  y="332" >0.00</text>
+</g>
+<g height="16" id="Text330" width="32" x="999" y="515" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="999"  y="523" >0.00</text>
+</g>
+<g height="16" id="Text331" width="32" x="999" y="528" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="999"  y="536" >0.00</text>
+</g>
+<g height="16" id="Text332" width="32" x="999" y="542" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="999"  y="550" >0.00</text>
+</g>
+<g height="16" id="Text333" width="32" x="1057" y="515" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1057"  y="523" >0.00</text>
+</g>
+<g height="16" id="Text334" width="32" x="1057" y="528" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1057"  y="536" >0.00</text>
+</g>
+<g height="16" id="Text335" width="32" x="1057" y="542" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1057"  y="550" >0.00</text>
+</g>
+<g height="16" id="Text336" width="32" x="643" y="509" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="643"  y="517" >0.00</text>
+</g>
+<g height="16" id="Text337" width="32" x="643" y="522" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="643"  y="530" >0.00</text>
+</g>
+<g height="16" id="Text338" width="32" x="643" y="536" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="643"  y="544" >0.00</text>
+</g>
+<g height="16" id="Text339" width="32" x="1601" y="365" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1601"  y="373" >0.00</text>
+</g>
+<g height="16" id="Text340" width="32" x="1601" y="379" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1601"  y="387" >0.00</text>
+</g>
+<g height="16" id="Text341" width="32" x="1601" y="392" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1601"  y="400" >0.00</text>
+</g>
+<g height="16" id="Text342" width="32" x="1482" y="365" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1482"  y="373" >0.00</text>
+</g>
+<g height="16" id="Text343" width="32" x="1482" y="378" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1482"  y="386" >0.00</text>
+</g>
+<g height="16" id="Text344" width="32" x="1482" y="392" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1482"  y="400" >0.00</text>
+</g>
+<image height="53" id="Image5" width="87" x="1071" xlink:href="../image/DAD/PCS.png" y="771" />
+<rect fill="#c0c0c0" height="22" id="Rect126" stroke="#000000" stroke-width="1" width="8" x="1110" y="733" >
+<menu id="Rect126_menu" >
+<item >控分</item>
+<item >控合</item>
+</menu>
+</rect>
+<line id="Line136" stroke="#000000" stroke-width="2" x1="1114" x2="1114" y1="719" y2="733" />
+<line id="Line137" stroke="#000000" stroke-width="2" x1="1114" x2="1316" y1="719" y2="719" />
+<line id="Line138" stroke="#000000" stroke-width="2" x1="1290" x2="1290" y1="501" y2="524" />
+<polyline fill="none" id="Curve39" points=" 1285,511 1288,505 1291,511" stroke="#000000" stroke-width="2" transform="rotate(-540 1289,509)" />
+<g height="22" id="Group80" width="7" x="1287" y="458" >
+<line id="Group80_Line266" stroke="#ff0000" stroke-width="2" x1="1290" x2="1290" y1="458" y2="479" />
+<polyline fill="none" id="Group80_Curve12" points=" 1287,474 1290,468 1293,474" stroke="#ff0000" stroke-width="2" transform="rotate(-360 1290,471)" />
+</g>
+<rect fill="none" height="132" id="Rect127" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="69" x="1403" y="715" />
+<rect fill="none" height="131" id="Rect128" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="67" x="1536" y="716" />
+<rect fill="none" height="131" id="Rect129" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="67" x="1664" y="715" />
+<rect fill="none" height="131" id="Rect130" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="67" x="1792" y="715" />
+<g height="26" id="Text345" width="72" x="906" y="733" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="906"  y="745" >F：0.00</text>
+</g>
+<g height="26" id="Text346" width="72" x="906" y="758" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="906"  y="770" >U：0.00</text>
+</g>
+<g height="16" id="Text347" width="32" x="707" y="843" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="707"  y="851" >0.00</text>
+</g>
+<g height="16" id="Text348" width="32" x="707" y="856" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="707"  y="864" >0.00</text>
+</g>
+<g height="16" id="Text349" width="32" x="707" y="870" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="707"  y="878" >0.00</text>
+</g>
+<g height="16" id="Text350" width="32" x="795" y="841" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="795"  y="849" >0.00</text>
+</g>
+<g height="16" id="Text351" width="32" x="795" y="854" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="795"  y="862" >0.00</text>
+</g>
+<g height="16" id="Text352" width="32" x="795" y="868" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="795"  y="876" >0.00</text>
+</g>
+<g height="26" id="Text353" width="72" x="1063" y="402" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1063"  y="414" >F：0.00</text>
+</g>
+<g height="26" id="Text354" width="72" x="1064" y="427" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1064"  y="439" >U：0.00</text>
+</g>
+<g height="26" id="Text355" width="72" x="1787" y="401" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1787"  y="413" >F：0.00</text>
+</g>
+<g height="26" id="Text356" width="72" x="1788" y="426" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1788"  y="438" >U：0.00</text>
+</g>
+<g height="26" id="Text357" width="72" x="1168" y="403" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1168"  y="415" >F：0.00</text>
+</g>
+<g height="26" id="Text358" width="72" x="1168" y="428" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1168"  y="440" >U：0.00</text>
+</g>
+<g height="16" id="Text359" width="32" x="1354" y="402" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1354"  y="410" >0.00</text>
+</g>
+<g height="16" id="Text360" width="32" x="1354" y="415" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1354"  y="423" >0.00</text>
+</g>
+<g height="16" id="Text361" width="32" x="1354" y="429" >
+<text fill="#000000" font-family="SimSun" font-size="11" x="1354"  y="437" >0.00</text>
+</g>
+<a id="Rect211_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_分区用电.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect211" stroke="#00557f" stroke-width="1" width="170" x="372" y="70" />
+<g height="50" id="innertext_Rect211" width="170" x="372" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="415"  y="97" >分区用电</text>
+</g>
+</a>
+<a id="Rect212_link_elem" onclick="if (window.openPage) {openPage(evt,'变电站自动化系统/35kV降压站.svg','_self', '');}" target="_self" xlink:href="变电站自动化系统/35kV降压站.svg" >
+<rect fill="url(#lineargradient#b8b8b8#MToUD)" height="50" id="Rect212" stroke="#d4d4d4" stroke-width="1" width="170" x="542" y="70" />
+<g height="50" id="innertext_Rect212" width="170" x="542" y="70" >
+<text fill="#000000" font-family="SimHei" font-size="19" font-weight="bold" x="574"  y="97" >高压系统图</text>
+</g>
+</a>
+<a id="Rect213_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_低压配电图.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_低压配电图.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect213" stroke="#00557f" stroke-width="1" width="170" x="712" y="70" />
+<g height="50" id="innertext_Rect213" width="170" x="712" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="744"  y="97" >低压配电图</text>
+</g>
+</a>
+<a id="Rect214_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_谐波分析图.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_谐波分析图.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect214" stroke="#00557f" stroke-width="1" width="170" x="882" y="70" />
+<g height="50" id="innertext_Rect214" width="170" x="882" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="914"  y="97" >谐波分析图</text>
+</g>
+</a>
+<a id="Rect215_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_中央空调.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_中央空调.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect215" stroke="#00557f" stroke-width="1" width="170" x="1052" y="70" />
+<g height="50" id="innertext_Rect215" width="170" x="1052" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="1095"  y="97" >中央空调</text>
+</g>
+</a>
+<a id="Rect216_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_楼层分布.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_楼层分布.svg" >
+<rect fill="url(#lineargradient#003f5d#MToUD)" height="50" id="Rect216" stroke="#00557f" stroke-width="1" width="170" x="1222" y="70" />
+<g height="50" id="innertext_Rect216" width="170" x="1222" y="70" >
+<text fill="#ffffff" font-family="SimHei" font-size="19" font-weight="bold" x="1265"  y="97" >楼层分布</text>
+</g>
+</a>
+<image height="2" id="Image6" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image7" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image8" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group81_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="能效系统/用电耗能_分区用电.svg" >
+<g height="89" id="Group81" width="321" x="20" y="357" >
+<image height="89" id="Group81_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group81_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159"  y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group81_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group82_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="能效系统/用水耗能_分区用水.svg" >
+<g height="89" id="Group82" width="321" x="20" y="461" >
+<image height="89" id="Group82_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group82_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163"  y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group82_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group83_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="能效系统/燃气耗能_燃气系统.svg" >
+<g height="89" id="Group83" width="321" x="20" y="565" >
+<image height="89" id="Group83_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group83_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157"  y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group83_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group84_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供热耗能_供热系统.svg" >
+<g height="89" id="Group84" width="321" x="20" y="669" >
+<image height="89" id="Group84_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group84_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group84_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group85_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="能效系统/供冷耗能_冷水系统.svg" >
+<g height="89" id="Group85" width="321" x="20" y="773" >
+<image height="89" id="Group85_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group85_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group85_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group86_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="能效系统/其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group86" width="321" x="20" y="878" >
+<image height="89" id="Group86_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group86_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135"  y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group86_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group87_link_elem" onclick="if (window.openPage) {openPage(evt,'能效系统/建筑总耗能.svg','_self', '');}" target="_self" xlink:href="能效系统/建筑总耗能.svg" >
+<g height="89" id="Group87" width="321" x="20" y="253" >
+<image height="89" id="Group87_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group87_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149"  y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group87_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+</svg>

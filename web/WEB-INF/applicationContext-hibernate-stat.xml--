@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- ***** powerConstService SERVICE *****-->
+	<bean id="powerConstService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="powerConstTarget" />
+		</property>
+	</bean>
+	<bean id="powerConstTarget" class="com.xjgc.dsm.stat.service.spring.PowerConstServiceImpl">
+		<property name="powerConstDao">
+			<ref bean="powerConstDao" />			
+		</property>
+	</bean>
+	<bean id="powerConstDao" class="com.xjgc.dsm.stat.dao.hibernate.PowerConstDaoImpl">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	
+	
+</beans>

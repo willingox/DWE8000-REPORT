@@ -1,0 +1,252 @@
+package com.xjgc.wind.datastatistics.web.action;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionServlet;
+import org.apache.struts.actions.DispatchAction;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.xjgc.wind.datastatistics.service.IGeneratorService;
+import com.xjgc.wind.datastatistics.service.IWindJiReliabilityContrastService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindJiReliabilityContrastDataForm;
+import com.xjgc.wind.util.HourMTimeUtil;
+import com.xjgc.wind.util.MonthDayTimeUtil;
+
+
+public class WindJiReliabilityContrastDataAction extends DispatchAction {
+
+	private static final Log log = LogFactory.getLog(WindJiReliabilityContrastDataAction.class);
+
+	IWindJiReliabilityContrastService windJiReliabilityContrastService;
+	IGeneratorService generatorService;
+	
+	public void setServlet(ActionServlet servlet) {
+		super.setServlet(servlet);
+
+		WebApplicationContext wac = WebApplicationContextUtils
+		.getRequiredWebApplicationContext(servlet.getServletContext());
+		windJiReliabilityContrastService = (IWindJiReliabilityContrastService) wac.getBean("windJiReliabilityContrastService");
+		generatorService = (IGeneratorService) wac.getBean("generatorService");
+		
+	}
+
+	public ActionForward execute(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		if (log.isDebugEnabled())
+			log.debug("entering 'execute' method ...");
+
+		String method = request.getParameter("method");
+		if (StringUtils.isBlank(method))
+			return show(mapping, form, request, response);
+		else
+			return super.execute(mapping, form, request, response);
+	}
+
+	// ��ȡ��ʷԤ������б�
+	public ActionForward show(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		if (log.isDebugEnabled())
+			log.debug("entering 'show' method ...");
+
+		// ��ѯ���
+		WindJiReliabilityContrastDataForm dataForm = (WindJiReliabilityContrastDataForm) form;
+	//	List<DataStatisticsDataVo> resultmap =null;
+		List<DataStatisticsDataVo> resultrandhour =null;
+		List<DataStatisticsDataVo> resultu = null;
+	//	List<DataStatisticsDataVo> resultrandefficiency =null;
+	//	List<DataStatisticsDataVo> resulttable =null;
+		if (!StringUtils.isEmpty(request.getParameter("isFirst"))) {
+			resultrandhour = windJiReliabilityContrastService.listrandhour(dataForm);
+			
+			String SUint = "MWh";
+			int equipsize = generatorService.list().size();
+			if(equipsize > 0){
+				String str = generatorService.list().get(0).getName1();
+				
+				char str1 = str.charAt(3);
+				if(str.contains("YM")){
+					resultu = generatorService.listu("YM",str1);				
+				}
+				else{
+					resultu = generatorService.listu("YC",str1);
+				}
+				if(resultu.size() > 0)
+					SUint = resultu.get(0).getName2();
+			}
+
+			if(resultrandhour.size()!=0){
+				for(int i=0;i<resultrandhour.size();i++)
+				{
+				double f0   = resultrandhour.get(i).getHour();  
+				if(SUint.compareTo("MWh") == 0)
+					f0 = f0*1000;
+				else if(SUint.compareTo("Wh") == 0)
+					f0 = f0*0.001;
+				BigDecimal   b   =   new   BigDecimal(f0);  
+				double f1  =   b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+				resultrandhour.get(i).setHour(f1);
+				
+				double f2   = resultrandhour.get(i).getTotalGenwh();  
+				BigDecimal   b1   =   new   BigDecimal(f2);  
+				double f3  =   b1.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+				resultrandhour.get(i).setTotalGenwh(f3);
+				
+				double f4 = resultrandhour.get(i).getCapacity();
+				BigDecimal b2 = new BigDecimal(f4);
+				double f5 = b2.setScale(2,BigDecimal.ROUND_HALF_UP).doubleValue();
+				resultrandhour.get(i).setCapacity(f5);
+				}
+			}
+			
+			
+			StringBuffer buffer = new StringBuffer(); 
+			buffer.append("<tr style='text-align:center;'>");
+			buffer.append("<td colspan='1'>风机名称</td>");
+			buffer.append("<td colspan='1'>发电量(").append(SUint).append(")</td>");
+			buffer.append("<td colspan='1'>装机容量(kW)</td>");
+			buffer.append("<td colspan='1'>有效利用小时数(h)</td>");
+			buffer.append("</tr>");
+			
+			request.setAttribute("top", buffer.toString());
+			
+			request.setAttribute("resultrandhour", resultrandhour);
+				
+		}
+		
+
+	
+		lineChartbar1Xml(resultrandhour, request);
+		
+		return mapping.findForward("show");
+	}
+	private void lineChartmap1Xml(List<DataStatisticsDataVo> list, HttpServletRequest request) {
+		if (list != null && !list.isEmpty()) {
+			
+			StringBuffer mapXml = new StringBuffer();
+			mapXml.append("{");
+			
+			Iterator<DataStatisticsDataVo> iter = list.iterator();
+			while (iter.hasNext()) {
+				DataStatisticsDataVo elem = iter.next();
+				mapXml.append("\"").append(elem.getName()).append("\":[");
+				mapXml.append(elem.getLongitude()).append(",").append(elem.getLatitude()).append("]").append(",");
+				
+				
+				
+				
+			}
+			mapXml.append("}");
+
+			//���������Ϣ
+			if (mapXml.length() > 0) 
+				request.setAttribute("mapXml", mapXml);
+			request.setAttribute("size", list.size());
+		}
+	}
+	private void lineChartmap2Xml(List<DataStatisticsDataVo> list, HttpServletRequest request) {
+		if (list != null && !list.isEmpty()) {
+			
+			StringBuffer map2Xml = new StringBuffer();
+			map2Xml.append("[");
+			
+			Iterator<DataStatisticsDataVo> iter = list.iterator();
+			while (iter.hasNext()) {
+				DataStatisticsDataVo elem = iter.next();
+				map2Xml.append("{").append("name:").append("\"").append(elem.getName()).append("\"").append(",value:");
+				map2Xml.append(elem.getHour()).append("},");
+				
+				
+				
+				
+			}
+			map2Xml.append("]");
+
+			//���������Ϣ
+			if (map2Xml.length() > 0) 
+				request.setAttribute("map2Xml", map2Xml);
+			request.setAttribute("size", list.size());
+		}
+	}
+	private void lineChartbar1Xml(List<DataStatisticsDataVo> list, HttpServletRequest request) {
+		if (list != null && !list.isEmpty()) {
+			
+			StringBuffer bar1Xml = new StringBuffer();
+			bar1Xml.append("[");
+			
+			Iterator<DataStatisticsDataVo> iter = list.iterator();
+			while (iter.hasNext()) {
+				DataStatisticsDataVo elem = iter.next();
+					
+				bar1Xml.append("{\"").append("hour\"").append(":\"").append(elem.getHour()).append("\",\"");
+				bar1Xml.append("name\"").append(":\"").append(elem.getName()).append("\"},");
+				
+			}
+			bar1Xml.append("]");
+
+			//���������Ϣ
+			if (bar1Xml.length() > 0) 
+				request.setAttribute("bar1Xml", bar1Xml);
+			request.setAttribute("size", list.size());
+		}
+		else{
+			StringBuffer bar1Xml = new StringBuffer();
+			bar1Xml.append("[{\"").append("hour\"").append(":\"").append(0).append("\",\"");
+			bar1Xml.append("name\"").append(":\"").append(0).append("\"}]");
+			request.setAttribute("bar1Xml", bar1Xml);
+		}
+	}
+	private void lineChartbar2Xml(List<DataStatisticsDataVo> list, HttpServletRequest request) {
+		if (list != null && !list.isEmpty()) {
+			
+			StringBuffer bar2Xml = new StringBuffer();
+			bar2Xml.append("[");
+			
+			Iterator<DataStatisticsDataVo> iter = list.iterator();
+			while (iter.hasNext()) {
+				DataStatisticsDataVo elem = iter.next();
+				
+				
+					
+				bar2Xml.append("{\"").append("efficiency\"").append(":\"").append(elem.getEfficiency()).append("\",\"");
+				bar2Xml.append("name\"").append(":\"").append(elem.getName()).append("\"},");
+					
+				
+				
+			}
+			bar2Xml.append("]");
+
+			//���������Ϣ
+			if (bar2Xml.length() > 0) 
+				request.setAttribute("bar2Xml", bar2Xml);
+			request.setAttribute("size", list.size());
+		}
+	}
+}
+
+
+
+
+
+
+

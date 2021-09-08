@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="GBK"?>
+
+<tree id="0" >  
+     <item  text="供电系统" open="2" id="lb">  
+        <item  text="照明插座用电总量" open="1" id="lb1">  
+            <item text="4楼照明" id="lb1-1"/>  
+            <item text="5楼照明" id="lb1-2"/>  
+        </item>
+        <item text="空调用电总量"  open="1" id="lb2">  
+            <item text="冷热站" id="lb2-1"/>  
+            <item text="空调末端" id="lb2-2"/>  
+        </item>
+        <item text="动力用电总量" open="1" id="lb3">  
+            <item text="电梯用电" id="lb3-1"/>  
+            <item text="水泵用电" id="lb3-2"/>  
+        </item>  
+        <item text="特殊用电总量" open="1" id="lb4">  
+            <item text="信息中心" id="lb4-1"/>  
+            <item text="健身房" id="lb4-2"/>  
+        </item> 
+    </item>           
+</tree>  

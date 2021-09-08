@@ -1,0 +1,50 @@
+input.pc_btn {
+	width: 66px;
+	height: 24px;
+	line-height: 24px;
+	font-size: 12px;
+	color: #000;
+	border: none;
+	background: url(images/btn_bg.png) no-repeat 0 0;
+	cursor: hand;
+}
+
+/* 复选框label */
+span.pc_span {
+	 margin-left: 5px;
+	 font-size: 9pt;
+}
+
+div.pc_div {
+	scrollbar-face-color: #E2EEE9; 
+	scrollbar-shadow-color: #FFFFFF; 
+	scrollbar-highlight-color: #FFFFFF; 
+	scrollbar-3dlight-color: #E2EEE9; 
+	scrollbar-darkshadow-color: #E2EEE9; 
+	scrollbar-track-color: #FFFFFF; 
+	scrollbar-arrow-color: #FFFFFF;
+}
+/*--------------------------下面为ymPrompt样式----------------------------*/
+
+/*container*/
+#ym-window{background:#FFFFFF;overflow:hidden;font-size:12px;font-family:'宋体';}
+
+/*header*/
+.ym-tl{padding-left:3px;background:#1B6D6B url(images/title_bg_left.gif) no-repeat 0 0;}
+.ym-tr{padding-right:3px;background:#1B6D6B url(images/title_bg_right.gif) no-repeat right 0;}
+.ym-tc{background:#1B6D6B url(images/title_bg_center.gif) repeat-x 0 0;overflow:hidden;height:25px;line-height:25px;}
+.ym-ttc{height:3px;}
+.ym-header-text{font-size:12px;font-weight:bold;color:#CEF3EB;margin-left:5px;float:left;}
+.ym-header-tools{float:right;margin-top:5px;}
+.ym-header-tools strong{display:none;}
+
+/*body*/
+.ym-ml{background:#1B6D6B;padding-left:2px;}
+.ym-mr{background:#1B6D6B;padding-right:2px;}
+.ym-mc{background:#FFFFFF;padding:0;}
+.ym-body{overflow:auto;padding:0;font-size:12px;}
+
+/*footer*/
+.ym-bl{background:#1B6D6B;padding-left:2px;}
+.ym-br{background:#1B6D6B;padding-right:2px;}
+.ym-bc{background:#1B6D6B;height:2px;font-size:2px;}

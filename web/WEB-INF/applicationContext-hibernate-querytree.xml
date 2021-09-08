@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- ***** QueryTree SERVICE *****-->
+	<bean id="queryTreeService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="queryTreeTarget" />
+		</property>
+	</bean>
+	<bean id="queryTreeTarget" class="com.xjgc.wind.querytree.service.impl.QueryTreeServiceImpl">
+		<property name="queryTreeDao">
+			<ref bean="queryTreeDao" />			
+		</property>
+	</bean>
+	<bean id="queryTreeDao" class="com.xjgc.wind.querytree.dao.impl.QueryTreeDaoImpl">
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+</beans>

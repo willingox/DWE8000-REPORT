@@ -1,0 +1,162 @@
+package com.xjgc.wind.datastatistics.web.action;
+
+import java.math.BigDecimal;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.math.NumberUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.ActionServlet;
+import org.apache.struts.actions.DispatchAction;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+
+import com.xjgc.wind.datastatistics.service.IGeneratorService;
+import com.xjgc.wind.datastatistics.service.IWindAvailabilityContrastService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindAvailabilityContrastDataForm;
+import com.xjgc.wind.util.HourMTimeUtil;
+import com.xjgc.wind.util.MonthDayTimeUtil;
+
+
+public class WindAvailabilityContrastDataAction extends DispatchAction {
+
+	private static final Log log = LogFactory.getLog(WindAvailabilityContrastDataAction.class);
+
+	IWindAvailabilityContrastService windAvailabilityContrastService;
+
+	public void setServlet(ActionServlet servlet) {
+		super.setServlet(servlet);
+
+		WebApplicationContext wac = WebApplicationContextUtils
+		.getRequiredWebApplicationContext(servlet.getServletContext());
+		windAvailabilityContrastService = (IWindAvailabilityContrastService) wac.getBean("windAvailabilityContrastService");	
+		
+	}
+
+	public ActionForward execute(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		if (log.isDebugEnabled())
+			log.debug("entering 'execute' method ...");
+
+		String method = request.getParameter("method");
+		if (StringUtils.isBlank(method))
+			return show(mapping, form, request, response);
+		else
+			return super.execute(mapping, form, request, response);
+	}
+
+	
+	public ActionForward show(ActionMapping mapping, ActionForm form,
+			HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		if (log.isDebugEnabled())
+			log.debug("entering 'show' method ...");
+
+		
+		WindAvailabilityContrastDataForm dataForm = (WindAvailabilityContrastDataForm) form;
+		List<DataStatisticsDataVo> resultava =null;
+
+		if (!StringUtils.isEmpty(request.getParameter("isFirst"))) {
+			
+			String str=dataForm.getStr();
+			String[] arr =null;
+			List<Integer> list = new LinkedList<Integer>();
+			if(str!=null){
+			arr = str.split(",");
+			if(arr!=null){
+			for(int i=0;i<arr.length;i++){
+				list.add(Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length())));
+				
+			}
+			}
+			}
+			
+		
+			
+			resultava = windAvailabilityContrastService.listava(dataForm);
+			double allava = 0;
+			if(resultava.size()!=0){
+				
+				for(int i=0;i<resultava.size();i++)
+				{
+				double f0   = resultava.get(i).getAvailability();
+				BigDecimal   b   =   new   BigDecimal(f0);  
+				double f1  =   b.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+				resultava.get(i).setAvailability(f1);		
+				
+				allava += resultava.get(i).getAvailability();
+				
+				
+
+				}
+				allava = allava/resultava.size();
+				
+				BigDecimal   b1   =   new   BigDecimal(allava);  
+				allava  =   b1.setScale(2,   BigDecimal.ROUND_HALF_UP).doubleValue();
+			}
+			
+			request.setAttribute("resultava", resultava);
+			request.setAttribute("allava", allava);	
+		}
+		
+		lineChartmap1Xml(resultava, request);
+
+		return mapping.findForward("show");
+	}
+	private void lineChartmap1Xml(List<DataStatisticsDataVo> list, HttpServletRequest request) {
+		if (list != null && !list.isEmpty()) {
+			
+			StringBuffer barXml = new StringBuffer();
+			barXml.append("[");
+			
+			Iterator<DataStatisticsDataVo> iter = list.iterator();
+			while (iter.hasNext()) {
+				DataStatisticsDataVo elem = iter.next();
+				barXml.append("{").append("name").append(":\"").append(elem.getName());
+				barXml.append("\",").append("availability").append(":\"").append(elem.getAvailability());
+				barXml.append("\"},");
+				
+			}
+			barXml.append("]");
+
+			
+			if (barXml.length() > 0) 
+				request.setAttribute("barXml", barXml);
+		}
+		else{
+			StringBuffer barXml = new StringBuffer();
+		
+			barXml.append("[{").append("name").append(":\"").append(0);
+			barXml.append("\",").append("availability").append(":\"").append(0);
+			barXml.append("\"}]");
+			request.setAttribute("barXml", barXml);
+
+		}
+	}
+
+	
+}
+
+
+
+
+
+
+

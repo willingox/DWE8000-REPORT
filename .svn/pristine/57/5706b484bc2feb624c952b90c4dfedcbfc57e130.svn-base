@@ -1,0 +1,328 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IWindSpeedDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindSpeedDataForm;
+import com.xjgc.wind.util.YearFormatUtil;
+import com.xjgc.wind.util.YMDHMSUtil;
+
+public class WindSpeedDaoImpl  extends JdbcDaoSupport implements IWindSpeedDao {
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	public List<DataStatisticsDataVo> list(WindSpeedDataForm queryFilter){
+		
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) 
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) 
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) 
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) 
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	 String str=queryFilter.getStr();
+		String[] arr =null;
+  	  String sql = "";
+  	if (isDBMysql()==true) {
+  	  if(date22.compareTo(date11) == 0)
+  	  {
+  		  String tablename = "hisweatherdata_"+date11;
+  		sql = "select avg(h.windvelval) as windvelval,max(h.windvelval) as maxval, min(h.windvelval) as minval,g.name as name from "+tablename;
+  		sql +=" h,generator g where g.id = h.equipid and h.equipid > 0 and h.savetime >='"+date1+"' and h.savetime <= '"+date2+"' " ;
+  		if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h.equipid=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+  			sql+=" group by h.equipid ";
+  	  }
+  	  else if(date22.compareTo(date11) != 0)
+  	  {
+  		
+  		String tablename1 = "hisweatherdata_"+date11;
+  		String tablename2 = "hisweatherdata_"+date22;
+  		
+  		sql +=" select truncate(avg(hw.windvelval),2) as windvelval, truncate( max(hw.windvelval),2) as maxval, truncate(min(hw.windvelval),2) as minval,g.name as name ";
+  		sql +=" from generator g, ";
+  		sql +=" ( (select * from  "+tablename1+"  where savetime >='"+date1+"' and savetime <= '"+date2+"' ) union (select * from  "+tablename2+" where savetime >='"+date1+"' and savetime <= '"+date2+"' ) ) as hw "; 
+  		sql +=" where  g.id = hw.equipid ";
+  		if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="hw.equipid=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+  		sql +=" group by hw.equipid ";
+  		
+
+  	  }
+  	}
+	if (isDBMysql()==false) {
+	  	  if(date22.compareTo(date11) == 0)
+	  	  {
+	  		  String tablename = "hisweatherdata_"+date11;
+	  		sql = "select avg(h.windvelval) as windvelval,max(h.windvelval) as maxval, min(h.windvelval) as minval,g.name as name from "+tablename;
+	  		sql +=" h,generator g where g.id = h.equipid and h.equipid > 0 and h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') " ;
+	  		if(str!=null){
+	 			arr = str.split(",");
+	 			sql +=" and (";
+	 			for(int i=0;i<arr.length;i++){
+	 				sql +="h.equipid=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+	 				if(i!=arr.length-1){
+	 					sql +=" or ";	
+	 				}
+	 				if(i==arr.length-1){
+	 					sql +=" ) ";	
+	 				}
+	 			}
+	 			}
+	  			sql+=" group by h.equipid,g.name ";
+	  	  }
+	  	  else if(date22.compareTo(date11) != 0)
+	  	  {
+	  		
+	  		String tablename1 = "hisweatherdata_"+date11;
+	  		String tablename2 = "hisweatherdata_"+date22;
+	  		
+	  		sql +=" select truncate(avg(hw.windvelval),2) as windvelval, truncate( max(hw.windvelval),2) as maxval, truncate(min(hw.windvelval),2) as minval,g.name as name ";
+	  		sql +=" from generator g, ";
+	  		sql +=" ( (select * from  "+tablename1+"  where savetime >=to_date('"+date1+"') and savetime <= to_date('"+date2+"') ) union (select * from  "+tablename2+" where savetime >=to_date('"+date1+"') and savetime <= to_date('"+date2+"') ) ) as hw "; 
+	  		sql +=" where  g.id = hw.equipid ";
+	  		if(str!=null){
+	 			arr = str.split(",");
+	 			sql +=" and (";
+	 			for(int i=0;i<arr.length;i++){
+	 				sql +="hw.equipid=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+	 				if(i!=arr.length-1){
+	 					sql +=" or ";	
+	 				}
+	 				if(i==arr.length-1){
+	 					sql +=" ) ";	
+	 				}
+	 			}
+	 			}
+	  		sql +=" group by hw.equipid ";
+
+	  	  }
+	  	}
+  	 return getJdbcTemplate().query(sql, new windspeedDataRowMapper());
+	}
+	
+	public List<DataStatisticsDataVo> listavg(WindSpeedDataForm queryFilter){
+		
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) 
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) 
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) 
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) 
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	
+  	  String sql = "";
+  	
+  	if (isDBMysql()==true) {
+    	  if(date22.compareTo(date11) == 0)
+    	  {
+    		  String tablename = "hisweatherdata_"+date11;
+    		sql = "select avg(windvelval) as windvelval from "+tablename;
+    		sql +=" where savetime >='"+date1+"' and savetime <= '"+date2+"' " ;
+    		
+    			sql+="and equipid<>0 group by equipid";
+    	  }
+    	  else if(date22.compareTo(date11) != 0)
+    	  {
+    		
+    		  String tablename1 = "hisweatherdata_"+date11;
+      		String tablename2 = "hisweatherdata_"+date22;
+      		
+      		sql +=" select truncate(avg(hw.windvelval),2) as windvelval ";
+      		sql +=" from   ( (select * from  "+tablename1+"  where savetime >='"+date1+"' and savetime <= '"+date2+"' ) union (select * from  "+tablename2+" where savetime >='"+date1+"' and savetime <= '"+date2+"' ) ) as hw "; 
+      		sql +=" group by hw.equipid ";
+
+    		
+    	  }
+    	}	
+  	if (isDBMysql()==false) {
+    	  if(date22.compareTo(date11) == 0)
+    	  {
+    		  String tablename = "hisweatherdata_"+date11;
+    		sql = "select avg(windvelval) as windvelval from "+tablename;
+    		sql +=" where  savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') " ;
+    		
+    			sql+="and equipid<>0 group by equipid";
+    	  }
+    	  else if(date22.compareTo(date11) != 0)
+    	  {
+    		
+    		String tablename1 = "hisweatherdata_"+date11;
+    		String tablename2 = "hisweatherdata_"+date22;
+    		
+    		sql +=" select truncate(avg(hw.windvelval),2) as windvelval ";
+    		sql +=" from  ( (select * from  "+tablename1+"  where savetime >==to_date('"+date1+"') and savetime <= =to_date('"+date2+"') ) union (select * from  "+tablename2+" where savetime >==to_date('"+date1+"') and savetime <= =to_date('"+date2+"') ) ) as hw "; 
+    		sql +=" group by hw.equipid ";
+    
+    		
+    	  }
+    	}	
+  	 return getJdbcTemplate().query(sql, new windspeedavgDataRowMapper());
+	}
+	
+	class windspeedDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName(rs.getString("name"));
+			object.setAvgWindVelval(rs.getDouble("windvelval"));
+			object.setMaxData(rs.getDouble("maxval"));
+			object.setMinData(rs.getDouble("minval"));
+			return object;
+		}
+	}
+	class windspeedavgDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setAvgWindVelval(rs.getDouble("windvelval"));
+		
+			return object;
+		}
+	}
+	
+
+}

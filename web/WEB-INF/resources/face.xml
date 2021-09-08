@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FaceManager xmlVersion="20100901">
+<Attributes dayOfMonth="7" showHomePage="false" homeTabTitle="薛家岛FineReport"/>
+<FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="薛家岛充换电站"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="换电"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="车辆换电日统计(24小时)"/>
+<ReportletInfo reporletPath="/Station_FineReport_XJD/Ev_Battery_Exchange_Day.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="运行基础数据日统计"/>
+<ReportletInfo reporletPath="/Station_FineReport_XJD/Station_FoundationalData_Day.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="站内换电日统计"/>
+<ReportletInfo reporletPath="/Station_FineReport_XJD/Station_Battery_Exchange_Day.cpt">
+<Parameters>
+<Parameter>
+<Attributes name="op"/>
+<O>
+<![CDATA[sheet]]></O>
+</Parameter>
+</Parameters>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="充电"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="站内电表读数统计"/>
+<ReportletInfo reporletPath="/Station_FineReport_XJD/Ammeter_Stat.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+<FaceNode>
+<NodeDef class="com.fr.web.face.FolderDef">
+<Attributes name="电池全周期"/>
+<FolderAttributes isShow="true"/>
+</NodeDef>
+<FaceNode>
+<NodeDef class="com.fr.web.face.ViewReportletDef">
+<Attributes name="电池全周期数据统计"/>
+<ReportletInfo reporletPath="/Station_FineReport_XJD/Batt_Charge_DisCharge.cpt">
+<Parameters/>
+</ReportletInfo>
+</NodeDef>
+</FaceNode>
+</FaceNode>
+</FaceNode>
+</FaceNode>
+</FaceManager>

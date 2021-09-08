@@ -1,0 +1,172 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Properties;
+
+
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IWindPowScatterDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindPowScatterDataForm;
+import com.xjgc.wind.util.YMDHMSUtil;
+import com.xjgc.wind.util.YearFormatUtil;
+
+public class WindPowScatterDaoImpl extends JdbcDaoSupport implements IWindPowScatterDao{
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	public List<DataStatisticsDataVo> list(WindPowScatterDataForm queryFilter,Integer equipId){
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	   
+		String sql = "";
+		if (isDBMysql()==true) {
+		if(date11.equals(date22)){
+        	String tablenamew ="hisweatherdata_"+date11;
+        	String tablenameg ="hisgenerator_"+date11;
+    	sql +=" select h1.WINDVELVAL as WINDVELVAL1,  p.curp as POWER";
+    	sql +=" from "+ tablenamew +" h1 ,"+ tablenameg +" p  where  p.curcmpstate = 2   and h1.savetime >='" + date1 +" 00:00:00 ' and h1.savetime <='" +date2 +" 23:59:59' ";
+    	if (equipId != null) {
+			sql += " and h1.equipid=" + equipId;
+		}
+    	sql +=" and  p.curp>0.1 and h1.equipid=p.id and h1.savetime=p.savetime group by h1.savetime,h1.equipid order by h1.WINDVELVAL ";
+    	}
+    	else{
+        	String tablenamew1 ="hisweatherdata_"+date11;
+        	String tablenameg1 ="hisgenerator_"+date11;
+        	String tablenamew2 ="hisweatherdata_"+date22;
+        	String tablenameg2 ="hisgenerator_"+date22;
+    	sql +=" select h1.WINDVELVAL as WINDVELVAL1,  p.curp as POWER";
+    	sql +=" from "+ tablenamew1 +" h1 ,"+ tablenameg1 +" p, generator g,rtstatus rt where g.id=p.id and g.restrictid=rt.id and p.curcmpstate = 2 and rt.restrictedflag<>1 and h1.savetime >='" + date1 +" 00:00:00 '";
+    	if (equipId != null) {
+			sql += " and h1.equipid=" + equipId;
+		}
+    	sql +=" and  p.curp>0.1 and h1.equipid=p.id and h1.savetime=p.savetime group by h1.savetime,h1.equipid ";
+    	sql +=" union select h1.WINDVELVAL as WINDVELVAL1,  p.curp as POWER";
+    	sql +=" from "+ tablenamew2 +" h1 ,"+ tablenameg2 +" p, generator g,rtstatus rt where g.id=p.id and g.restrictid=rt.id and p.curcmpstate = 2 and rt.restrictedflag<>1 and h1.savetime <='" +date2 +" 23:59:59'";
+    	if (equipId != null) {
+			sql += " and h1.equipid=" + equipId;
+		}
+    	sql +=" and  p.curp>0.1 and h1.equipid=p.id and h1.savetime=p.savetime group by h1.savetime,h1.equipid order by h1.WINDVELVAL";
+    	}
+		}
+		if (isDBMysql()==false) {
+			if(date11.equals(date22)){
+	        	String tablenamew ="hisweatherdata_"+date11;
+	        	String tablenameg ="hisgenerator_"+date11;
+	    	sql +=" select h1.WINDVELVAL as WINDVELVAL1,  p.curp as POWER";
+	    	sql +=" from "+ tablenamew +" h1 ,"+ tablenameg +" p  where  p.curcmpstate = 2   and h1.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss') and h1.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') ";
+	    	if (equipId != null) {
+				sql += " and h1.equipid=" + equipId;
+			}
+	    	sql +=" and  p.curp>0.1 and h1.equipid=p.id and h1.savetime=p.savetime group by h1.savetime,h1.equipid ,p.curp,h1.WINDVELVAL order by h1.WINDVELVAL ";
+	    	}
+	    	else{
+	        	String tablenamew1 ="hisweatherdata_"+date11;
+	        	String tablenameg1 ="hisgenerator_"+date11;
+	        	String tablenamew2 ="hisweatherdata_"+date22;
+	        	String tablenameg2 ="hisgenerator_"+date22;
+	    	sql +=" select h1.WINDVELVAL as WINDVELVAL1,  p.curp as POWER";
+	    	sql +=" from "+ tablenamew1 +" h1 ,"+ tablenameg1 +" p, generator g,rtstatus rt where g.id=p.id and g.restrictid=rt.id and p.curcmpstate = 2 and rt.restrictedflag<>1 and h1.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')";
+	    	if (equipId != null) {
+				sql += " and h1.equipid=" + equipId;
+			}
+	    	sql +=" and  p.curp>0.1 and h1.equipid=p.id and h1.savetime=p.savetime group by h1.savetime,h1.equipid ,p.curp,h1.WINDVELVAL ";
+	    	sql +=" union select h1.WINDVELVAL as WINDVELVAL1,  p.curp as POWER";
+	    	sql +=" from "+ tablenamew2 +" h1 ,"+ tablenameg2 +" p, generator g,rtstatus rt where g.id=p.id and g.restrictid=rt.id and p.curcmpstate = 2 and rt.restrictedflag<>1 and h1.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss')";
+	    	if (equipId != null) {
+				sql += " and h1.equipid=" + equipId;
+			}
+	    	sql +=" and  p.curp>0.1 and h1.equipid=p.id and h1.savetime=p.savetime group by h1.savetime,h1.equipid ,p.curp,h1.WINDVELVAL order by h1.WINDVELVAL";
+	    	}
+			}
+		return getJdbcTemplate().query(sql, new WindPowScatterDataRowMapper());
+	}
+	
+	class WindPowScatterDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setWindVelval1( rs.getFloat("WINDVELVAL1") );
+			object.setPower( rs.getFloat("POWER") );
+			return object;
+		}
+	}
+}

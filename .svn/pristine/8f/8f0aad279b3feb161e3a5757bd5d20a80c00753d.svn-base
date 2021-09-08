@@ -1,0 +1,58 @@
+/** style for table of detail information */
+
+table.detailDataGrid {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #9CC2C4;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td.detailDataGridHead {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #9CC2C4;
+    text-align:   center;
+	height: 24;
+	background: #E7F1F3 url(../images/ecTable/table_page_bg.gif) repeat-x left 50%;
+}
+
+td.detailDataGridBody {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #9CC2C4;
+    text-align:   center;
+	height: 26;
+}
+
+table.detailDataGrid .odd {
+    background-color: AliceBlue;
+}
+
+table.detailDataGrid .even {
+    background-color: White;
+}
+
+td.detailDataGridLabel {
+	border-style: solid;
+    border-width: 1px;
+    border-color: #9CC2C4;
+    text-align:   right;
+    font-weight: bold;
+    font-size: 10pt;
+    color: #000000;
+    background-color: AliceBlue;
+    padding: 0 8px;
+    height: 28px;
+}
+
+td.detailDataGridText {
+	border-style: solid;
+    border-width: 1px;
+    border-color: #9CC2C4;
+    text-align:   left;
+    font-size: 10pt;
+    color: #000000;
+    padding: 0 8px;
+    height: 28px;
+}

@@ -1,0 +1,807 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Properties;
+
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+import com.xjgc.wind.datastatistics.dao.IWindRoseDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindRoseDataForm;
+
+
+import com.xjgc.wind.util.YMDHMSUtil;
+import com.xjgc.wind.util.YearFormatUtil;
+
+
+public class WindRoseDaoImpl extends JdbcDaoSupport implements IWindRoseDao {
+
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	public List<DataStatisticsDataVo> list(WindRoseDataForm queryFilter) {
+    
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+	{
+	try {
+		endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+	} catch (ParseException e) {
+		endDate = null;
+		e.printStackTrace();
+	}
+}
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+ 			{
+ 			try {
+ 				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 			} catch (ParseException e) {
+ 				startDate = null;
+ 				e.printStackTrace();
+ 			}
+ 		}
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate = YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startDate); 
+ 	    Calendar   calendar1   =   new   GregorianCalendar(); 
+ 	    calendar1.setTime(endDate); 
+ 	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+ 	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	  date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+ 	    date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+   String sql = "";
+   Integer id = queryFilter.getId();
+ if (isDBMysql()==true){
+	 
+ 	if(date11.equals(date22)){
+     	String tablename ="hisweatherdata_"+date11;
+     	String tablenamep = "hisgenerator_"+date11;
+ 	sql += "SELECT   AVG(h1.WINDVELVAL)as AVGWINDVELVALDU,CONCAT(1,'') as WINDDIRVAL,count(h1.WINDVELVAL)as COUNTS,(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100 as FREQUENCY,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL) as AVGWINDVELVAL,avg( p.curp) as POWER";
+ 	sql +=" from   "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL<15  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id";
+		}
+ 	sql +=" and h1.savetime=p.savetime OR h1.WINDDIRVAL>345 and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL) as AVGWINDVELVALDU,CONCAT(2,''),count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=15 AND h1.WINDDIRVAL<45  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(3,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=45 AND h1.WINDDIRVAL<75  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(4,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=75 AND h1.WINDDIRVAL<105  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(5,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=105 AND h1.WINDDIRVAL<135  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(6,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=135 AND h1.WINDDIRVAL<165  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(7,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=165 AND h1.WINDDIRVAL<195  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(8,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=195 AND h1.WINDDIRVAL<225  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(9,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=225 AND h1.WINDDIRVAL<255  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(10,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=255 AND h1.WINDDIRVAL<285  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(11,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=285 AND h1.WINDDIRVAL<315  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(12,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' and h2.savetime <='" +date2 +"' " ;
+ 	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}
+ 	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+ 	sql +=" from  "+tablename+" h1,"+tablenamep+" p WHERE h1.WINDDIRVAL>=315 AND h1.WINDDIRVAL<345  and h1.savetime >='" + date1 +"' and h1.savetime <='" +date2 +"'";
+ 	
+ 	if (id != null) {
+			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+		}
+ 	}
+ 	
+ 	else{
+ 		String tablename1 ="hisweatherdata_"+date11;
+     	String tablename2 ="hisweatherdata_"+date22;
+     	String tablenamep1 ="hisgenerator_"+date11;
+     	String tablenamep2 ="hisgenerator_"+date22;
+     	
+     	sql += "SELECT   AVG(h1.WINDVELVAL)as AVGWINDVELVALDU,CONCAT(1,'') as WINDDIRVAL,count(h1.WINDVELVAL)as COUNTS,(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"'" ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100 as FREQUENCY,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL) as AVGWINDVELVAL,avg( p.curp) as POWER";
+     	sql +=" from   "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL<15  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id";
+ 		}
+     	sql +=" and h1.savetime=p.savetime OR h1.WINDDIRVAL>345 and h1.savetime >='" + date1 +"' ";
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL) as AVGWINDVELVALDU,CONCAT(2,''),count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=15 AND h1.WINDDIRVAL<45  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(3,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=45 AND h1.WINDDIRVAL<75  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(4,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=75 AND h1.WINDDIRVAL<105  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(5,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=105 AND h1.WINDDIRVAL<135  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(6,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=135 AND h1.WINDDIRVAL<165  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(7,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=165 AND h1.WINDDIRVAL<195  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(8,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=195 AND h1.WINDDIRVAL<225  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(9,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=225 AND h1.WINDDIRVAL<255  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(10,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=255 AND h1.WINDDIRVAL<285  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(11,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=285 AND h1.WINDDIRVAL<315  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(12,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename1+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime >='" + date1 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename1+" h1,"+tablenamep1+" p WHERE h1.WINDDIRVAL>=315 AND h1.WINDDIRVAL<345  and h1.savetime >='" + date1 +"' ";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+
+
+ 	sql += " UNION SELECT   AVG(h1.WINDVELVAL)as AVGWINDVELVALDU,CONCAT(1,'') as WINDDIRVAL,count(h1.WINDVELVAL)as COUNTS,(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100 as FREQUENCY,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL) as AVGWINDVELVAL,avg( p.curp) as POWER";
+     	sql +=" from   "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL<15  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id";
+ 		}
+     	sql +=" and h1.savetime=p.savetime OR h1.WINDDIRVAL>345 and h1.savetime <='" +date2 +"'";
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL) as AVGWINDVELVALDU,CONCAT(2,''),count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=15 AND h1.WINDDIRVAL<45  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(3,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=45 AND h1.WINDDIRVAL<75  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(4,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and  h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=75 AND h1.WINDDIRVAL<105  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(5,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=105 AND h1.WINDDIRVAL<135  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(6,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=135 AND h1.WINDDIRVAL<165  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(7,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=165 AND h1.WINDDIRVAL<195  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(8,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=195 AND h1.WINDDIRVAL<225  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(9,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=225 AND h1.WINDDIRVAL<255  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(10,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=255 AND h1.WINDDIRVAL<285  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(11,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=285 AND h1.WINDDIRVAL<315  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+     	sql += " UNION SELECT   AVG(h1.WINDVELVAL),CONCAT(12,'') ,count(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from "+tablename2+" h2  WHERE   h2. WINDDIRVAL>=0 AND  h2.WINDDIRVAL<360 and h2.savetime <='" +date2 +"' " ;
+     	if (id != null) {
+ 			sql += " and h2.equipid=" + id;
+ 		}
+     	sql += "))*100,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL),avg( p.curp) as POWER";
+     	sql +=" from  "+tablename2+" h1,"+tablenamep2+" p WHERE h1.WINDDIRVAL>=315 AND h1.WINDDIRVAL<345  and h1.savetime <='" +date2 +"'";
+     	
+     	if (id != null) {
+ 			sql += " and h1.equipid=" + id+" and h1.equipid=p.id and h1.savetime=p.savetime";
+ 		}
+
+
+
+ 	}
+ }
+	   
+ if (isDBMysql()==false){
+	 String sqlCount = " select count(WINDVELVAL ) from hisweatherdata_2017  WHERE  savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss')"; 
+	 sqlCount +=  " and savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') ";
+		if (id != null) {
+			sqlCount += " and equipid=" + id;
+ 		}  
+	int countAll= this.getJdbcTemplate().queryForInt(sqlCount);
+		if(countAll==0){	
+			countAll=1;
+		}
+	if(countAll!=0){
+		
+     sql= "select AVG(h1.WINDVELVAL)as AVGWINDVELVALDU,CONCAT(1,'') as WINDDIRVAL,count(h1.WINDVELVAL)as COUNTS,(count(h1.WINDVELVAL )/"+countAll+")*100 as FREQUENCY,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL) as AVGWINDVELVAL,avg( p.curp) as POWER from hisweatherdata_2017 h1,hisgenerator_2017 p  WHERE  h1.savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss')";
+     sql +=  " and h1.savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') and h1.equipid=p.id and h1.savetime=p.savetime";
+     if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}  
+ 
+ 	sql += " and h1.WINDDIRVAL<15 or h1.WINDDIRVAL>=345 union ";
+ 	
+ 	for(int i=2;i<=12;i++){
+ 	
+ 		sql += " select AVG(h1.WINDVELVAL)as AVGWINDVELVALDU,CONCAT("+i+",'') as WINDDIRVAL,count(h1.WINDVELVAL)as COUNTS,(count(h1.WINDVELVAL )/"+countAll+")*100 as FREQUENCY,AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL)*AVG(h1.WINDVELVAL) as AVGWINDVELVAL,avg( p.curp) as POWER from hisweatherdata_2017 h1,hisgenerator_2017 p  WHERE  h1.savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss')";
+ 	     sql +=  " and h1.savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') and h1.equipid=p.id and h1.savetime=p.savetime";
+ 	     if (id != null) {
+ 				sql += " and h1.equipid=" + id;
+ 			}  
+ 	 
+ 	 	sql += " and h1.WINDDIRVAL>=30*"+i+"-45 and h1.WINDDIRVAL<30*"+i+"-15";
+ 	 	if(i<=11){
+ 	 		sql +=" union ";
+ 	 	}
+ 	}
+	}
+ }
+ 
+	   
+		return getJdbcTemplate().query(sql, new WindRoseDataRowMapper());
+		
+	}
+	public List<DataStatisticsDataVo> listfre(WindRoseDataForm queryFilter) {
+	    
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+	{
+	try {
+		endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+	} catch (ParseException e) {
+		endDate = null;
+		e.printStackTrace();
+	}
+}
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+ 			{
+ 			try {
+ 				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 			} catch (ParseException e) {
+ 				startDate = null;
+ 				e.printStackTrace();
+ 			}
+ 		}
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate = YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startDate); 
+ 	    Calendar   calendar1   =   new   GregorianCalendar(); 
+ 	    calendar1.setTime(endDate); 
+ 	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+ 	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	  date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+ 	    date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  
+   String sql = "";
+   if (isDBMysql()==true){
+	   Integer id = queryFilter.getId();
+   	if(date11.equals(date22)){
+       	String tablename ="hisweatherdata_"+date11;
+   	sql += "select CONCAT(3,'') as WINDVELVAL ,3 as WINDVELVAL1,count(h1.WINDVELVAL)as COUNTS,avg(h1.WINDVELVAL) as AVGWINDVELVAL, (count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename +" h2  where h2.savetime >='" + date1 +"   ' and h2.savetime <='" +date2 +"'";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100 as FREQUENCY"; 
+   	sql += " from "+ tablename +" h1 where h1.savetime >='" + date1 +"   ' and h1.savetime <='" +date2 +"' and  h1.WINDVELVAL<2";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}	
+   	sql +=" union select  CONCAT(floor(h1.WINDVELVAL/0.5),''),floor(h1.WINDVELVAL/0.5), count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename +" h2  where h2.savetime >='" + date1 +"   ' and h2.savetime <='" +date2 +"' ";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100"; 
+   	sql +=" from  "+ tablename +" h1 where h1.savetime >='" + date1 +"   ' and h1.savetime <='" +date2 +"' and  h1.WINDVELVAL>=2 and h1.WINDVELVAL<25 ";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+   	sql +=" group by floor( h1.WINDVELVAL/0.5) ";
+   	sql +=" union select CONCAT(50,''),50, count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename +" h2  where h2.savetime >='" + date1 +"   ' and h2.savetime <='" +date2 +"'";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100"; 
+   	sql +=" from  "+ tablename +" h1 where h1.savetime >='" + date1 +"   ' and h1.savetime <='" +date2 +"' and  h1.WINDVELVAL>25 ";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+   	}
+   	else{
+       	String tablename1 ="hisweatherdata_"+date11;
+       	String tablename2 ="hisweatherdata_"+date22;
+   	sql += "select   WINDVELVAL, WINDVELVAL1,  sum(COUNTS) as COUNTS,avg(AVGWINDVELVAL)as AVGWINDVELVAL, avg(FREQUENCY)as FREQUENCY from (select CONCAT(3,'') as WINDVELVAL ,3 as WINDVELVAL1,count(h1.WINDVELVAL)as COUNTS,avg(h1.WINDVELVAL) as AVGWINDVELVAL, (count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename1 +" h2  where h2.savetime >='" + date1 +"   '";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100 as FREQUENCY"; 
+   	sql += " from "+ tablename1 +" h1 where h1.savetime >='" + date1 +"   ' and  h1.WINDVELVAL<2";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}	
+   	sql +=" union select  CONCAT(floor(h1.WINDVELVAL/0.5),''),floor(h1.WINDVELVAL/0.5), count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename1 +" h2  where h2.savetime >='" + date1 +"   '";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100"; 
+   	sql +=" from  "+ tablename1 +" h1 where h1.savetime >='" + date1 +"   ' and  h1.WINDVELVAL>=2 and h1.WINDVELVAL<25 ";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+   	sql +=" group by floor( h1.WINDVELVAL/0.5) ";
+   	sql +=" union select CONCAT(50,''),50, count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename1 +" h2  where h2.savetime >='" + date1 +"'";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100"; 
+   	sql +=" from  "+ tablename1 +" h1 where h1.savetime >='" + date1 +"'  and  h1.WINDVELVAL>=25 ";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+			
+		}
+   	sql += " union select CONCAT(3,'') as WINDVELVAL ,3 as WINDVELVAL1,count(h1.WINDVELVAL)as COUNTS,avg(h1.WINDVELVAL) as AVGWINDVELVAL, (count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename2 +" h2  where  h2.savetime <='" +date2 +"'";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100 as FREQUENCY"; 
+   	sql += " from "+ tablename2 +" h1 where  h1.savetime <='" +date2 +"' and  h1.WINDVELVAL<2";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}	
+   	sql +=" union select  CONCAT(floor(h1.WINDVELVAL/0.5),''),floor(h1.WINDVELVAL/0.5), count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename2 +" h2  where  h2.savetime <='" +date2 +"'";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100"; 
+   	sql +=" from  "+ tablename2 +" h1 where  h1.savetime <='" +date2 +"' and  h1.WINDVELVAL>=2 and h1.WINDVELVAL<25 ";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+   	sql +=" group by floor( h1.WINDVELVAL/0.5) ";
+   	sql +=" union select CONCAT(50,''),50, count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename2 +" h2  where  h2.savetime <='" +date2 +"'";
+   	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+   	sql +="))*100"; 
+   	sql +=" from  "+ tablename2 +" h1 where  h1.savetime <='" +date2 +"'  and  h1.WINDVELVAL>=25 ";
+   	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+   	sql +=" )as table1 group by WINDVELVAL1";
+   	}
+   }
+    if (isDBMysql()==false){
+    	Integer id = queryFilter.getId();
+    	if(date11.equals(date22)){
+        	String tablename ="hisweatherdata_"+date11;
+        String sqlCount = "select count(WINDVELVAL ) from "+tablename+"  WHERE  savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss')"; 
+       	 sqlCount +=  " and savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') ";
+       		if (id != null) {
+       			sqlCount += " and equipid=" + id;
+        		}  
+       	int countAll= this.getJdbcTemplate().queryForInt(sqlCount);
+       		if(countAll==0){	
+       			countAll=1;
+       		}
+       	if(countAll!=0){
+    	sql += "select CONCAT(3,'') as WINDVELVAL ,3 as WINDVELVAL1,count(h1.WINDVELVAL)as COUNTS,avg(h1.WINDVELVAL) as AVGWINDVELVAL, (count(h1.WINDVELVAL)/"+countAll+")*100 as FREQUENCY"; 
+    	sql += " from "+ tablename +" h1 where h1.savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss') and h1.savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') and  h1.WINDVELVAL<2";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}	
+    	sql +=" union select  CONCAT(floor(h1.WINDVELVAL/0.5),''),floor(h1.WINDVELVAL/0.5), count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/"+countAll+")*100"; 
+    	sql +=" from  "+ tablename +" h1 where h1.savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss') and h1.savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') and  h1.WINDVELVAL>=2 and h1.WINDVELVAL<25 ";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+    	sql +=" group by floor( h1.WINDVELVAL/0.5) ";
+    	sql +=" union select CONCAT(50,''),50, count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/"+countAll+")*100"; 
+    	sql +=" from  "+ tablename +" h1 where h1.savetime >=to_date('" +date1 +"' ,'yyyy-mm-dd hh24:mi:ss') and h1.savetime <=to_date('" +date2 +"' ,'yyyy-mm-dd hh24:mi:ss') and  h1.WINDVELVAL>25 ";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+    	}
+    	}
+    	else{
+        	String tablename1 ="hisweatherdata_"+date11;
+        	String tablename2 ="hisweatherdata_"+date22;
+    	sql += "select   WINDVELVAL, WINDVELVAL1,  sum(COUNTS) as COUNTS,avg(AVGWINDVELVAL)as AVGWINDVELVAL, avg(FREQUENCY)as FREQUENCY from (select CONCAT(3,'') as WINDVELVAL ,3 as WINDVELVAL1,count(h1.WINDVELVAL)as COUNTS,avg(h1.WINDVELVAL) as AVGWINDVELVAL, (count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename1 +" h2  where h2.savetime >='" + date1 +"   '";
+    	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+    	sql +="))*100 as FREQUENCY"; 
+    	sql += " from "+ tablename1 +" h1 where h1.savetime >='" + date1 +"   ' and  h1.WINDVELVAL<2";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}	
+    	sql +=" union select  CONCAT(floor(h1.WINDVELVAL/0.5),''),floor(h1.WINDVELVAL/0.5), count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename1 +" h2  where h2.savetime >='" + date1 +"   '";
+    	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+    	sql +="))*100"; 
+    	sql +=" from  "+ tablename1 +" h1 where h1.savetime >='" + date1 +"   ' and  h1.WINDVELVAL>=2 and h1.WINDVELVAL<25 ";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+    	sql +=" group by floor( h1.WINDVELVAL/0.5) ";
+    	sql +=" union select CONCAT(50,''),50, count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename1 +" h2  where h2.savetime >='" + date1 +"'";
+    	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+    	sql +="))*100"; 
+    	sql +=" from  "+ tablename1 +" h1 where h1.savetime >='" + date1 +"'  and  h1.WINDVELVAL>=25 ";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+			
+		}
+    	sql += " union select CONCAT(3,'') as WINDVELVAL ,3 as WINDVELVAL1,count(h1.WINDVELVAL)as COUNTS,avg(h1.WINDVELVAL) as AVGWINDVELVAL, (count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename2 +" h2  where  h2.savetime <='" +date2 +"'";
+    	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+    	sql +="))*100 as FREQUENCY"; 
+    	sql += " from "+ tablename2 +" h1 where  h1.savetime <='" +date2 +"' and  h1.WINDVELVAL<2";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}	
+    	sql +=" union select  CONCAT(floor(h1.WINDVELVAL/0.5),''),floor(h1.WINDVELVAL/0.5), count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename2 +" h2  where  h2.savetime <='" +date2 +"'";
+    	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+    	sql +="))*100"; 
+    	sql +=" from  "+ tablename2 +" h1 where  h1.savetime <='" +date2 +"' and  h1.WINDVELVAL>=2 and h1.WINDVELVAL<25 ";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+    	sql +=" group by floor( h1.WINDVELVAL/0.5) ";
+    	sql +=" union select CONCAT(50,''),50, count(h1.WINDVELVAL),avg(h1.WINDVELVAL),(count(h1.WINDVELVAL)/(select count(h2.WINDVELVAL ) from  "+ tablename2 +" h2  where  h2.savetime <='" +date2 +"'";
+    	if (id != null) {
+			sql += " and h2.equipid=" + id;
+		}		
+    	sql +="))*100"; 
+    	sql +=" from  "+ tablename2 +" h1 where  h1.savetime <='" +date2 +"'  and  h1.WINDVELVAL>=25 ";
+    	if (id != null) {
+			sql += " and h1.equipid=" + id;
+		}
+    	sql +=" )as table1 group by WINDVELVAL1";
+    	}
+    	}
+		return getJdbcTemplate().query(sql, new WindRosefreDataRowMapper());
+		
+	}
+	class WindRoseDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setAvgWindVelvalDu( rs.getFloat("AVGWINDVELVALDU") );
+			object.setWindDirVal( rs.getString("WINDDIRVAL") );
+			object.setFrequency1( rs.getDouble("FREQUENCY") );
+			object.setPower( rs.getFloat("POWER") );
+			object.setAvgWindVelval(rs.getFloat("AVGWINDVELVAL")*rs.getFloat("FREQUENCY"));
+			object.setCounts(rs.getInt("COUNTS"));
+			return object;
+		}
+	}
+	class WindRosefreDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setWindVelval( rs.getString("WINDVELVAL") );
+			object.setFrequency1( rs.getDouble("FREQUENCY") );
+			object.setWindVelval1( rs.getFloat("WINDVELVAL1") );
+			object.setCounts( rs.getInt("COUNTS") );
+			object.setAvgWindVelval( rs.getDouble("AVGWINDVELVAL") );
+			return object;
+		}
+	}
+}
+	

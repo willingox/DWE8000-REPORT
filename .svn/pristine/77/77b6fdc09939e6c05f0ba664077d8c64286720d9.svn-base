@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>	
+<!-- *****APP START***** -->
+	<!-- ***** overview START ***** -->
+	<bean id="overviewAPPService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="overviewAPPServiceTarget" />
+		</property>
+	</bean>
+	<bean id="overviewAPPServiceTarget" class="com.xjgc.wind.app.overview.service.impl.OverviewAPPServiceImpl">		
+		<property name="overviewAPPDao">
+			<ref bean="overviewAPPDao" />
+		</property>
+	</bean>
+	<bean id="overviewAPPDao" class="com.xjgc.wind.app.overview.dao.impl.OverviewAPPDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** overview END ***** -->
+	
+	<!-- ***** station START ***** -->
+	<bean id="stationAppService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="stationAppServiceTarget" />
+		</property>
+	</bean>
+	<bean id="stationAppServiceTarget" class="com.xjgc.wind.app.station.service.impl.StationAppServiceImpl">		
+		<property name="stationAppDao">
+			<ref bean="stationAppDao" />
+		</property>
+	</bean>
+	<bean id="stationAppDao" class="com.xjgc.wind.app.station.dao.impl.StationAppDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** station END ***** -->
+	
+	
+	<!-- ***** generator START ***** -->
+	<bean id="generatorAppService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="generatorAppServiceTarget" />
+		</property>
+	</bean>
+	<bean id="generatorAppServiceTarget" class="com.xjgc.wind.app.generator.service.impl.GeneratorAppServiceImpl">		
+		<property name="generatorAppDao">
+			<ref bean="generatorAppDao" />
+		</property>
+	</bean>
+	<bean id="generatorAppDao" class="com.xjgc.wind.app.generator.dao.impl.GeneratorAppDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** generator END ***** -->
+	
+	
+	<!-- ***** breakdown START ***** -->
+	<bean id="breakdownAppService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="breakdownAppServiceTarget" />
+		</property>
+	</bean>
+	<bean id="breakdownAppServiceTarget" class="com.xjgc.wind.app.breakdown.service.impl.BreakdownAppServiceImpl">		
+		<property name="breakdownAppDao">
+			<ref bean="breakdownAppDao" />
+		</property>
+	</bean>
+	<bean id="breakdownAppDao" class="com.xjgc.wind.app.breakdown.dao.impl.BreakdownAppDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** breakdown END ***** -->
+	
+	
+	
+	<!-- ***** breakdown Push START ***** -->
+	<bean id="pushAppService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="pushAppServiceTarget" />
+		</property>
+	</bean>
+	<bean id="pushAppServiceTarget" class="com.xjgc.wind.app.push.service.impl.PushAppServiceImpl">		
+		<property name="pushAppDao">
+			<ref bean="pushAppDao" />
+		</property>
+	</bean>
+	<bean id="pushAppDao" class="com.xjgc.wind.app.push.dao.impl.PushAppDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** breakdown Push END ***** -->
+	
+	
+<!-- ***** APP END***** -->
+	
+</beans>

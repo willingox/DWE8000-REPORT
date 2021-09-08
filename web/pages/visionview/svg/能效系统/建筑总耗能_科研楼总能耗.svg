@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg height="1080" preserveAspectRatio="none" vdfName="建筑总耗能_科研楼总能耗" vdfPath="D:/ics8000/cbin/xview/pages/建筑总耗能_科研楼总能耗.vdf" viewBox="0 0 1920 1080" width="1920" xmlns="http://www.w3.org/2000/svg" xmlns:vn="http://www.xjgc.com/xview/vision" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<defs id="doc_defs" >
+<pattern height="1080" id="root_bg" patternUnits="userSpaceOnUse" width="1920" >
+<rect fill="#000000" height="100%" width="100%" />
+<image height="1080" width="1920" xlink:href="../image/gjsws/bg.jpg" />
+</pattern>
+<pattern id="lineargradient#ffff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ffff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#aaaa00" />
+<stop offset="1" stop-color="#ffff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#af0000" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#af0000#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#750000" />
+<stop offset="1" stop-color="#ff0707" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#55ff00" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#55ff00#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#38aa00" />
+<stop offset="1" stop-color="#aaff7f" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#ff55ff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#ff55ff#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#aa38aa" />
+<stop offset="1" stop-color="#ffd5ff" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#0000ff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#0000ff#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#0000aa" />
+<stop offset="1" stop-color="#7f7fff" />
+</linearGradient>
+</pattern>
+<pattern id="lineargradient#00aaff" patternUnits="userSpaceOnUse" x="0" y="0" >
+<linearGradient gradientUnits="objectBoundingBox" id="lineargradient#00aaff#RToL" x1="0%" x2="100%" y1="50%" y2="50%" >
+<stop offset="0" stop-color="#0071aa" />
+<stop offset="1" stop-color="#7fd5ff" />
+</linearGradient>
+</pattern>
+</defs>
+<rect fill="url(#root_bg)" height="100%" id="svg_root_bkgrdrect" width="100%" x="0" y="0" />
+<rect fill="none" height="375" id="Rect84" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="647" x="1186" y="598" />
+<rect fill="none" height="374" id="Rect83" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="809" x="372" y="600" />
+<rect fill="#c8c8c8" height="276" id="Rect57" stroke="#ffffff" stroke-width="1" width="782" x="387" y="670" />
+<g height="29" id="Text5" width="10" x="1072" y="339" />
+<line id="Line13" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="711" y2="710" />
+<g height="26" id="Text37" width="46" x="403" y="851" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="403"  y="863" >1000</text>
+</g>
+<g height="26" id="Text38" width="46" x="392" y="824" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="392"  y="836" >2000</text>
+</g>
+<g height="26" id="Text39" width="46" x="392" y="798" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="392"  y="810" >3000</text>
+</g>
+<g height="26" id="Text40" width="46" x="392" y="773" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="392"  y="785" >4000</text>
+</g>
+<g height="26" id="Text41" width="46" x="392" y="747" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="392"  y="759" >5000</text>
+</g>
+<g height="26" id="Text42" width="46" x="392" y="721" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="392"  y="733" >6000</text>
+</g>
+<g height="26" id="Text43" width="46" x="392" y="695" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="392"  y="707" >7000</text>
+</g>
+<image height="2" id="Image3" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="343" />
+<image height="2" id="Image4" width="320" x="19" xlink:href="../image/gjsws/分隔线.jpg" y="547" />
+<image height="2" id="Image5" width="320" x="21" xlink:href="../image/gjsws/分隔线.jpg" y="761" />
+<a id="Group9_link_elem" onclick="if (window.openPage) {openPage(evt,'用电耗能_分区用电.svg','_self', '');}" target="_self" xlink:href="用电耗能_分区用电.svg" >
+<g height="89" id="Group9" width="321" x="20" y="357" >
+<image height="89" id="Group9_Image12" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="357" />
+<g height="37" id="Group9_Text94" width="123" x="154" y="389" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="159"  y="414" >用电耗能</text>
+</g>
+<image height="66" id="Group9_Image27" width="66" x="50" xlink:href="../image/gjsws/zjxt.png" y="365" />
+</g>
+</a>
+<a id="Group10_link_elem" onclick="if (window.openPage) {openPage(evt,'用水耗能_分区用水.svg','_self', '');}" target="_self" xlink:href="用水耗能_分区用水.svg" >
+<g height="89" id="Group10" width="321" x="20" y="461" >
+<image height="89" id="Group10_Image13" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="461" />
+<g height="37" id="Group10_Text95" width="123" x="158" y="494" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="163"  y="519" >用水耗能</text>
+</g>
+<image height="66" id="Group10_Image25" width="66" x="50" xlink:href="../image/gjsws/cydj.png" y="475" />
+</g>
+</a>
+<a id="Group11_link_elem" onclick="if (window.openPage) {openPage(evt,'燃气耗能_燃气系统.svg','_self', '');}" target="_self" xlink:href="燃气耗能_燃气系统.svg" >
+<g height="89" id="Group11" width="321" x="20" y="565" >
+<image height="89" id="Group11_Image14" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="565" />
+<g height="37" id="Group11_Text96" width="123" x="152" y="592" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="157"  y="617" >燃气耗能</text>
+</g>
+<image height="66" id="Group11_Image24" width="66" x="50" xlink:href="../image/gjsws/cnsb.png" y="576" />
+</g>
+</a>
+<a id="Group12_link_elem" onclick="if (window.openPage) {openPage(evt,'供热耗能_供热系统.svg','_self', '');}" target="_self" xlink:href="供热耗能_供热系统.svg" >
+<g height="89" id="Group12" width="321" x="20" y="669" >
+<image height="89" id="Group12_Image15" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="669" />
+<g height="37" id="Group12_Text97" width="123" x="150" y="700" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="725" >供热耗能</text>
+</g>
+<image height="66" id="Group12_Image29" width="66" x="50" xlink:href="../image/gjsws/sgcx.png" y="682" />
+</g>
+</a>
+<a id="Group13_link_elem" onclick="if (window.openPage) {openPage(evt,'供冷耗能_冷水系统.svg','_self', '');}" target="_self" xlink:href="供冷耗能_冷水系统.svg" >
+<g height="89" id="Group13" width="321" x="20" y="773" >
+<image height="89" id="Group13_Image16" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="773" />
+<g height="37" id="Group13_Text98" width="123" x="150" y="799" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="155"  y="824" >供冷耗能</text>
+</g>
+<image height="66" id="Group13_Image23" width="66" x="50" xlink:href="../image/gjsws/yxzb.png" y="779" />
+</g>
+</a>
+<a id="Group14_link_elem" onclick="if (window.openPage) {openPage(evt,'其他能源消耗_锅炉系统.svg','_self', '');}" target="_self" xlink:href="其他能源消耗_锅炉系统.svg" >
+<g height="89" id="Group14" width="321" x="20" y="878" >
+<image height="89" id="Group14_Image17" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="878" />
+<g height="37" id="Group14_Text99" width="179" x="130" y="909" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="135"  y="934" >其他能源耗能</text>
+</g>
+<image height="66" id="Group14_Image22" width="66" x="50" xlink:href="../image/gjsws/yxxx.png" y="890" />
+</g>
+</a>
+<a id="Group15_link_elem" onclick="if (window.openPage) {openPage(evt,'建筑总耗能.svg','_self', '');}" target="_self" xlink:href="建筑总耗能.svg" >
+<g height="89" id="Group15" width="321" x="20" y="253" >
+<image height="89" id="Group15_Image1" width="321" x="20" xlink:href="../image/gjsws/鼠标移入.jpg" y="253" />
+<g height="37" id="Group15_Text93" width="151" x="144" y="282" >
+<text fill="#ffffff" font-family="SimSun" font-size="23" font-weight="bold" x="149"  y="307" >建筑总耗能</text>
+</g>
+<image height="66" id="Group15_Image11" width="66" x="50" xlink:href="../image/gjsws/sgcl.png" y="259" />
+</g>
+</a>
+<g height="29" id="Text135" width="10" x="1051" y="380" />
+<line id="Line2" stroke="#000000" stroke-width="1" x1="447" x2="447" y1="677" y2="889" />
+<g height="275" id="Group20" width="637" x="1130" y="233" >
+<rect fill="#c8c8c8" height="275" id="Group20_Rect68" stroke="#ffffff" stroke-width="1" width="637" x="1130" y="233" />
+<g height="245" id="Group20_Group19" width="612" x="1143" y="245" >
+<ellipse cx="1159" cy="421" fill="#000000" id="Group20_Group19_Ellipse1" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1183" cy="429" fill="#000000" id="Group20_Group19_Ellipse25" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1208" cy="427" fill="#000000" id="Group20_Group19_Ellipse26" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1233" cy="428" fill="#000000" id="Group20_Group19_Ellipse27" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1258" cy="428" fill="#000000" id="Group20_Group19_Ellipse28" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1283" cy="428" fill="#000000" id="Group20_Group19_Ellipse29" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1307" cy="421" fill="#000000" id="Group20_Group19_Ellipse30" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1332" cy="404" fill="#000000" id="Group20_Group19_Ellipse31" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1357" cy="373" fill="#000000" id="Group20_Group19_Ellipse32" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1382" cy="317" fill="#000000" id="Group20_Group19_Ellipse33" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1407" cy="307" fill="#000000" id="Group20_Group19_Ellipse34" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1432" cy="302" fill="#000000" id="Group20_Group19_Ellipse35" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1456" cy="298" fill="#000000" id="Group20_Group19_Ellipse36" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1481" cy="316" fill="#000000" id="Group20_Group19_Ellipse37" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1506" cy="309" fill="#000000" id="Group20_Group19_Ellipse38" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1531" cy="305" fill="#000000" id="Group20_Group19_Ellipse39" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1556" cy="290" fill="#000000" id="Group20_Group19_Ellipse40" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1581" cy="297" fill="#000000" id="Group20_Group19_Ellipse41" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1605" cy="309" fill="#000000" id="Group20_Group19_Ellipse42" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1630" cy="374" fill="#000000" id="Group20_Group19_Ellipse43" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1655" cy="380" fill="#000000" id="Group20_Group19_Ellipse44" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1680" cy="404" fill="#000000" id="Group20_Group19_Ellipse45" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1731" cy="424" fill="#000000" id="Group20_Group19_Ellipse46" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<ellipse cx="1705" cy="420" fill="#000000" id="Group20_Group19_Ellipse47" rx="3" ry="3" stroke="#000000" stroke-width="1" />
+<line id="Group20_Group19_Line43" stroke="#000000" stroke-width="1" x1="1146" x2="1146" y1="245" y2="457" />
+<line id="Group20_Group19_Line44" stroke="#000000" stroke-width="1" x1="1145" x2="1751" y1="411" y2="410" />
+<line id="Group20_Group19_Line45" stroke="#000000" stroke-width="1" x1="1145" x2="1751" y1="363" y2="362" />
+<line id="Group20_Group19_Line46" stroke="#000000" stroke-width="1" x1="1145" x2="1751" y1="317" y2="316" />
+<line id="Group20_Group19_Line47" stroke="#000000" stroke-width="1" x1="1145" x2="1751" y1="270" y2="269" />
+<g height="49" id="Group20_Group19_Group18" width="612" x="1143" y="441" >
+<line id="Group20_Group19_Group18_Line18" stroke="#000000" stroke-width="1" x1="1172" x2="1172" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line19" stroke="#000000" stroke-width="1" x1="1197" x2="1197" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line20" stroke="#000000" stroke-width="1" x1="1222" x2="1222" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line21" stroke="#000000" stroke-width="1" x1="1247" x2="1247" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line22" stroke="#000000" stroke-width="1" x1="1272" x2="1272" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line23" stroke="#000000" stroke-width="1" x1="1297" x2="1297" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line24" stroke="#000000" stroke-width="1" x1="1322" x2="1322" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line25" stroke="#000000" stroke-width="1" x1="1347" x2="1347" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line26" stroke="#000000" stroke-width="1" x1="1372" x2="1372" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line27" stroke="#000000" stroke-width="1" x1="1397" x2="1397" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line28" stroke="#000000" stroke-width="1" x1="1422" x2="1422" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line29" stroke="#000000" stroke-width="1" x1="1447" x2="1447" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line30" stroke="#000000" stroke-width="1" x1="1472" x2="1472" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line31" stroke="#000000" stroke-width="1" x1="1497" x2="1497" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line32" stroke="#000000" stroke-width="1" x1="1522" x2="1522" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line33" stroke="#000000" stroke-width="1" x1="1547" x2="1547" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line34" stroke="#000000" stroke-width="1" x1="1572" x2="1572" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line35" stroke="#000000" stroke-width="1" x1="1597" x2="1597" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line36" stroke="#000000" stroke-width="1" x1="1622" x2="1622" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line37" stroke="#000000" stroke-width="1" x1="1647" x2="1647" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line38" stroke="#000000" stroke-width="1" x1="1672" x2="1672" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line39" stroke="#000000" stroke-width="1" x1="1697" x2="1697" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line40" stroke="#000000" stroke-width="1" x1="1722" x2="1722" y1="441" y2="455" />
+<line id="Group20_Group19_Group18_Line41" stroke="#000000" stroke-width="1" x1="1748" x2="1748" y1="442" y2="456" />
+<g height="27" id="Group20_Group19_Group18_Group16" width="607" x="1143" y="463" >
+<g height="26" id="Group20_Group19_Group18_Group16_Text160" width="28" x="1143" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1143"  y="478" >00</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text137" width="29" x="1168" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1168"  y="478" >01</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text138" width="28" x="1194" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1194"  y="478" >02</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text139" width="28" x="1219" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1219"  y="478" >03</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text140" width="28" x="1244" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1244"  y="478" >04</text>
+</g>
+<g height="27" id="Group20_Group19_Group18_Group16_Text141" width="26" x="1269" y="463" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1269"  y="477" >05</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text142" width="29" x="1291" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1291"  y="478" >06</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text143" width="29" x="1316" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1316"  y="478" >07</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text144" width="29" x="1341" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1341"  y="478" >08</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text145" width="29" x="1366" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1366"  y="478" >09</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text146" width="32" x="1391" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1391"  y="478" >10</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text147" width="29" x="1419" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1419"  y="478" >11</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text148" width="29" x="1444" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1444"  y="478" >12</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text149" width="29" x="1469" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1469"  y="478" >13</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text150" width="29" x="1494" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1494"  y="478" >14</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text151" width="29" x="1519" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1519"  y="478" >15</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text152" width="29" x="1544" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1544"  y="478" >16</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text153" width="28" x="1570" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1570"  y="478" >17</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text154" width="28" x="1595" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1595"  y="478" >18</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text155" width="28" x="1620" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1620"  y="478" >19</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text156" width="29" x="1645" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1645"  y="478" >20</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text157" width="29" x="1670" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1670"  y="478" >21</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text158" width="29" x="1695" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1695"  y="478" >22</text>
+</g>
+<g height="26" id="Group20_Group19_Group18_Group16_Text159" width="29" x="1721" y="464" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1721"  y="478" >23</text>
+</g>
+</g>
+<line id="Group20_Group19_Group18_Line42" stroke="#000000" stroke-width="1" x1="1147" x2="1754" y1="457" y2="456" />
+</g>
+<polyline fill="none" id="Group20_Group19_Curve2" points=" 1160,421 1160,421 1184,429 1209,427 1234,429 1259,428 1284,429 1308,421 1333,404 1358,374 1383,317 1408,307 1433,302 1457,298 1482,316 1507,310 1532,305 1557,290 1582,297 1606,309 1631,374 1656,380 1681,405 1706,420 1732,425 1732,425" stroke="#0000ff" stroke-width="1" />
+</g>
+</g>
+<g height="29" id="Text167" width="172" x="1323" y="203" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1323"  y="217" >24小时耗能趋势图</text>
+</g>
+<line id="Line50" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="737" y2="736" />
+<line id="Line51" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="762" y2="761" />
+<line id="Line52" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="787" y2="786" />
+<line id="Line53" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="812" y2="811" />
+<line id="Line54" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="837" y2="836" />
+<line id="Line55" stroke="#000000" stroke-width="1" x1="447" x2="1153" y1="864" y2="863" />
+<line id="Line56" stroke="#000000" stroke-width="1" x1="448" x2="1154" y1="891" y2="890" />
+<rect fill="url(#lineargradient#ffff00#RToL)" height="118" id="Rect16" stroke="#000000" stroke-width="1" width="27" x="838" y="772" />
+<a id="Rect15_link_elem" onclick="if (window.openPage) {openPage(evt,'建筑总耗能_科研楼本月耗电.svg','_self', '');}" target="_self" xlink:href="建筑总耗能_科研楼本月耗电.svg" >
+<rect fill="url(#lineargradient#af0000#RToL)" height="163" id="Rect15" stroke="#000000" stroke-width="1" width="27" x="506" y="727" />
+</a>
+<rect fill="url(#lineargradient#55ff00#RToL)" height="86" id="Rect70" stroke="#000000" stroke-width="1" width="27" x="617" y="804" />
+<rect fill="url(#lineargradient#ff55ff#RToL)" height="90" id="Rect71" stroke="#000000" stroke-width="1" width="27" x="727" y="800" />
+<rect fill="url(#lineargradient#0000ff#RToL)" height="31" id="Rect72" stroke="#000000" stroke-width="1" width="27" x="948" y="859" />
+<rect fill="url(#lineargradient#00aaff#RToL)" height="37" id="Rect73" stroke="#000000" stroke-width="1" width="24" x="1059" y="853" />
+<g height="26" id="Text180" width="27" x="507" y="912" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="507"  y="924" >电</text>
+</g>
+<g height="26" id="Text181" width="27" x="618" y="912" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="618"  y="924" >水</text>
+</g>
+<g height="26" id="Text182" width="27" x="731" y="912" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="731"  y="924" >气</text>
+</g>
+<g height="26" id="Text183" width="44" x="829" y="912" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="829"  y="924" >供热</text>
+</g>
+<g height="26" id="Text184" width="44" x="938" y="912" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="938"  y="924" >供冷</text>
+</g>
+<g height="26" id="Text185" width="44" x="1051" y="912" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1051"  y="924" >其它</text>
+</g>
+<rect fill="none" height="210" id="Rect9" stroke="#000000" stroke-width="1" width="135" x="1674" y="696" />
+<rect fill="#ff0000" height="18" id="Rect10" stroke="#000000" stroke-width="1" width="20" x="1687" y="710" />
+<g height="27" id="Text44" width="28" x="1716" y="705" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="717" >电</text>
+</g>
+<rect fill="#55ff00" height="18" id="Rect11" stroke="#000000" stroke-width="1" width="20" x="1687" y="741" />
+<g height="27" id="Text45" width="28" x="1716" y="738" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="750" >水</text>
+</g>
+<rect fill="#ff55ff" height="18" id="Rect12" stroke="#000000" stroke-width="1" width="20" x="1687" y="772" />
+<g height="27" id="Text46" width="28" x="1716" y="768" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="780" >气</text>
+</g>
+<rect fill="#ffff00" height="17" id="Rect13" stroke="#000000" stroke-width="1" width="20" x="1687" y="805" />
+<g height="27" id="Text47" width="45" x="1716" y="799" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="811" >供热</text>
+</g>
+<rect fill="#ff0000" height="18" id="Rect74" stroke="#000000" stroke-width="1" width="20" x="1687" y="710" />
+<g height="27" id="Text186" width="28" x="1716" y="705" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="717" >电</text>
+</g>
+<rect fill="#55ff00" height="18" id="Rect75" stroke="#000000" stroke-width="1" width="20" x="1687" y="741" />
+<g height="27" id="Text187" width="28" x="1716" y="738" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="750" >水</text>
+</g>
+<rect fill="#ff55ff" height="18" id="Rect76" stroke="#000000" stroke-width="1" width="20" x="1687" y="772" />
+<g height="27" id="Text188" width="28" x="1716" y="768" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="780" >气</text>
+</g>
+<rect fill="#ffff00" height="17" id="Rect77" stroke="#000000" stroke-width="1" width="20" x="1687" y="805" />
+<g height="27" id="Text189" width="45" x="1716" y="799" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1716"  y="811" >供热</text>
+</g>
+<rect fill="#0000ff" height="18" id="Rect78" stroke="#000000" stroke-width="1" width="20" x="1688" y="841" />
+<g height="27" id="Text190" width="45" x="1717" y="836" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1717"  y="848" >供冷</text>
+</g>
+<rect fill="#00aaff" height="18" id="Rect79" stroke="#000000" stroke-width="1" width="20" x="1688" y="872" />
+<g height="27" id="Text191" width="81" x="1717" y="869" >
+<text fill="#000000" font-family="SimSun" font-size="15" font-weight="bold" x="1717"  y="881" >其它能源</text>
+</g>
+<g height="29" id="Text200" width="162" x="668" y="624" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="668"  y="638" >科研楼折煤总耗能</text>
+</g>
+<rect fill="none" height="364" id="Rect86" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="750" x="1081" y="188" />
+<g height="52" id="Text201" width="238" x="986" y="87" >
+<text fill="#000000" font-family="STFangsong" font-size="31" font-weight="bold" x="986"  y="115" >科研楼总耗能</text>
+</g>
+<g height="48" id="Text204" width="162" x="472" y="248" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="472"  y="276" >总用电：</text>
+</g>
+<g height="48" id="Text206" width="162" x="472" y="296" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="472"  y="324" >总用水：</text>
+</g>
+<g height="48" id="Text208" width="162" x="472" y="345" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="472"  y="373" >总用气：</text>
+</g>
+<g height="48" id="Text209" width="48" x="652" y="394" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="652"  y="422" >56</text>
+</g>
+<g height="48" id="Text210" width="162" x="472" y="393" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="472"  y="421" >总供热：</text>
+</g>
+<g height="48" id="Text211" width="74" x="652" y="443" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="652"  y="471" >14.6</text>
+</g>
+<g height="48" id="Text212" width="162" x="472" y="442" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="472"  y="470" >总供冷：</text>
+</g>
+<g height="48" id="Text213" width="91" x="652" y="491" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="652"  y="519" >14.55</text>
+</g>
+<g height="48" id="Text214" width="200" x="472" y="491" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="472"  y="519" >其他能源：</text>
+</g>
+<g height="260" id="Group28" width="260" x="1335" y="661" >
+<path d="M1464,790 l124,38 a130,130 0 0,0 -124,-167 z" fill="#ff0000" id="Group28_Pie1" stroke="#000000" stroke-width="1" />
+<path d="M1465,790 l20,128 a128,130 0 0,0 102,-90 z" fill="#00ff00" id="Group28_Pie2" stroke="#000000" stroke-width="1" />
+<path d="M1465,790 l-89,93 a128,130 0 0,0 109,35 z" fill="#ff00ff" id="Group28_Pie3" stroke="#000000" stroke-width="1" />
+<path d="M1465,790 l-115,-56 a128,130 0 0,0 26,149 z" fill="#ffff00" id="Group28_Pie4" stroke="#000000" stroke-width="1" />
+<path d="M1465,790 l-75,-105 a128,130 0 0,0 -40,49 z" fill="#0000ff" id="Group28_Pie5" stroke="#000000" stroke-width="1" />
+<path d="M1464,790 l2,-129 a128,130 0 0,0 -77,24 z" fill="#00aaff" id="Group28_Pie6" stroke="#000000" stroke-width="1" />
+</g>
+<polyline fill="none" id="Curve11" points=" 1574,696 1591,652 1616,652" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text215" width="36" x="1607" y="635" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1607"  y="648" >32%</text>
+</g>
+<polyline fill="none" id="Curve12" points=" 1430,663 1411,628 1306,629" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text216" width="29" x="1267" y="613" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1267"  y="626" >6%</text>
+</g>
+<polyline fill="none" id="Curve13" points=" 1367,706 1361,674 1305,674" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text217" width="29" x="1267" y="657" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1267"  y="670" >6%</text>
+</g>
+<polyline fill="none" id="Curve14" points=" 1337,801 1331,791 1312,791" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text218" width="36" x="1267" y="779" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1267"  y="792" >23%</text>
+</g>
+<polyline fill="none" id="Curve15" points=" 1428,916 1418,937 1313,938" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text219" width="36" x="1267" y="922" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1267"  y="935" >17%</text>
+</g>
+<polyline fill="none" id="Curve16" points=" 1545,896 1568,935 1607,935" stroke="#000000" stroke-width="1" />
+<g height="27" id="Text220" width="36" x="1607" y="922" >
+<text fill="#000000" font-family="STLiti" font-size="16" x="1607"  y="935" >16%</text>
+</g>
+<g height="37" id="Text222" width="169" x="470" y="199" >
+<text fill="#000000" font-family="STSong" font-size="21" font-weight="bold" x="470"  y="217" >单位：万焦耳</text>
+</g>
+<g height="29" id="Text225" width="43" x="1091" y="396" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1091"  y="410" >0.2</text>
+</g>
+<g height="29" id="Text226" width="43" x="1093" y="347" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1093"  y="361" >0.4</text>
+</g>
+<g height="29" id="Text227" width="43" x="1094" y="300" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1094"  y="314" >0.6</text>
+</g>
+<g height="29" id="Text228" width="43" x="1093" y="255" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1093"  y="269" >0.8</text>
+</g>
+<rect fill="none" height="364" id="Rect105" stroke="#000000" stroke-dasharray="15,3" stroke-width="1" width="702" x="372" y="190" />
+<g height="48" id="Text229" width="46" x="652" y="298" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="652"  y="326" >39</text>
+</g>
+<g height="48" id="Text230" width="44" x="652" y="346" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="652"  y="374" >41</text>
+</g>
+<g height="48" id="Text231" width="47" x="652" y="251" >
+<text fill="#000000" font-family="STLiti" font-size="31" font-weight="bold" x="652"  y="279" >78</text>
+</g>
+<g height="29" id="Text232" width="21" x="1094" y="445" >
+<text fill="#000000" font-family="SimSun" font-size="17" font-weight="bold" x="1094"  y="459" >0</text>
+</g>
+</svg>

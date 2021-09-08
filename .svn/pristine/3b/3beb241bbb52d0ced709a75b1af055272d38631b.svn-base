@@ -1,0 +1,182 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
+
+
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IWindAvailabilityContrastDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindAvailabilityContrastDataForm;
+import com.xjgc.wind.util.DateFormatUtil;
+import com.xjgc.wind.util.YMDHMSUtil;
+import com.xjgc.wind.util.YearFormatUtil;
+
+
+public class WindAvailabilityContrastDaoImpl extends JdbcDaoSupport implements IWindAvailabilityContrastDao {
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	
+	public List<DataStatisticsDataVo> listava(WindAvailabilityContrastDataForm queryFilter) {
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+			{
+			try {
+				startDate = DateFormatUtil.get().parse(date1);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+				queryFilter.setStartDate(startDate);
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+	//		queryFilter.setStartDate(startDate);
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //锟叫讹拷锟街凤拷锟角凤拷为锟斤拷
+ 		{
+ 		try {
+ 			endDate =DateFormatUtil.get().parse(date2);//try{}catch{}锟斤拷为锟剿凤拷止锟届常锟斤拷锟铰筹拷锟斤拷锟�
+ 			queryFilter.setEndDate(endDate);
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 		
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	 String str=queryFilter.getStr();
+		String[] arr =null;
+  	   String sql = "";
+  	 if (isDBMysql()==true) {
+  	   if(date11.compareTo(date22) == 0){
+  		 String tablename ="hiswgstinfo_"+date11;
+  		 
+  		sql += "select b.name as name,DATEDIFF('"+date2+"','"+date1+"')*24 as hour,max(h.winturerrsecsum)-min(h.winturerrsecsum) as faultTime,(1-((max(h.winturerrsecsum)-min(h.winturerrsecsum))/(DATEDIFF('"+date2+"','"+date1+"')*24)))*100 as availability,";
+  		sql += "DATEDIFF('"+date2+"','"+date1+"')*24-(max(h.winturerrsecsum)-min(h.winturerrsecsum)) as avaTime from "+tablename+" h,bay b where h.savetime >='"+date1+"'  and h.savetime <='"+date2+"' ";
+  		sql += " and h.id=b.id";
+ 		 if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+ 		 
+ 		sql +=" group by h.id";
+  	   }
+  	   else
+  	   {
+  		 String tablename1 ="hiswgstinfo_"+date11;
+  		 String tablename2 ="hiswgstinfo_"+date22;
+  		 
+  		sql += "select b.name as name,DATEDIFF('"+date2+"','"+date1+"')*24 as hour,(max(h1.winturerrsecsum)-min(h1.winturerrsecsum))+(max(h2.winturerrsecsum)-min(h2.winturerrsecsum)) as faultTime,(1-(max(h1.winturerrsecsum)-min(h1.winturerrsecsum))+(max(h2.winturerrsecsum)-min(h2.winturerrsecsum))/DATEDIFF('"+date2+"','"+date1+"')*24)*100 as availability,";
+  		sql += "DATEDIFF('"+date2+"','"+date1+"')*24-(max(h1.winturerrsecsum)-min(h1.winturerrsecsum))+(max(h2.winturerrsecsum)-min(h2.winturerrsecsum)) as avaTime from "+tablename1+" h1,"+tablename2+" h2,bay b where h1.savetime >='"+date1+"'  and h2.savetime <='"+date2+"' ";
+  		sql += " and h1.id=h2.id and h1.id=b.id";
+ 		 if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h1.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+ 		 
+ 		sql +=" group by h1.id";
+  	   }
+  	   }
+  
+
+		return getJdbcTemplate().query(sql, new WindAvailabilityContrastDataRowMapper());
+		
+	}
+	
+	class WindAvailabilityContrastDataRowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setFaultTime(rs.getDouble("faultTime"));
+			object.setAvaTime(rs.getDouble("avaTime"));
+			object.setHour(rs.getDouble("hour"));
+			object.setAvailability(rs.getDouble("availability"));
+			return object;
+		}
+	}
+	
+
+}
+
+
+
+	
+	

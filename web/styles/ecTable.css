@@ -1,0 +1,374 @@
+/*/////////////////////*/
+/* ec会生成一个id为ec的form，下面代码可解决form占用空间的问题 */
+#ec {
+	margin: 0;
+	padding: 0;
+}
+/*//////////////////////*/
+
+.eXtremeTable {
+	margin: 0;
+	width: 100%; 
+	height: 100%; 
+	overflow: auto;	
+}
+
+.eXtremeTable select {
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	FONT-SIZE: 9px;
+	BORDER: solid 1px #9CC2C4;
+	WIDTH: 75px;
+}
+
+.eXtremeTable .tableRegion {
+	width: 98%;
+	border: 0px;
+	cellspacing: 1;
+	background: #000080;
+	background-color: #000080;
+}
+
+.eXtremeTable .filter {
+	background-color: #f4f4f4;
+}
+
+.eXtremeTable .filter td {
+	padding: 2px;
+}
+
+.eXtremeTable .title {
+	color: #444444;
+	font-weight: bold;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 15px;
+	vertical-align: middle;
+}
+
+.eXtremeTable .titleRow {
+	background-color: #f2f9ff;
+}
+
+.eXtremeTable .titleRow td {
+	border-bottom: 0px solid #308dbb;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.eXtremeTable .titleRow span {
+	color: #444444;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.eXtremeTable .filter input {
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9pt;
+	border: solid 1px grey;
+	padding: 2px 1px 1px 1px;
+	width: 100%;
+	height: 18px;
+}
+
+.eXtremeTable .filter select {
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	FONT-SIZE: 9pt;
+	BORDER: solid 1px #9CC2C4;
+	padding: 2px 1px 1px 1px;
+	width: 100%;
+	height: 18px;
+}
+
+.eXtremeTable .tableHeader {
+	font-size: 12px;
+	text-align: center;
+	height: 22px;
+	background-color: #CCCCFF;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #ffffff;
+	border-right-color: #000080;
+	border-bottom-color: #000080;
+	border-left-color: #ffffff;
+}
+
+.eXtremeTable .tableHeaderSort {
+	TEXT-ALIGN: center;
+    BORDER: 1px solid #9CC2C4;
+    COLOR: #000000;
+    HEIGHT: 25px;
+    BACKGROUND: #E7F1F3 url(../images/ecTable/table_head_bg.gif) repeat-x left 50%; 
+}
+
+.eXtremeTable .odd a,.even a {
+	color: black;
+	font-size: 12px;
+}
+
+.eXtremeTable .odd td,.eXtremeTable .even td {
+	padding: 2px 3px 2px 3px;
+	vertical-align: middle;
+	font-size: 12px;
+}
+
+.eXtremeTable .odd {
+	height: 22px;
+	background-color: #FFFFFF;
+}
+
+.eXtremeTable .even {
+	height: 22px;
+	background-color: #FFFFFF;
+}
+
+.eXtremeTable .highlight td {
+	height: 22px;
+	color: black;
+	font-size: 12px;
+	padding: 2px 3px 2px 3px;
+	vertical-align: middle;
+	background-color: #DDEBE5;
+}
+
+.eXtremeTable .highlight a,.highlight a {
+	color: black;
+	font-size: 12px;
+}
+
+.eXtremeTable .compactToolbar {
+	HEIGHT: 25px;
+	BACKGROUND: #E1F0ED url(../images/ecTable/table_page_bg.gif) repeat-x left 50%; 
+}
+
+.eXtremeTable .toolbar {
+	background-color: #f4f4f4;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 9px;
+	margin-right: 1px;
+	border-right: 1px solid silver;
+	border-left: 1px solid silver;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
+
+.eXtremeTable .toolbar a:hover {
+	background-color: transparent;
+}
+
+.eXtremeTable .toolbar td {
+	color: #444444;
+	padding: 0px 3px 0px 3px;
+	text-align: center;
+}
+
+.eXtremeTable .separator {
+	width: 7px;
+}
+
+.eXtremeTable .statusBar {
+	background: #E1F0ED url(../images/ecTable/table_page_bg.gif) repeat-x left 50%; 
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	height: 25px;
+	font-size: 12px;
+	text-align: left;
+	padding-left: 2px;
+}
+
+.eXtremeTable .filterButtons {
+	background-color: #f4f4f4;
+	text-align: right;
+}
+
+.eXtremeTable .title span {
+	margin-left: 7px;
+}
+
+.eXtremeTable .formButtons {
+	display: block;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+.eXtremeTable .formButton {
+	cursor: pointer;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-size: 10px;
+	font-weight: bold;
+	background-color: AliceBlue;
+	color: white;
+	margin-top: 5px;
+	border: outset 1px #333;
+	vertical-align: middle;
+}
+
+.eXtremeTable .calcRow {
+	background-color: #f4f4f4;
+}
+
+.eXtremeTable .calcTitle {
+	background-color: #f4f4f4;
+	color: black;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-weight: bold;
+	font-size: 10px;
+}
+
+.eXtremeTable .calcResult {
+	background-color: #f4f4f4;
+	color: black;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+}
+ 
+/*********************************** Table Styles Begin ***************************************/
+/* ECTable样式，标签会自动设置cellspacing="1"，所以实现细边框方案与普通表格不同 */
+table.ecTable {
+	margin: 0;
+	width: 99%;
+	background-color: #D1DBE7; 
+	border: none;
+}
+
+/* ECTable数据表格表头*/
+td.ecTableHead {
+    TEXT-ALIGN: center;
+    BORDER: none;
+    COLOR: #203f6e;
+    HEIGHT: 25px;
+    BACKGROUND: #E7F1F3 url(../images/ecTable/table_head_bg3.gif) repeat-x left 50%; 
+   
+}
+
+/* ECTable数据表格表体 */
+td.ecTableBody {
+    text-align: center;
+    border: none;
+	height: 22px;
+}
+
+td.ecTableBody_left {
+    text-align: left;
+    border: none;
+	height: 22px;
+}
+
+/* 普通Table样式，table需设置cellspacing="0" */
+table.cmTable {
+	margin: 0;
+	width: 99%;  
+	border: 1px solid #D1DBE7;
+    border-collapse: collapse;
+}
+
+/* 普通Table数据表格表头 */
+td.cmTableHead {
+    TEXT-ALIGN: center;
+    BORDER: 1px solid #D1DBE7;
+    COLOR: #000000;
+    HEIGHT: 25px;
+    BACKGROUND: #E7F1F3 url(../images/ecTable/table_head_bg.gif) repeat-x left 50%; 
+}
+
+/* 普通Table数据表格表体 */
+td.cmTableBody {
+    text-align: center;
+    border: 1px solid #D1DBE7;
+	height: 22px;
+}
+
+td.ecTableHeadLT {
+    text-align: center;
+    border-left: 1px solid #D1DBE7;
+	border-top: 1px solid #D1DBE7;
+    color: #000000;
+    height: 25px;
+    background: #E7F1F3 url(../images/ecTable/table_head_bg.gif) repeat-x left 50%; 
+}
+
+td.ecTableHeadLTR {
+    text-align: center;
+	border-left: 1px solid #D1DBE7;
+	border-top: 1px solid #D1DBE7;
+    border-right: 1px solid #D1DBE7;
+    color: #000000;
+    height: 25px;
+    background: #E7F1F3 url(../images/ecTable/table_head_bg.gif) repeat-x left 50%; 
+}
+
+td.ecTableBodyLT {
+    text-align: center;
+    border-left: 1px solid #D1DBE7;
+	border-top: 1px solid #D1DBE7;
+    color: #000000;
+	height: 22px;
+}
+
+td.ecTableBodyLTR {
+    text-align: center;
+	border-left: 1px solid #D1DBE7;
+	border-top: 1px solid #D1DBE7;
+    border-right: 1px solid #D1DBE7;
+    color: #000000;
+	height: 22px;
+}
+
+/* 表格底部工具条 */
+td.ecTableFoot {
+	padding-left: 1px;
+	height: 35px;
+}
+
+td.ecTableFootLeft {
+	width: 12px;
+	height: 35px;
+	background: #E8F2ED url(../images/ecTable/table_foot_left_bg.gif) no-repeat;
+}
+
+td.ecTableFootMiddle {
+	height: 35px;
+	background: #E8F2ED url(../images/ecTable/table_foot_bg.gif) repeat-x;
+}
+
+td.ecTableFootFight {
+    width: 16px;
+	height: 35px;
+	background: #E8F2ED url(../images/ecTable/table_foot_right_bg.gif) no-repeat;
+}
+
+td.ecTableFootToolBar {
+	height: 25px; 
+	width: 100%; 
+	border: 1px solid #D1DBE7; 
+	border-top: 0; 
+	padding-left: 2px; 
+	background: #E8F2ED url(../images/ecTable/foot.gif) repeat-x;
+	text-align: left;
+}
+
+/********数据表格分页字体**********/
+span.pageplot {
+	FONT-SIZE: 9pt;
+	COLOR: #276db2;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	TEXT-DECORATION: none;
+	line-height: 140%;
+	text-align: left;
+}
+
+/********数据表格选中行**********/
+td.tableSelected {
+	font-weight: normal;
+	font-size: 9pt;
+	vertical-align: baseline;
+	color: #000000;
+	background-color: #ffffcc;
+	text-align: center;
+}
+/*********************************************** Table Styles End *************************************************/
+

@@ -1,0 +1,17 @@
+package com.xjgc.wind.datastatistics.service;
+
+import java.util.List;
+
+
+import com.xjgc.wind.datastatistics.vo.GeneratorStatisticsReportVo;
+
+
+
+public interface IGeneratorStatisticsMonReportService {
+
+	//
+	
+	List<GeneratorStatisticsReportVo> list(String  date);
+	List<GeneratorStatisticsReportVo> listWind(String date);
+
+}

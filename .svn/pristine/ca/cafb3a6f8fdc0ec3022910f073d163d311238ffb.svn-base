@@ -1,0 +1,34 @@
+package com.xjgc.wind.datastatistics.service.impl;
+
+import java.math.BigDecimal;
+import java.util.List;
+
+import com.xjgc.wind.datastatistics.dao.IWindFaultCountsDao;
+import com.xjgc.wind.datastatistics.service.IWindFaultCountsService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindFaultCountsDataForm;
+
+public class WindFaultCountsServiceImpl implements IWindFaultCountsService{
+
+	IWindFaultCountsDao windFaultCountsDao;
+
+	public IWindFaultCountsDao getWindFaultCountsDao() {
+		return windFaultCountsDao;
+	}
+
+	public void setWindFaultCountsDao(IWindFaultCountsDao windFaultCountsDao) {
+		this.windFaultCountsDao = windFaultCountsDao;
+	}
+	
+	public List<DataStatisticsDataVo> list(WindFaultCountsDataForm queryFilter){
+		return windFaultCountsDao.list(queryFilter);
+	}
+	
+	public List<DataStatisticsDataVo> listcount(WindFaultCountsDataForm queryFilter){
+		return windFaultCountsDao.listcount(queryFilter);
+	}
+	
+	public List<DataStatisticsDataVo> listall(WindFaultCountsDataForm queryFilter){
+		return windFaultCountsDao.listall(queryFilter);
+	}
+}

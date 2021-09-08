@@ -1,0 +1,2001 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkBook xmlVersion="20100901">
+<TableDataMap>
+<TableData name="GIS_BATT_EXCHANGE" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="Query_Day"/>
+<O>
+<![CDATA[2011-08-16]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[GIS]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT GBENOW.GBE_ID, GBENOW.BUS_VIN, cev.EV_PLATE_NO, cev.EV_OWNER, cev.EV_SELF_NO, GBENOW.BATT_GROUP_ID,  GBENOW.DATA_TIME AS THISDATA_TIME, GBEPRE.DATA_TIME AS PREDATA_TIME, GBEPRE.THISMETTER, 
+GBEPRE.THISZXDL, GBEPRE.THISFXDL, GBEPRE.ODOMETER, GBEPRE.ZXDL, GBEPRE.FXDL, 
+GBEPRE.METER_VALUE_ZXDL, GBEPRE.METER_VALUE_FXDL, GBEPRE.ODOMETER_VALUE 
+FROM RES8000.GIS_BATT_EXCHANGE gbeNow LEFT JOIN RES8000.GIS_BATT_EXCHANGE gbePre ON GBENOW.GBE_ID = GBEPRE.NEXT_GUID 
+LEFT JOIN RES8000.CUST_EVEHICLE cev ON GBENOW.BUS_VIN = cev.ev_vin 
+WHERE 1=1 
+AND to_char(GBENOW.DATA_TIME, 'yyyy-mm-dd') = '${Query_Day}' 
+ORDER BY GBENOW.DATA_TIME ASC ]]></Query>
+</TableData>
+<TableData name="HIS_SWAP" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="Query_Day"/>
+<O>
+<![CDATA[2011-08-09]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[HisEvc]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT DISTINCT ST.TRADE_ID, ST.BEGIN_TIME, ST.END_TIME, ST.VEHICLE_RACK, 
+round(to_number(ST.End_Time - ST.Begin_Time)*86400) AS PeriodTime, ST.RECORD_TIME, awr.WORK_POS,  
+s.OPERATE_TYPE, round(to_number(s.BAT1_ID/1000)) AS BATT_GROUP_ID, CRR.INNER_RACK_POS 
+FROM HISEVC.HIS_SWAP s, HISEVC.HIS_SWAP_TRADE st, HISEVC.CABNO_RACKPOS_REL crr, HISEVC.AREA_WORKPOS_REL awr 
+WHERE 1=1 
+AND ST.TRADE_ID = s.TRADE_ID 
+AND ST.VEHICLE_NO IS NOT NULL 
+AND s.OPERATE_TYPE = 2 
+AND s.BAT1_CAB_ID = CRR.CAB_NO 
+AND st.AREA_ID = awr.AREA_ID 
+AND to_char(ST.Begin_Time, 'yyyy-mm-dd') = '${Query_Day}' 
+ORder BY BEGIN_TIME ASC ]]></Query>
+</TableData>
+<TableData name="GetGroupIDFromTradeID" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="TradeID"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="Query_Day"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[HisEvc]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT DISTINCT ST.TRADE_ID, s.OPERATE_TYPE, round(to_number(s.BAT1_ID/1000)) AS BATT_GROUP_ID 
+FROM HISEVC.HIS_SWAP s, HISEVC.HIS_SWAP_TRADE st 
+WHERE 1=1 
+AND ST.TRADE_ID = s.TRADE_ID 
+AND ST.VEHICLE_NO IS NOT NULL 
+AND to_char(ST.Begin_Time, 'yyyy-mm-dd') = '${Query_Day}' 
+AND ST.TRADE_ID = '${TradeID}' ]]></Query>
+</TableData>
+<TableData name="AfterSwapSOC" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="Swap_EndTime"/>
+<O>
+<![CDATA[2011-08-11 08:12:32]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O>
+<![CDATA[LSFD13206BC000687]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[GIS]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[{call RES8000.SP_FR_SFD_AfterSOC('${Swap_EndTime}','${Bus_VIN}',?) }]]></Query>
+</TableData>
+<TableData name="BattInfoBeforeSwap" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O>
+<![CDATA[]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[GIS]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[{call RES8000.SP_FR_SFD_BattIBefore('${Swap_BeginTime}','${Bus_VIN}',?) }]]></Query>
+</TableData>
+<TableData name="EV_SysPara" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[GIS]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[SELECT CODE, VALUE FROM RES8000.GIS_SYSPARM 
+WHERE 1=1 ]]></Query>
+</TableData>
+<TableData name="BattTempUBeforeSwap" class="com.fr.data.impl.DBTableData">
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O>
+<![CDATA[LSFD13206BC000687]]></O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O>
+<![CDATA[2011-08-11 08:12:32]]></O>
+</Parameter>
+</Parameters>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[GIS]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[{call RES8000.SP_FR_SFD_BattTBefore('${Swap_BeginTime}','${Bus_VIN}',?) }]]></Query>
+</TableData>
+</TableDataMap>
+<Report class="com.fr.report.WorkSheet" name="sheet1">
+<ReportSettings orientation="1" headerHeight="0.0" footerHeight="0.0">
+<PaperSize width="20.827047244094487" height="30.47251968503937"/>
+<Margin top="0.27" left="0.7500000000000002" bottom="0.27" right="0.7500000000000002"/>
+</ReportSettings>
+<ReportPageAttr>
+<HR F="0" T="3"/>
+<FR/>
+<HC/>
+<FC/>
+<UPFCR COLUMN="false" ROW="true"/>
+</ReportPageAttr>
+<Header reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Header>
+<Footer reportPageType="0">
+<Background name="NullBackground"/>
+<LeftList/>
+<CenterList/>
+<RightList/>
+</Footer>
+<RowHeight defaultValue="19">
+<![CDATA[19,19,19,44,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[34,37,89,117,124,94,220,140,140,87,50,72,65,65,72,72,72,72,72,72,70,85,85,85,72]]></ColumnWidth>
+<FloatElementList>
+<com.fr.report.FloatElement>
+<Location column="1" row="0" leftDistance="0" topDistance="0" width="2410.0" height="49.0"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[="薛家岛电动汽车智能充换储放一体化示范电站 "+$Query_Day+" 运行基础数据"]]></Attributes>
+</O>
+<Style index="0"/>
+</com.fr.report.FloatElement>
+</FloatElementList>
+<CellElementList>
+<C c="1" r="3" s="1">
+<O>
+<![CDATA[编号]]></O>
+<Expand/>
+</C>
+<C c="2" r="3" s="1">
+<O>
+<![CDATA[车牌号]]></O>
+<Expand/>
+</C>
+<C c="3" r="3" s="1">
+<O>
+<![CDATA[自编号]]></O>
+<Expand/>
+</C>
+<C c="4" r="3" s="1">
+<O>
+<![CDATA[车架号]]></O>
+<Expand/>
+</C>
+<C c="5" r="3" s="1">
+<O>
+<![CDATA[所属公司]]></O>
+<Expand/>
+</C>
+<C c="6" r="3" s="1">
+<O>
+<![CDATA[换电交易ID]]></O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[隐藏改列]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[1 = 1]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.ColWidthHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="7" r="3" s="1">
+<O>
+<![CDATA[换电开始时间]]></O>
+<Expand/>
+</C>
+<C c="8" r="3" s="1">
+<O>
+<![CDATA[换电结束时间]]></O>
+<Expand/>
+</C>
+<C c="9" r="3" s="1">
+<O>
+<![CDATA[换电持续时间(分)]]></O>
+<Expand/>
+</C>
+<C c="10" r="3" s="1">
+<O>
+<![CDATA[工位号]]></O>
+<Expand/>
+</C>
+<C c="11" r="3" s="1">
+<O>
+<![CDATA[换到车上电池箱位置]]></O>
+<Expand/>
+</C>
+<C c="12" r="3" s="1">
+<O>
+<![CDATA[车上换下电池组号]]></O>
+<Expand/>
+</C>
+<C c="13" r="3" s="1">
+<O>
+<![CDATA[换到车上电池组号]]></O>
+<Expand/>
+</C>
+<C c="14" r="3" s="1">
+<O>
+<![CDATA[最高电压]]></O>
+<Expand/>
+</C>
+<C c="15" r="3" s="1">
+<O>
+<![CDATA[最低电压]]></O>
+<Expand/>
+</C>
+<C c="16" r="3" s="1">
+<O>
+<![CDATA[最高温度]]></O>
+<Expand/>
+</C>
+<C c="17" r="3" s="1">
+<O>
+<![CDATA[最低温度]]></O>
+<Expand/>
+</C>
+<C c="18" r="3" s="1">
+<O>
+<![CDATA[总电压]]></O>
+<Expand/>
+</C>
+<C c="19" r="3" s="1">
+<O>
+<![CDATA[总电流]]></O>
+<Expand/>
+</C>
+<C c="20" r="3" s="1">
+<O>
+<![CDATA[车辆换电前电池SOC]]></O>
+<Expand/>
+</C>
+<C c="21" r="3" s="1">
+<O>
+<![CDATA[本次行驶里程(公里)]]></O>
+<Expand/>
+</C>
+<C c="22" r="3" s="1">
+<O>
+<![CDATA[本次正向电量(电池度)]]></O>
+<Expand/>
+</C>
+<C c="23" r="3" s="1">
+<O>
+<![CDATA[本次反向电量(电池度)]]></O>
+<Expand/>
+</C>
+<C c="24" r="3" s="1">
+<O>
+<![CDATA[本次换电里程表止码]]></O>
+<Expand/>
+</C>
+<C c="25" r="3" s="1">
+<O>
+<![CDATA[本次换电电表止码]]></O>
+<Expand/>
+</C>
+<C c="26" r="3" s="1">
+<O>
+<![CDATA[本次换电反向电量止码]]></O>
+<Expand/>
+</C>
+<C c="27" r="3" s="1">
+<O>
+<![CDATA[本次换电累计行驶里程]]></O>
+<Expand/>
+</C>
+<C c="28" r="3" s="1">
+<O>
+<![CDATA[本次换电累计正向电量]]></O>
+<Expand/>
+</C>
+<C c="29" r="3" s="1">
+<O>
+<![CDATA[本次换电累计反向电量]]></O>
+<Expand/>
+</C>
+<C c="30" r="3" s="1">
+<O>
+<![CDATA[本次能耗(kwh/km)]]></O>
+<Expand/>
+</C>
+<C c="31" r="3" s="1">
+<O>
+<![CDATA[累计能耗(kwh/km)]]></O>
+<Expand/>
+</C>
+<C c="1" r="4" s="2">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=seq()]]></Attributes>
+</O>
+<Expand leftParentDefault="false" left="C5"/>
+</C>
+<C c="2" r="4" s="3">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="EV_PLATE_NO"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper">
+<Attr divideMode="1"/>
+</RG>
+<Parameters/>
+</O>
+<Expand dir="0" leftParentDefault="false"/>
+</C>
+<C c="3" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="EV_SELF_NO"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="BUS_VIN"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="5" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="EV_OWNER"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="HIS_SWAP" columnName="TRADE_ID"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[VEHICLE_RACK]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BUS_VIN"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BATT_GROUP_ID]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BATT_GROUP_ID"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="4">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="THISDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="2">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="PREDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="7" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="HIS_SWAP" columnName="BEGIN_TIME"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[VEHICLE_RACK]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BUS_VIN"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BATT_GROUP_ID]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BATT_GROUP_ID"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="4">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="THISDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="2">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="PREDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="8" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="HIS_SWAP" columnName="END_TIME"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[VEHICLE_RACK]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BUS_VIN"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BATT_GROUP_ID]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BATT_GROUP_ID"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="4">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="THISDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="2">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="PREDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="9" r="4" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(I5 = null, "—", DATESUBDATE(I5, H5, "s") / 60)]]></Attributes>
+</O>
+<Present class="com.fr.report.cellElement.FormulaPresent">
+<Content>
+<![CDATA[IF(($$$ = "—"), "—", CONCATENATE((IF((INT($$$) <= 9), CONCATENATE("0", (INT($$$))), (INT($$$)))), (IF((INT(($$$ - INT($$$)) * 60) <= 9), ":0", ":")), (INT(($$$ - INT($$$)) * 60))))]]></Content>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="HIS_SWAP" columnName="WORK_POS"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[VEHICLE_RACK]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BUS_VIN"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BATT_GROUP_ID]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BATT_GROUP_ID"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="4">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="THISDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="2">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="PREDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="11" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="HIS_SWAP" columnName="INNER_RACK_POS"/>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[VEHICLE_RACK]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BUS_VIN"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BATT_GROUP_ID]]></CNAME>
+<Compare op="0">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="BATT_GROUP_ID"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="4">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="THISDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[BEGIN_TIME]]></CNAME>
+<Compare op="2">
+<AnDSColumn dsName="GIS_BATT_EXCHANGE" columnName="PREDATA_TIME"/>
+</Compare>
+</Condition>
+</JoinCondition>
+</Condition>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="12" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GetGroupIDFromTradeID" columnName="BATT_GROUP_ID"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[OPERATE_TYPE]]></CNAME>
+<Compare op="0">
+<O t="I">
+<![CDATA[1]]></O>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="TradeID"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[COUNT(SPLIT($$$, ",")) != 1]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ = "0"]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="13" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GetGroupIDFromTradeID" columnName="BATT_GROUP_ID"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[OPERATE_TYPE]]></CNAME>
+<Compare op="0">
+<O t="I">
+<![CDATA[2]]></O>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="TradeID"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=G5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[COUNT(SPLIT($$$, ",")) != 1]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ = "0"]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="14" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattTempUBeforeSwap" columnName="MAX(GMI.HIGHEST_VOLTAGE)"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="15" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattTempUBeforeSwap" columnName="MIN(GMI.LOWEST_VOLTAGE)"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="16" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattTempUBeforeSwap" columnName="MAX(GMI.HIGHEST_TEMP_CELL)"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="17" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattTempUBeforeSwap" columnName="MIN(GMI.LOWEST_TEMP_CELL)"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="18" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattInfoBeforeSwap" columnName="POWER_BET_U"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="19" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattInfoBeforeSwap" columnName="POWER_BET_I"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="20" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="BattInfoBeforeSwap" columnName="SOC"/>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Result>
+<![CDATA[$$$]]></Result>
+<Parameters>
+<Parameter>
+<Attributes name="Bus_VIN"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=E5]]></Attributes>
+</O>
+</Parameter>
+<Parameter>
+<Attributes name="Swap_BeginTime"/>
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=H5]]></Attributes>
+</O>
+</Parameter>
+</Parameters>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="21" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="THISMETTER"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ <= 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="22" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="THISZXDL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ > D7]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ <= 0]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="23" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="THISFXDL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ <= 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="24" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="ODOMETER"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="25" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="ZXDL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="26" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="FXDL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ < 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="27" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="ODOMETER_VALUE"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ < 0]]></Formula>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand dir="0"/>
+</C>
+<C c="28" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="METER_VALUE_ZXDL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="29" r="4" s="4">
+<O t="DSColumn">
+<Attributes dsName="GIS_BATT_EXCHANGE" columnName="METER_VALUE_FXDL"/>
+<Complex/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="30" r="4" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(V5 = 0, "—", W5 / V5)]]></Attributes>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ > F7]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ < H7]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="31" r="4" s="5">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=IF(AB5 = 0, "—", AC5 / AB5)]]></Attributes>
+</O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[负值变红提醒]]></Name>
+<Condition class="com.fr.data.condition.ListCondition">
+<JoinCondition join="0">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ > F7]]></Formula>
+</Condition>
+</JoinCondition>
+<JoinCondition join="1">
+<Condition class="com.fr.data.condition.FormulaCondition">
+<Formula>
+<![CDATA[$$$ < H7]]></Formula>
+</Condition>
+</JoinCondition>
+</Condition>
+<HighlightAction class="com.fr.report.highlight.FRFontHighlightAction">
+<FRFont name="SimSun" style="1" size="12" foreground="-65536"/>
+</HighlightAction>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="1" r="5" s="6">
+<O>
+<![CDATA[平均]]></O>
+<Expand/>
+</C>
+<C c="2" r="5" s="6">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="3" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="4" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="5" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="6" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="7" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="8" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="9" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(J5)) / (count(J5[!0;!0]A{J5 != "—"}))]]></Attributes>
+</O>
+<Present class="com.fr.report.cellElement.FormulaPresent">
+<Content>
+<![CDATA[IF(($$$ = "—"), "—", CONCATENATE((IF((INT($$$) <= 9), CONCATENATE("0", (INT($$$))), (INT($$$)))), (IF((INT(($$$ - INT($$$)) * 60) <= 9), ":0", ":")), (INT(($$$ - INT($$$)) * 60))))]]></Content>
+</Present>
+<Expand/>
+</C>
+<C c="10" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="11" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="12" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="13" r="5" s="3">
+<O>
+<![CDATA[—]]></O>
+<Expand/>
+</C>
+<C c="14" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(O5)) / (count(O5[!0;!0]A{O5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="15" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(P5)) / (count(P5[!0;!0]A{P5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="16" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(Q5)) / (count(Q5[!0;!0]A{Q5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="17" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(R5)) / (count(R5[!0;!0]A{R5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="18" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(S5)) / (count(S5[!0;!0]A{S5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="19" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(T5)) / (count(T5[!0;!0]A{T5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="20" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(U5)) / (count(U5[!0;!0]A{U5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="21" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(V5)) / (count(V5[!0;!0]A{V5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="22" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(W5)) / (count(W5[!0;!0]A{W5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="23" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(X5)) / (count(X5[!0;!0]A{X5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="24" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(Y5)) / (count(Y5[!0;!0]A{Y5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="25" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(Z5)) / (count(Z5[!0;!0]A{Z5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="26" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(AA5)) / (count(AA5[!0;!0]A{AA5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="27" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(AB5)) / (count(AB5[!0;!0]A{AB5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="28" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(AC5)) / (count(AC5[!0;!0]A{AC5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="29" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(AD5)) / (count(AD5[!0;!0]A{AD5 != null}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="30" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(AE5)) / (count(AE5[!0;!0]A{AE5 != "—"}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="31" r="5" s="7">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=(sum(AF5)) / (count(AF5[!0;!0]A{AF5 != "—"}))]]></Attributes>
+</O>
+<Expand/>
+</C>
+<C c="1" r="6" cs="2">
+<O>
+<![CDATA[正向电量最大值阈值]]></O>
+<HighlightList>
+<Highlight class="com.fr.report.highlight.DefaultHighlight">
+<Name>
+<![CDATA[隐藏该行]]></Name>
+<Condition class="com.fr.data.condition.ListCondition"/>
+<HighlightAction class="com.fr.report.highlight.RowHeightHighlightAction"/>
+</Highlight>
+</HighlightList>
+<Expand/>
+</C>
+<C c="3" r="6">
+<O t="DSColumn">
+<Attributes dsName="EV_SysPara" columnName="VALUE"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[CODE]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[BATTERY_CAPACITY]]></O>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="4" r="6">
+<O>
+<![CDATA[能耗比上限阈值]]></O>
+<Expand/>
+</C>
+<C c="5" r="6">
+<O t="DSColumn">
+<Attributes dsName="EV_SysPara" columnName="VALUE"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[CODE]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[ENERGY_CONSUME_UPPER]]></O>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+<C c="6" r="6">
+<O>
+<![CDATA[能耗比下限阈值]]></O>
+<Expand/>
+</C>
+<C c="7" r="6">
+<O t="DSColumn">
+<Attributes dsName="EV_SysPara" columnName="VALUE"/>
+<Condition class="com.fr.data.condition.CommonCondition">
+<CNAME>
+<![CDATA[CODE]]></CNAME>
+<Compare op="0">
+<O>
+<![CDATA[ENERGY_CONSUME_LOWER]]></O>
+</Compare>
+</Condition>
+<Complex reselect="true"/>
+<RG class="com.fr.report.cellElement.core.FunctionGrouper"/>
+<Parameters/>
+</O>
+<Expand dir="0"/>
+</C>
+</CellElementList>
+</Report>
+<ReportParameterAttr>
+<Attributes showWindow="true" delayPlaying="true" windowPosition="1" align="0"/>
+<PWTitle>
+<![CDATA[参数]]></PWTitle>
+<ParameterUI class="com.fr.report.parameter.CustomParameterUI">
+<ReportSettings headerHeight="0.0" footerHeight="0.0">
+<Margin top="0.27" left="0.75" bottom="0.27" right="0.75"/>
+</ReportSettings>
+<RowHeight defaultValue="19">
+<![CDATA[9,22,5,19,19,19,19,19,19,19,19]]></RowHeight>
+<ColumnWidth defaultValue="72">
+<![CDATA[54,72,104,72,72,72,72,72,72,72,72]]></ColumnWidth>
+<CellElementList>
+<C c="0" r="0" s="8">
+<Expand/>
+</C>
+<C c="1" r="0" s="8">
+<Expand/>
+</C>
+<C c="2" r="0" s="8">
+<Expand/>
+</C>
+<C c="3" r="0" s="8">
+<Expand/>
+</C>
+<C c="0" r="1" s="8">
+<Expand/>
+</C>
+<C c="1" r="1" rs="2" s="8">
+<O>
+<![CDATA[日期选择：]]></O>
+<Expand/>
+</C>
+<C c="2" r="1" s="9">
+<O t="Formula" class="Formula">
+<Attributes>
+<![CDATA[=Today()-1]]></Attributes>
+</O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.DateEditor">
+<WidgetName name="Query_Day"/>
+<WidgetAttr/>
+<allowBlank>
+<![CDATA[false]]></allowBlank>
+<DateAttr start="" end=""/>
+</Widget>
+</C>
+<C c="3" r="1" s="8">
+<O>
+<![CDATA[查询]]></O>
+<Expand/>
+<Widget class="com.fr.report.web.ui.impl.form.FormSubmitButton">
+<WidgetAttr/>
+<Text>
+<![CDATA[查询]]></Text>
+</Widget>
+</C>
+<C c="0" r="2" s="8">
+<Expand/>
+</C>
+<C c="2" r="2" s="8">
+<Expand/>
+</C>
+<C c="3" r="2" s="8">
+<Expand/>
+</C>
+</CellElementList>
+</ParameterUI>
+</ReportParameterAttr>
+<StyleList>
+<Style horizontal_alignment="0">
+<FRFont name="微软雅黑 Bold" style="1" size="29" foreground="-13395610"/>
+<Background name="ImageBackground" specifiedImageWidth="-1.0" specifiedImageHeight="-1.0" layout="2">
+<Image width="958" height="103">
+<![CDATA[m@B#Vh*uk^s314X:6N*Pm&n%1A]An,ZWms0WOeO7]A]Ao+A9MJ_%9Ctd'*2VCg5G`1)u;A;2GWP
+U:@Gk_:qpC??2%&O,n!mg\6_7_*k#/FV1ppD4mIYscWVt_]AiMP&n+paLZLTAldD.=R/H\*rM
+=b"C%YF?8(JQdO`@s4;liKaJPE<2`We65f$kJ+GAhnc(]AYIep[s_>A_,&q'>lOl2Ef-2$Mp8
+#niNeeUtsbui^ooG=bjI6/)>TDsB(jI1V5qs:qmde__UYkR0r_XDdMZQmuG_eW#S0->Z?,l0
+T+S&=R]AY8!#]AS_lVg[^l!)]A&<&6qu)`:YC<&@^%o#(^4^!MrRu[4N2\s./#0e%/$2HmIa=&J
+3KVDWc]A:g)2eM3)B5;;2]AR+jJ-"m_en%enli87lm#*2g9K8%oA-u$EBL0'3CrOG`g2+P$-nu
+Z%]Ao]AJPi21n:L(Wr/sIgDoY,HYl(bu!FcXf00@ITsj531!PR"RB(D+1S0pf@cTJptnZM:Ybt
+U(]AQ.(?*bIJ4IHl!rm.[8h7K]A5s1'$f/(F3>WpYYdqB$lmK&(T`\eL++MY["he6K6R:SYb0?
+7n\E3Yn<nh_0I$r:?sJAc3:Mr(khJ[U(.TTDt$eZdpcihmq6$A?<Q?UgFZb;_RM&RgepHj0L
+8lc9PaieFTKM7%upCckk3;/_qU=Is.r`e?U[^@!jSB_7d!UehGK`V'4$nAkV_`/'q9cX0:,[
+?1Fl:Q3I.M[.$,hem=,A_<Z?IHf8,Rh+;dkL&Fh.p+KDkg9/;4a<&ZHGV1Y7?3bn9lBTkqq:
+G/CM05>?@toEsSZA]AE&7!ta@tNl4&+r/o?l\;l4(4bnkMufeGuNaK4UBf1I3!Di<[SNjbRto
+=5^4h6?Jb<:J#R#Dbc?3#pjMXV/S<r@$sC%,nO2l-o?WiKqo.oLA:'qRIhQh00948/0]AQ<tb
+SM#mIEqHmO)iL-?[H0O+^[G-UTZfG9>tPV#tN_38WkU+n`5;7DE?8VU@lKf/pNOk94uHcZI8
+5)@_R,;]A&l7's-`JRS?=j&jXMDh/.o"]A#!M77JhZ?tcN>E):5jsBA#@O2k]A2]A_]A1nXP]Ab;un
+#k(.Q*[p)N@),ollD=[mF`TkI3+0D<lf_fb=2OX-4l=\4EWE4oH&fc1J[NrdZ'/Wh(fOG,g$
+mdKIHd,1BSL1@WEgY%:GBf*H/ouuQ$LUUUZDbgcfF7nVBWLO36s@N028Qu+$<bS'/Y_E#QO8
+gb67Dh^%jkenS]AKSUMI&cM=hsjCn%:q.Dq?1s-&k1o**Om&<hR,TrmpU>.&K:-X$_0B#19,D
+4Y)oS>0U<Tq)jXQd>9JVUmtgAB=(^[qB<kUHCGW`Lsr4Pg?4M1^GSEaco).COjhZA02jZN-f
+?V+e*2)^TPT;1_.3anT-s1m]AH90'Ad:#drj!j'?R$q=5MFh-MUr1bn>(7X]An1$a-alH2\u27
+?d.AtLd=+83G_:omN\Q@4PFH#*k[8AT<Y:PC=uS]A]AO"7i@/:^cF-p/IFjlF<Da!95O68@p=B
+s(:7b>?b*j;^OL[L3.bAZ7%\bG71Hn[[h&B/A_ULSf/1o?N6HPMk-XI$>4=1h+GmGHO*SQ3Y
+,f8Io((>HR%B&"rjeq\1IcZrP,^:[^Z2<7rmp=1+Rg"*RueJHiCpsu;?opPukouXQdgKnm>[
+dIt5K,JY\PAs51`kAOk\?bfL'0E/"D5]AoLMRftU_]AtWM_`@1RF2tgBk.Ra=>aYQ>m&WSG.1E
+Noqam]A*mi\o+hrJ_pN11iN]AM",oIZb;lT%h/?r7a^1D4=&3p>C8.K`%Q_C!L4+8M]Ad0a*qcj
+DcPpp[M]Ap0T"ca<%t7ZM$\%m0LPU:#+52@4odH,-QZ[!pAas%E.llcS16,>ns&k<BM]A5ZWrt
+cPom5L'9eiMi'lpo9X(]A)9/gOAD6\'-echA!Zt[)fftNH'BbUCNd!XWm)^U)iucB?kY:[O'_
+CNah9+41*fRAo,(j1%$p;\?\;rZ8Pb4GDfh,ZL%_2cC#?K29A-,j4gQn>BrT"GLO'&Ue@)#(
+TMnIA2n0dJlf.RE7?I]AguSL>pp:F^Hq!3&r;BPs(\o;>4PH")T4ro?7IM5RL>/#f=rDp?lAa
+XH`6VFpmUS$@9b4gt"6"M9`;JI$)>D@Md9uptHGmLYIiEY-?X>2P/nN'[okfum+'E3l^LqEH
+lPHagHHt)Y6EKWnU]A8)'YE,CPDb,UmrBInIIZ^<WZ;:AbD;4d=kP8OkfD`mpfJYCsa[2SI??
+!$mS4lu92?uqA.onP9qlP"qD$fa7A`)QA)>PZk82BT5MAHK:*L:5@>P[QCa'g!\h2L^.<q>T
++pj)-g.tH5t;V9R/b4\cnR<"4CWt>Z0"#@-g1(4=r\?'%XgA.b+^Ql1F6D"Z*4R6p[I!fnIZ
+K>=j5p,bg3QU'Aq>UZ^(hKl]AP;o_X0WlfW$*XEjY1eAL1mhX@O16!@:P"Su03*Cb)(]ABTHX7
+q7Go\XA?XHE]Arh%poqMJHW&T<))1"M]A"^G-7sgR,b$^o'.N\UpG0Q6"UbCY?2L-aV[:n8=hc
++*`@X&Y.hW6<?9qI3JXdJ*C4R>'YZNfNPK/(mA9LkWbU">?pkVee2TL2dYKV#8jRYoa<U,E_
+hh+>\W(u#0WEnJ'.:#cgCKRWq[7^aod-GOUkd^\+ABMXp#RkYdb:Jc#1WC^Km"JIUrZ:21:K
+j.]A%29[aE5['AL>-S"cqUEH:sNbj*kc4&A&FC#?`$%/nsrM+_&8$i6R#'Q`c'KoIB_5&IO,R
+Fg=dFc)g*H:i-pm,Le%+_HS>mqT*=@4N)_U(6LhE%ntC>MGkE"k"t64@c"g/]A=8+4id4'.f4
+g7eUI'TJM$anCsPSo[jBlG\C+HI&tOB9kEnB`FR)<'aD4JF"b#2P>*lhZ;:hdYgDVDBD5#ag
+M.IAk3(,@QdPW:jfqkiLbI3,jca^'%;cTHe6nMUSAks4'MgbC6%qHdpkEb.Kd5[d;-g*O/]AD
+;<Q`nsu1a*!g?Sbu]AWp"FY6d-H^-&Zpfs=055l[AoY;nmJtE)p^Lrc]A4Ehg*u^=b&=>-[eg#
+,\h]Anl0'M>UE.)RZH5\?fR1$t4gZp#pb,[s2dn&Q*VCllla3]Al^;I-ac09Z.f`\hKla1<mjC
+V_n_pHEp&8==gS5quKQ^Zk'A%G)clkjX^M#5XMF?,kMj5&71OQgL\fe#&]A?cal0hXEP,\CpL
+0=Y,*#&ag-Y+HclNChT1do?*Wd>)f//%m7(VjP%f=uY&0bAnnlL>"s)=UE=k-&a1u$($/:U]A
+/<P(.eFLNPMLUhp6*g=[NA5pOEpZTEm!4f2_lfRI/Dfc9-,d85$mtAGaE+R,)+O"_PNUg%;Y
+p7D'Nc9F"mqc6gPY]Aqoh<s$0,Sal&>us7XYed9i*%#<9iDGZi'%/HbIm_MJ+&kDAaKi;H.[7
+kHQOe$89"#^]ATfJ%;oQDqdquV/)4.f'AS'I<R?r-bOEOuoc`k[g[KE"F<p(_=2K^*b="2n)T
+f*7IP%/EJR8cL?W`!6R/EDsa^"HY-.t_$1[:jXKpT-QEjs\M\GceoHq2/\"@jV(65I*.IVqI
+PE#d52ejae%R;4F!dMe5Gg7r98NVkbmZ=B9U9Y^\5'AEh6aP!=2CEE'p.9!]AqYUDRJ0Nio,N
+"lVKqc7h(l=3[=Y@2ch?R#CPI%Oo\C=E>sq^2Jo#0s\dRH[k"'R<qR6h"rt7(OkJ]A+4Z-[q]A
+F-*BS1pkH]Ad>H[cLaAhS7iVn1V6GIT>%MXkV?rfj8ObluPBT`ECHDEc600_7#f@f8[YWY.40
+4@=*.:[I_p,f?6$^F*5a;A/oFJHom\mI#5p1Fa`5VEc.3_RBu9"lYLq(&_l/]AaIo]A.&[[:S%
+F^\]AB@ZdCV88>.=IMM[TCO7:m9s`I`ckQD"eY!eJR9n+ILc7tg013MY0F#RYNVC($1i(pE%S
+UO,L!uDh'@:>:&Fp9NpI1[grl`Sq[ML7/'C(YZ)nGLlLM57[W6rD@F93`q([c;\!"(sYc6Bd
+WN1'A'@,EAnZon->$Sfi9P%G6?'++$Ta\L*RUrYpiEtrhAio4DEA)UAh-Se8[bJMQbn7D>\[
+YFTc!6jTE#*8:?&EQ-1R?9goS/%T1op..DpmY$))gN`/$LU$QV2MZlZO_qc!in>=`.*Ab@27
+K`FG(S^r\/aqJ$\rR"l.-O(3\0X?$$,-JurQ^T4k4jKN8Om]A^?Ym?"JX>mg?*]AgR;(Y6dGIY
+A,1<P/f(^rl$mGPK1aSX]Al.fEIGR<^=_;cjKiM]ADc61HeY5do[WHBOZ8nG\cLXm`9PXNSh`O
+-ceO@.::r`4[R^KagN,<_)6gT_.I;l.uUWsIR5^aNMQVnpeZRhU'o7k;sfQ_b\beK>]A6g'Z8
+b#isqY\]AIU7VDY5:9Y5"pWshMYI4V%LjV)h02u+Y0\/QaW%+-C7\i9'&<(b;a#HKKIUGatDt
+kgDpW@p1Mj?F=@TXf!G?EfAgcf4c?\S#%Z-NXR=_,9V+)b:GFfcu(9eeh1Jn'@6FIXjsaKrr
+M,eA%R3,^#/Q*'9heWpe$eeak<0.m']AhB[M:<@#Y^>g=ek,$FM;CEF@m\P/7.iJWD)(9_kM\
+s)k)(2W8"o+Z,-fILUK/C_=DfMau3Ta[=>8,TH*Y.`gCO4.K+Ccbao0s^s;4A/;0D1-JCYCu
+b6n!trk\uph5Y<Ac(S+G0(aQ,U=EE2($3c&R_T4bp>[)oX8mm'TmQXnl0LMCHUYO&She2L[>
+I",Rjn*m`12$O2L<QW.#<T1Hl+*ALVVV,"dDTVOk>*/2[?=.4Abr++1GaHd&,]A]A;#kgth4PU
+ifqAq%ahX1@0F?V&\'rL/Nmr<gO=I[LfrS&S+0I6Mptr>Q1"C0E7OgXPbBM/9Co]AVgiAQhJ1
+Z@:%Kog<=?r)#+-h;E<nKm_*M"YHla=?%)OB./BFXbPM<YU_q^a[?Sjk;0QYlK.s8X7eQ$O4
+@^tBn>@gqR]A;-H/o*BCDDkWZGF3/)eZ\"H/j0-H0rdMdCWhpM<seg%L2;k.MRa+L4kYF3c]A+
+WPjOi<NVjApD9ek7_Cd+^sU(37P1Q03Z6YHm(br8=8-2'c.fe/4R._`V[F)'H[I^*<WD+D$N
+P<Kc\IK8'OD=Hb7S!%137O3"W<Jas`V0$SqR[:3lBPVL//VSQ5CZ3W&./%RRj"Hrc[Ac.t=M
+?Ws\WjjTJQX)d02H?Q_-_0Jii7D'Q/jiA8bd_7E%Pcof4E_-H\(@GhK;ZX>c(7_/`nN@ogR%
+Z=)h9KFBn\X]ACmh"OhYV*p_1:5.<`tGI5Ktf?s=XUX%glNC,Z(i!0N%oAk\M]AeMZ(kQ.p&&<
+3^SCfdE&Pck>dWl+EcrnF+tBlWr`$JfO6f3Yp&Ug1n^A4Ji+$UHHI?l\ZOe?%[JW,;,7@B5Q
+&Sc[N51;k%J/ZDkI+;l&sPq$d)MKPQi1NUpr+I<(%ZZr[FFE44qA,4:G,]A$IF"Rh5OdjM3E.
+I_)8`:DWiKf_B><Cj\pk)C!bNAhN1#"%.O@(U)#jDd+s*VK'7U8Alg\nfFj_Gh&q:kJH)Uo"
+N"SmLCh@0c0GZ)Ms*[3a\BHY#cU`]A+/GoVmTuTm8*<[T!KZ.^;$X`MJT%fT-`%J=PZA<Mi?%
+(RZBHbdX8HWO]A\7?<_r9rglR%@CtgCM\Ai[J]AY*=cdhRhZ]AsI8eE,=*/Abl5Ogt@:HQT%DnH
+!\Ab9\!B>SK.&lHOd+I-]AC9i`s6aSKQ3tiEe<\rf^7DE$hJ;&%!p3_)Q75=R`bH3.^:L-5'*
+RQ[oue9Np1[@pYJp^c+Pqq>4nF$E*&G^k19o'=Kgp?cDAbMgREe"O>e'G+)VtM7=F9BP-#+Z
+)of8sa5f:J5V;,<EpZeQV.;OAFg.)@gZr7,q%OA/nhl^)H.H&'-Y^3WX?>D6G[amGF1VUGH`
+<NVRErCMXs"5l$]Af"ecT:T*6^f"[P!NB7bur&Sf]A:ko]Ali&BA9';ZQoD,XA=e9YlW*%Qp`H&
+NcE2uoXY&"2RkJ\A@$d5AgGFI%d`&kOmQ\q1Y.3%!k;Em!gL*UW0";]AYBB*X`AZ@r4'f<tZj
+]AksVSO;1Zqmj9lpX4>]A>fM3KAE5NJ^)`Y4EU;fKoeJ>E`-o?/\Wh$[rO,Pe&*u6EC0sc[BsG
+I_Z.<Z]A@ca+To4iYWMnW_)`m$Q*SLqCYiGQTD=g($.$@/+/I*67\nL)VerK_!K<6h$Z3VToo
+UL'^_pR2lX^2[li^#j%q,j3K@*rTf#EN^o`W:2G#=_aLf'sVYrI&kH'<u<gSUn<Djju0@@%F
+(Z`]AfOmM>HDS"-5^B<O%Y4CcSP,LdDE;OD#96tlMK8s?Q]A!r"qR^=9i_D["l"\8/FfkOpO<'
+-TCKW<CkskBP\nBfMXhWnmbm6VVjN=3heHZ`;GOOdHIs;Sg\>oCI;^fa&&1bnT/l4K-1]Ao4n
+jj8Raf!d7r2V[b?*D[6LUubA=-1L7=1YK6&u.%pgr,a9AZPpUl?Ar49&#-8K,/L4g/bCep!B
+-b;n$C^&M5T=XUUqM-EfV:[VRtU*64_ofTBG9_o-%Br`f!!?WXPfJa9IOFtI7PMCpqjZ_fA#
+X@;0QnCUB)Rf1eXETe<B9ghV]A`[.2C_>hpK3m[S+el:E83no8#CI7>0eYjoV-^RHro*a#_)P
+1LliN]A#EP#h`/qQiiF]A@(4fB*EncJ85m/cf)Dn=K9Tk<!E6Hj5/Mp[`pI'E[gVX:2Rsu9%V%
+OB<uO0f3'jVFl)EtbM(0cI7Vs0*\P3ONh88^Wh,.!\K%e/l7fI;<+Hp`ec#(cG<X#_^)_74[
+SAfk7*KdGDKXX,"rYT:)0[c-[[jb&I`G>qelb$+3YZ2RhH=okjY:Y68%.e#0Q%]A\(H>3W9C&
+#A_g:u+.1r\Bk-J!d+&'h%HW<AeooM:KM0n4U0V3I6]A&VRX6cPtQJf.3^]ARENL5M5-,;mDdI
+2GJ-dlTCBiQtQtp;?*0AEF#G*_`6Ca^q-nu;oa>IAZd2!hFcdC52tJh4Iqs0HokJ."4=\Z4g
+jWK&]A7@sb7j+2KULbg[?Tt`VpFZ5M=5]AECLXog-'MPhatY/?>K0[u-Z/$HAR8Dc@bj)`=lrU
+Wo_!9S*o^VP9s!M%qYhsQo,XRjpa);MU"Zt7XkmKX@U\B\@I&k1h<'%.Z/*t*I69[,46"]A3,
+sSh>*ife%OM/'G[RBG58,MK)fNV9kXp.SRl[VQ@(@CX*?aZ_*"neO(lEV]AGb9Ge/g4rYCYU2
+PW^@Mm]A@l:Q=&#nm,F+rYD'D(Y'0p>pOZnBj]Af&,rcq1s;)`Z^d`AN=itF.7,4FEeJ/:\XYq
+bbJW'PnAsrC%&i?CaH4ZlL3ZA#M3toUjJ[*To$9B".F2,e&4!]A)nap>SV`tS0Lt*H]A;?Qg08
+jCdEM#GT5LW^Rq`*Ig[(Toae]AE*,[p7(_O7Np8c)rd;QFsk=2\I)^c:sg?/?E#MV]A=Ar9t@^
+Ns8K<6[`s\J?#cuF`[-%a*SOcqIBfnC]A;nSIf+?h_C,0ZSg8@+kJ%3A%GA?87\&HRkr0PF6=
+"Nhmc+<#_Nqi<'\IHR6>%BS`j`;X[RrUqE#/pZ4]A&HnZhf+c,js<$iH$W3.p'SAV\IB;^_KL
+(S(Ye6[)([4_DStpI2>i0Wr.r/oGu.u)\pe3Qoc*Jj=eA$n=`,69/rP"#Wgd*":6)L^Vo#lk
+E]A*QiO8Pg*U9S3+^qF(l`/@qlC_ZD)M.E?.`-nrhX(C\$?Z>92Q#3\:r6d%&b$)o`9`$k\46
+@+QSqB!L&PEWfaRQ<eFoD3^X]Ap^1\sdcSX5H.:lLX_TA"0M07Wl\I",=(_/A?7<HgPqjmlF+
+[]A%.^b\mj,`9dZ-*LPf^'@t\W4YXI+M)8^[P9PR.GWD?7<W>>$gA\g*)PHA=FkE&bl?YDMJ6
+q+CA(.@K(]APGZf/p*["_hnTONUJ=jmq@%Vr-s8.aChWTg1KEVPDiM,iCm*u5l]APu;f+ki.84
+6>k]Ar,GYl.Xi8^@sMOYCG=^*da"V]ADgu_7%.e-UPO1*pRF;,L9DC_k@R#nT?D\]A;KF_Je,SD
+'&4ql8T6>Ce(#&=pC?0;#UMUJcVN?ZFd?lEQ??-mY1G[W9N_hV5V?X'^D/A+-iA3>a)RYY9<
+ZXSrAp&[99`)fAI`0(gV26N>M&DJQTb*[qrHKthcsqOhK?Vr:GFfjFk2RX`k0e7hcdA$c4DS
+$:85.q%KhhRWDXVc1'c7nG/B]A<D%8V`%\5giD`quc@FE`m@XP)_UU#lNfjqaqN1(_Y`I=i)]A
+I(t8M]A+KTbbRsfg^@Tu)5DLQ+\#K+]Atbrd$u_ZAmh6+XdQ;5_NhUi9f`''OD^B8&54,C7(`.
+6GkS1>Y!oG%,RJ(<m,9afC)AD]Ao:PV;sK\Qs:qtoX8Qaq;ujPDP]AbPU#A\q0YB)OW6%B5sPD
+50g63=b//hQa^ati^&d<:OLAF3-gCfbb^iND+3X'+Q$r?r60p4WnFeK4)+D1Q-2SE5F@_N5_
+;id47X223H+HH+$AI`\]ADU_l48i$9l#_]A]A,g$Db!W7G,g;jdEboL5W$8W"W2o:"XN#5QGV1)
+GWbp:selOcu!40fqYI[HP]A.UWn8$Y5`qZ?4$9qR-Frr_;mDHn^;R6+eqIUW,Jr(/(u>c,WOi
+EEMSmu.*f@=0s&$Y..=.J<"3>l3fF8)A?i;abtI4D%g%gO_R(f_.#8[Ke>jf(m77HZ(\+SYR
+8:lFGh8YLde-pGkpR[\P#7N>,U_ON"`UA@sHj+#ZX"Pjs3--+LDsa-3S`8Gb,CnS/b2-(EZ9
+KRK%(XW@!_ageM@YI.\Ha/)"?XlXWhSZCCKCX)k4?)-qm>&g_Qp=IS0n1@Zg3`cE[FY9_PfJ
+ZHLX\nJc`jH9$]Ap,jlApG#J="VmKVY/'?]A(L&BQrfTCdR;-e2K7YWH+JgAG<gf.nDEQc<jBn
+NV8)6.K3/RoY+=M*;b9:AE]AId.Tlf=sqW?eKc`ljrr.XH!X),76C^Y^60%a3kHZ,>76"8J0Z
+\nVoI3)iO@9(QZ%OV`@H-:*\-aj3-]AR)Nr>foEeJ+FDP5>rQB`+DpPInKS(b2bt,\NR7ZdQt
+cQW*JiV>c_,0I8a^0`W!N=^;7K?lkA1A37kB8gagDMR,o":l,Y7)V;9[T:M&''To/lURdK[/
+L337=f![3U.B#YA&fO$0QS24Z'j8b-`u.B#.E]AZ_D'_-XSG9U?&F\?2:)+jXg>>t(PC/okri
+p#3MokQdk5=iq+(Gu!hA519?/BIU+4%hd*]AS?!g,,q\lLP1*T3@=^e5hST;UE1lZg-_NhpQX
+4c>B5Xc3ip:FlV]AWGc\LHb-DDG6nOG.4bilsZ/$1_F8s_UF\p/mlQLnXlNTl2(Y6e&DFbjL=
+)jkFpeMcWiur/!f;MeOrd*D@I9oY/N2lLt?&Q^H/nNfC=6B<pG8\q*\>mB;_AFF640HWVf36
+HU4A^(=[d%B#R[!YNRO)-`=[TlgeUp8>[\[l9[B2'UQ-tW&3ZY0:Z.^4sNET@[a%UlPYg(,L
+\DkJ>3EM(!]A4<,5\h2QM6u6Y6Si4j"[`<<hV#"\_WhTcje(#Dfhd$]AEe%O&+C6E7/e.C`%?&
+cj5g#nd)aSoZI*c/NO]A2hK:8[V:Ym2,RYN^mATdM\jeiBHoPoEej<0ND7'enHCM=\#^2n9e[
+37mEbk-?P6`fFR-TI"d"5`:urDr7O]A`[OWNUY(UW''!gmsaHS1u>NT.oO&+>51V#H(BsCdt@
+HPP!<f(Ch0ViI=k7oIBs-7U7NqLm?"dReaaa+"i\@+`0em<N>T4G$>bb4:D37q,P\Wj:_qhm
+]A%)<B<C2J'tQ(-+G%\X9JLE\4iJ_'C,k\u)T9EnLJ_d]AEm8m;]Aq??&mE+ZrOu%3GZp;SIX>[
+_Z?78BsO_>=s[0\?.Sm(O7Dg:f$>57>VVa@Son(=79X!u)`>Y?3.90B5ui3pUE&l=%UN>jR_
+/;*]AR.qt)L.^HQ47ts?s`c$ElC36ZOr2u\</43rp6#O?FTEP1ZNC^>bmcdUsg$AK$@G55(NN
+U[X&eomic@VXg=t5rTm>USIX[L/OOKinD$!]AE^8=)nW7UKKf]A&]AagD@?m<`$K3hXR-f-N;e:
+gm[H%jX1!$Id;CpK(ARTk^FeFsK*EZ='6'2FHLcmtba(hA,1'nt/RC4D0uqf[nWe8cGhDNm<
+R]Ae^ck18"O.XD>T`;]A5GWs%dgI,%CX:hk@SUYe_o44Xu0VA%Ysc0G/lAC]Aui%2$K%$37+W7@
+^/'\:F+//Kfm"#TbAjDied(EM@"r,2T,._)[%3'r%VeXKN.sQ,qlX#?[D96':>3LfS\k68BC
+0Y5T)re[?p%-PmA-83Q+"0=33E'Q)Xf?O!Qh]A2`oYoQ_gUu"ICSFXr`_5Vir+B^nuQERV$4=
++hHBOC-+ki5Cb&I!_\GD>i-J)Wg;mla\Fp3I[ejj1D0<BJinSgaL5D3qR<bboj5dP7Mug'10
+;s7_8GOBj^,$'rR'YhFA]Ad0AFn/Mk4te__32P_ensN/H.T)*Xd6FEkQ34Sfb,KI32<_h'fN6
+jD<NN7/)E;WF[$Gr9ao4>rjqlh;fIsb`YtqSS]A;r4(FW-*A7V[(A(2?ttp`&G/*ot4D*^=7n
+QB94UP%AHY=gJ04XpJ]AUJ'6k$r[^m\K)/`.a:0faLGPFF*p!4?^6C>mY%\i`eHQaq?B/Br88
+!c;:%a;[H,n1q-e>S`)Q2)$W]A]AG1RaL!tErSl$X-#!a6;/"3:S!%I0P87%<(lLMb.1=60Ac6
+_>n<3I]A*$`9NtT1JfNnsb^ACB$K$W=@_6M1&n$%=^`QYqpoun\R22PG)`-YmHD`iL;@@BiEH
+A5I?o3=&KO"a',jl9o.QdK@o``G'AeTWY-X+Xi)'l2+Z]ApD:5JYC6%Z@"`!]AhbUr^?qOccG=
+>dD(f@&(Q@,/fWVg>+m4%5nEm:sgNGX9>M&kmm2k7n?*LG(^6N9a.b7&OWm&%2gKJ.*JJ<T;
+lV's29.CopX/;8lpP4psk:F4\3=h-q\)N/VJ#CT#3ds&-*Q*;E:4m>Iq0#)1B+7hDaZ['8gH
+KI'I^R5E5/B6X@bl#jkSVP=Y9J4/aRCdBH"@+9B&WU[II?Vf#L=L5kAfQY']Ah`DF""f*S1Dd
+r1ElL!?bj47Wq.P,FH*Tt%Nte=6nM%%GrNcj\&j*^d>-l@9(-/MmD"_Rm]AGA50%tkS[;FA^I
+;>FhFBZA'hmnuVc2M`DG@u'DUe?UCBprC,Kqi4#2!)!f.p;nl>\cana8Xf[0\4dD5Hr3n3/@
+<s3ZN.=X#O1WQrd!'eR;C=/lKkJWj&WG&#S%PqIV$g6W:9S2U/)MT%:/JP3_Se:`lJ"UU_/$
+XVPYapG%]A;f;[>W4RmFX8GO:d>]AlW$dsMEF`O0hheT3>dRDc/Kk#4<.q#.52VW*tFg#npjF-
+Q*>&9(>a@:.QmZXW?6D,5:L!&^9s"dp8V>(N-?mEI_#*6'jXE9fiPbIWIm0;R4Xh*&t4aQI`
+9`\S!;1W)BXqsAfi"hr9CH/,I9]A-R,W-(-^R*FYSW]Ai=tQhD7e!Y-WH0dH0S:REX]AWZk_<;M
+eSVM=>uT;TOoh<.n":<KPu3oO[iqW5JE&_)+`l?P[rU!O`/#TeRma/B"sXlr]ADM`gZo7\\W#
+BdG0fC6&PgM&m*_faA_a=$hr<m8[8G+"jO16A`N_$F$MGpW(%M62D:o2+q98T#A@g)6*9q9#
+\;hF%fiA!Wb4rZQbu$+Q9jeAi2lUD%Xe2i<ZtYJ76Rp;q;e9/Tq!jBJ>1$I_pZh)eN,'oW`3
+dc(Q;<RF<onoi&[8bqhE=W@f^H@TEaD/Z1!"".X63LS<.&TW]Arg'Ob3.X?'Up^,>Z:>O@Z>g
+Hf;@A"]AK'n+9!![VNip"s?E:<^XM#U;Wq!-qp0sFpb(G;W$^VQJ.C4&"%5;8(ds*hE>g-2gP
+M"f,><]Altq-eG(?F050euF9WRsc<I>-3?#m12nerQ_@JBNrK*^ohsI<\kBe=[t(*G[8oZ5In
+%O`G')BAQE<peTuQfO5'>Nlq3=WD<.AY<o@8>2tb"XBsF`lKPdKd1[]A<QY^DeY^MTEC1Q#Ha
+><#-]ANWG`Fig`V]AK(2`NH`V"JQ#d'*#EFj,e?cZ&/K>utf=D7f0@EURT6^(8iM&gCs4/@mh=
+DEHErl"Fn^pl=Nu$nqm_dYK`k*pr9rCK;50t'8-Yn;\j+@Rfjd@):\Rj[*oaGee\?T"R.1Zd
+N($bXme)sBd*6</B<c_#7RJ7)4c+:*4j3f%%<umh))QSM.o_m>4"1DnsFnuO0E2lW<+Bhd]A5
+.*o,[<.mG:CX>YiHf4kfOf?M2Ip@ps'j*VO3dQaU31S%Yk'B9B&rYKm>4VEWF]A8=cXn0:g7X
+s1.WMC2`WZ<]AXh5CTll6`f/T<!16d+mn\)_o>Y)QrO#'q&oXSP-X;9iQc>D2_WWm?Rb$j:t[
+qn7>uj(g</He3gqf7L%LH!L_6#_'P"2P`0:`Jcdf2^Q1_^g^#iWa+)NFC/@Gn$$OZA\>0pS<
+JAE/`G%3Y@3W,*D;ef213lRD"Y,H1#B=$LKKs]A):s5E"(,HicK`R?l6Fo"7B=pYMPc5r:`C%
+XCeLm`kg)0:@\AWIlU&kG1/h-J\mSC^%imI2%4*lt@"ooN=9>\2pt2K_7U=i[<L>`/g*0JU-
+R;-@Iq5'<Wp'877UC[%UX#h,H^BGR&Cu/9Ci5]A9=a)0.=/+8:j*]AB#Oit1T$Ai$-K!D4h-@<
+RRFY__oX:ph#hh_KHW7]Ai;k?m9Vm)R.62Dc-gVp.40N60F*a.DgDFKCW-)7]AB*aFsF\Q\0^[
+4qG%[e=Mfa@(1es4\[BOMIpT`/&=Aqi2PLOeZ.Q_4^M]A@n$VtYAS#s$R(!dm@.%Tcm5'.hPa
+R_Z$D%tb34bHo]A2eYS2<$gsadc\#q),]ACS0\#ZV/nkdH'HR/<VBEark67kOc8V.WVWJ>cOX$
+2_18:r3e)+'^;-g4_4<G[s/%gndqZIkM,o4$gDhpsk#,,AFig`0Bj>C&bC&#3/XtrJH4SHCn
+\LE$Q!(M-?54:0)L#eLokH1Ce?`K!f#9^G)rma:4C<H+._[VnC`f&r@R95N?'nfrinHL7EOa
+K*:+?UjT?\<;Fj0(L02'[D/:K`WZmp[_A*e'7&Zr^=[]AP?;AHi$Mq`9Jp>e.#`e(@E"k1S.L
+O*4Y?n1qXX\1j2MAGPsNinn#d)c(e`gj<%RHi'R#Jakgr:@t-V>N-ML\t2!>n^]A!Vo@__<mj
++ZOJ]AR#?[gh0)MCRsS0UJl[b'OXag:R[QeEkT]A-/9#rFfFqA&'%2Rf79W;c*oM"F14ojN*?[
+tE%4&j0or,Nm>RJ32(s,S?T)'A9R?fL%\N\oQ5CF=)-o?!)9(URDI$u-cn`]A^B>YKuK*0S_Y
+L=*@Wf3]AYWXML@C^SpsDV+kDJE3;Zi0lm4b-`5/XihmFZ?0MYSo8n[`OmmRl`_sB+^^hMbe:
+6A2RjS$M(_Q).`FQ5FaW1.g<+I?O5'0<B"(:eJo/?sT-a*/nh74.fXp#Fm[XRM76E(Fm,&f;
+H7R4o23[HLfpru#/)ruYA#uoVdG6T&H_T?/O`^O*0rqSZ^L&@3PnBe7b5kUOD`6@Th@#EglN
+($]ACW<g*rl:b#Cr(6]Ag?;7@]AN+pc\fAkJ^Mn(,YFI_kAm2$sff%Jd?rX13lGt'ioeY;[S'j?
+9.+l#[kuFSib_BEMVHqK6s+foaDQK6)4K:a[T@%@uhc7^9hEJ3s[Y+)ffE$4?YABZ)':OM-U
+LPViZ/TQ7LY)f0QA'^+gPNIbAU,l4/3dKDNVnKU3hd`V#9?d8`AhKunsOJ]AjKqC:=Q;AG'0D
+g;HPIOHH&'^(=fFNE+YPpIZX'1"b(\dP_]AoZc?BJf*jPS`W9A4\Bj!]AgYHY.P^MXGU2:9F]A<
+8D2qb$9s.bg+&HPCt,m<@o-b&.ad&+6h.@\qS`>h)R+7ed63Fu`;\P+p?96]AnPNO@_3^r,`&
+,Kg2rjb5NK]Aj%:=IaPgLc^jrRb@\gKn(m)7OmKBH==Z9?ss0?Ykp?7B@HIlqZ<q:m_+AH^sU
+`QFVgrd,e+<rtj3LYVX#bD3,b>HR2qkB.*%bmAZV]A/^IK8mX72./^I'QnL[D9\ouT.MZ"6u8
+"Wd@oYM;lRj?1W>]A4SaA[jXUUOB]Ad*"6rieXE2lBYc?p;8BTFX@iq]Ah)B[LIa8\\Z`bkY6@X
+Q)!1]A74aM!sTdrYn9D]AdtFg=IRcRLHHK6g-We*JPQi8W6U/s5SD*[W6qdj?5!mIVt_"^:fQl
+'4Y6$=X/L:U:_="dRI!o\e`tobM9/VS"APFLOOTX<3+PmraDcg_pb-E3.`&.B(]A:7^L1*V-6
+HK]AGIoA$NM`/G[*?[YTYpA'OOn^[(\.B*N/P-RY<(7G)q39hM8rmB%*#<>b_A8L9R>JJQBgY
+!9+1)kA:?i[5#kTe=tC-reD`J\E[sdmEN<PIL$)"\[cR'k<!55,a;A*DB6TEVI]A#7pm<FdHp
+cg_[.O)oTqD0SQ5FHr(WEk>AAY3[23>9'SJ90_^he_qsOF-0C\qCdn2^;OF?c3j;bOXL=nmW
+TehL0M`E-*Jfs'4Ztm'0YoWL&fUb>iuM?=(=s'Uq-$bM>V_5`>!V4[e.m/kOsm:0tT'ArLr:
+mB4oI[9HIs"0'mq>ub?<gPcLudM>.c%HPCglB?.UI.?SL')bs1N>@bG,8"ea<.&!*n5&^g'C
+:r$;^B?uD+VZ9F;Qd+kSSE]A5k9CdW:-P5:&DE@nEtCpm9ja3D`hB,;B+/lILl/SPA?d6"smK
+o3poUM8D"tUW.#rT;afg5f9L'As5VFg^;?m6_`Yd,:Mq81qK>eQiA3-i"abe;lga`WkKYE\!
+%1D/Y$d[n*!jl5<X]Af?4`d379iKT7o;4>(OR%4hG.@8QT6heemTd@"&bku3gacjfc5H00aLm
+jMq;[9O!-Ia?NXb#4ENH-s]Af<4gM+&DTAlC)K+*=3*l'9>dgs+nVIZ/IUiBqNm]ACh;9\7<NR
+goCfpD0;cmC,o<im&c;YeJ4]A73OZVmGAVQ3^nrYX[A=)'o>ltqjKG20%u0eh'tLN-LdfZ+a+
+#AZLW!^S1`6hY-'#Nqd5P(k')BNQ[VM>@^dX6i7MPTa@+t-c%X#ph$pWS.#'l>%?f.Uk!^!7
+B]ArO`-6^.*Dit^r'9J2fjI,:%4Z#\Xd'JWoha9h_5Z]AHtZBs399='"g^")NNHpK-Id@/IB[\
+$HY45NKW6nKaSfPgrM]ApV&*R0=-=I]A&MgDNhTN#qf["#;fu!.@oN"X]A,5O]A\oF@VlRM"IUXO
+V>POCBi[_oPenmf=DR$Y8AG&TFP_i^Q(f2p(&%G*_\X'R(He91^j?,'d6H(!0-F%'9qM:SOB
+WF[YU6N%::#Ob\&%Kud#E"(!b7.\h"RH1[=GTc=eaS.9NW3KnfNj/)gBs3`*J#u,.OMUX,a7
+#M#>IDbEbC/!u*p-ak44tUb9Si\LYG8N_7^Ri/+OQfqJPFPb1K=+:I;F9kA;fQ2;r^nJ#=Im
+.)CnskB.;oSV2tdgePE871#+nA'<R."h:jOHjS6$Ek5bj/Pjbih^TuRENfE`0CRe!LqipBY!
+r<MsUTF;hVOns4Y-YYTfl77Yq?8'ao6+&[eAYilbWVL,Gdi=ZAs^KH:LA70o#/p]APY\UopSJ
+s,V<.p8Ia<oAm[2D#,AZM,AD9UGB0N>"hmM!G%]A1\#40#<aYRR5_$^pT<c*+1rN*F93PBPGh
+W,pIo:_Q5IW<S,%k@*jb^6$4C9`>cc$)Z`L.t^.B/D,_ga-8Ii2CTUCf'4tkSI>.-boi([d5
+m(c4ke4@ehYY,dntl]A_Vj2oOua=u8'CNseaq8`HXlL>S;PWa$UZV&*t$[9F>23qOBqUA`]A92
++SfL*JM`;L7pRf9,s)GX.n'@kM0?LpXr!WBLZOa?nj)k*u!;??7ir5qbhJ&4HT,]A_7d!<WD'
+u>>?+'Xc.a6erZ,9HSSL"qUHG'TV4cg[Lm6,(Y#$pWc)P)%Di9YE5f4)\<i7$Y8Xd5Ga95-Z
+P,G>dV)3nJd;pPS=b?(AJ41,7XuHlVeYq-[-fH%T<ak6AXKagB;kq5fY+PZ>B]Ae-aSQC(f3(
+/at4b9_<4LSKM)<2JpgF-e's7A1Y^.?#ulWX[+SGa]AP;-a]AAspS&\qf#,>b`Dr,^*m37%/(b
+=pl<t\bRRm13D0XY_s'@2u^kM(m+k:5j82+=n%o8eio4bq$WYh+>YCf]A:3gD-q!e>GnP*_Xg
+M0JXF9XmQ(@F!^E_B]A+9)VP=Xp=[c_^5<Ii\O%NKRo+LO;JRcj.:U/h!H77]AX(>n[NqU'J+l
+G%Hjf(dhV?Ffi,q7'4EFd6]AuUH8YV07)Lu>$kGcaTV2JrD0lh&pBYTnnm]A7[P`$Pia;:\qmF
+OS%32p'=+.e/gI=go=PGrbc6:fnO::/Y_0bb]A;f<JA[P3(m>fT./Co>83)!H:9Q&XV(_7hCE
+$s9b\/@MBrp;MCoa04WrCMiUCN53cN))8>>B5+]A&@iL5D$uuH@('s9sgE!R"e>8;d?5<X@$1
++RupD<2MZHnF5:7K8=?rPC7cbM/YC-98tX2DcOUE!CZ:9S4Bmd4)Y;d83f1<*C[MomF=lGS+
+Jq:tPLg!+'?[E>p?EcdYE*)O:MlqU"3:%ZQ7Jk]A=!BCes3ocfMSpu58eI"Hdc^=oaAb%+@)8
++<=B.QJd@q[Oq=YnLa?i=fI7R9+7h%+2?`gOaVWj]ApWjeI4^CQ,AHem;th`BC%Qq>\Kgs<HW
+:Rj*dB92GM6,(/A0sA^SPkq$un'%TLQp[h@@HS'`ul4gJY\P"VD[,!I(m>#QG03^g>o*)5NY
+&jI2-B+TMe9N6$5dgV-p[SELE$3Hj^Xl5f+Q,%S\n$`[AF0O!K6`]Ae5i4V>i$2VVP^S_D7%B
+e*)a)OAQPr<i;CBEq=m2>OFCssa*p(I2'\f<MD;JtJXdsQ%)DG@6%Nn<Ti5-]Ap=ATL,YjAPC
+Wk0U9nIo4IMZHZF%HZ=Pg[aeQ@K:R$!lfspY?,scfct(n\3]AI=K)r"RuS]A/Uaf\U;_ZT_i)o
+?+UV,l!\V\]ANL4/'W69mX7qcVV1'%VOcl<V_/M&oRW)-GqfjZgM^NeLPrFa$MR^@@o]AsULQP
+YoorY"s`ff@b1[\0Ghbn9;fFm3cUc=\e?qG%*D_T5'6[=LR)7J0YA9T>"B-7rWrQHu(5Raeg
+mKGgig\WN@PC/\T-R?mKn2Dun>uc6uH\jk)XUQn;5/oUeo"_qe9)4QL6f))pC:!d!?Me`74P
+QUoHf_o,e)p=[3s6P*;A2!KUH=i_cIM72[Ag(WH.s=kBsm9e0]Ak#@D6A/egNq^R/KC:a^N%C
+cXk&cUni9'%i<GTTE"+Pd=\JJ?1QHSrM-Qq@K4cQ@TCM%m]AfO?Nnr)hJ'/P(*V9F)2S7RC/X
+1:^\EdqZ@mIYP'0\U8Ii!@?4'BA=NWgY/78cj@?D6\+Dm>:Br/Mlu\@9XYg1nS=JX=q]Ab0q=
+R^iP)l;o\F4M(0;*<(DlrX^'hNu(YLcZfRJ^VG'skK"P;sZKt-8KdkR'hb==ef\@3:9Vik$j
+ia,ZEY>`tbgh2562<kjujFH5E1+W*ALQl.i[<-6M9(+Ah\@5p;=[DMqftqe7qQm1S3)YqFl/
+i@k[$W5.WJQMgoPO1)QEuo19BhCm`f\@('V-RSS#R]A:>4?r-\;s@Jid4SsrcEGC2[d'8_6JB
+*bLUq$@t.YAT^I-i<`V99:`@q5A$48Q"-0dB6nU!)F=C`u2=2Ihqr:SqYMam<[]AZH7pCj'pG
+VS:2`Se)CM]AohfL3)"dOC8rX/WU[":DF$4Es1U1U30@6j8(e_+^k">'ou-jd-l+InWl*<T;I
+oC3]AuQe(uRG74YHcIdM89b\7T!<#8tAV_0X\a;p2Qu\-LuaGL_1^*dQPq,K[W)GZfZG4"]AO(
+;WZSTMm8m4EnQB'2pI@7aoOrF(LZcGV'`A&>ft408t@W3r#cKZ[b9VEm",>:D6d"8k.F($:#
+tWd&_GT\nce11?^I#ppP]AIB.R*H0Z0c7ZGnp[Gn,+H#ktDr?p%tk'&*$0^WQ??6g3e*8O2nE
+[5@38!gX$gK,@pWKMJ]ANeN-bOR>0`LD<OF..#&kE;Gu(BCXs*DZE%h!`Dt1V@LRtMcY:BFdZ
++AY531"8?Yck6O+X=L8:6"l."8*U`J)RtjZ"(se5MS=<Ec8G&f9WDh<N6P1Qt&4GnY,5sbUW
+<jP5Fe]ApXs#s]AcpJk]Abd?Nk;/I1XFE$SITr^O;XLqU^,;I"2E>;H\o+RO)Q2B@EAOVU1Eip_
+RWk6:]ApDttbJlT&2,:LrYUNAG1f]A<J]A7Tq.KMQtL:6R$b>`e$_XS0t^XCI6:b4#!SN1Wh'D<
+n?/C>UD<f#"bd$0A5ihMqG^Bg:NH9;j.$Ve@o)H2P5en`sgYATid<C8aoLj\%;r"]AbkX;-G=
+UABMYLm1&sI8&$#^>LFRf:J!_P[Q:u@i0p]AfoNmhp\'E1)*5B6kQM19W<C+C;4hL*d]Amb;Na
+h=5ol72Zm=7S'0fR#\#pqQCtP@a#7.-3'YN;L7Yg3bKm1q1f8F(cka;(gt=Bf5=<R$Zf=)*>
+!D)o8>ac<F,?Nm2\j>p_S!I+`&r*SOhbia'UXhgpdK/2O3E18E*L]AsUVPVc]A4$NB$Z8V1n)<
+,J&(O+>jb52$s%FMH`27qtR(fAVCs+)uH`u`ejQILAqVL36teKVhKOS&aR*KB>QYC)[A+#Z'
+M?MV=JYp?Uk[B5,%>HO(8(Q2Jdk3XSBoTN?L91YhQ#=KVD4*F/(=YqAs[6R;f><qnb5QCB)+
+VIG,A3_L7ZHCDuVNfWVW"JKUP2Vr;b$pCr[8]A,3)fB"s>X(Ut:3iouWO"mh"kbMR=+KIp,YY
+<oW@hC:;tV2NfKgdT5I_Ksomj'G/t?;V.Y<UP!l9=[dfGd5"?4pMl=mC9l>?(E]A#YPq7bD,l
+cmcb0L*=!_(P6GCT%In+s8Jo07J<@"q[O?S8\:(b4a0%hK>[q&4p[(=G4Fe<mUNlu[<;sNl[
+ZMS>lVZ4;:*9QWuULM!L;IWiD`:bJ54fZJU`'+aj$OH@>]Ak)(M\XPR-_dMf_r:'(gn@]A8%Wp
+%AWG65MLeMg"=b^?g0I(&c24<D#X:HA'rV?O&hVe[63+0HJ'rn_o3*:$oF"0C3XT;HS29MR%
+lG#$*%)TVecmTgKHDjMXAg5PpI*83HEjMqUSXX72<OW0.t]A/1%"[^B#pJ)/E?2brrpk5$J6C
++3_Z9,[b(.WZ7ec5.44\0@Dn/&$/g:Me_HH7nCR?0`MMD/)cb"hou,G/YobT$AM.Ss3ej*q*
+"Do=NYAg&=(1-5dSh'([8brCn/g)8>[fV=D!RI!)k70MB]Afa([!:N>-FaAlfsn:Yt]A@LjK8P
+E5A,m'FF=bl-B+]A<df^C2qJ]A:_Rg1_rGuf!/7)J6IGrn&Gmp^`\QI0\Q"MteCWb*`rX%kB[t
+T7V&GGk#O6pn)V[R>qE[:bd<bf/8=k:[FCH:f=@aW8o=Rj3RrOZbch[8+<m#\O.9A5TaA9_0
+!<tpj`BCpVN?0+t%TkrOo+6V1-X]AHg@V=Zl`6Hq19Q+q9jLO-'\D6EQ;5/H9"19D.5RV@E)e
+M=OKDKe6TP>MXY?s4q7eu$O$0@KGNarc`;+ZtC%\'^qq'=F%Mb;'pthA>"KVYbX6E]A`H?]A]AR
+)dE/paJ-g)2)\^Br]A2Hgr]AX2jB1Z_!^YqKF3PQ/JEI"LF9aBb)^$I$DJApu;U5A-M\pUZ`]A-
+PYIa(F7$;pN]AZsd`WGRIFUZ&AfPa=25?g!G)?15[:W_Aa%XoLt4SaBf8PpL9M=Uc:#?]AbC&T
+VfFVJg7<Iu.E11t2#1la1:=pPJnTee^,\S<pgVW^GQJ`S:U^8T6WUkKEERQF6CkEcne]ACqH/
++__-!Z?R4<sZi,Q<o5sQYM<qaHq-i<:>oTe\IWZOGC19i4le\2_oES-$<ZAFJla5a)[OQ,=*
+S4e">ofi/V5,f;MdgnNX6\BloZ^0k"dmfSQd6Q9\(:T,qoq*TL:$sL)"3Qpbm')T-[;.D8$q
+N1?d5YD4^Gf$)8$kBlf`A.O=/#YZZN?]AT"q3(FXKB\kA>q6"e5bpHZ[JkNY/B&DT494Mm#;o
+F71pZEd\BahDGsn[Ar]Ah#o&#_\*G)E)IUe[iU`U!_6po\g#@9e!hXhU*[e/BZJY(Ba@d7jO>
+]A7j`R*LMJ)@QhY9N_0`-pY6?la*?f6_,JopFGNEN_J_<2nQ?HH`BEW?:1\QZD[S@Im4J2EJl
+YkDs2pKmYkRc8epXJa/*CL$2]AX.QSfSrMi`PQ04WG,7_0-JU$X6SbiO_1@Bue$ahtdFduXtC
+5``&RA47k>;s8q^@';ZXmCJ5EmL;GP[FGNC4B.5XZ8#4*4(PXa7f@O[bkITDD"@=3tAuPONS
+raY"h+^qZb8g/(a>HFR:(XFX5JqVb9nT)dY\\K1('JqHc`hM,lruLmB>h(Z_(^pu/8mc;mJ)
++,AQ7\en]AT^3%RaGjL+VD"`+f@9_jV^mNe2,u)"D/35q[:XHA:**:`@7Ot7o;3'ge?N6XY/k
+0>]ARc=,WqtjP3S/[85ht!`BHKT9$ag0@35-.]AQE\#,HD8\3s)gcR>)>P0qFr&S^XmfT./X*]A
+j$\\J`be4@+L_I1FB#JtU:&U)pE]A^Vm#j!4rE\kF)-mk#KR>@i^2WSK0r6]A]ADMSED:Nn7Zi:
+GZEXM7e#7@j]AK'b0O&MQqpHSJPS;uk>M!SVS5,U7f#\/=V]A&SV@q,S@2j.pYc`KHrJum6:hQ
+=_`XCK"G<H/`)X!i7Ccp9OFKWq&bOOI83>Jl8o\P>4(*c:sME#`0aaQ2cZ"k@6e3RAHAdB4S
+k,t0\BaOY)#^Ys5WhUF;O/[Ir(;9DTYTf"?>mTjQf>e!lG7olg^'*UPYP0Nb^)e@hkP+'8.e
+t+`qcXXq7j-\2INNNY7@nkLZ)L[OZ@_)+:)+^WeaLXCPg&rV3LASMb[7r$T2BG2_VX$%UK<5
+\o%dJLm2qt%bKbmEQ:KUu0'*Jj[8?6P&FVECcRM,.CjU&kD6H!*MqRg*#JRU^[&7uj\$"^r:
+E%6b<]AJ^U4Q@9dm##dS_*$Z"\<qF)"h\K3m:?7:kBPtOh-,GC^OeWA/E0X_Y'TYAp%=#ap$g
+GLi6^[saD?rFAMI%@7ofFBciHV:_nDr$(\Z[_%h!84&^56;R5ZYa`U"!+.A)"lgN1WOUb1?o
+nSA\XHu-ndqgqVc7le7)JG!;t3i-6)VYO<3aa"P85I#&HhMXL(E:8%m]Adte4)-',MPb%:fZE
+[_H`,CfgQ`(oM=?#BEo87O[R"(S;KAi>$^?Q9aW7BY=iTbU/pKFCoYj5Q:,l<bV!*p\(Hsb8
+,bWD6bS$UD9VA^h0Ke5)qhWj+Qnd1WP(RE/RlltRl3Snn;(\?qCrd%P+9iXX-#C5o/*q-E&[
+C#h7Sm#1bT?t9\=o2EABhTXdTsi"91Gk_a09ptDO,l#CI_h<gfi''f&Mr]A]Aj:_mEp%c[<1cG
+DcT:EW]AN24V<=n/dL]A.s4*jR@kKlA()#"o4..5n8t?lUXKslbI^oD0`d-`V8O4j'=0.?se)*
+9RE?^3q_+e$/;fXH>i.p*;>?us&QKXnb]AC5^[LZN**mn3I.ZesnEnH/8ab,:gPZJIf]AEmQF!
+31mF!7l;A]Aq/4);>44mC_^hSSUAr@oP+%\LPVN<up917dZmE8KVJ?:9-:q?@%a@ThG8B]A?-m
+S[^B$gf(_AI>)m]ArA(+/r)omf$P3Y0_H*FpOR$M'Ein7s\ST:Ni.f"k?fK);MS*5*^O0O`71
+Oe#6Dt,Q;N-b^)RQdR63J.4.H\Qdjni\A[`-TS(<dPcVB=s37eb2r2ou/DQ>L^EC7q4VIlp"
+_!V\,[fYqL.2GWY1odagSkm5GdBee.r+]A*lS@IX&VhM869:&D]A.>3^U3f"ReL$pXuuFp:48C
+^,nFs,MYr4`fai40>X$DkBd?uiUC*/nffJt=n-k0pSK_%LKO'4I2[.pmQ43sHh6tEgtSR=Y0
+D]A@T$:O6WUO`B5Y0#S<U.Mp,M9Gf:I?,rM8-sp$bR"of7iKEiB"oiget_+Lj?8@Q!DrKbfcu
+j7/@-q+C^^Lm(KQB.9F6AD7B:g"T;YY`OMps_RA+HAaI*3?f5pH-FMe[I"Kc2p]A?@5eV;RpE
+%V`>\h3WC-(CsVm[C#j:Fg;8-DE4BN-I:8(N$euMUjXnSkG(;Sr&J?5=<tr3VBKE5,HE2GH<
+PY4u>mOTiQ7!*i.U1g-[Ih&D2<NAQ8cCmPSN^<DGG\k")8sZ@S(FXM6[c&_,A++InK.1)&<H
+T[+-3[3lW"<Y]AE]ANkoqS!GhSVo*+leO5kh98\4oR-NqUJJo0]AI?F_/u^Rqai&&)lLJ'6>&Gc
+f)2Ouao*]Asd]A:b=@k/gBl#O3'hpN6.gG*2&"WQ1`JF@)r#f$I:t(MqQ<i;laAN-Q"BheZgG1
+u21VscVo@t1EGmT;<98Lt-g[lMVQ/qd[k[.k[5l=)/E0iNll!5PH-#Z#g2\en(S#ip6+j8!p
+fF:Of4T,?CQii4pf>]A6C<F"49Ujtp0n#o6c/h]An>ZIrdbtg.dIC&pUlj'/]A3KrfVP"CjB>2b
+XM:G9PM]A*'>XAp4I5PC[hcQfML\gq1msHV*q=^qCrKh&"TfMX<_6Ze?!rX"Ke6O=)";mYk7^
+a5]AUl3Nh=CID#kG@Mk/RK$h^JhC%C_T)&"e*!^C@ep3\"[3c<qCgk"tg`*NDUf^>ZlUk0kZ4
+dZ?Xf>I+QM63:Y<d2<-,+W33kh!(^P(._WiO=IagOlE^Fs7i^<#[MNb6i4-$biam5C9r4JLk
+&h`"?M\WJOC3LVJR?!WAt3RibI>fq'B6ueb-ZEHi[btEM_dlKLXT#h:[AXu9)?tkVBl%EV4@
+2iHtgeqEGQE"^T.`T"Kp]A@M;)Q/V83^dqZ[[uJ^7/YbgFbFW(,]APCU6[_V]A7VVb`!T[IB\Rk
+5n=F2G+KmG@5_n!^G'^_]A^D/.[djK`^SJuuQ,b>4G:$"#X*38;AY)m5`+iLKN<H\H8BnlXk`
+@#$Me@A6a:ph4<fG;)e'o%W:i7suEDG(\H/ir\-*A!/hu[tJ"SpNm/?(WNI+I)=pSK&:EsY;
+;5dS#?%_CR]A+/-M]ABi,ho1FC$ue;TrQCdP1ss20D;Yg@cW(ma/;ZZF)o8!iQ:r0/W<fb1-\N
+5gL[p<D5fQ\:^=IGgI9.Ng.ei%EB0VVj$V[Vr4JM4J+LU-ZJQhHeEa'2QoD&_=Ck_&1O7!J_
+6hp>=%Th`OTW%7c*V;i<TDi/Li'D%bmR5@[VVQQ:"hH8Ed9ESZc%e.o>^/g&F["aeFlE%2f&
+u[8atVM%^gq&A[U!NI.QbY6U,:W]AUKZ5k*^L'+$Y%T=E(9O!F(Z]AYRfh`.a/:P931urj,,AL
+jfpI$A%XL$-o`$O@[D6&.;Z/LH[[K&o00Fq`T,ffl`[)=;GBPa/K%o2<>0AB-Z80n:DKF!P\
+t?XjR6cR?B/j(NC;Q;;^1s:bb:E3bILis/*k(MMfVS$:jJJhHH3'thMkZ^Kp`%N_X]A4qEA(>
+V>h"XG7kR4kMqdc:iOkmtd,1+B^*E60WiD(_2H;c`)if+a:QL8qanY3pjW&hn*VkqHg3"Ef@
+tm"4D!)fscCr@afs:P+UcB.>EB,GgOh9eu/&W\ekBI^s,eS1'Rg$HsNj\7/4GVo7'-O5h!dQ
+IYURD<-5Bn&n'P^RF%mtba5M#`+?3WVQ'WgoT8+Ad=M;7"U')IR7]A$Lq]AFeP@%r+[%UXJ:dC
+QYk`C?1H*5C@?sM?E]A7E?FFil(.nqR^]AU?i#p%6H%Oh\'poO<'`Y>@;7dGj^NE$AS='ruQI;
+?`%qe/T<'2Qs[n4]As<qe6_TT8n8uCR'T]ASijTm*pfW3G:hr`>AW&MgC2`cKS/TE*6;`#*ZJV
+>:F,Onde6A)^U0MpMopTEg5$[Zn$:q[8QK[nD*>_/Bd,Q;,Sm/Tr%61$FdC[GbZV*c[_A.&j
+>/ZbouXdjb;[XXf(f&gLoMDO=Ymm`K\`]Ag2d>79cNntER1jhORQ4_$R.E\hSG-fCrqJ[G6Z/
+1M>o*=;E:7tjh!:,KZfGIlm`g?5CQX&>>%1et?Q\,Xpsb"*bhY4`=N.t]A`kLqd=["q**p%CF
+/,k64p3DTN-TF/AAVYht.^1Rrk7;<@*.V\V7d&Xa%.7sfjAVLID/a9C,Lq^^G.]Alf&l5MfL/
+2m]A[[\N?k%mX2@pBrTMp&@0[T4HIVWo&H&h<&XJ#8]A.4e5Z>fQE-d$+]AW5@-%^ec)8eURs<L
+)VOktu-R5K.WNMr#VojM_<MV+IHk\*jb(m5mY2!:Eb#k/$a'9Le-/p^s2gMTgZ(N24^Yq:kI
+AF#_e8h#!CLI$L5K^#iH"R?87GOM\NChDNLKDGZ]A/$PRe:E5MLU!otA)*&JE,FtaAW*YcFW_
+pNZ8%:_=nZEk%ueEeLIWk9J\sB6E&Bc,I2sOpj'Zal`\&-CN3SnibPOdFCMM]A-o.N)la"5hL
+bZ`%-Ej#r,lT'`jbKCut`jN6i_og$./l?GsXDNaCnLLb@@9a<"\s=&ZEk(h=,-*&,RA:p@3N
+#</(!F6L_WSlF1EtQ^0i-WqR,J-?Yf;u!'m>Q2nNi<[0ggP0P%McGmNqg@MttlW,<5.]A%="5
+Y^9ZNe?H36DB#hW2kMG#41@H7dk1toB<f:t;S`%6E1%5+#Gup8X2r2fg0DA(XY7^XEn'XeqK
+kHJ8j0Zh>:Dp5a_7lPn)#HdOn;gpn8FE>QS=bPndEHZ8i7!!UK#>l+fHeY7i^9u3DZ+fXXT,
+E&ofAdM$YN%73d+=\Y4O!#k9qZ=.;ACSggb/-'6;mErh5)aA+9TB`j_T4+/Kg7oF'^0Wn^&+
+AL6p,lsSHL[o7aR<NHEhW0ACh-OdU1Bfh:Lmo>X&.eZ_fT>Q6K(+Q[WoKITq%JS)47r3%=Q>
+MNO,M2IbG3+5@S#:I@Un-TAlUb56o54s/P#_8rc7;"MMK-Y<5*"q#/uEBu-+RPr\8JV?:RJW
+EN)^XMS:Bu!I-`QMMuC)(c45JS?=Qr@&Dh&SG37_QleHOd$/7,:B&bU3/@802gp*)do!U!i,
+K&QuHRimZ]A`6g"Km`)I/E.ZXCH9i!C))/!W)+Y"5!\gIr17S[Up`<`oIfI'S=Nb^gQBQgBmJ
+^q9Xr\a^?\2TCJF3AR!n^*mr;LC$i:8%_IB$TY7JNjm.2TiGOHaC\#9D/)C8R<50^od"9"Y-
+]AJfQZ0XV>flMF\-;DjqO5E7_)f>&%^2eqa:Mdd&8=51r[&Y_LrIWq#[B)V]AGj)8LoAtp/^0/
+1u'mM79OW)00k(%u;>j<7a"VJ(kiOg3_eH)h>-Z:=2c:OSOkFstpqnm*=eX'/@]A[V!$mh_!t
+_?M#;]A_'Hq2/nDoG/Dn#-q`N*/pPnsmnO5(FJ'\/d0Xa'4f+:WVq2iV10Qtt*ICL06r<d=BV
++Bb;aM20^^$[t;@g2TB.TE@nL(\4X(%H/_\<m+GC[QUTfXI0V2bWk@j)iAgd#[W3F!Rr@50o
++3NVJk#57PYsLOS&DP$OYpa@G7eG[]ACHlt`)A=eC!;"i&gii)NLdK?D&3DCQ_%h@7"3hI6EU
+DP9CN$5KQE7IRSOa0@Un+3H$lMe1Pn<4k2#;j$kU<8rsE`uT*AS<k$j[6sGsDs>7TmrZLcT-
+-3i1$86EN"_gfWhletIFPPX02p['iVcigkhH%Rk59fc`V8m(gV>um!q&MD>AhRO'ndH+Asq/
+B**ie1JiSLdG6bhb0tnl+mTg:Y^&'#Kl((.p$5G%TBDjA$X$;D\:OnE`?(Xs:,(8`Q>95,X?
+#$El[QX2Vm5hMm8D3f0B+^?/R'2rlD$ot?i_,1aa0-WcjPD7-pZ=a<7Zts#g.r$8-Pt*h:g#
+J*?N*'^IXl(J+cH0-=EU8"QtBYgm&5C)^"U.aIie%TT("i`[T2Y9Z(PFdaP%PrHXSQ"P<4I*
+'e302O8:<E]A<^4-RuLG@l,-WaBC^D3S?hZ05DoEC/'H'q]A,kVFPJ'*]A`r=24Q#5*0K)U5.Qk
+ObsHf:J5lMKs+PVr.T+^.J)UR"2"QK=fi@@j*6T'Irq/)W9E&$C;i=a@eN\\Xq'iEEGHHPN.
+2#A\j:NtgARW)00S29WTR>NT4[F^8siLjqjpl^E0K0lXtBDXGY!DDbj1\2Jh?N'!GdF3sr6/
+9%e8p=0jhi4Lbh]A:.N%^`rf-oH9WI!1ORu\`2I5.GrV@$eIkM^KUfpn(sShIRW$"A'Wuf.9*
+6BTgF#9N6)XG$hFL)+$7h]A7nd3#l\ESn)1CdH>96dJ($Y8W.r&4j%^JlI2iLJVP*:%T`_l0(
+n9un-SnnQ(#2"7,p)"(AY8)d5Tp?Dsf2Z/R)#.=4(:)+%akJT;&%EZO2E`bZ5K=S>aT&rnfa
+IQkStcN2plX=2+jK-*@b`P7W)02SGrHGuNnji^Rj-VBl\p*(@uPiS)q2(4Y2Y3eH:>2eooFM
+n]A,kts1!)KcrM6-:Io_LkR0gkTP'KXeh/0sA[VWu2g6A@V.8Z4Nhih-pe9401F->)DIu&,Md
+BU_pZ7fJ?5M6&20XgrBNdF8(mO_D::nbP92c\gBg[+7]AhQ,m6m=TU_fiOemc/b(4[i'4i:\H
+ZfUU;!8>o$pH2L>C02=oP-q.@mbHZI+_mp"^V)uQ2e4!r$O7l0T7cE]A+>55f#Eb[Is@bk<RH
+?J+.Z$5G$iW/t*Z"MKSG4Jl5M,R"+ljK_KkD'.X$0[CLfk1F%4/cGOd0'XM4WeF\nooZ_YR_
+6TVPb#VH!\qANmPWC`*!l!,4S:X<n!1Co^"Q6Y$u.k4_)!^E5(HhDFPQEfbIP6,K`0jg_L;C
+>]AkX21XAj.WTgFG?jc=UEh61^-\/2KT/_8I3+0K2C:!9kST7Q[Ff,+%a(q:?l=2_po>`d.8(
+l,C1bji/(@U>4GZfL&:kNon)#8Xi$P^,Q6s(0joE8C?2?*1,D)>B'Vq\u--#BIu#G=(_OIJi
+VZKaJPE<61o1r$$>l7^5E@[->;QIAGe:rGdhZfeVZ)IK/S6g/;ME"@$Ol/7Oc6Z+bj+lCDCu
+PI]AU6luGpHR2#/YY/f5JO26T8Dg`,hhFbNJ`Nn^RY-fe?^&^G#fFQ\cS+bgLiR<4*nbE1Fp\
+9(Pk;Uh;%QUSpDg<*"?frd?pD,5XW/u5:A!qOH0^hL=h!6/n<YioK:#*"'p@Z\B^=bFs%i>-
+Rk5E8$PeFjBlC)uip9j9L/]A5CY2Wh.!5:!bj2s\o7RQ4cg(WA#]AN+WprmfCFPY\tIqmXt?t3
+_%k?4!O[[_1I"A'e32(47Bm&o'QbWo$+g.m-DgFlT:-Z&,3dnia-"o)`HS*)r0T!ia=b.T,)
+L<>R9=NG'IKQ?'!h<:lFt0*+!P?pQFn/RtErHp`7jGW327Trp"nIg%PJ6jPT%g]Anr_;G/plT
+QdM^uHZq6TpROClK-,MCW)00SKl#tnTcf*ZrHf)Wj\?oS\#W4kS#25fpsI,#g8lTEp>N+4OR
+;5m;TO3e;<rHG[;7>&IXYPGDfRW\_Kju5=A?D`<_H6T8VW)\g<X:/_ml;)]A[nj'A_eHtr7j7
+%.Wau)[#\m/s#/jr!70il3(Gh`,-M+-hp^BXf=uSJr-<Q6b.gr8bCp9<.V(`Pqe8%9L3e$GR
+29qJ/,me^HU$*BhTa40leX;KFq/7%f$0)!:&*<Equ46qfAoPC0<6k3&aqd?hDG5VlZK[n_7a
+"%H@kaWLHaD]Apgp>(bPIh.]AMZ^'Qm9F)TZaZAir&i(Z,PYKl<:FX]A9+lCIeMUHi*W(j$I4[H
+$@_W6kCj6X.TAr+57[?"Jp6*"\CW&,Ics=l,k]AQ5\,+`B0'p9cE_Z.QX%d&]A[q);:&,!>)6Z
+B+\Y:@Pgr93<fopF>Lq`<)An=ui`qtf?CSqE(`gm]A&U^@PY(IIcfs(NE10*%5:Q-V83.gtRo
+0C86dsE)"d$Cf>a<9>PN_Q\)o#r)9#1DpHQ3k=;Ep?g%G&mR*[7KaJPme),k#m.]Aq^LmXO[q
+a>4(\kHt#NUKqP=466m#F/=b08\8.hQ9R/e>JmLA1L.',0@rG%`.>&(mjeN5&PlB1:"%HC1i
+PPMC4/E0<aO>`m['#4,.BL*r6&[Q?%DO%(1"!fj[6S6%4EF4?g9\]A0BG($a*0iJg8&0-?uca
++QD7S2r=jiqqhp:s*D'er9MOk@Z2p=W)+X+hL4i6RsA-FS0e&]ABUO9Snh/%tS%N_/$Yf%:Oa
+$,.@:!0n/#0c$UC1)o,K(<DbY,;2NZ@Y/T)%Fl!Vb%/l[sn"CreuY5^oIk3T+3ZoA]A4Hs'WR
+GOiIfRcK!rmU#.K*"b0]AZ#sQ*_(:=*CD_V$.1r)<Xc^k?1s"kAdDK.]A3n&9m,$Pb-j..'%j0
+&k^]A,ZrYUpO8dV^".V+*Aamuh:FRZRb2sOad@K@XYKO7iEc5jTA:r`2m9;oK6_\%OEkR>Kp_
+EnT*lLBCtC*o&bK@XqW:4!\<k1LGT$GChmp)`D$f,>@`l?5=]Al.#Y,hi*+&<#drcL3qk2&$_
+Br+ekhUU5Y6,UCN"Rgj;,l$K<bK/lB(XJG#,>VhLqa,uD'e4mrGOO8[);`;6hNUlr/WPhhaB
+8qR\j#Y_[ioA7B<3[#b[k#bqVl.3MQnUkK(1RUK?]A2F4E7&rjVGk[4J*.o=.Jk#[@F+<F)p^
+NDs`gG1He![opnal[J#fn@(_,;%9su)IFBpa'`@7HC?4.Il^(8\nOMWU[XT2&gAdp2\3#1!=
+F7ATk2%2/p`WaA>mN'3pRf9_rpR%B?$F:4J*;B3\JR&?TgFG?^$WDOd=!9\frrtA:(I\Gkog
+\M>VfQk0Be1#Cs&ZkecL+ro;K\tCK#FuISSgMH+]AS!h9XJ3%*qj[VS!;>h7$r(H)T(CIooqc
+raGdpcnmd(D#;J,#2=(*#>P6H'`<:Tf>5Y<QP&PH5MptjI5&,c(]A<%O^BL80Z7#F:gUDe7p!
+:C1lMD>H<2e0uW4r]A4\%d2*r:ka_"n2B?NrCY"5Pa,F0D[+f5P([pJ$5aDN:]AM15Q=*I:"/u
+1jK]A;En?&9G6m@tGC"'O9j]A4kn;1e8p?7EmmS;s)RILr'F:]AEQB6sGboAQ`k=,+!-PY4'#q(
+V'4KrFJr3gC4:n@W3jG7t2N#<?K%7[3OH[)*pu!/GtoR>mXt=s6;0R:LO10/Nb\#IBrfq^CR
+dOgGctB>E-I]ARn&(Eht.)eS,-F[I-l3t\?$c[@:3QK#Ch0jleoXp>R:%1gE18!g)=dFh-?mT
+TgE[O5&'m>)Y\FIm?#cArgi/:V-O28'$IGbqpKA_g,$7Z]A(TIebPg:O5/6[!PkJD==)NEnT!
+?"P@-BkdFfg;6#8>:l3ct<s,ZrCdT'aKVQ".XYFS+-]AB0,b*0d@_=o!ihYpn.<P!r'usY>.X
+SjR&/mes0YAn@["=+2QTMlLlYQeU:^>M>ljFLMn0X<St?YPJK$_Nr/H-VjXRbL\d\*hcbVIh
+d-]AiA*cF3Od@</deZk,SX9$@k5.*RMmXA;fW2:8:?bOCmEE&Un#(YBW)00S)d\#]Ar^/O)rGg
+t\25<C\ri+[j7/_E)cfMTs\c+AYQ^SWT45?II30dje3:pM@4/QCL\PZ?7k6C>tSRVb+QqQP#
+0qb.D+1!Q8^:m>%$X>3$9gUF<>5&j$#>\Yg$)X&eK>mLPVN(?M!r~
+]]></Image>
+</Background>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12"/>
+<Background name="ColorBackground" color="-3342337"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="ColorBackground" color="-103"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12" foreground="-8355712"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="SimSun" style="0" size="12" foreground="-8355712"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="1" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.DecimalFormat">
+<![CDATA[#0.00]]></Format>
+<FRFont name="SimSun" style="1" size="12"/>
+<Background name="NullBackground"/>
+<Border>
+<Top style="1" color="-14117142"/>
+<Bottom style="1" color="-14117142"/>
+<Left style="1" color="-14117142"/>
+<Right style="1" color="-14117142"/>
+</Border>
+</Style>
+<Style horizontal_alignment="0">
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+<Style horizontal_alignment="0">
+<Format class="java.text.SimpleDateFormat">
+<![CDATA[yyyy-MM-dd]]></Format>
+<FRFont name="SimSun" style="0" size="12"/>
+<Background name="NullBackground"/>
+<Border/>
+</Style>
+</StyleList>
+</WorkBook>

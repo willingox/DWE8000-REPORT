@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+	<global>
+      <constant>
+        <constant-name>phone</constant-name>
+        <constant-value>^[\d|-]+$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>zip</constant-name>
+        <constant-value>^\d{6}$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>currency</constant-name>
+        <constant-value>^\d{1,3}(,?\d{1,3})*\.?(\d{1,2})?$</constant-value>
+      </constant> 
+   </global>
+
+	<formset>
+		<!--登陆--> 
+		<form name="loginForm">
+			<field property="username" depends="required">
+				<arg key="username.mismatch" />
+			</field>
+			<field property="password" depends="required,mask">
+				<arg key="password.mismatch" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z]*$</var-value>
+				</var>
+			</field>
+		</form>
+		
+		<!--公司--> 
+		<form name="xtOrgForm">
+			<field property="orgId" depends="required,maxlength">
+				<arg0 key="orgForm.orgId" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z_]*$</var-value>
+				</var>	
+			</field>
+			<field property="orgCode" depends="required,maxlength,mask">
+				<arg0 key="orgForm.orgCode" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>16</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z_]*$</var-value>
+				</var>
+			</field>
+			<field property="orgName" depends="required,maxlength">
+				<arg0 key="orgForm.orgName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 				
+			</field>
+			<field property="orgTel" depends="mask,maxlength">
+				<arg0 key="orgForm.orgTel"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false" />
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>40</var-value>
+				</var> 	
+			</field>
+			<field property="orgFax" depends="mask,maxlength">
+				<arg0 key="orgForm.orgFax"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>15</var-value>
+				</var> 	
+			</field>
+			<field property="orgPostcode" depends="mask">
+				<arg0 key="orgForm.orgPostcode"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${zip}</var-value>
+				</var>
+			</field>
+			<field property="orgAddress" depends="maxlength">
+				<arg0 key="orgForm.orgAddress" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var> 				
+			</field>
+			<field property="orgEmail" depends="email,maxlength">
+				<arg0 key="orgForm.orgEmail" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var> 				
+			</field>
+			<field property="orgWebsite" depends="maxlength">
+				<arg0 key="orgForm.orgWebsite" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 				
+			</field>
+			<field property="orgNote" depends="maxlength">
+				<arg0 key="orgForm.orgNote" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>200</var-value>
+				</var> 				
+			</field>
+		</form>
+		
+		<!--部门--> 
+		<form name="xtDeptForm">
+			<field property="deptName" depends="required,maxlength">
+				<arg0 key="deptForm.deptName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+			<!-- 隐藏字段不能验证 -->
+			<field property="xtOrganization.orgName" depends="required">
+				<arg0 key="xtOrganization.orgId" />
+			</field>
+			<field property="deptTel" depends="mask,maxlength">
+				<arg0 key="deptForm.deptTel"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>40</var-value>
+				</var> 	
+			</field>
+			<field property="deptFax" depends="mask,maxlength">
+				<arg0 key="deptForm.deptFax"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>15</var-value>
+				</var> 	
+			</field>
+			<field property="deptAddr" depends="maxlength">
+				<arg0 key="deptForm.deptAddr" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var> 				
+			</field>
+		</form>
+		
+		<!--角色--> 
+		<form name="xtRoleForm">
+			<field property="roleName" depends="required,maxlength">
+				<arg0 key="roleForm.roleName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var> 	
+			</field>
+			<!-- 隐藏字段不能验证 -->
+			<field property="xtOrganization.orgName" depends="required">
+				<arg key="xtOrganization.orgId" />
+			</field>
+		</form>
+		
+		<!--用户--> 
+		<form name="xtUserForm">
+			<field property="userId" depends="required,maxlength,mask">
+				<arg0 key="userForm.userId" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z_]*$</var-value>
+				</var>				
+			</field>
+			<field property="userName" depends="required,maxlength">
+				<arg0 key="userForm.Name" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>38</var-value>
+				</var> 				
+			</field>
+			<!-- 隐藏字段不能验证 -->
+			<field property="xtOrganization.orgName" depends="required">
+				<arg key="xtOrganization.orgId" />
+			</field>
+			<field property="userAddr" depends="maxlength">
+				<arg0 key="userForm.userAddr" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var> 				
+			</field>
+			<field property="userTel" depends="mask">
+				<arg key="userForm.userTel"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var>
+			</field>
+			<field property="userMobile" depends="mask,maxlength">
+				<arg0 key="userForm.userMobile"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[\d|]+$</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>40</var-value>
+				</var> 	
+			</field>
+			<field property="userEmail" depends="email,maxlength">
+				<arg0 key="userForm.userEmail"/>
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+			<field property="userPswEndDateDiplay" depends="date">
+				<arg key="userForm.userPswEndDateDiplay"/>
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>yyyy-MM-dd</var-value><!-- 注意，年和日必须是小写，月为大写-->					
+				</var> 
+			</field>
+			<field property="userNote" depends="maxlength">
+				<arg0 key="userForm.userNote" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>255</var-value>
+				</var> 				
+			</field>
+		</form>
+		
+		<!--权限--> 
+		<form name="xtPermForm">
+			<field property="permName" depends="required,maxlength">
+				<arg0 key="permForm.permName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+			<field property="permDesc" depends="maxlength">
+				<arg0 key="permForm.permDesc" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var> 				
+			</field>
+		</form>
+		
+		<!--资源--> 
+		<form name="xtResForm">
+			<field property="resId" depends="required,maxlength,mask">
+				<arg0 key="resForm.resId" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z_-]*$</var-value>
+				</var>				
+			</field>
+			<field property="resName" depends="required,maxlength">
+				<arg0 key="resForm.resName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+			<field property="resUrl" depends="maxlength">
+				<arg0 key="resForm.resUrl" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var> 				
+			</field>
+			<field property="resObjectName" depends="maxlength">
+				<arg0 key="resForm.resObjectName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 				
+			</field>
+			<field property="resHelpPath" depends="maxlength">
+				<arg0 key="resForm.resHelpPath" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var> 				
+			</field>
+		</form>
+		
+		<!--菜单--> 
+		<form name="xtMenuForm">
+			<field property="menuName" depends="required,maxlength">
+				<arg0 key="menuForm.menuName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+			<field property="menuHint" depends="maxlength">
+				<arg0 key="menuForm.menuHint" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+			<field property="menuDesc" depends="maxlength">
+				<arg0 key="menuForm.menuDesc" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>100</var-value>
+				</var> 	
+			</field>
+			<field property="menuIconPath" depends="maxlength">
+				<arg0 key="menuForm.menuIconPath" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var> 	
+			</field>
+			<field property="menuIcon" depends="maxlength">
+				<arg0 key="menuForm.menuIcon" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var> 	
+			</field>
+			<field property="menuIconPathOpen" depends="maxlength">
+				<arg0 key="menuForm.menuIconPathOpen" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>50</var-value>
+				</var> 	
+			</field>
+			<field property="menuIconOpen" depends="maxlength">
+				<arg0 key="menuForm.menuIconOpen" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var> 	
+			</field>
+			<field property="menuOrder" depends="required,intRange">
+				<arg0 key="menuForm.menuOrder"/>
+				<arg1 name="intRange" key="${var:min}" resource="false"/>
+				<arg2 name="intRange" key="${var:max}" resource="false"/>
+				<var>
+					<var-name>min</var-name>
+					<var-value>0</var-value>
+				</var> 
+				<var>
+					<var-name>max</var-name>
+					<var-value>1000</var-value>
+				</var> 
+			</field>				
+		</form>
+		
+		<!--资源分类--> 
+		<form name="xtResClassForm">
+			<field property="resClassId" depends="required,maxlength">
+				<arg0 key="resClassForm.resClassId" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 				
+			</field>
+			<field property="resClassName" depends="required,maxlength">
+				<arg0 key="resClassForm.resClassName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+		</form>
+		
+		<!--资源类型--> 
+		<form name="xtResTypeForm">
+			<field property="resTypeId" depends="required,maxlength">
+				<arg0 key="resTypeForm.resTypeId" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 				
+			</field>
+			<field property="resTypeName" depends="required,maxlength">
+				<arg0 key="resTypeForm.resTypeName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>80</var-value>
+				</var> 	
+			</field>
+		</form>
+		
+		<!-- 系统日志分类 --> 
+		<form name="xtLogClassForm">
+			<field property="logClassId" depends="required,maxlength,mask">
+				<arg0 key="logClassForm.logClassId" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z_]*$</var-value>
+				</var>
+			</field>
+			<field property="logClassName" depends="required,maxlength">
+				<arg0 key="logClassForm.logClassName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 	
+			</field>
+		</form>
+	</formset>
+</form-validation>

@@ -1,0 +1,12 @@
+system.name=\u5149\u4F0F\u53D1\u7535\u9884\u6D4B\u7CFB\u7EDF
+system.sn=74301EA5EAA789AC5D69ECF37DDBEC52
+system.location.mode=menu2
+system.rootorg.name=\u516C\u53F8
+system.rootmenu.name=\u7CFB\u7EDF\u83DC\u5355
+system.usegroup=false
+system.orgidcreator.classname=
+gis.serverhost=lamborghini-pc
+#gis.serverhost=icewee-pc
+#gis.serverhost=chdgisserver
+gis.servername=xuejiadao
+gis.usegooglemap=false

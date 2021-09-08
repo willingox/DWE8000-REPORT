@@ -1,0 +1,481 @@
+package com.xjgc.wind.datastatistics.dao.impl;
+
+
+import java.io.FileInputStream;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Properties;
+
+
+
+import org.apache.commons.dbcp.BasicDataSource;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import com.xjgc.wind.datastatistics.dao.IWindAvailabilityContrastDao;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindAvailabilityContrastDataForm;
+import com.xjgc.wind.util.DateFormatUtil;
+import com.xjgc.wind.util.YMDHMSUtil;
+import com.xjgc.wind.util.YearFormatUtil;
+
+
+public class WindAvailabilityContrastDaoImpl extends JdbcDaoSupport implements IWindAvailabilityContrastDao {
+	private boolean isDBMysql(){
+		JdbcTemplate jdbcTemplate=getJdbcTemplate();
+		String driver=((BasicDataSource) jdbcTemplate.getDataSource()).getDriverClassName();
+		if(driver.equals("com.mysql.jdbc.Driver")){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
+	
+	public List<DataStatisticsDataVo> listhour(WindAvailabilityContrastDataForm queryFilter) {
+		String date1 = queryFilter.getStartDateDisp();
+		String date11 = queryFilter.getStartDateDisp();
+ 		String date2 = queryFilter.getEndDateDisp();
+ 		String date22 = queryFilter.getEndDateDisp();
+ 		
+ 		Date startDate = null;
+ 		Date endDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startDate = null;
+			e.printStackTrace();
+		}
+	}
+ 		
+ 		if (StringUtils.isNotBlank(date1)) //�ж��ַ��Ƿ�Ϊ��
+			{
+			try {
+				startDate = YMDHMSUtil.get().parse(date1);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+				queryFilter.setStartDate(startDate);
+			} catch (ParseException e) {
+				startDate = null;
+				e.printStackTrace();
+			}
+	//		queryFilter.setStartDate(startDate);
+		}
+ 		
+ 		if (StringUtils.isNotBlank(date22)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			endDate = YearFormatUtil.get().parse(date22);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			endDate = null;
+			e.printStackTrace();
+		}
+	}	
+ 		
+ 		if (StringUtils.isNotBlank(date2)) //�ж��ַ��Ƿ�Ϊ��
+ 		{
+ 		try {
+ 			endDate =YMDHMSUtil.get().parse(date2);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+ 			queryFilter.setEndDate(endDate);
+ 		} catch (ParseException e) {
+ 			endDate = null;
+ 			e.printStackTrace();
+ 		}
+ 		
+ 	}
+ 		
+ 		 Calendar   calendar   =   new   GregorianCalendar(); 
+  	    calendar.setTime(startDate); 
+  	    Calendar   calendar1   =   new   GregorianCalendar(); 
+  	    calendar1.setTime(endDate); 
+  	   date1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar.getTime());
+  	   date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+  	 
+  	   date2 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar1.getTime());
+  	   date22 = new SimpleDateFormat("yyyy").format(calendar1.getTime());
+  	 String str=queryFilter.getStr();
+		String[] arr =null;
+  	   String sql = "";
+  	 if (isDBMysql()==true) {
+  	   if(date11.compareTo(date22) == 0){
+  		 String tablename ="hisgenerator_"+date11;
+  		 
+  		
+  		 
+  		sql += "select ha.id as id,hs.count/count(ha.id)*100 as ava,g.name from "+tablename;
+ 		 sql += " ha,generator g,(select count(h.id) as count ,h.id as id from "+tablename+" h where h.savetime >='";
+ 		 sql += date1+"' and h.savetime <='"+date2+"' and h.curcmpstate <> 5 and h.curcmpstate<>4 ";
+ 		 if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+ 		 
+ 		sql +=" group by h.id) hs where ha.savetime >='"+date1;
+ 		 sql += "' and ha.savetime <='"+date2+"' and hs.id = ha.id and g.id = ha.id  " ;
+ 		if(str!=null){
+ 			arr = str.split(",");
+ 			sql +=" and (";
+ 			for(int i=0;i<arr.length;i++){
+ 				sql +="ha.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+ 				if(i!=arr.length-1){
+ 					sql +=" or ";	
+ 				}
+ 				if(i==arr.length-1){
+ 					sql +=" ) ";	
+ 				}
+ 			}
+ 			}
+ 		 		
+ 		sql += "group by ha.id";
+  	   }
+  	   else
+  	   {
+  		 String tablename1 ="hisgenerator_"+date11;
+  		 String tablename2 ="hisgenerator_"+date22;
+  		 
+ 		 sql += "select ha.id as id,hs.count/count(ha.id)*100 as ava,g.name from "+tablename1;
+  		 sql += " ha,generator g,(select count(h.id) as count ,h.id as id from "+tablename1+" h where h.savetime >='";
+  		 sql += date1+"' and h.curcmpstate <> 5 and h.curcmpstate<>4 " ;
+  		 if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+  		 sql +="group by h.id) hs where ha.savetime >='"+date1;
+  		 sql += "' and hs.id = ha.id and g.id = ha.id " ;
+  		 if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="ha.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+  		 	sql+=" group by ha.id";
+  		 
+  		 sql +=" union select ha.id as id,hs.count/count(ha.id)*100 as ava,g.name from "+tablename2;
+  		 sql += " ha,generator g,(select count(h.id) as count ,h.id as id from "+tablename2+" h where h.savetime <='";
+  		 sql += date2+"' and h.curcmpstate <> 5 and h.curcmpstate<>4 " ;
+  		 if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+  		 	sql+="group by h.id) hs where ";
+  		 sql += " ha.savetime <='"+date2+"' and hs.id = ha.id and g.id = ha.id ";
+  		 if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="ha.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+  		 	sql+=" group by ha.id";
+  	   }
+  	   }
+  	if (isDBMysql()==false) {
+   	   if(date11.compareTo(date22) == 0){
+   		 String tablename ="hisgenerator_"+date11;
+   		sql += "select ha.id as id,hs.count/count(ha.id)*100 as ava,g.name from "+tablename;
+  		 sql += " ha,generator g,(select count(h.id) as count ,h.id as id from "+tablename+" h where h.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')";
+  		 sql += " and h.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss') and h.curcmpstate <> 5 and h.curcmpstate<>4 ";
+  		 if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+  		 
+  		sql +=" group by h.id) hs where ha.savetime>=to_date('"+date1+"','yyyy-mm-dd hh24:mi:ss')";
+  		 sql += " and ha.savetime<=to_date('"+date2+"','yyyy-mm-dd hh24:mi:ss')and hs.id = ha.id and g.id = ha.id  " ;
+  		if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="ha.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+  		 		
+  		sql += "group by ha.id,g.name,hs.count";
+   	   }
+   	   else
+   	   {
+   		 String tablename1 ="hisgenerator_"+date11;
+   		 String tablename2 ="hisgenerator_"+date22;
+   		 
+  		 sql += "select ha.id as id,hs.count/count(ha.id)*100 as ava,g.name from "+tablename1;
+   		 sql += " ha,generator g,(select count(h.id) as count ,h.id as id from "+tablename1+" h where h.savetime >='";
+   		 sql += date1+"' and h.curcmpstate <> 5 and h.curcmpstate<>4 " ;
+   		 if(str!=null){
+   			arr = str.split(",");
+   			sql +=" and (";
+   			for(int i=0;i<arr.length;i++){
+   				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+   				if(i!=arr.length-1){
+   					sql +=" or ";	
+   				}
+   				if(i==arr.length-1){
+   					sql +=" ) ";	
+   				}
+   			}
+   			}
+   		 sql +="group by h.id) hs where ha.savetime >='"+date1;
+   		 sql += "' and hs.id = ha.id and g.id = ha.id " ;
+   		 if(str!=null){
+   			arr = str.split(",");
+   			sql +=" and (";
+   			for(int i=0;i<arr.length;i++){
+   				sql +="ha.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+   				if(i!=arr.length-1){
+   					sql +=" or ";	
+   				}
+   				if(i==arr.length-1){
+   					sql +=" ) ";	
+   				}
+   			}
+   			}
+   		 	sql+=" group by ha.id";
+   		 
+   		 sql +=" union select ha.id as id,hs.count/count(ha.id)*100 as ava,g.name from "+tablename2;
+   		 sql += " ha,generator g,(select count(h.id) as count ,h.id as id from "+tablename2+" h where h.savetime <='";
+   		 sql += date2+"' and h.curcmpstate <> 5 and h.curcmpstate<>4 " ;
+   		 if(str!=null){
+   			arr = str.split(",");
+   			sql +=" and (";
+   			for(int i=0;i<arr.length;i++){
+   				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+   				if(i!=arr.length-1){
+   					sql +=" or ";	
+   				}
+   				if(i==arr.length-1){
+   					sql +=" ) ";	
+   				}
+   			}
+   			}
+   		 	sql+="group by h.id) hs where ";
+   		 sql += " ha.savetime <='"+date2+"' and hs.id = ha.id and g.id = ha.id ";
+   		 if(str!=null){
+   			arr = str.split(",");
+   			sql +=" and (";
+   			for(int i=0;i<arr.length;i++){
+   				sql +="ha.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+   				if(i!=arr.length-1){
+   					sql +=" or ";	
+   				}
+   				if(i==arr.length-1){
+   					sql +=" ) ";	
+   				}
+   			}
+   			}
+   		 	sql+=" group by ha.id";
+   	   }
+   	   }
+
+		return getJdbcTemplate().query(sql, new WindAvailabilityContrastData1RowMapper());
+		
+	}
+	public List<DataStatisticsDataVo> listcount(WindAvailabilityContrastDataForm queryFilter) {
+		String date11 = queryFilter.getStartDateDisp();
+ 		Date startYearDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startYearDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startYearDate = null;
+			e.printStackTrace();
+		}
+	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startYearDate); 
+ 	    date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+    Properties p = new Properties();
+    try{
+  String path = this.getClass().getResource("/").getPath();//�õ�������WEB-INF/classes/·��
+  path=path.substring(1, path.indexOf("classes"));//��·���ַ���ȡ���·��
+      p.load(new FileInputStream(path+"db.properties")); 
+  }catch(Exception e){
+      e.printStackTrace();
+  }    
+  String driver = p.getProperty("db.driver"); 
+   String sql = "";
+   String str=queryFilter.getStr();
+	String[] arr =null;
+    if(driver.equals("oracle.jdbc.driver.OracleDriver")){
+    }
+    else if(driver.equals("com.mysql.jdbc.Driver")){
+ 
+        	String tablename ="hisgenerator_"+date11;
+    	sql += "select count(h.id) as count  ,s.name from  "+tablename+" h,generator g ,smgsysinfo s where g.id=h.id and h.curcmpstate<>4 and h.curcmpstate<>5 and s.id=g.mgid " ;
+    	 if(str!=null){
+  			arr = str.split(",");
+  			sql +=" and (";
+  			for(int i=0;i<arr.length;i++){
+  				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+  				if(i!=arr.length-1){
+  					sql +=" or ";	
+  				}
+  				if(i==arr.length-1){
+  					sql +=" ) ";	
+  				}
+  			}
+  			}
+    		sql+="group by g.mgid  ";
+ 
+    }
+		return getJdbcTemplate().query(sql, new WindAvailabilityContrastData2RowMapper());
+		
+	}
+	public List<DataStatisticsDataVo> listcountall(WindAvailabilityContrastDataForm queryFilter) {
+		String date11 = queryFilter.getStartDateDisp();
+ 		Date startYearDate = null;
+ 		if (StringUtils.isNotBlank(date11)) //�ж��ַ��Ƿ�Ϊ��
+		{
+		try {
+			startYearDate = YearFormatUtil.get().parse(date11);//try{}catch{}��Ϊ�˷�ֹ�쳣���³����#
+		} catch (ParseException e) {
+			startYearDate = null;
+			e.printStackTrace();
+		}
+	}
+ 	    Calendar   calendar   =   new   GregorianCalendar(); 
+ 	    calendar.setTime(startYearDate); 
+ 	    date11 = new SimpleDateFormat("yyyy").format(calendar.getTime());
+    Properties p = new Properties();
+    try{
+  String path = this.getClass().getResource("/").getPath();//�õ�������WEB-INF/classes/·��
+  path=path.substring(1, path.indexOf("classes"));//��·���ַ���ȡ���·��
+      p.load(new FileInputStream(path+"db.properties")); 
+  }catch(Exception e){
+      e.printStackTrace();
+  }    
+  String driver = p.getProperty("db.driver"); 
+   String sql = "";
+   String str=queryFilter.getStr();
+	String[] arr =null;
+    if(driver.equals("oracle.jdbc.driver.OracleDriver")){
+    }
+    else if(driver.equals("com.mysql.jdbc.Driver")){
+ 
+        	String tablename ="hisgenerator_"+date11;
+    	sql += "select count(h.id) as countall from  "+tablename+" h,generator g where g.id=h.id  ";
+    	 if(str!=null){
+   			arr = str.split(",");
+   			sql +=" and (";
+   			for(int i=0;i<arr.length;i++){
+   				sql +="h.id=" +Integer.parseInt(arr[i].substring(arr[i].lastIndexOf("-")+1,arr[i].length()));
+   				if(i!=arr.length-1){
+   					sql +=" or ";	
+   				}
+   				if(i==arr.length-1){
+   					sql +=" ) ";	
+   				}
+   			}
+   			}
+    		sql+="group by g.mgid  ";
+  
+    }
+		return getJdbcTemplate().query(sql, new WindAvailabilityContrastData3RowMapper());
+		
+	}
+
+	class WindAvailabilityContrastData1RowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setId( rs.getInt("id") );
+			object.setCount(rs.getDouble("ava"));
+			object.setHour(rs.getDouble("ava"));
+			object.setAvailability(rs.getDouble("ava"));
+			return object;
+		}
+	}
+	class WindAvailabilityContrastData2RowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			object.setName( rs.getString("name") );
+			object.setCount( rs.getDouble("count") );
+		
+			
+			return object;
+		}
+	}
+	class WindAvailabilityContrastData3RowMapper implements RowMapper {
+
+		public Object mapRow(ResultSet rs, int rowNo) throws SQLException {
+			DataStatisticsDataVo object = new DataStatisticsDataVo();
+			
+			object.setCountall( rs.getDouble("countall") );
+		
+			
+			return object;
+		}
+	}
+
+}
+
+
+
+	
+	

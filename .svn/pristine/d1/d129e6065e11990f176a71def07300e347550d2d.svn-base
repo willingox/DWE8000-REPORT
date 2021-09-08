@@ -1,0 +1,15 @@
+package com.xjgc.wind.datastatistics.dao;
+
+import java.util.List;
+
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindJiReliabilityContrastDataForm;
+
+public interface IWindJiReliabilityContrastDao {
+
+
+	List<DataStatisticsDataVo> listmap(WindJiReliabilityContrastDataForm queryFilter);
+	List<DataStatisticsDataVo> listrandefficiency(WindJiReliabilityContrastDataForm queryFilter);
+	List<DataStatisticsDataVo> listrandhour(WindJiReliabilityContrastDataForm queryFilter);
+	List<DataStatisticsDataVo> listtable(WindJiReliabilityContrastDataForm queryFilter);
+}

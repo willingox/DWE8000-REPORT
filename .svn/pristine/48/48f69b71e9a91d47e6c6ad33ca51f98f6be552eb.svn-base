@@ -1,0 +1,92 @@
+table.pw_table {
+	border: none;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+}
+
+.pw_table td {
+	height: 20px;
+	width: 100%;
+}
+
+.pw_table td.pw_img {
+	vertical-align: bottom;
+	background: url(waiting.gif) no-repeat center bottom;
+}
+
+.pw_table td.pw_text {
+	vertical-align: top;
+}
+
+.pw_table td.pw_text span {
+	color: #000000;
+	font-size: 9pt;
+	font-family: "Microsoft YaHei", "Microsoft JhengHei",  "Tahoma"; 
+	color: #7F9BAD;
+}
+
+/*--------------------------下面为ymPrompt样式----------------------------*/
+/*container*/
+#ym-window{
+	background: #FFFFFF;
+	overflow: hidden;
+	font-size: 0px;
+}
+
+/*header*/
+.ym-tl{
+	padding-left: 8px;
+	background: #90C1B5;
+}
+
+.ym-tr {
+	padding-right: 8px;
+	background: #90C1B5;
+}
+
+.ym-tc{
+	background: #90C1B5; 
+	overflow: hidden;
+}
+
+.ym-ttc{
+	height: 8px;
+}
+
+/*body*/
+.ym-ml{
+	background: #90C1B5;
+	padding-left: 8px;
+}
+
+.ym-mr{
+	background: #90C1B5;
+	padding-right: 8px;
+}
+
+.ym-mc{
+	background: #FFFFFF;
+	padding: 0;
+}
+
+.ym-body{
+	overflow: hidden;
+	padding: 0; 
+}
+
+/*footer*/
+.ym-bl{
+	background: #90C1B5;
+	padding-left: 8px;
+}
+
+.ym-br{
+	background: #90C1B5;
+	padding-right: 8px;
+}
+
+.ym-bc{
+	background: #90C1B5;
+	height: 8px;
+}

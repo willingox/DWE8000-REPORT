@@ -1,0 +1,380 @@
+
+/*页面的body*/
+body {
+    MARGIN: 0;
+    PADDING: 0;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+    FONT-SIZE: 9pt;
+    scrollbar-face-color: #CEEBE6;
+	scrollbar-highlight-color: #ffffff;
+	scrollbar-shadow-color: #dee3e7;
+	scrollbar-3dlight-color: #9CC2C4;
+	scrollbar-arrow-color: #236D5E;
+	scrollbar-track-color: #efefef;
+	scrollbar-darkshadow-color : #98AAB1;
+}
+
+/** 导航 */
+#location.location{
+	HEIGHT: 24px;
+	WIDTH: 100%;
+	BACKGROUND: url(../images/foldMenu/top_menu_bg.gif) 0px -24px;	
+}
+
+/********错误**********/
+div.error {
+	font-weight: bold;
+    background: transparent;
+    color: red;
+	border-right: red 1px solid;
+	border-top: red 1px solid;
+	border-left: red 1px solid;
+	border-bottom: red 1px solid;
+	width: 400px;
+	height: 22px;
+	background-color: #ffffff;
+	font-size: 9pt; 
+}
+/*业务相关连接*/
+a.bizLink{
+
+}
+
+/*去掉工具栏按钮图片链接的红色外框*/
+img.imgTool { 
+	border: 0;
+}
+
+/*弹开窗体按钮图片链接*/
+img.showModalDialog { 
+	width: 15px;
+	height: 14px;
+	border:0;
+}
+
+/*长按钮*/
+input.button {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 9pt;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF,EndColorStr=#9DBCEA);
+	padding-bottom: 2px;
+	margin: 1px;
+	border-left: #002D96 1px solid;
+	width:76px;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+	height: 23px;
+}
+
+input.button1 {
+	BORDER: 1px solid #105849;
+	PADDING: 2px;
+	MARGIN: 1px;
+	FONT-SIZE: 9pt;
+	CURSOR: hand;
+	WIDTH: 40px;
+	HEIGHT: 20px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#8FD1C3);
+}
+
+input.button2{
+	BORDER: 1px solid #105849;
+	PADDING: 2px;
+	MARGIN: 1px;
+	FONT-SIZE: 9pt;
+	CURSOR: hand;
+	WIDTH: 60px;
+	HEIGHT: 20px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#8FD1C3);
+}
+
+input.button3 {
+	BORDER: 1px solid #105849;
+	PADDING: 2px;
+	MARGIN: 1px;
+	FONT-SIZE: 9pt;
+	CURSOR: hand;
+	WIDTH: 80px;
+	HEIGHT: 20px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#8FD1C3);
+}
+
+input.button4 {
+	BORDER: 1px solid #105849;
+	PADDING: 2px;
+	MARGIN: 1px;
+	FONT-SIZE: 9pt;
+	CURSOR: hand;
+	WIDTH: 100px;
+	HEIGHT: 20px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#8FD1C3);
+}
+
+input.button5 {
+	BORDER: 1px solid #105849;
+	PADDING: 2px;
+	MARGIN: 1px;
+	FONT-SIZE: 9pt;
+	CURSOR: hand;
+	WIDTH: 120px;
+	HEIGHT: 20px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, StartColorStr=#FFFFFF, EndColorStr=#8FD1C3);
+}
+
+input.buttonTool {
+	BACKGROUND-POSITION: 100% 100%; 
+	BACKGROUND-COLOR: transparent;
+	BACKGROUND-position:0px;
+	BACKGROUND-REPEAT: no-repeat;
+	BORDER-RIGHT-STYLE: none;
+	BORDER-LEFT-STYLE: none; 	
+	BORDER-TOP-STYLE: none;
+	BORDER-BOTTOM-STYLE: none;
+	height:26px;
+	width:45px;
+	cursor: hand;
+	FONT-SIZE: 9pt;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	font-weight:normal;
+	text-align:right;
+}
+
+/*go按钮*/
+input.buttonGo {
+	border-right: #002D96 1px solid;
+	padding-right: 2px;
+	border-top: #002D96 1px solid;
+	padding-left: 2px;
+	font-size: 9pt;
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr=#FFFFFF,EndColorStr=#9DBCEA);
+	padding-bottom: 2px;
+	margin: 1px;
+	border-left: #002D96 1px solid;
+	width:30px;
+	cursor: hand;
+	color: black;
+	padding-top: 2px;
+	border-bottom: #002D96 1px solid;
+	height: 21px;
+}
+
+/*select下拉列表（DropDrownListBox）默认样式*/
+select.selectDrop {
+	border-style:hidden;
+	border-width:1;
+	FONT-SIZE: 9pt;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	width:180px;
+}
+
+/*select多行列表（ListBox）默认样式*/
+select.selectMultiple {
+	border-style:hidden;
+	border-width:1;
+	FONT-SIZE: 9pt;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	width:230px;
+	height:280px;
+}
+
+/*默认TH*/
+TH {
+	font-size: 9pt; 
+}
+/*默认TD*/
+TD {
+	font-size: 9pt; 
+}
+
+/*大表格*/
+table.tabOutside {
+	BORDER: 0px solid #9CC2C4;
+	BORDER-COLLAPSE: collapse;
+	WIDTH: 100%;
+	HEIGHT: 100%;
+}
+
+/*当前位置*/
+span.currentPos {
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+    FONT-SIZE: 9pt;
+    FONT-WEIGHT: bold; 
+	COLOR: #105849;
+}
+
+/*工具栏TD*/
+td.tdTool {	
+	TEXT-ALIGN: center;
+	COLOR: #000000; 
+	HEIGHT: 28;
+	BORDER-BOTTOM: 1px outset #2B7566;
+	BACKGROUND: #CEEBE6;
+    
+}
+
+/*简单查询TD*/
+td.tdQuery {	
+	TEXT-ALIGN: center;
+    VALIGN: middle;
+    COLOR: #000000;
+    HEIGHT: 34;
+    BORDER-BOTTOM: 1px outset #2B7566;
+    BACKGROUND: #FFFFFF;
+}
+
+/*工具栏和错误、数据表格之间的间隔*/
+td.tdDataGridSpace {	
+	width: 100%;
+	height:9;
+}
+ 
+/***********************************数据表格，宽度为99%，深蓝色边框***************************************/
+table.dataGrid {
+    BORDER: 1px solid #9CC2C4;
+    BORDER-COLLAPSE: collapse;
+    WIDTH: 99%; 
+}
+
+/*数据表格表头*/
+td.dataGridHead {
+    TEXT-ALIGN: center;
+    BORDER: 1px solid #9CC2C4;
+    COLOR: #000000;
+    HEIGHT: 25;
+    BACKGROUND: #E7F1F3 url(../images/green/table/table_head_bg.gif) repeat-x left 50%; 
+}
+
+/*数据表格表体，深蓝色边框，字体不加粗*/
+td.dataGridBody {
+   TEXT-ALIGN: center;
+    BORDER: 1px solid #9CC2C4;
+	height: 24;
+}
+
+td.dataGridFoot {
+    border-style: solid; 
+    border-width: 1px;
+    border-color: #000080;
+    text-align:   center;
+	height: 22;
+}
+
+/********数据表格分页字体**********/
+span.pageplot {
+	FONT-SIZE: 9pt;
+	COLOR: #276db2;
+	font-family: "微软雅黑", Tahoma, Verdana, Arial, "宋体";
+	TEXT-DECORATION: none;
+	line-height: 140%;
+	text-align: left;
+}
+
+/********数据表格选中行**********/
+td.tableSelected {
+	font-weight: normal;
+	font-size: 9pt;
+	vertical-align: baseline;
+	color: #000000;
+	background-color: #ffffcc;
+	text-align: center;
+}
+/***********************************************数据表格结束*************************************************/
+
+/*工具栏和错误、数据详细表格之间的间隔*/
+td.tdDataDetailSpace {	
+	width: 100%;
+	height:45;
+}
+
+/*********************************************** 数据详细表格 ***********************************************/
+table.detail {
+    margin-left: 10px;
+    padding: 5px;
+    font-weight: normal;
+}
+
+td.tdDetailLable {
+    text-align: right;
+    padding: 0px 3px 0px 0px;
+	font-style:normal;
+	
+}
+
+td.tdDetailText {
+    text-align:left;
+    padding: 0px;
+}
+
+/*详细数据form中的输入文本框的样式*/
+.formDetailTxt {
+	BORDER-TOP: 1px solid #000000;
+	BORDER-RIGHT: 1px solid #9CC2C4;
+	BORDER-BOTTOM: 1px solid #9CC2C4;
+	BORDER-LEFT: 1px solid #000000;
+}
+
+/*详细数据form中的输入文本框的disable的样式*/
+.formDetailTxtDisable {
+	BORDER-TOP: 1px solid #000000;
+	BORDER-RIGHT: 1px solid #9CC2C4;
+	BORDER-BOTTOM: 1px solid #9CC2C4;
+	BORDER-LEFT: 1px solid #000000;
+	BACKGROUND: #EBEBEB;
+}
+
+/*详细数据form中的输入多行编辑框的样式*/
+.formDetailTxtarea {
+	BORDER-TOP: 1px solid #000000;
+	BORDER-RIGHT: 1px solid #9CC2C4;
+	BORDER-BOTTOM: 1px solid #9CC2C4;
+	BORDER-LEFT: 1px solid #000000;
+}
+
+/*详细数据form中的输入下拉框的样式*/
+.formDetailSelect {
+	border-style:hidden;
+	border-width:1;
+	width:235px;
+}
+
+/*详细数据form中的必填字段的样式*/
+td.tdDetailNeed {
+    text-align: right;
+    padding: 0px 3px 0px 0px;
+	font-style:normal red;
+	font-size:12px;
+	color:red;
+	
+}
+/**************************************************详细数据表格结束***********************************************/
+/**************************************************查询页面数据表格 ***********************************************/
+table.query {
+    margin-left: 10px;
+    padding: 5px;
+    font-weight: normal;
+}
+
+td.tdQueryLable {
+    text-align: left;
+    padding: 0px 3px 0px 0px;
+	font-style:normal;
+	
+}
+
+td.tdQueryText {
+    text-align:right;
+    padding: 0px;
+}
+
+/*详细数据form中的输入文本的样式*/
+.formQueryTxt {
+	border-color:#99CCFF;
+	border-style:hidden;
+	border-width:1;
+}
+/**************************************************查询页面数据表格结束********************************************/

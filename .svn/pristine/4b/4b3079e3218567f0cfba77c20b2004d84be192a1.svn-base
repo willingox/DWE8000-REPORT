@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE form-validation PUBLIC
+          "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.1.3//EN"
+          "http://jakarta.apache.org/commons/dtds/validator_1_1_3.dtd">
+
+<form-validation>
+
+	<global>
+      <constant>
+        <constant-name>phone</constant-name>
+        <constant-value>^[\d|-]+$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>zip</constant-name>
+        <constant-value>^\d{6}$</constant-value>
+      </constant>
+      <constant>
+        <constant-name>currency</constant-name>
+        <constant-value>^\d{1,3}(,?\d{1,3})*\.?(\d{1,2})?$</constant-value>
+      </constant> 
+   </global>
+
+	<formset>
+		<!-- 客户信息表单 --> 
+		<form name="customerForm">
+			<field property="customerNo" depends="required,maxlength,mask">
+				<arg0 key="customerForm.customerNo" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z_]*$</var-value>
+				</var>		
+			</field>
+			<field property="customerName" depends="required,maxlength">
+				<arg0 key="customerForm.customerName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>40</var-value>
+				</var> 	
+			</field>
+			<field property="contactname" depends="maxlength">
+				<arg0 key="customerForm.contactname" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>10</var-value>
+				</var> 	
+			</field>
+			
+			<field property="contactphone1" depends="mask,maxlength">
+				<arg0 key="customerForm.contactphone1" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>${phone}</var-value>
+				</var> 
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var> 		
+			</field>
+			
+			<field property="contactphone2" depends="mask,maxlength">
+				<arg0 key="customerForm.contactphone2" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[\d|]+$</var-value>
+				</var>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>20</var-value>
+				</var> 	
+			</field>
+			
+			<field property="addr" depends="maxlength">
+				<arg0 key="customerForm.addr" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>125</var-value>
+				</var> 	
+			</field>
+			
+			<field property="capability" depends="integer,intRange">
+				<arg0 key="customerForm.capability" />
+				<arg1 name="doubleRange" key="${var:min}" resource="false"/>
+			    <arg2 name="doubleRange" key="${var:max}" resource="false" />
+				<var>
+			     	<var-name>min</var-name>
+			      	<var-value>0</var-value>
+			    </var> 
+			    <var>
+				    <var-name>max</var-name>
+				    <var-value>999999999</var-value>
+			    </var>  
+			</field>
+			
+			<field property="terminalAddr" depends="maxlength">
+				<arg0 key="customerForm.terminalAddr" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 	
+			</field>
+		</form>
+		<!-- 设备信息表单 --> 
+		<form name="equipmentForm">
+			<field property="eqNo" depends="required,maxlength,mask">
+				<arg0 key="equipmentForm.eqNo" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>32</var-value>
+				</var> 
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9a-zA-Z_]*$</var-value>
+				</var>		
+			</field>
+			<field property="eqName" depends="required,maxlength">
+				<arg0 key="equipmentForm.eqName" />
+				<arg1 name="maxlength" key="${var:maxlength}" resource="false"/>
+				<var>
+					<var-name>maxlength</var-name>
+					<var-value>40</var-value>
+				</var> 	
+			</field>
+		
+			<field property="ratedpower" depends="integer,intRange">
+				<arg0 key="equipmentForm.ratedpower" />
+				<arg1 name="doubleRange" key="${var:min}" resource="false"/>
+			    <arg2 name="doubleRange" key="${var:max}" resource="false" />
+				<var>
+			     	<var-name>min</var-name>
+			      	<var-value>0</var-value>
+			    </var> 
+			    <var>
+				    <var-name>max</var-name>
+				    <var-value>999999999</var-value>
+			    </var>  
+			</field>
+		
+			<field property="limitvol" depends="integer,intRange">
+				<arg0 key="equipmentForm.limitvol" />
+				<arg1 name="doubleRange" key="${var:min}" resource="false"/>
+			    <arg2 name="doubleRange" key="${var:max}" resource="false" />
+				<var>
+			     	<var-name>min</var-name>
+			      	<var-value>0</var-value>
+			    </var> 
+			    <var>
+				    <var-name>max</var-name>
+				    <var-value>999999999</var-value>
+			    </var>  
+			</field>
+			<field property="maxpower" depends="integer,intRange">
+				<arg0 key="equipmentForm.maxpower" />
+				<arg1 name="doubleRange" key="${var:min}" resource="false"/>
+			    <arg2 name="doubleRange" key="${var:max}" resource="false" />
+				<var>
+			     	<var-name>min</var-name>
+			      	<var-value>0</var-value>
+			    </var> 
+			    <var>
+				    <var-name>max</var-name>
+				    <var-value>999999999</var-value>
+			    </var>  
+			</field>
+			<field property="minpower" depends="integer,intRange">
+				<arg0 key="equipmentForm.minpower" />
+				<arg1 name="doubleRange" key="${var:min}" resource="false"/>
+			    <arg2 name="doubleRange" key="${var:max}" resource="false" />
+				<var>
+			     	<var-name>min</var-name>
+			      	<var-value>0</var-value>
+			    </var> 
+			    <var>
+				    <var-name>max</var-name>
+				    <var-value>999999999</var-value>
+			    </var>  
+			</field>
+		
+		</form>
+		
+		
+	</formset>
+</form-validation>

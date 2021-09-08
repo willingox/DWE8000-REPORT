@@ -1,0 +1,193 @@
+<html>
+<head>
+<title>Milonic DHTML/JavaScript Menu Sample Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+
+
+<style type="text/css">
+		a:link {
+		color: #FF0000;
+		text-decoration: none;
+		}
+		a:visited {
+		color: #333333;
+		}
+		a:hover {
+		text-decoration: none;
+		color: #FFFFFF;
+		background-color:#0000FF;
+		}
+		a:active {
+		text-decoration: none;
+		color: #FFFFFF;
+		}
+</style>
+
+	
+</head>
+
+<body leftmargin="0" topmargin="0" rightmargin="0" bottommargin="0" scroll="no" >
+		
+
+<!-- ***** This is the section of code you need to paste into your web pages ***** -->
+<script type="text/javascript" src="milonic_src.js"></script>	
+<script type="text/javascript" src="mmenudom.js"></script>
+<script type="text/javascript" src="menu_data.js"></script>
+
+<!-- The next file contains your menu data, links and menu structure etc -->
+
+
+<table width="100%" height="100%" cellSpacing="0" cellPadding="0" border="0">
+  <tr>
+    <td width="100%" height="74" valign="top" >
+	    <table width="100%" height="100%" cellSpacing="0" cellPadding="0" border="0">
+	      <tr>
+	        <td width="700" background="images/frame/top_left.jpg">
+	        </td>
+	        <td background="images/frame/top_middle.jpg">
+	        	&nbsp;
+	        </td>
+	        <td width="321" background="images/frame/top_right.jpg" align="right" valign="bottom">
+		        <table  height="30" border="0" cellpadding="3" cellspacing="3">
+		            <tr valign="middle" >	
+		              <th height="30" align="right" scope="col" style="color:#FFFFFF;cursor:hand;font-size:12px"><img src="images/frame/top_user.gif"  border="0" align="middle" style="position:relative;top:-2px;margin-right:0px;"><%=session.getAttribute("gUserName").toString()%></th>
+		              <th onclick="exit();" width="50" height="30" style="color:#FFFFFF;cursor:hand;font-size:12px"><img src="images/frame/top_exit.gif"  border="0" align="middle" style="position:relative;top:-2px;margin-right:0px;">注销</A></th>
+		              <th onclick="help();" width="50"  height="30" align="left" style="color:#FFFFFF;cursor:hand;font-size:12px"><img src="images/frame/top_help.gif"  border="0" align="middle" style="position:relative;top:-2px;margin-right:0px;">帮助</th>
+		              <th width="20"  height="30" align="left" >&nbsp;</th>
+		            </tr>
+		        </table>
+		    </td>
+	      </tr>
+	    </table>
+    </td>
+  </tr>
+  
+	<TR style="background:url(images/frame/menu.jpg) repeat-x" >
+		<TD height="20" valign="bottom" align="right" style="bgcolor:#CCFFCC" >
+					
+		</TD>
+	</TR>
+	<TR>
+		<TD height="100%">
+			<iframe id="contents" name="contents" src="welcome.jsp" align="left" frameBorder="yes" width="100%"  height="100%" scrolling="no"></iframe>
+		</TD>
+	</TR>
+</TABLE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<DIV style="display:none">
+
+<ul>
+<li>To edit the menu, open the file <a href=menu_data.js>menu_data.js</a> in a text editor and edit the details inside the <b>aI()</b> text strings<br><br>
+<li>To add more menu items, just create another <b>aI()</b> string on a new line and enter your properties<br><br>
+<li>add a <b>showmenu=<i>MENUNAME;</i></b> property if you want this menu to open a sub menu<br><br>
+<li>To Add more menus, copy another menu and paste it inside your data file. A menu starts: <b>with(milonic=new menuname("<i>MENUNAME</i>")){</b> and ends: <b>}</b><br><br>
+<LI>Any problems, visit http://www.milonic.com/forum. Beginners guide is at <a href=http://www.milonic.com/beginner.php>http://www.milonic.com/beginner.php</a><br><br>
+	<li>To get the menu onto your website, insert the following HTML into each page using the menu:
+		<pre>
+&lt;noscript&gt;&lt;a href=&quot;http://www.milonic.com/&quot;&gt;DHTML Menu By Milonic JavaScript&lt;/a&gt;&lt;/noscript&gt;			
+&lt;script type=&quot;text/javascript&quot; src=&quot;milonic_src.js&quot;&gt;&lt;/script&gt; 
+&lt;script type=&quot;text/javascript&quot; src=&quot;mmenudom.js&quot;&gt;&lt;/script&gt; 
+&lt;!-- The next file contains your menu data, links and menu structure etc --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;menu_data.js&quot;&gt;&lt;/script&gt;
+</pre>
+</ul>
+ 
+<HR>
+Links to other menu demos are:
+<ul>
+<li><a href=extras/dynamic_menus_API/index.html>Dynamic Menu Building API</a></li>
+<li><a href=extras/tooltips/index.html>Tooltips</a></li>
+<li><a href=extras/listbased_menu/index.html>DHTML Menu based on HTML Lists</a></li>
+<li><a href=extras/frames_menu/index.htm>Frames based menu for version 5.0</a></li>
+<li><a href=extras/php_based_menu/index.php>Menu built using PHP - You'll need PHP for this</a></li>
+<li><a href=extras/xml_based_menu/index.php>Menu built using XML - You'll need PHP for this</a></li>
+</ul>
+ 
+<HR>
+
+<p>	
+Please note that users of Microsoft Windows XP with <b>Service Pack 2</b> will need to unblock this page in order to see the menu. 
+The reason for this is due to the fact that the menu has been written in JavaScript. 
+This feature is considered unsafe when used locally and Service Pack 2 now blocks this by default for your safety. 
+This only happens when you run the menu on a local machine, live use on the Internet will not be affected. 
+Milonic Solutions Ltd assure you that there is absolutely no danger of allowing content from the DHTML Menu provided it has been downloaded from www.milonic.com
+<br>
+<br>
+
+For instructions on removing the forced popup message, please visit <a href=http://www.milonic.com/removelink.php>http://www.milonic.com/removelink.php</a>
+
+<br>
+<br>
+For information on menu properties, please see <a href=http://www.milonic.com/menuproperties.php>http://www.milonic.com/menuproperties.php</a> <br>
+For information on menu item properties, please see <a href=http://www.milonic.com/itemproperties.php>http://www.milonic.com/itemproperties.php</a> <br>
+For information on style properties, please see <a href=http://www.milonic.com/styleproperties.php>http://www.milonic.com/styleproperties.php</a> <br>
+<br>
+Installation instructions - <a href=docs/install.html>install.html</a><br>
+How to build menus - <a href=docs/howtobuild.html>howtobuild.html</a><br>
+Read Me - <a href=docs/readme.html>readme.html</a><br>
+License Details - <a href=docs/license.html>license.html</a><br>
+</p>
+<br>
+<br>
+<br>
+
+<table cellSpacing=0 cellPadding=13 border=0 style="border:1px solid #aaaaaa">
+<tr>
+<td class=backG align=center>
+   <b>Milonic Home Menu</td>
+</tr>
+
+<tr>
+<td class=form1>
+
+The <b><i>Milonic Home Menu</i></b> sample is a copy of our own menu here at Milonic.com. <br>
+<br>
+Our menu style compliments the Milonic color scheme and utilises the following properties:<br>
+<br>
+Horizontal Orientation <br>
+Scroll Bars<br>
+Margins<br>
+Solid Borders<br>
+Solid Mouseover Borders<br>
+90% Opacity / 10% Transparency for Submenus<br>
+Drop Shadow for Submenus<br>
+Random Dissolve Outfilter for Submenus<br>
+Item Icons <br>
+Background Images<br>
+Mouseover Background Images<br>
+Sub Menu Indicators <br>
+80% Separators, aligned right for specific items in Submenus<br>
+
+
+<p>Downloading this sample will deliver all files needed to run this sample on your local machine.
+
+<br>
+</td>
+</td>
+</tr>		
+</table>
+</DIV>
+
+</body>
+</html>

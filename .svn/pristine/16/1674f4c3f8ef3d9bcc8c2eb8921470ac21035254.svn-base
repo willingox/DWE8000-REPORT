@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="loginForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="username" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+		</form-bean>
+	</form-beans>
+	
+	<global-forwards></global-forwards>
+
+	<action-mappings>
+	
+	
+		<action path="/login" type="com.xjgc.wind.app.action.LoginAPPAction" 
+			name="loginForm" scope="request" validate="false" input="/default.html">
+		</action>
+		
+		<action path="/logoff" type="com.xjgc.wind.app.action.LogoffAPPAction" parameter="method" scope="request">
+		</action>
+		
+		<action path="/overview" type="com.xjgc.wind.app.overview.action.OverviewAPPAction" parameter="method" scope="request">
+		</action>
+		
+	
+		<action path="/test" type="com.xjgc.wind.app.rank.action.RankAPPAction" parameter="method" scope="request">
+		</action>
+		
+		<action path="/station" type="com.xjgc.wind.app.station.action.StationAppAction"  scope="request" parameter="method" > 
+		</action>
+		
+		<action path="/generator" type="com.xjgc.wind.app.generator.action.GeneratorAppAction"  scope="request" parameter="method" > 
+		</action>
+		
+		<action path="/breakdown" type="com.xjgc.wind.app.breakdown.action.BreakdownAppAction" parameter="method" scope="request">
+		</action>
+		
+	</action-mappings>
+</struts-config>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DatasourceManager xmlVersion="20100901">
+<ConnectionMap>
+<Connection name="res8000" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@localhost:1521:orcl" driver="oracle.jdbc.driver.OracleDriver" user="res8000" password="___0061002b00790037005400e5001b" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="MySQL" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:mysql://localhost/res8000" driver="com.mysql.jdbc.Driver" user="root" password="___006100210065007b" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="FRDemo" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=D:\FineReport_6.5\WebReport\FRDemo.mdb" driver="sun.jdbc.odbc.JdbcOdbcDriver" user="" password="___" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="MyAccess" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=D:\My Documents\Project.mdb" driver="sun.jdbc.odbc.JdbcOdbcDriver" user="" password="___" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="GIS" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@10.100.100.9:1521:GIS" driver="oracle.jdbc.driver.OracleDriver" user="res8000" password="___0061002b00790037005400e5001b" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+<Connection name="HisEvc" class="com.fr.data.impl.JDBCDatabaseConnection">
+<DatabaseAttr/>
+<JDBCDatabaseAttr url="jdbc:oracle:thin:@10.100.100.10:1521:hisevc" driver="oracle.jdbc.driver.OracleDriver" user="hisevc" password="___006100210065007b" encryptPassword="true">
+<DBCPAttr/>
+</JDBCDatabaseAttr>
+</Connection>
+</ConnectionMap>
+<TableDataMap>
+<TableData name="server" class="com.fr.data.impl.DBTableData">
+<Parameters/>
+<Attributes maxMemRowCount="-1"/>
+<Connection class="com.fr.data.impl.NameDatabaseConnection">
+<DatabaseName>
+<![CDATA[MySQL]]></DatabaseName>
+</Connection>
+<Query>
+<![CDATA[]]></Query>
+</TableData>
+</TableDataMap>
+</DatasourceManager>

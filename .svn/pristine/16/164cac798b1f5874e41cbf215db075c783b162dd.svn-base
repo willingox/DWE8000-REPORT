@@ -1,0 +1,19 @@
+<html>
+<head>
+<title>PopWaiting</title>
+<meta http-equiv="Content-Type" content="text/html; charset=GBK" />
+<link rel="stylesheet" id='skin' type="text/css" href="popWaiting.css" />
+<script type="text/javascript" src="ymPrompt.js"></script>
+<script type="text/javascript" src="popWaiting.js"></script>	
+<script type="text/javascript">
+<!--
+	function show() {
+		popWaiting();
+	}
+//-->
+</script>
+</head>
+<body>
+<input type="button" onclick="show()" value="弹出DIV">
+</body>
+</html>

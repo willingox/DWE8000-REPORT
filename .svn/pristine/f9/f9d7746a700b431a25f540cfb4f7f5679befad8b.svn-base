@@ -1,0 +1,35 @@
+package com.xjgc.wind.datastatistics.service.impl;
+
+import java.util.List;
+
+import com.xjgc.wind.datastatistics.dao.IWindAvailabilityContrastDao;
+import com.xjgc.wind.datastatistics.service.IWindAvailabilityContrastService;
+import com.xjgc.wind.datastatistics.vo.DataStatisticsDataVo;
+import com.xjgc.wind.datastatistics.web.form.WindAvailabilityContrastDataForm;
+
+public class WindAvailabilityContrastServiceImpl implements IWindAvailabilityContrastService {
+
+	IWindAvailabilityContrastDao windAvailabilityContrastDao;
+
+	public IWindAvailabilityContrastDao getWindAvailabilityContrastDao() {
+		return windAvailabilityContrastDao;
+	}
+	
+	public void setWindAvailabilityContrastDao(IWindAvailabilityContrastDao windAvailabilityContrastDao) {
+		this.windAvailabilityContrastDao = windAvailabilityContrastDao;
+	}
+
+	
+	public List<DataStatisticsDataVo> listhour(WindAvailabilityContrastDataForm queryFilter) {
+		return windAvailabilityContrastDao.listhour(queryFilter);
+	}
+	public List<DataStatisticsDataVo> listcount(WindAvailabilityContrastDataForm queryFilter) {
+		return windAvailabilityContrastDao.listcount(queryFilter);
+	}
+	public List<DataStatisticsDataVo> listcountall(WindAvailabilityContrastDataForm queryFilter) {
+		return windAvailabilityContrastDao.listcountall(queryFilter);
+	}
+	/*public List<DataStatisticsDataVo> listtable(WindAvailabilityContrastDataForm queryFilter) {
+		return windAvailabilityContrastDao.listtable(queryFilter);
+	}*/
+}

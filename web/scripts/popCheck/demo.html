@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>弹出复选框窗口测试</title>
+<link rel="stylesheet" type="text/css" href="popCheck.css" />
+<script type="text/javascript" src="ymPrompt.js"></script>
+<script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+<script type="text/javascript" src="popCheck.js"></script>
+<script type="text/javascript">
+<!--
+	// 回到函数，获取选中ID字符串
+	function myFunc(ids) {
+		alert(ids);
+	}
+
+	function choserole(){
+		var data = 
+		[
+			{value: '10',label: '香蕉'},
+			{value: '20',label: '苹果'},
+			{value: '30',label: '西瓜'},
+			{value: '40',label: '桃子'},
+			{value: '50',label: '芒果'},
+			{value: '60',label: '柚子'},
+			{value: '70',label: '橘子'},
+			{value: '80',label: '草莓'},
+			{value: '90',label: '榴莲'},
+			{value: '100',label: '石榴'},
+			{value: '110',label: '哈密瓜'},
+			{value: '120',label: '椰子'},
+			{value: '130',label: '葡萄'}
+		];
+
+		$('#fruits').popCheck({
+			title: '请勾选你喜爱的水果',
+			data: data,
+			height: 200,
+			width: 300,
+			showClear: false,
+			handler: myFunc
+		});
+	}
+//-->
+</script>
+</head>
+<body>
+请选择自己喜爱的水果：<br />
+<input type="text" value="香蕉;苹果;哈密瓜" onclick="choserole()" size="100" id="fruits"/>
+</body>
+</html>

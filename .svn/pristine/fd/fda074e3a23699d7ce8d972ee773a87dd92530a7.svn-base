@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC 
+    "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" 
+    "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+	<!-- ================================================ Form Bean Definitions -->
+	<form-beans>
+		<form-bean name="loginForm" type="org.apache.struts.validator.DynaValidatorForm">
+			<form-property name="username" type="java.lang.String" />
+			<form-property name="password" type="java.lang.String" />
+		</form-bean>
+		<form-bean name="treeMenuForm" type="com.bjxj.usermgr.webapp.form.XtMenuForm"></form-bean>
+		<form-bean name="selUserForm" type="com.ics8000.pu.select.webapp.form.Sel_UserForm"/>
+	</form-beans>
+
+	<!-- ========================================= Global Exception Definitions -->
+	<global-exceptions></global-exceptions>
+
+	<!-- =========================================== Global Forward Definitions -->
+	<global-forwards>
+		<forward name="index" path="/index" />
+	</global-forwards>
+
+	<!-- =========================================== Action Mapping Definitions -->
+
+	<action-mappings>
+		<action path="/index" forward="/login.jsp" />
+
+		<action path="/login" type="com.bjxj.usermgr.webapp.action.LoginAction" 
+		    name="loginForm" scope="request" validate="false" input="/login.jsp">
+			<forward name="success" path="/openFrame.jsp" />
+		</action>
+		<action path="/chooseMode" type="com.bjxj.usermgr.webapp.action.ChooseModeAction">
+			<forward name="index" path="/index.jsp" />
+			<forward name="treeIndex" path="/treeIndex.jsp" />
+		</action>
+
+		<action path="/logoff" type="com.bjxj.usermgr.webapp.action.LogoffAction">
+			<forward name="success" path="/login.jsp" />
+		</action>
+
+		<action path="/treemenu" type="com.bjxj.usermgr.webapp.action.XtMenuAction" 
+		    name="treeMenuForm" scope="request" validate="true" parameter="method">
+			<forward name="success" path="/treemenu.jsp" />
+		</action>
+		
+	</action-mappings>
+
+	<!-- ===================== Controller Configuration ======================== -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ===================== Message Resources Definitions =================== -->
+	<message-resources parameter="com.bjxj.conf.files.ApplicationResources" />
+	<message-resources parameter="com.bjxj.conf.files.MessageResources" 
+	    key="MESSAGE_RESOURCE_KEY" />
+
+	<!-- ===================== Plug Ins Configuration ========================== -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" 
+		    value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+	
+</struts-config>
+

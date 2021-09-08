@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+	<form-beans>
+		<form-bean name="xtOrgForm" type="com.bjxj.usermgr.webapp.form.XtOrganizationForm"></form-bean>
+		<form-bean name="xtDeptForm" type="com.bjxj.usermgr.webapp.form.XtDeptForm"></form-bean>
+		<form-bean name="xtUserForm" type="com.bjxj.usermgr.webapp.form.XtUserForm"></form-bean>
+		<form-bean name="xtRoleForm" type="com.bjxj.usermgr.webapp.form.XtRoleForm"></form-bean>
+		<form-bean name="xtResForm" type="com.bjxj.usermgr.webapp.form.XtResourceForm"></form-bean>
+		<form-bean name="xtResClassForm" type="com.bjxj.usermgr.webapp.form.XtResClassForm"></form-bean>
+		<form-bean name="xtMenuForm" type="com.bjxj.usermgr.webapp.form.XtMenuForm"></form-bean>
+		<form-bean name="xtResTypeForm" type="com.bjxj.usermgr.webapp.form.XtResTypeForm"></form-bean>
+		<form-bean name="logQueryForm" type="com.bjxj.usermgr.webapp.form.LogQueryForm"></form-bean>
+		<form-bean name="xtGroupForm" type="com.bjxj.usermgr.webapp.form.XtGroupForm"></form-bean>
+		<form-bean name="xtLogClassForm" type="com.bjxj.usermgr.webapp.form.XtLogClassForm"></form-bean>
+	</form-beans>
+	<global-forwards></global-forwards>
+
+	<action-mappings>
+		<action path="/org" type="com.bjxj.usermgr.webapp.action.XtOrganizationAction" name="xtOrgForm" parameter="method" scope="request" unknown="false" validate="true" input="/errors.jsp">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/org_index.jsp" />
+			<forward name="tree" contextRelative="true" path="/pages/usermgr/orgTree.jsp" />
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/org.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/org_detail.jsp" />
+			<forward name="orgTree" contextRelative="true" path="/pages/usermgr/orgTreeForWinOpen.jsp" />
+		</action>
+
+		<action path="/dept" type="com.bjxj.usermgr.webapp.action.XtDeptAction" name="xtDeptForm" parameter="method" scope="request" unknown="false" validate="true" input="/dept.jsp">
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/dept.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/dept_detail.jsp" />
+			<forward name="deptByOrgId" contextRelative="true" path="/pages/usermgr/deptListByOrgIdForWinOpen.jsp" />
+			<forward name="index" contextRelative="true" path="/pages/usermgr/dept_index.jsp" />
+			<forward name="tree" contextRelative="true" path="/pages/usermgr/deptTree.jsp" />
+			<forward name="treeForWin" contextRelative="true" path="/pages/usermgr/deptTreeForWinOpen.jsp" />
+		</action>
+
+		<action path="/user" type="com.bjxj.usermgr.webapp.action.XtUserAction" name="xtUserForm" parameter="method" scope="request" unknown="false" input="/user.jsp">
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/user.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/user_detail.jsp" />
+		</action>
+	
+		<action path="/role" type="com.bjxj.usermgr.webapp.action.XtRoleAction" name="xtRoleForm" parameter="method" scope="request" unknown="false" validate="true" input="/role.jsp">
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/role.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/role_detail.jsp" />
+			<forward name="userListByRoleId" contextRelative="true" path="/pages/usermgr/userListByRoleIdForWinOpen.jsp" />
+			<forward name="roleListByUserId" contextRelative="true" path="/pages/usermgr/roleListByUserIdForWinOpen.jsp" />
+			<forward name="roleListByResId" contextRelative="true" path="/pages/usermgr/roleListByResIdForWinOpen.jsp" />
+			<forward name="roleOwnMenuTree" contextRelative="true" path="/pages/usermgr/roleOwnMenuTree.jsp" />
+		</action>
+
+		<action path="/res" type="com.bjxj.usermgr.webapp.action.XtResourceAction" name="xtResForm" parameter="method" scope="request" unknown="false" validate="true" input="/res.jsp">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/res_index.jsp" />
+			<forward name="tree" contextRelative="true" path="/pages/usermgr/res_resClassTree.jsp" />
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/res.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/res_detail.jsp" />
+			<forward name="resDialogIndex" contextRelative="true" path="/pages/usermgr/res_selectDialogIndex.jsp" />
+			<forward name="resDialogResList" contextRelative="true" path="/pages/usermgr/res_selectDialogResList.jsp" />
+		</action>
+		
+		<action path="/resClass" type="com.bjxj.usermgr.webapp.action.XtResClassAction" name="xtResClassForm" parameter="method" scope="request" unknown="false" validate="true" input="/resClassIndex.jsp">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/resClassIndex.jsp" />
+			<forward name="tree" contextRelative="true" path="/pages/usermgr/resClassTree.jsp" />
+			<forward name="list" contextRelative="true" path="/pages/usermgr/resClass.jsp" />
+			<forward name="treeWinOpen" contextRelative="true" path="/pages/usermgr/resClassTreeForWinOpen.jsp" />
+		</action>
+		
+		<action path="/menu" type="com.bjxj.usermgr.webapp.action.XtMenuAction" name="xtMenuForm" parameter="method" scope="request" unknown="false" validate="true" input="/menu.jsp">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/menu_index.jsp" />
+			<forward name="tree" contextRelative="true" path="/pages/usermgr/menuTree.jsp" />
+			<forward name="list" contextRelative="true" path="/usermgr/menu.html?method=list" redirect="true" />
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/menu.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/menu_detail.jsp" />
+			<forward name="menuTreeForWin" contextRelative="true" path="/pages/usermgr/menuTreeForWinOpen.jsp" />
+		</action>	
+		
+		<action path="/resType" type="com.bjxj.usermgr.webapp.action.XtResTypeAction" name="xtResTypeForm" parameter="method" scope="request" unknown="false" validate="true" input="/resType.jsp">
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/resType.jsp" />
+		</action>
+
+		<action path="/userrole" type="com.bjxj.usermgr.webapp.action.XtUserRoleAction" parameter="method">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/userRoleIndex.jsp"/>
+			<forward name="disp" contextRelative="true" path="/pages/usermgr/userRole.jsp"/>			
+		</action>
+			
+		<action path="/permAssign" type="com.bjxj.usermgr.webapp.action.XtPermAssignAction" parameter="method">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/permAssignIndex.jsp"/>
+			<forward name="roleList" contextRelative="true" path="/pages/usermgr/permAssignRoleList.jsp"/>
+			<forward name="resClassTree" contextRelative="true" path="/pages/usermgr/permATree.jsp"/>
+			<forward name="permAssign" contextRelative="true" path="/pages/usermgr/permAssign.jsp"/>
+			<forward name="permListByRoleId" contextRelative="true" path="/pages/usermgr/permListByRoleIdForWinOpen.jsp" />
+		</action>
+		
+		<action path="/logQuery" type="com.bjxj.usermgr.webapp.action.LogQueryAction" name="logQueryForm" parameter="method" scope="request">
+			<forward name="success" contextRelative="true" path="/pages/usermgr/logQuery.jsp" />
+		</action>
+		
+		<action path="/foldMenu" type="com.bjxj.usermgr.webapp.action.FoldMenuAction" parameter="method" scope="request">
+			<forward name="foldMenu" contextRelative="true" path="/foldMenu.jsp" />
+		</action>
+		
+		<action path="/group" type="com.bjxj.usermgr.webapp.action.XtGroupAction" name="xtGroupForm" parameter="method" scope="request">
+			<forward name="list" contextRelative="true" path="/pages/usermgr/group.jsp" />
+			<forward name="add" contextRelative="true" path="/pages/usermgr/group_add.jsp" />
+			<forward name="edit" contextRelative="true" path="/pages/usermgr/group_edit.jsp" />
+			<forward name="groupByOrgId" contextRelative="true" path="/pages/usermgr/groupListByOrgIdForWinOpen.jsp" />
+		</action>
+		
+		<action path="/menuAuthorize" type="com.bjxj.usermgr.webapp.action.MenuAuthorizeAction" parameter="method" scope="request">
+			<forward name="index" contextRelative="true" path="/pages/usermgr/menuAuthorizeIndex.jsp" />
+			<forward name="roleTree" contextRelative="true" path="/pages/usermgr/roleTree.jsp" />
+			<forward name="menuTree" contextRelative="true" path="/pages/usermgr/chkMenuTree.jsp" />
+		</action>
+		
+		<action path="/modifyPwd" type="com.bjxj.usermgr.webapp.action.ModifyPwdAction" parameter="method" scope="request">
+			<forward name="modifyPwd" contextRelative="true" path="/pages/usermgr/modifyPwd.jsp" />
+		</action>
+		
+		<action path="/logClass" type="com.bjxj.usermgr.webapp.action.XtLogClassAction" name="xtLogClassForm" parameter="method" scope="request" unknown="false" validate="true" input="/pages/usermgr/logClassList.jsp">
+			<forward name="list" contextRelative="true" path="/pages/usermgr/logClassList.jsp" />
+		</action>
+	</action-mappings>
+
+	<!-- ===================== Controller Configuration ======================== -->
+	<controller processorClass="org.apache.struts.tiles.TilesRequestProcessor" />
+
+	<!-- ===================== Message Resources Definitions =================== -->
+	<message-resources parameter="com.bjxj.conf.files.ApplicationResources" />
+	<message-resources parameter="com.bjxj.conf.files.MessageResources" key="MESSAGE_RESOURCE_KEY" />
+
+	<!-- ===================== Plug Ins Configuration ========================== -->
+	<plug-in className="org.apache.struts.tiles.TilesPlugin">
+		<set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+		<set-property property="moduleAware" value="true" />
+	</plug-in>
+
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+		<set-property property="pathnames" value="/WEB-INF/validator-rules.xml,/WEB-INF/validation.xml" />
+	</plug-in>
+</struts-config>

@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+<!-- ***** windRealStatistics SERVICE ***** -->
+	<bean id="windRealStatisticsService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windRealStatisticsTarget" />
+		</property>
+	</bean>
+	<bean id="windRealStatisticsTarget" class="com.xjgc.wind.datastatistics.service.impl.WindRealStatisticsServiceImpl">		
+		<property name="windRealStatisticsDao">
+			<ref bean="windRealStatisticsDao" />
+		</property>
+	</bean>
+	
+	<bean id="windRealStatisticsDao" class="com.xjgc.wind.datastatistics.dao.impl.WindRealStatisticsDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+<!-- ***** windMeaInfoMonitor SERVICE ***** -->
+	<bean id="windMeaInfoMonitorService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windMeaInfoMonitorTarget" />
+		</property>
+	</bean>
+	<bean id="windMeaInfoMonitorTarget" class="com.xjgc.wind.datastatistics.service.impl.WindMeaInfoMonitorServiceImpl">		
+		<property name="windMeaInfoMonitorDao">
+			<ref bean="windMeaInfoMonitorDao" />
+		</property>
+	</bean>
+	
+	<bean id="windMeaInfoMonitorDao" class="com.xjgc.wind.datastatistics.dao.impl.WindMeaInfoMonitorDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+<!-- ***** WindGerRtMonitor SERVICE ***** -->
+	<bean id="windGerRtMonitorService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windGerRtMonitorTarget" />
+		</property>
+	</bean>
+	<bean id="windGerRtMonitorTarget" class="com.xjgc.wind.datastatistics.service.impl.WindGerRtMonitorServiceImpl">		
+		<property name="windGerRtMonitorDao">
+			<ref bean="windGerRtMonitorDao" />
+		</property>
+	</bean>
+	<bean id="windGerRtMonitorDao" class="com.xjgc.wind.datastatistics.dao.impl.WindGerRtMonitorDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+<!-- ***** windAvailabilityContrast SERVICE ***** -->
+	<bean id="windAvailabilityContrastService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windAvailabilityContrastTarget" />
+		</property>
+	</bean>
+	<bean id="windAvailabilityContrastTarget" class="com.xjgc.wind.datastatistics.service.impl.WindAvailabilityContrastServiceImpl">		
+		<property name="windAvailabilityContrastDao">
+			<ref bean="windAvailabilityContrastDao" />
+		</property>
+	</bean>
+	
+	<bean id="windAvailabilityContrastDao" class="com.xjgc.wind.datastatistics.dao.impl.WindAvailabilityContrastDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<!-- ***** WindJiReliabilityContrastSERVICE ***** -->
+	<bean id="windJiReliabilityContrastService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windJiReliabilityContrastTarget" />
+		</property>
+	</bean>
+	<bean id="windJiReliabilityContrastTarget" class="com.xjgc.wind.datastatistics.service.impl.WindJiReliabilityContrastServiceImpl">		
+		<property name="windJiReliabilityContrastDao">
+			<ref bean="windJiReliabilityContrastDao" />
+		</property>
+	</bean>
+	
+	<bean id="windJiReliabilityContrastDao" class="com.xjgc.wind.datastatistics.dao.impl.WindJiReliabilityContrastDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+<!-- ***** bay SERVICE ***** -->
+	<bean id="bayService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="bayTarget" />
+		</property>
+	</bean>
+	<bean id="bayTarget" class="com.xjgc.wind.datastatistics.service.impl.BayServiceImpl">		
+		<property name="bayDao">
+			<ref bean="bayDao" />
+		</property>
+	</bean>
+	
+	<bean id="bayDao" class="com.xjgc.wind.datastatistics.dao.impl.BayDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+<!-- ***** smgsysinfo SERVICE ***** -->
+	<bean id="smgsysinfoService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="smgsysinfoTarget" />
+		</property>
+	</bean>
+	<bean id="smgsysinfoTarget" class="com.xjgc.wind.datastatistics.service.impl.SmgsysinfoServiceImpl">		
+		<property name="smgsysinfoDao">
+			<ref bean="smgsysinfoDao" />
+		</property>
+	</bean>
+	
+	<bean id="smgsysinfoDao" class="com.xjgc.wind.datastatistics.dao.impl.SmgsysinfoDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+<!-- ***** runingInfo_OneMinute SERVICE ***** -->
+	<bean id="runingInfo_OneMinuteService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="runingInfo_OneMinuteTarget" />
+		</property>
+	</bean>
+	<bean id="runingInfo_OneMinuteTarget" class="com.xjgc.wind.datastatistics.service.impl.RuningInfo_OneMinuteServiceImpl">		
+		<property name="runingInfo_OneMinuteDao">
+			<ref bean="runingInfo_OneMinuteDao" />
+		</property>
+	</bean>
+	
+	<bean id="runingInfo_OneMinuteDao" class="com.xjgc.wind.datastatistics.dao.impl.RuningInfo_OneMinuteDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+<!-- ***** runingInfo_selectOneMinute SERVICE ***** -->
+	<bean id="runingInfo_SelectOneMinuteService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="runingInfo_SelectOneMinuteTarget" />
+		</property>
+	</bean>
+	<bean id="runingInfo_SelectOneMinuteTarget" class="com.xjgc.wind.datastatistics.service.impl.RuningInfo_SelectOneMinuteServiceImpl">		
+		<property name="runingInfo_SelectOneMinuteDao">
+			<ref bean="runingInfo_SelectOneMinuteDao" />
+		</property>
+	</bean>
+	
+	<bean id="runingInfo_SelectOneMinuteDao" class="com.xjgc.wind.datastatistics.dao.impl.RuningInfo_SelectOneMinuteDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** runingInfo_TenMinute SERVICE ***** -->
+	<bean id="runingInfo_TenMinuteService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="runingInfo_TenMinuteTarget" />
+		</property>
+	</bean>
+	<bean id="runingInfo_TenMinuteTarget" class="com.xjgc.wind.datastatistics.service.impl.RuningInfo_TenMinuteServiceImpl">		
+		<property name="runingInfo_TenMinuteDao">
+			<ref bean="runingInfo_TenMinuteDao" />
+		</property>
+	</bean>
+	
+	<bean id="runingInfo_TenMinuteDao" class="com.xjgc.wind.datastatistics.dao.impl.RuningInfo_TenMinuteDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+<!-- ***** runingInfo_selectTenMinute SERVICE ***** -->
+	<bean id="runingInfo_SelectTenMinuteService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="runingInfo_SelectTenMinuteTarget" />
+		</property>
+	</bean>
+	<bean id="runingInfo_SelectTenMinuteTarget" class="com.xjgc.wind.datastatistics.service.impl.RuningInfo_SelectTenMinuteServiceImpl">		
+		<property name="runingInfo_SelectTenMinuteDao">
+			<ref bean="runingInfo_SelectTenMinuteDao" />
+		</property>
+	</bean>
+	
+	<bean id="runingInfo_SelectTenMinuteDao" class="com.xjgc.wind.datastatistics.dao.impl.RuningInfo_SelectTenMinuteDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>	
+	<!-- ***** runingInfo_OneDay SERVICE ***** -->
+	<bean id="runingInfo_OneDayService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="runingInfo_OneDayTarget" />
+		</property>
+	</bean>
+	<bean id="runingInfo_OneDayTarget" class="com.xjgc.wind.datastatistics.service.impl.RuningInfo_OneDayServiceImpl">		
+		<property name="runingInfo_OneDayDao">
+			<ref bean="runingInfo_OneDayDao" />
+		</property>
+	</bean>
+	
+	<bean id="runingInfo_OneDayDao" class="com.xjgc.wind.datastatistics.dao.impl.RuningInfo_OneDayDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+<!-- ***** runingInfo_selectOneDay SERVICE ***** -->
+	<bean id="runingInfo_SelectOneDayService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="runingInfo_SelectOneDayTarget" />
+		</property>
+	</bean>
+	<bean id="runingInfo_SelectOneDayTarget" class="com.xjgc.wind.datastatistics.service.impl.RuningInfo_SelectOneDayServiceImpl">		
+		<property name="runingInfo_SelectOneDayDao">
+			<ref bean="runingInfo_SelectOneDayDao" />
+		</property>
+	</bean>
+	
+	<bean id="runingInfo_SelectOneDayDao" class="com.xjgc.wind.datastatistics.dao.impl.RuningInfo_SelectOneDayDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>	
+	
+<!-- ***** WindRose SERVICE ***** -->
+	<bean id="windRoseService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windRoseTarget" />
+		</property>
+	</bean>
+	<bean id="windRoseTarget" class="com.xjgc.wind.datastatistics.service.impl.WindRoseServiceImpl">		
+		<property name="windRoseDao">
+			<ref bean="windRoseDao" />
+		</property>
+	</bean>
+	
+	<bean id="windRoseDao" class="com.xjgc.wind.datastatistics.dao.impl.WindRoseDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	
+<!-- ***** Generator SERVICE ***** -->
+	<bean id="generatorService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="generatorTarget" />
+		</property>
+	</bean>
+	<bean id="generatorTarget" class="com.xjgc.wind.datastatistics.service.impl.GeneratorServiceImpl">		
+		<property name="generatorDao">
+			<ref bean="generatorDao" />
+		</property>
+	</bean>
+	
+	<bean id="generatorDao" class="com.xjgc.wind.datastatistics.dao.impl.GeneratorDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+
+	<!-- ***** Measclass SERVICE ***** -->
+	<bean id="measclassService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="measclassTarget" />
+		</property>
+	</bean>
+	<bean id="measclassTarget" class="com.xjgc.wind.datastatistics.service.impl.MeasclassServiceImpl">		
+		<property name="measclassDao">
+			<ref bean="measclassDao" />
+		</property>
+	</bean>
+	
+	<bean id="measclassDao" class="com.xjgc.wind.datastatistics.dao.impl.MeasclassDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** Meastype SERVICE ***** -->
+	<bean id="meastypeService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="meastypeTarget" />
+		</property>
+	</bean>
+	<bean id="meastypeTarget" class="com.xjgc.wind.datastatistics.service.impl.MeastypeServiceImpl">		
+		<property name="meastypeDao">
+			<ref bean="meastypeDao" />
+		</property>
+	</bean>
+	
+	<bean id="meastypeDao" class="com.xjgc.wind.datastatistics.dao.impl.MeastypeDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** WindGenwh SERVICE ***** -->
+	<bean id="windGenwhService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windGenwhTarget" />
+		</property>
+	</bean>
+	<bean id="windGenwhTarget" class="com.xjgc.wind.datastatistics.service.impl.WindGenwhServiceImpl">		
+		<property name="windGenwhDao">
+			<ref bean="windGenwhDao" />
+		</property>
+	</bean>
+	
+	<bean id="windGenwhDao" class="com.xjgc.wind.datastatistics.dao.impl.WindGenwhDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** WindSpeed SERVICE ***** -->
+	<bean id="windSpeedService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windSpeedTarget" />
+		</property>
+	</bean>
+	<bean id="windSpeedTarget" class="com.xjgc.wind.datastatistics.service.impl.WindSpeedServiceImpl">		
+		<property name="windSpeedDao">
+			<ref bean="windSpeedDao" />
+		</property>
+	</bean>
+	
+	<bean id="windSpeedDao" class="com.xjgc.wind.datastatistics.dao.impl.WindSpeedDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** WindFaultCounts SERVICE ***** -->
+	<bean id="windFaultCountsService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windFaultCountsTarget" />
+		</property>
+	</bean>
+	<bean id="windFaultCountsTarget" class="com.xjgc.wind.datastatistics.service.impl.WindFaultCountsServiceImpl">		
+		<property name="windFaultCountsDao">
+			<ref bean="windFaultCountsDao" />
+		</property>
+	</bean>
+	
+	<bean id="windFaultCountsDao" class="com.xjgc.wind.datastatistics.dao.impl.WindFaultCountsDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** PowerScatter SERVICE ***** -->
+	<bean id="powerScatterService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="powerScatterTarget" />
+		</property>
+	</bean>
+	<bean id="powerScatterTarget" class="com.xjgc.wind.datastatistics.service.impl.PowerScatterServiceImpl">		
+		<property name="powerScatterDao">
+			<ref bean="powerScatterDao" />
+		</property>
+	</bean>
+	
+	<bean id="powerScatterDao" class="com.xjgc.wind.datastatistics.dao.impl.PowerScatterDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** FaultQuery SERVICE ***** -->
+	<bean id="faultQueryService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="faultQueryTarget" />
+		</property>
+	</bean>
+	<bean id="faultQueryTarget" class="com.xjgc.wind.datastatistics.service.impl.FaultQueryServiceImpl">		
+		<property name="faultQueryDao">
+			<ref bean="faultQueryDao" />
+		</property>
+	</bean>
+	
+	<bean id="faultQueryDao" class="com.xjgc.wind.datastatistics.dao.impl.FaultQueryDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** WindPowScatter SERVICE ***** -->
+	<bean id="windPowScatterService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="windPowScatterTarget" />
+		</property>
+	</bean>
+	<bean id="windPowScatterTarget" class="com.xjgc.wind.datastatistics.service.impl.WindPowScatterServiceImpl">		
+		<property name="windPowScatterDao">
+			<ref bean="windPowScatterDao" />
+		</property>
+	</bean>
+	
+	<bean id="windPowScatterDao" class="com.xjgc.wind.datastatistics.dao.impl.WindPowScatterDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** OperatRecord SERVICE ***** -->
+	<bean id="operatRecordService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="operatRecordTarget" />
+		</property>
+	</bean>
+	<bean id="operatRecordTarget" class="com.xjgc.wind.datastatistics.service.impl.OperatRecordServiceImpl">		
+		<property name="operatRecordDao">
+			<ref bean="operatRecordDao" />
+		</property>
+	</bean>
+	
+	<bean id="operatRecordDao" class="com.xjgc.wind.datastatistics.dao.impl.OperatRecordDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** GeneratStatistics SERVICE ***** -->
+	<bean id="generatStatisticsService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="generatStatisticsTarget" />
+		</property>
+	</bean>
+	<bean id="generatStatisticsTarget" class="com.xjgc.wind.datastatistics.service.impl.GeneratStatisticsServiceImpl">		
+		<property name="generatStatisticsDao">
+			<ref bean="generatStatisticsDao" />
+		</property>
+	</bean>
+	
+	<bean id="generatStatisticsDao" class="com.xjgc.wind.datastatistics.dao.impl.GeneratStatisticsDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** SmgMonthInfo SERVICE ***** -->
+	<bean id="smgMonthInfoService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="smgMonthInfoTarget" />
+		</property>
+	</bean>
+	<bean id="smgMonthInfoTarget" class="com.xjgc.wind.datastatistics.service.impl.SmgMonthInfoServiceImpl">		
+		<property name="smgMonthInfoDao">
+			<ref bean="smgMonthInfoDao" />
+		</property>
+	</bean>
+	
+	<bean id="smgMonthInfoDao" class="com.xjgc.wind.datastatistics.dao.impl.SmgMonthInfoDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** SmgYearInfo SERVICE ***** -->
+	<bean id="smgYearInfoService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="smgYearInfoTarget" />
+		</property>
+	</bean>
+	<bean id="smgYearInfoTarget" class="com.xjgc.wind.datastatistics.service.impl.SmgYearInfoServiceImpl">		
+		<property name="smgYearInfoDao">
+			<ref bean="smgYearInfoDao" />
+		</property>
+	</bean>
+	
+	<bean id="smgYearInfoDao" class="com.xjgc.wind.datastatistics.dao.impl.SmgYearInfoDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	<!-- ***** GeneratorStatisticsDayReport SERVICE ***** -->
+	<bean id="generatorStatisticsDayReportService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="generatorStatisticsDayReportTarget" />
+		</property>
+	</bean>
+	<bean id="generatorStatisticsDayReportTarget" class="com.xjgc.wind.datastatistics.service.impl.GeneratorStatisticsDayReportServiceImpl">		
+		<property name="generatorStatisticsDayReportDao">
+			<ref bean="generatorStatisticsDayReportDao" />
+		</property>
+	</bean>
+	
+	<bean id="generatorStatisticsDayReportDao" class="com.xjgc.wind.datastatistics.dao.impl.GeneratorStatisticsDayReportDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	<!-- ***** GeneratorStatisticsMonReport SERVICE ***** -->
+	<bean id="generatorStatisticsMonReportService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="generatorStatisticsMonReportTarget" />
+		</property>
+	</bean>
+	<bean id="generatorStatisticsMonReportTarget" class="com.xjgc.wind.datastatistics.service.impl.GeneratorStatisticsMonReportServiceImpl">		
+		<property name="generatorStatisticsMonReportDao">
+			<ref bean="generatorStatisticsMonReportDao" />
+		</property>
+	</bean>
+	
+	<bean id="generatorStatisticsMonReportDao" class="com.xjgc.wind.datastatistics.dao.impl.GeneratorStatisticsMonReportDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+	
+	
+		<!-- ***** GeneratorStatisticsYearReport SERVICE ***** -->
+	<bean id="generatorStatisticsYearReportService" parent="Peam_interService">
+		<property name="target">
+			<ref bean="generatorStatisticsYearReportTarget" />
+		</property>
+	</bean>
+	<bean id="generatorStatisticsYearReportTarget" class="com.xjgc.wind.datastatistics.service.impl.GeneratorStatisticsYearReportServiceImpl">		
+		<property name="generatorStatisticsYearReportDao">
+			<ref bean="generatorStatisticsYearReportDao" />
+		</property>
+	</bean>
+	
+	<bean id="generatorStatisticsYearReportDao" class="com.xjgc.wind.datastatistics.dao.impl.GeneratorStatisticsYearReportDaoImpl">		
+		<property name="jdbcTemplate">
+			<ref bean="jdbcTemplate" />
+		</property>
+	</bean>
+</beans>
